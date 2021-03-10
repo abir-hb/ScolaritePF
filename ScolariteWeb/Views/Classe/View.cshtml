@@ -1,0 +1,131 @@
+﻿@model IEnumerable<Scolarite.Domain.entities.Classe>
+
+@{
+    ViewData["Title"] = "View";
+}
+
+<h1>View</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CodeCl)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LibelleCl)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DescriptionCl)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateCr)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateDernModif)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SallePrincipale)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SelleSecondaire1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SalleSecondaire2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NiveauAccees)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Filiere)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AnneeScolaire)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LibFiliere)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CodeSpecialite)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LibSpecialite)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Categorie)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FiliereNew)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SiteEsp)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CodeCl)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LibelleCl)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DescriptionCl)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateCr)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateDernModif)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SallePrincipale)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SelleSecondaire1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SalleSecondaire2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NiveauAccees)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Filiere)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AnneeScolaire)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LibFiliere)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CodeSpecialite)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LibSpecialite)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Categorie)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FiliereNew)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SiteEsp)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

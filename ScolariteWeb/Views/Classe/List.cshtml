@@ -1,0 +1,137 @@
+﻿@model IEnumerable<Scolarite.Domain.entities.Classe>
+@{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#example').DataTable({
+                "processing": true,
+                "serverSide": true,
+                "ajax": {
+                    "url": "scripts/post.php",
+                    "type": "POST"
+                },
+            })
+        }
+    </script>
+}
+
+<table id="example" class="table">
+    <thead>
+        <tr>
+            <th>
+                CodeCl
+            </th>
+            <th>
+                LibelleCl
+            </th>
+            <th>
+                DescriptionCl
+            </th>
+            <th>
+                DateCr
+            </th>
+            <th>
+                DateDernModif
+            </th>
+            <th>
+                SallePrincipale
+            </th>
+            <th>
+                SelleSecondaire1
+            </th>
+            <th>
+                SalleSecondaire2
+            </th>
+            <th>
+                NiveauAccees
+            </th>
+            <th>
+                Filiere
+            </th>
+            <th>
+                AnneeScolaire
+            </th>
+            <th>
+                LibFiliere
+            </th>
+            <th>
+                CodeSpecialite
+            </th>
+            <th>
+                LibSpecialite
+            </th>
+            <th>
+                Categorie
+            </th>
+            <th>
+                FiliereNew
+            </th>
+            <th>
+                SiteEsp
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.CodeCl
+                </td>
+                <td>
+                    @item.LibelleCl
+                </td>
+                <td>
+                    @item.DescriptionCl
+                </td>
+                <td>
+                    @item.DateCr
+                </td>
+                <td>
+                    @item.DateDernModif
+                </td>
+                <td>
+                    @item.SallePrincipale
+                </td>
+                <td>
+                    @item.SelleSecondaire1
+                </td>
+                <td>
+                    @item.SalleSecondaire2
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NiveauAccees)
+                </td>
+                <td>
+                    @item.Filiere
+                </td>
+                <td>
+                    @item.AnneeScolaire
+                </td>
+                <td>
+                    @item.LibFiliere
+                </td>
+                <td>
+                    @item.CodeSpecialite
+                </td>
+                <td>
+                    @item.LibSpecialite
+                </td>
+                <td>
+                    @item.Categorie
+                </td>
+                <td>
+                    @item.FiliereNew
+                </td>
+                <td>
+                    @item.SiteEsp
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
