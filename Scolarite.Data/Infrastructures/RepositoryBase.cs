@@ -28,8 +28,17 @@ namespace Scolarite.Data.Infrastructures
         }*/
         public virtual void Add(T entity)
         {
-            dbset.Add(entity);
+
+            dbset.Attach(entity);
+            dataContext.Entry(entity).State = EntityState.Added;
+            
+            
         }
+
+       
+
+        
+
         public virtual void Update(T entity)
         {
             dbset.Attach(entity);

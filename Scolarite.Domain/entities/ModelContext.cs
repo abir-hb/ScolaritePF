@@ -381,7 +381,7 @@ namespace Scolarite.Domain.entities
 
                 entity.Property(e => e.CodeCl)
                     .HasColumnName("CODE_CL")
-                    .HasMaxLength(10)
+                    .HasMaxLength(60)
                     .IsUnicode(false);
 
                 entity.Property(e => e.AnneeScolaire)
@@ -9040,11 +9040,13 @@ namespace Scolarite.Domain.entities
                 entity.HasOne(d => d.UpNavigation)
                     .WithMany(p => p.EspModule)
                     .HasForeignKey(d => d.Up)
+                    .OnDelete(DeleteBehavior.Cascade)
                     .HasConstraintName("FK_UP_MODULE");
 
                 entity.HasOne(d => d.EspUe)
                     .WithMany(p => p.EspModule)
                     .HasForeignKey(d => new { d.CodeUe, d.AnneeDeb })
+                    .OnDelete(DeleteBehavior.Cascade)
                     .HasConstraintName("ESP_UE_MODULE");
             });
 
@@ -9517,18 +9519,17 @@ namespace Scolarite.Domain.entities
                 entity.HasOne(d => d.CodeClNavigation)
                     .WithMany(p => p.EspModulePanierClasseSaiso)
                     .HasForeignKey(d => d.CodeCl)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_CLASSE");
 
                 entity.HasOne(d => d.CodeModuleNavigation)
                     .WithMany(p => p.EspModulePanierClasseSaiso)
                     .HasForeignKey(d => d.CodeModule)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_MOD_PAN_MOD_CL_SAISON");
 
                 entity.HasOne(d => d.IdEnsNavigation)
                     .WithMany(p => p.EspModulePanierClasseSaiso)
                     .HasForeignKey(d => d.IdEns)
+                    .OnDelete(DeleteBehavior.Cascade)
                     .HasConstraintName("FK_ENS");
             });
 
@@ -15560,6 +15561,7 @@ namespace Scolarite.Domain.entities
                 entity.HasOne(d => d.CodeFiliereNavigation)
                     .WithMany(p => p.EspUe)
                     .HasForeignKey(d => d.CodeFiliere)
+                    .OnDelete(DeleteBehavior.Cascade)
                     .HasConstraintName("FK_UE_FILIERE");
             });
 
