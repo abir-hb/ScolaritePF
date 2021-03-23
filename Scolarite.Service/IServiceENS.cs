@@ -8,5 +8,10 @@ namespace Scolarite.Service
 {
     public interface IServiceENS : IService<EspEnseignant>
     {
+        public EspEnseignant GetEnsByID(string ensId);
+        void Delete(string id);
+
+        void CreateEns(EspEnseignant e);
+      
     }
 }

@@ -1,0 +1,161 @@
+﻿@model IEnumerable<Scolarite.Domain.entities.EspEnseignant>
+
+@{
+    ViewData["Title"] = "List";
+}
+
+<h1>List</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Cin)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CnssEns)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CodeGradeActuel)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CodeGradeEntree)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateModifyJwtPwd)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateRec)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Etat)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EtatCivilEns)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LibGradeActuelle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LibGradeEntree)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MailEns)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Niveau)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NomEns)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PrenomEns)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PwdEns)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PwdInit)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PwdJwtEnseignant)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SexeEns)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tel)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TypeEns)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NbHeureEns)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ChargeEns)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cin)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CnssEns)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CodeGradeActuel)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CodeGradeEntree)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateModifyJwtPwd)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateRec)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Etat)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EtatCivilEns)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LibGradeActuelle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LibGradeEntree)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MailEns)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Niveau)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NomEns)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PrenomEns)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PwdEns)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PwdInit)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PwdJwtEnseignant)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SexeEns)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tel)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TypeEns)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NbHeureEns)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ChargeEns)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IdEns">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.IdEns">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.IdEns">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
