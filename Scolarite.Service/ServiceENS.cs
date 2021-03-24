@@ -36,5 +36,13 @@ namespace Scolarite.Service
         {
             return GetAll().FirstOrDefault(m => m.IdEns == ensId);
         }
+
+        public void UpdateEns(EspEnseignant e)
+        {
+            {
+                Update(e);
+                Commit();
+            }
+        }
     }
 }

@@ -15,7 +15,7 @@ namespace Scolarite.Domain.entities
         public string LibUe { get; set; }
         public string CodeFiliere { get; set; }
         public decimal? NbEcts { get; set; }
-        public byte? ChargeH { get; set; }
+        public decimal? ChargeH { get; set; }
         public string TypeUe { get; set; }
         public string AnneeDeb { get; set; }
         public string NatureUe { get; set; }

@@ -1,0 +1,54 @@
+﻿@model Scolarite.Domain.entities.EspUe
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>EspUe</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.LibUe)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.LibUe)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.NbEcts)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.NbEcts)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ChargeH)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ChargeH)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.TypeUe)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.TypeUe)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.NatureUe)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.NatureUe)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.CodeFiliereNavigation)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CodeFiliereNavigation.CodeFiliere)
+        </dd>
+    </dl>
+</div>
+<div>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    <a asp-action="Index">Back to List</a>
+</div>

@@ -1,0 +1,65 @@
+﻿@model IEnumerable<Scolarite.Domain.entities.EspUe>
+
+@{
+    ViewData["Title"] = "List";
+}
+
+<h1>List</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.LibUe)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NbEcts)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ChargeH)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TypeUe)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NatureUe)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CodeFiliereNavigation)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.LibUe)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NbEcts)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ChargeH)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TypeUe)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NatureUe)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CodeFiliereNavigation.CodeFiliere)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { id = item.CodeUe }) 
+                @Html.ActionLink("Delete", "Delete", new { id=item.CodeUe})
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

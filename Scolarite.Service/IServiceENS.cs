@@ -12,6 +12,8 @@ namespace Scolarite.Service
         void Delete(string id);
 
         void CreateEns(EspEnseignant e);
-      
+        void UpdateEns(EspEnseignant e);
+
+
     }
 }

@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Scolarite.Domain.entities;
 using Scolarite.Service;
 using System;
@@ -58,26 +59,9 @@ namespace ScolariteWeb.Controllers
 
         }
 
-        // GET: EnsController/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
+        
 
-        // POST: EnsController/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
+      
 
         // GET: EnsController/Delete/5
         public ActionResult Delete(string id)
@@ -96,6 +80,35 @@ namespace ScolariteWeb.Controllers
             se.Commit();
             return RedirectToAction("List");
 
+        }
+
+        public ActionResult Edit(String id)
+        {
+            EspEnseignant enseignant = se.GetEnsByID(id);
+            return View(enseignant);
+        }
+
+        // POST: Classe/Edit/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(string id, IFormCollection collection)
+        {
+           
+                EspEnseignant enseignant = se.GetEnsByID(id);
+                /*  Classe classe1 = new Classe()
+                  {
+                      CodeCl=User.gui
+                  };*/
+                se.UpdateEns(enseignant);
+
+
+                context.Entry(enseignant).State = EntityState.Modified;
+                //   context.SaveChanges();
+                  se.Commit();
+
+                return RedirectToAction("List");
+            
+            
         }
     }
 }
