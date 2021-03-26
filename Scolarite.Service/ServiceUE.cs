@@ -15,7 +15,8 @@ namespace Scolarite.Service
         List<EspUe> ues = new List<EspUe>();
 
 
-        public ServiceUE() : base(uow){
+        public ServiceUE() : base(uow)
+        {
         }
 
         public void CreateUe(EspUe m)
@@ -31,14 +32,11 @@ namespace Scolarite.Service
 
         }
 
-        public IEnumerable<EspUe> GetAllUE()
-        {
-            return GetAll();
-        }
+       
 
         public EspUe GetUEByID(string UeId)
         {
-            return GetAll().FirstOrDefault(c => c.CodeUe == UeId);
+            return GetAll().FirstOrDefault(c => c.CodeUe== UeId);
 
         }
 
@@ -48,5 +46,6 @@ namespace Scolarite.Service
             Commit();
            
         }
+
     }
 }

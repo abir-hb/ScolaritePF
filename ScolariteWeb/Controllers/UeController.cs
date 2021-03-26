@@ -28,7 +28,7 @@ namespace ScolariteWeb.Controllers
         public ActionResult List()
         {
           
-            return View(ue.GetAllUE());
+            return View(ue.GetAll());
         }
 
         // GET: UesController/Details/5
@@ -39,7 +39,9 @@ namespace ScolariteWeb.Controllers
             EspUe uens = ue.GetUEByID(id);
 
             return View(uens);
-        }
+          
+                }
+
 
 
         // GET: UesController/Create
@@ -63,7 +65,7 @@ namespace ScolariteWeb.Controllers
 
 
 
-        // GET: UesController/Edit/5
+       // GET: UesController/Edit/5
         public ActionResult Edit(int id)
         {
             return View();
@@ -97,7 +99,8 @@ namespace ScolariteWeb.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Delete(string id, IFormCollection collection)
         {
-            EspUe ens = ue.GetUEByID(id);
+            //EspUe en = context.EspUe.Find(id,annee);
+           EspUe ens = ue.GetUEByID(id);
             ue.Delete(ens);
             ue.Commit();
             return RedirectToAction("List");

@@ -33,7 +33,10 @@ namespace ScolariteWeb
             services.AddMvcCore();
             services.AddRazorPages();
             // optionsBuilder
-            services.AddDbContext<ModelContext>(options => options.UseOracle("Data Source=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=localhost)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=orcl)));User Id=scopfeS;Password=esprit;"));
+            services.AddDbContext<ModelContext>(options =>
+           options.UseOracle(Configuration["Data:scopfeS:ConnectionString"]));
+
+           // services.AddDbContext<ModelContext>(options => options.UseOracle("Data Source=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=localhost)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=orcl)));User Id=scopfeS;Password=esprit;"));
             //   services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
 
 

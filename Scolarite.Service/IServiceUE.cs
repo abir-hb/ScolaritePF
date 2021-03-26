@@ -9,7 +9,7 @@ namespace Scolarite.Service
     public interface IServiceUE :IService<EspUe>
     {
 
-        IEnumerable<EspUe> GetAllUE();
+
         public EspUe GetUEByID(string UeId);
         void Delete(string id);
 
