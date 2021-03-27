@@ -3,15 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30907.101
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScolariteWeb", "ScolariteWeb\ScolariteWeb.csproj", "{549CBAAA-1E7E-48B4-8AD2-D7D9543F980B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ScolariteWeb", "ScolariteWeb\ScolariteWeb.csproj", "{549CBAAA-1E7E-48B4-8AD2-D7D9543F980B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scolarite.Data", "Scolarite.Data\Scolarite.Data.csproj", "{A2B2BEBA-7129-4DF9-91E5-803A029B7ECD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scolarite.Data", "Scolarite.Data\Scolarite.Data.csproj", "{A2B2BEBA-7129-4DF9-91E5-803A029B7ECD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scolarite.Domain", "Scolarite.Domain\Scolarite.Domain.csproj", "{50447614-62B0-4734-A8BD-D632AA76F5F2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scolarite.Domain", "Scolarite.Domain\Scolarite.Domain.csproj", "{50447614-62B0-4734-A8BD-D632AA76F5F2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scolarite.Service", "Scolarite.Service\Scolarite.Service.csproj", "{479CEF4E-3650-414D-94EB-F681B19BB0C4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scolarite.Service", "Scolarite.Service\Scolarite.Service.csproj", "{479CEF4E-3650-414D-94EB-F681B19BB0C4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServicePattern", "ServicePattern\ServicePattern.csproj", "{9D937572-5606-47B8-9D86-A877CF36A504}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ServicePattern", "ServicePattern\ServicePattern.csproj", "{9D937572-5606-47B8-9D86-A877CF36A504}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

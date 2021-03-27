@@ -24,4 +24,8 @@
     <ProjectReference Include="..\Scolarite.Service\Scolarite.Service.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\template\" />
+  </ItemGroup>
+
 </Project>
