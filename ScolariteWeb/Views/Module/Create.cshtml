@@ -4,82 +4,89 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Create</h1>
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+    </section>
 
-<h4>EspModule</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
+    <!-- Main content -->
+    <section class="content">
+
         <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="CodeModule" class="control-label"></label>
-                <input asp-for="CodeModule" class="form-control" />
-                <span asp-validation-for="CodeModule" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Designation" class="control-label"></label>
-                <input asp-for="Designation" class="form-control" />
-                <span asp-validation-for="Designation" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Description" class="control-label"></label>
-                <input asp-for="Description" class="form-control" />
-                <span asp-validation-for="Description" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="NbHeures" class="control-label"></label>
-                <input asp-for="NbHeures" class="form-control" />
-                <span asp-validation-for="NbHeures" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Up" class="control-label"></label>
-                <select asp-for="Up" class ="form-control" asp-items="ViewBag.Up"></select>
-            </div>
-            <div class="form-group">
-                <label asp-for="Coef" class="control-label"></label>
-                <input asp-for="Coef" class="form-control" />
-                <span asp-validation-for="Coef" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="NumPanier" class="control-label"></label>
-                <input asp-for="NumPanier" class="form-control" />
-                <span asp-validation-for="NumPanier" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="TypeEpreuve" class="control-label"></label>
-                <input asp-for="TypeEpreuve" class="form-control" />
-                <span asp-validation-for="TypeEpreuve" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="CodeMatiereEduserv" class="control-label"></label>
-                <input asp-for="CodeMatiereEduserv" class="form-control" />
-                <span asp-validation-for="CodeMatiereEduserv" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="TypeEpreuveSr" class="control-label"></label>
-                <input asp-for="TypeEpreuveSr" class="form-control" />
-                <span asp-validation-for="TypeEpreuveSr" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="CodeUe" class="control-label"></label>
-                <select asp-for="CodeUe" class ="form-control" asp-items="ViewBag.CodeUe"></select>
-            </div>
-            <div class="form-group">
-                <label asp-for="AnneeDeb" class="control-label"></label>
-                <select asp-for="AnneeDeb" class ="form-control" asp-items="ViewBag.AnneeDeb"></select>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
-    </div>
-</div>
+            <div class="card-body">
+                <div class="form-group">
+                    <label for="CodeModule">CodeModule</label>
+                    <input type="text" class="form-control" id="CodeModule" placeholder="Entrer le code">
+                </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
 
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+
+                <div class="form-group">
+                    <label for="Designation">Designation</label>
+
+                    <input type="text" class="form-control" id="Designation" placeholder="Entrer la designation">
+                </div>
+                <div class="form-group">
+                    <label for="Description">Description</label>
+
+                    <input type="text" class="form-control" id="Description" placeholder="Entrer description">
+                </div>
+                <div class="form-group">
+                    <label for="NbHeures">Nombre d'Heures</label>
+
+                    <input type="number" class="form-control" id="NbHeures" placeholder="Entrer le nombre d'Heures">
+                </div>
+                <div class="form-group">
+                    <label asp-for="Up" class="control-label"></label>
+                    <select asp-for="Up" class="form-control" asp-items="ViewBag.Up"></select>
+                </div>
+                <div class="form-group">
+                    <label for="Coef">Coefficient</label>
+
+                    <input type="number" class="form-control" id="Coef" placeholder="Entrer le Coefficient">
+                </div>
+                <div class="form-group">
+                    <label for="NumPanier">Numero Du Panier</label>
+
+                    <input type="number" class="form-control" id="NumPanier" placeholder="Entrer le numéro..">
+                </div>
+                <div class="form-group">
+                    <label for="TypeEpreuve">Type de l'Epreuve</label>
+
+                    <input type="text" class="form-control" id="TypeEpreuve" placeholder="Entrer le Type..">
+                </div>
+                <div class="form-group">
+                    <label for="CodeMatiereEduserv">Code Matiere Education</label>
+
+                    <input type="text" class="form-control" id="CodeMatiereEduserv" placeholder="Entrer le code du matiere EduSer..">
+                </div>
+                <div class="form-group">
+                    <label for="TypeEpreuveSr">Type EpreuveSr</label>
+
+                    <input type="text" class="form-control" id="TypeEpreuveSr" placeholder="Entrer le Type..">
+                </div>
+                <div class="form-group">
+                    <label for="CodeUe">Unite d'Enseignement</label>
+                    <select class="form-control select2 select2-danger" data-dropdown-css-class="select2-danger" style="width: 100%" asp-items="ViewBag.CodeUe"/>
+                     
+                </div>
+                <div class="form-group">
+                  <label for="AnneeDeb">Annee Debut</label>
+                    <select class="form-control select2 select2-danger" data-dropdown-css-class="select2-danger" style="width: 100%" asp-items="ViewBag.AnneeDeb" />
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Create" class="btn btn-primary" />
+                </div>
+</div>
+            </form>
+               
+            <div>
+                <a asp-action="Index">Back to List</a>
+            </div>
+
+</section>
+        </div>
+
+        @section Scripts {
+            @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+        }
