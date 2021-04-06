@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -30,14 +31,17 @@ namespace ScolariteWeb
             services.AddScoped<IServiceModule, ServiceModule>();
             services.AddScoped<IServiceENS, ServiceENS>();
             services.AddScoped<IServiceUE, ServiceUE>();
+            services.AddScoped<IServiceUp, ServiceUp>();
             services.AddMvcCore();
             services.AddRazorPages();
             // optionsBuilder
             services.AddDbContext<ModelContext>(options =>
-           options.UseOracle(Configuration["Data:scopfeS:ConnectionString"]));
+        options.UseOracle(Configuration.GetConnectionString("oracledbCon")));
+          //  services.AddDbContext<ModelContext>(options =>
+      //    options.UseOracle(Configuration["Data:scopfeS:ConnectionString"]));
 
-           // services.AddDbContext<ModelContext>(options => options.UseOracle("Data Source=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=localhost)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=orcl)));User Id=scopfeS;Password=esprit;"));
-            //   services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
+          //  services.AddDbContext<ModelContext>(options => options.UseOracle("Data Source=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=localhost)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=orcl)));User Id=scopfeS;Password=esprit;"));
+      
 
 
 

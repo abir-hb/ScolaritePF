@@ -1,22 +1,31 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+
 using Scolarite.Domain.entities;
 using Scolarite.Service;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace ScolariteWeb.Controllers
 {
     public class ModuleController : Controller
     {
         private readonly IServiceModule sm;
+        private readonly IServiceUE se;
+        private readonly IServiceUp sp;
 
-
-        public ModuleController(IServiceModule serviceModule)
+        ModelContext context = new ModelContext();
+        //  List<EspUp> ups = new List<EspUp>();
+    
+        public ModuleController(IServiceModule serviceModule, IServiceUE serviceUE, IServiceUp serviceUp ,ModelContext ctx)
         {
             sm = serviceModule;
+            se = serviceUE;
+            sp = serviceUp;
+            context = ctx;
         }
 
 
@@ -25,26 +34,55 @@ namespace ScolariteWeb.Controllers
         {
             return View(sm.GetAll());
         }
+        //public abstract System.Threading.Tasks.Task ExecuteAsync();
 
+        //get
         public ActionResult Create()
-        {
-            EspModule em = new EspModule();
-            return View(em);
 
-        }
+        {
+
+            var ues = se.GetAll();
+            var listup = sp.GetAll();
+
+            ViewBag.CodeUe = new SelectList(ues, "CodeUe", "LibUe");
+            ViewBag.AnneeDeb = new SelectList(ues, "AnneeDeb", "AnneeDeb");
+             
+            ViewBag.Up = new SelectList(listup, "Up", "Designantion");
+          // Console.Out.WriteLine("erreur" + ViewData["listup"]);
+          //  Debug.WriteLine(listup);
+          //  Debug.WriteLine(ViewBag.Up);
+
+
+
+            // return View();
+
+            EspModule em = new EspModule();
+                return View(em);
+            }
+           // catch
+           
+
+            
+
+        
         // POST: Classe/Create
         [HttpPost]
         //   [ValidateInput(false)]
         public ActionResult Create(EspModule c)
         {
 
+            try
+            {
 
-          
                 sm.CreateModule(c);
-                //  context.Entry(c).State = EntityState.Added;
+                // context.Entry(c).State = EntityState.Added;
                 // context.SaveChanges();
                 return RedirectToAction("List");
-           
+            }
+            catch
+            {
+                return View();
+            }
          
         }
         public ActionResult Delete(String id)

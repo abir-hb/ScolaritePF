@@ -11,80 +11,130 @@
 
     <!-- Main content -->
     <section class="content">
+       
+            <form asp-action="Create">
+                <div class="card-body">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.CodeModule, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.CodeModule, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.CodeModule, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
 
-        <form asp-action="Create">
-            <div class="card-body">
-                <div class="form-group">
-                    <label for="CodeModule">CodeModule</label>
-                    <input type="text" class="form-control" id="CodeModule" placeholder="Entrer le code">
-                </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Designation, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Designation, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Designation, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
 
 
 
-                <div class="form-group">
-                    <label for="Designation">Designation</label>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
 
-                    <input type="text" class="form-control" id="Designation" placeholder="Entrer la designation">
-                </div>
-                <div class="form-group">
-                    <label for="Description">Description</label>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.NbHeures, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(model => model.NbHeures, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.NbHeures, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
 
-                    <input type="text" class="form-control" id="Description" placeholder="Entrer description">
-                </div>
-                <div class="form-group">
-                    <label for="NbHeures">Nombre d'Heures</label>
 
-                    <input type="number" class="form-control" id="NbHeures" placeholder="Entrer le nombre d'Heures">
-                </div>
-                <div class="form-group">
-                    <label asp-for="Up" class="control-label"></label>
-                    <select asp-for="Up" class="form-control" asp-items="ViewBag.Up"></select>
-                </div>
-                <div class="form-group">
-                    <label for="Coef">Coefficient</label>
 
-                    <input type="number" class="form-control" id="Coef" placeholder="Entrer le Coefficient">
-                </div>
-                <div class="form-group">
-                    <label for="NumPanier">Numero Du Panier</label>
+                    @*<div class="form-group">
+            <label asp-for="Up" class="control-label"></label>
 
-                    <input type="number" class="form-control" id="NumPanier" placeholder="Entrer le numéro..">
-                </div>
-                <div class="form-group">
-                    <label for="TypeEpreuve">Type de l'Epreuve</label>
 
-                    <input type="text" class="form-control" id="TypeEpreuve" placeholder="Entrer le Type..">
-                </div>
-                <div class="form-group">
-                    <label for="CodeMatiereEduserv">Code Matiere Education</label>
+                <select asp-for="Up" class="form-control" asp-items="ViewBag.Up"></select>
 
-                    <input type="text" class="form-control" id="CodeMatiereEduserv" placeholder="Entrer le code du matiere EduSer..">
-                </div>
-                <div class="form-group">
-                    <label for="TypeEpreuveSr">Type EpreuveSr</label>
+        </div>*@
 
-                    <input type="text" class="form-control" id="TypeEpreuveSr" placeholder="Entrer le Type..">
+                    <div class="form-group">
+            @Html.LabelFor(model => model.Up, "Unite p", htmlAttributes: new { @class = "control-label col-md-2" })
+
+        <div class="col-md-10">
+
+                @Html.DropDownList("Up", (SelectList)ViewData["listup"])
+                @Html.ValidationMessageFor(model => model.Up, "", new { @class = "text-danger" })
+
+            </div>
+        </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Coef, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Coef, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Coef, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.NumPanier, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.NumPanier, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.NumPanier, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.TypeEpreuve, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.TypeEpreuve, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.TypeEpreuve, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.CodeMatiereEduserv, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.CodeMatiereEduserv, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.CodeMatiereEduserv, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.TypeEpreuveSr, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.TypeEpreuveSr, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.TypeEpreuveSr, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.CodeUe, "Unite Enseignement", htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.DropDownList("CodeUe", (SelectList)ViewData["ues"])
+                            @Html.ValidationMessageFor(model => model.CodeUe, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.AnneeDeb, "ANNEE", htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.DropDownList("AnneeDeb", (SelectList)ViewData["ues"])
+                            @Html.ValidationMessageFor(model => model.AnneeDeb, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="submit" value="Create" class="btn btn-primary" />
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label for="CodeUe">Unite d'Enseignement</label>
-                    <select class="form-control select2 select2-danger" data-dropdown-css-class="select2-danger" style="width: 100%" asp-items="ViewBag.CodeUe"/>
-                     
-                </div>
-                <div class="form-group">
-                  <label for="AnneeDeb">Annee Debut</label>
-                    <select class="form-control select2 select2-danger" data-dropdown-css-class="select2-danger" style="width: 100%" asp-items="ViewBag.AnneeDeb" />
-                </div>
-                <div class="form-group">
-                    <input type="submit" value="Create" class="btn btn-primary" />
-                </div>
-</div>
-            </form>
-               
+</form>
+
             <div>
                 <a asp-action="Index">Back to List</a>
             </div>
 
-</section>
+        </section>
         </div>
 
         @section Scripts {
