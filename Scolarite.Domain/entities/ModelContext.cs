@@ -9799,7 +9799,6 @@ namespace Scolarite.Domain.entities
                 entity.HasOne(d => d.EspUe)
                     .WithMany(p => p.EspMoyUeEtudiant)
                     .HasForeignKey(d => new { d.CodeUe, d.AnneeDeb })
-                    .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_MOY_UE_REF_UE");
             });
 

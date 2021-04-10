@@ -4,6 +4,7 @@ using Scolarite.Domain.entities;
 using Scolarite.Service;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -27,8 +28,11 @@ namespace ScolariteWeb.Controllers
         // GET: UesController
         public ActionResult List()
         {
-          
+            //var List = ue.GetAll();
+            //Console.Write(List);
             return View(ue.GetAll());
+            
+           // Debug.WriteLine(ue.GetAll());
         }
 
         // GET: UesController/Details/5

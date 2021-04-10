@@ -90,7 +90,7 @@ namespace ScolariteWeb.Controllers
             EspModule module = sm.GetModuleByID(id);
             //sc.Delete(classe);
             // sc.Commit();
-            return View();
+            return View(module);
         }
 
         // POST: Client/Delete/5

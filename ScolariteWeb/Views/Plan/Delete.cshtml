@@ -1,0 +1,431 @@
+﻿@model Scolarite.Domain.entities.EspModulePanierClasseSaiso
+
+@{
+    ViewData["Title"] = "Delete";
+}
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+
+        <h1>Delete</h1>
+
+        <h3>Are you sure you want to delete this?</h3>
+        <div>
+            <h4>EspModulePanierClasseSaiso</h4>
+            <hr />
+            <dl class="row">
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.NumPanier)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.NumPanier)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.AnneeFin)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.AnneeFin)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Description)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Description)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.NbHeures)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.NbHeures)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Coef)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Coef)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.NumPeriodfe)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.NumPeriodfe)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.DateDebut)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.DateDebut)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.DateFin)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.DateFin)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.DateExamen)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.DateExamen)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.NbHoraireRealises)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.NbHoraireRealises)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Acomptabiliser)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Acomptabiliser)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.IdEns2)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.IdEns2)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.NbHeuresEns)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.NbHeuresEns)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.NbHeuresEns2)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.NbHeuresEns2)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Surveillant)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Surveillant)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.HeureExam)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.HeureExam)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.SalleExam)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.SalleExam)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Surveillant2)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Surveillant2)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.SalleExam2)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.SalleExam2)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Periode)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Periode)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Numpromotioncs)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Numpromotioncs)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.ApCs)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.ApCs)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.ChargeP1)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.ChargeP1)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.ChargeP2)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.ChargeP2)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.ChargeEns1P1)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.ChargeEns1P1)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.ChargeEns1P2)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.ChargeEns1P2)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.ChargeEns2P1)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.ChargeEns2P1)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.ChargeEns2P2)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.ChargeEns2P2)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.SeanceUnique)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.SeanceUnique)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.IdEns3)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.IdEns3)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.IdEns4)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.IdEns4)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.IdEns5)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.IdEns5)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.ChargeEns3P1)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.ChargeEns3P1)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.ChargeEns3P2)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.ChargeEns3P2)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.ChargeEns4P1)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.ChargeEns4P1)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.ChargeEns4P2)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.ChargeEns4P2)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.ChargeEns5P1)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.ChargeEns5P1)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.ChargeEns5P2)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.ChargeEns5P2)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.CodeUe)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.CodeUe)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.NbEcts)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.NbEcts)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.TypeEpreuve)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.TypeEpreuve)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Salle)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Salle)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.TypeEns)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.TypeEns)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.TypeEpreuveSr)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.TypeEpreuveSr)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.DateRattrapage)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.DateRattrapage)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.HeureRat)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.HeureRat)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Salle1Rat)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Salle1Rat)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Salle2Rat)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Salle2Rat)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.DateRat)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.DateRat)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.DateCreation)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.DateCreation)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.DaterLastMaj)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.DaterLastMaj)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.DesignationNew)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.DesignationNew)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Chargep1add)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Chargep1add)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Chargep2add)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Chargep2add)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.CodePlan)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.CodePlan)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Nbheuradd)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Nbheuradd)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.CalculRat)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.CalculRat)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.ExisteCc)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.ExisteCc)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.ExisteTp)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.ExisteTp)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.HeureFinSp)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.HeureFinSp)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.HeureFinSr)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.HeureFinSr)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.UeFantome)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.UeFantome)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Utilisateur)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Utilisateur)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.CodeClNavigation)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.CodeClNavigation.CodeCl)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.CodeModuleNavigation)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.CodeModuleNavigation.CodeModule)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.IdEnsNavigation)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.IdEnsNavigation.IdEns)
+                </dd>
+            </dl>
+
+            <form asp-action="Delete">
+                <input type="hidden" asp-for="CodeModule" />
+                <input type="hidden" asp-for="CodeCl" />
+                <input type="hidden" asp-for="AnneeDeb" />
+                <input type="hidden" asp-for="NumSemestre" />
+                <input type="submit" value="Delete" class="btn btn-danger" /> |
+                <a asp-action="Index">Back to List</a>
+            </form>
+            </div>
+</section>
+    </div>
+            
+        

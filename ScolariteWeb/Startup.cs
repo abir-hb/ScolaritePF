@@ -32,6 +32,7 @@ namespace ScolariteWeb
             services.AddScoped<IServiceENS, ServiceENS>();
             services.AddScoped<IServiceUE, ServiceUE>();
             services.AddScoped<IServiceUp, ServiceUp>();
+            services.AddScoped<IPlanEService, PlanEService>();
             services.AddMvcCore();
             services.AddRazorPages();
             // optionsBuilder

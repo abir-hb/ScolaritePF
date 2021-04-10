@@ -7,10 +7,28 @@
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome -->
-    
+    <!-- DataTables -->
+    <link rel="stylesheet" href="~/template/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="~/template/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+    <link rel="stylesheet" href="~/template/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+    <link href="~/template/dist/css/create.css" rel="stylesheet" />
     <link href="~/template/plugins/fontawesome-free/css/all.min.css" rel="stylesheet" />
     <!-- Theme style -->
     <link rel="stylesheet" href="~/template/dist/css/adminlte.min.css">
+    @*<link rel="stylesheet" href="~/template/dist/table.css">*@
+
+
+
+
+
+
+
+    <meta name="description" content="Add a loading spinner to Datatables without AJAX" />
+    <title>Bootstrap 4 Responsive Datatable with Loading Spinner</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.5.2/css/buttons.bootstrap4.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.bootstrap4.min.css">
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -849,6 +867,7 @@
     <script src="~/template/dist/js/adminlte.min.js"></script>
     <!-- AdminLTE for demo purposes -->
     <script src="~/template/dist/js/demo.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <!-- DataTables  & Plugins -->
     <script src="~/template/plugins/datatables/jquery.dataTables.min.js"></script>
     <script src="~/template/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
@@ -862,6 +881,7 @@
     <script src="~/template/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
     <script src="~/template/plugins/datatables-buttons/js/buttons.print.min.js"></script>
     <script src="~/template/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+
     <script>
         //$(document).ready(function () {
         //    var table = $('#example1').DataTable({
@@ -874,27 +894,149 @@
         //       //  .appendTo($('.col-md-6:eq(0)', this.table().container()));
 
         //});
+
         $(function () {
+
             $("#example1").DataTable({
-                "responsive": true, "lengthChange": true, 
-              //  "aoColumnDefs": { sWidth: '20px' },
-              //  "aoColumns": { sWidth: '50px'},
-             //   "display": block,
-              //  "overflow- x": auto,
-         //  " white - space": nowrap,
+
+
+              
+                //  "paging":true,
+                "responsive": true,
+                "lengthChange": true,
                 "buttons": ["copy", "csv", "excel", "pdf", "print"]
             }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
-          /*  $('#example2').DataTable({
-                "paging": true,
-                "lengthChange": true,
-                "searching": false,
-                "ordering": true,
-                "info": true,
-                "autoWidth": true,
-                "responsive": true,
-            });*/
+
+
+
+
+        });
+
+
+
+
+    </script>
+
+
+
+
+    @*function () {
+        $("#containerexample").attr("id", "container");
+        $("#loadercontainer").css("display","none");
+        } ).DataTable( {
+        lengthChange: false,
+        buttons: [ 'excel', 'pdf', 'colvis' ],
+        "scrollX": true,
+        "paging": false,
+        "order": [[ 3, "desc" ]]
+        } );
+
+        table.buttons().container()
+        .appendTo( '#example_wrapper .col-md-6:eq(0)' );
+        } );*@
+
+
+    @*<script>
+            this.spinner.show();
+            $(function () {
+
+        $("#example1").DataTable();
+        });
+        /** spinner ends after 5 seconds */
+        this.spinner.hide(),
+
+
+
+            </script>*@
+
+
+
+
+
+
+
+
+
+
+
+    <script>
+        $(function () {
+
+            var current_fs, next_fs, previous_fs; //fieldsets
+            var opacity;
+
+            $(".next").click(function () {
+
+                current_fs = $(this).parent();
+                next_fs = $(this).parent().next();
+
+                //Add Class Active
+                $("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
+
+                //show the next fieldset
+                next_fs.show();
+                //hide the current fieldset with style
+                current_fs.animate({ opacity: 0 }, {
+                    step: function (now) {
+                        // for making fielset appear animation
+                        opacity = 1 - now;
+
+                        current_fs.css({
+                            'display': 'none',
+                            'position': 'relative'
+                        });
+                        next_fs.css({ 'opacity': opacity });
+                    },
+                    duration: 600
+                });
+            });
+
+            $(".previous").click(function () {
+
+                current_fs = $(this).parent();
+                previous_fs = $(this).parent().prev();
+
+                //Remove class active
+                $("#progressbar li").eq($("fieldset").index(current_fs)).removeClass("active");
+
+                //show the previous fieldset
+                previous_fs.show();
+
+                //hide the current fieldset with style
+                current_fs.animate({ opacity: 0 }, {
+                    step: function (now) {
+                        // for making fielset appear animation
+                        opacity = 1 - now;
+
+                        current_fs.css({
+                            'display': 'none',
+                            'position': 'relative'
+                        });
+                        previous_fs.css({ 'opacity': opacity });
+                    },
+                    duration: 600
+                });
+            });
+
+            $('.radio-group .radio').click(function () {
+                $(this).parent().find('.radio').removeClass('selected');
+                $(this).addClass('selected');
+            });
+
+            $(".submit").click(function () {
+                return false;
+            })
+
         });
     </script>
+
+
+    
+
+
+
+
+
     @RenderSection("Scripts", required: false)
 </body>
 </html>

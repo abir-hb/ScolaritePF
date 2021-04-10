@@ -6,14 +6,15 @@ using System.Text;
 
 namespace Scolarite.Service
 {
-    interface IPlanEService : IService<EspModulePanierClasseSaiso>
+    public interface IPlanEService : IService<EspModulePanierClasseSaiso>
     {
 
 
-        //public EspModulePanierClasseSaiso GetEnsByID(string ensId);
-       // void Delete(string id);
+        public EspModulePanierClasseSaiso GetPlanByID(string planId);
+       void Delete(string id);
 
-      //  void CreateEns(EspEnseignant e);
-      //  void UpdateEns(EspEnseignant e);
+       void CreatePlan(EspModulePanierClasseSaiso e);
+      void UpdatePlan(EspModulePanierClasseSaiso e);
+
     }
 }

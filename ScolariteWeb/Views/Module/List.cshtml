@@ -6,125 +6,143 @@
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
+        <div class="card-header" style="width: 130rem;">
+            <h3 class="card-title" style="text-align:center">La liste des Modules </h3>
+        </div>
     </section>
 
     <!-- Main content -->
-    <section class="content">
 
-        <h1>List</h1>
+    <div class="card" style="width: 130rem;">
 
-        <p>
-            <a asp-action="Create">Create New</a>
-        </p>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>
-                        @Html.DisplayNameFor(model => model.CodeModule)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Designation)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Description)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.NbHeures)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Etat)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Up)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Coef)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.NumPanier)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.AEvaluer)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.TypeEpreuve)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.CodeMatiereEduserv)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.TypeEpreuveSr)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.TypeModule)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.CodeUe)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.AnneeDeb)
-                    </th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var item in Model)
-                {
-                    <tr>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.CodeModule)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Designation)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Description)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.NbHeures)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Etat)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Up)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Coef)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.NumPanier)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.AEvaluer)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.TypeEpreuve)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.CodeMatiereEduserv)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.TypeEpreuveSr)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.TypeModule)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.CodeUe)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.AnneeDeb)
-                        </td>
-                        <td>
-                            @Html.ActionLink("Edit", "Edit", new { id = item.CodeModule })
-                            @Html.ActionLink("Details", "Details", new { id = item.CodeModule })
-                            @Html.ActionLink("Delete", "Delete", new { id = item.CodeModule })
-                        </td>
-                    </tr>
+        <!-- /.card-header -->
+        <div class="card-body">
+            <style>
+                .table_wrapper {
+                    display: block;
+                    width: 2000px;
+                    overflow-x: auto;
                 }
-            </tbody>
-        </table>
-        </section>
+            </style>
+
+            <div class="table_wrapper">
+                <table id="example1" class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.CodeModule)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Designation)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Description)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.NbHeures)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Etat)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Up)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Coef)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.NumPanier)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.AEvaluer)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.TypeEpreuve)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.CodeMatiereEduserv)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.TypeEpreuveSr)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.TypeModule)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.CodeUe)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.AnneeDeb)
+                            </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.CodeModule)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Designation)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Description)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.NbHeures)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Etat)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Up)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Coef)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.NumPanier)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.AEvaluer)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.TypeEpreuve)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.CodeMatiereEduserv)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.TypeEpreuveSr)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.TypeModule)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.CodeUe)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.AnneeDeb)
+                                </td>
+                                <td>
+                                    
+                                    @Html.ActionLink("Edit", "Edit", new { id = item.CodeModule })
+                                    @Html.ActionLink("Details", "Details", new { id = item.CodeModule })
+                                    @Html.ActionLink("Delete", "Delete", new { id = item.CodeModule })
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+
+            </div>
+
         </div>
+
+
+        <!-- /.content -->
+    </div>
+</div>
 
