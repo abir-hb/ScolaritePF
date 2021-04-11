@@ -1,164 +1,169 @@
 ﻿@model IEnumerable<Scolarite.Domain.entities.Classe>
 @{
 
-   
-    
-   
+
+
+
 }
+
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-        <div class="card-header"  style="width: 130rem;">
-            <h3 class="card-title">DataTable </h3>
+        <div class="card-header" style="width: 130rem;">
+            <h3 class="card-title">LA LISTE DES CLASSES </h3>
         </div>
     </section>
 
     <!-- Main content -->
-    
-        <div class="card" style="width: 130rem;">
-         
-            <!-- /.card-header -->
-            <div class="card-body">
-                <style>
-                    .table_wrapper {
-                        display:block;
-                        width: 2000px;
-                        overflow-x: auto;
-                        
-                    }
-                </style>
 
-                <div class="table_wrapper">
-                    <table id="example1" class="table table-bordered table-striped">
-                        <thead>
+    <div class="card" style="width: 130rem;">
+
+        <!-- /.card-header -->
+        <div class="card-body">
+            <style>
+                .table_wrapper {
+                    display: block;
+                    width: 2000px;
+                    overflow-x: auto;
+                }
+            </style>
+
+            <div class="table_wrapper">
+                <table id="example1" class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th>
+                                CodeCl
+                            </th>
+                            <th>
+                                LibelleCl
+                            </th>
+                            <th>
+                                DescriptionCl
+                            </th>
+                            <th>
+                                DateCr
+                            </th>
+                            <th>
+                                DateDernModif
+                            </th>
+                            <th>
+                                SallePrincipale
+                            </th>
+                            <th>
+                                SalleSecondaire1
+                            </th>
+                            <th>
+                                SalleSecondaire2
+                            </th>
+                            <th>
+                                NiveauAccees
+                            </th>
+                            <th>
+                                Filiere
+                            </th>
+                            <th>
+                                AnneeScolaire
+                            </th>
+                            <th>
+                                LibFiliere
+                            </th>
+                            <th>
+                                CodeSpecialite
+                            </th>
+                            <th>
+                                LibSpecialite
+                            </th>
+                            <th>
+                                Categorie
+                            </th>
+                            <th>
+                                FiliereNew
+                            </th>
+                            <th>
+                                SiteEsp
+                            </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+
+
+
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
                             <tr>
-                                <th >
-                                    CodeCl
-                                </th>
-                                <th >
-                                    LibelleCl
-                                </th>
-                                <th >
-                                    DescriptionCl
-                                </th>
-                                <th >
-                                    DateCr
-                                </th>
-                                <th >
-                                    DateDernModif
-                                </th>
-                                <th>
-                                    SallePrincipale
-                                </th>
-                                <th>
-                                    SalleSecondaire1
-                                </th>
-                                <th>
-                                    SalleSecondaire2
-                                </th>
-                                <th>
-                                    NiveauAccees
-                                </th>
-                                <th>
-                                    Filiere
-                                </th>
-                                <th>
-                                    AnneeScolaire
-                                </th>
-                                <th>
-                                    LibFiliere
-                                </th>
-                                <th>
-                                    CodeSpecialite
-                                </th>
-                                <th>
-                                    LibSpecialite
-                                </th>
-                                <th>
-                                    Categorie
-                                </th>
-                                <th>
-                                    FiliereNew
-                                </th>
-                                <th>
-                                    SiteEsp
-                                </th>
-                                <th></th>
+                                <td>
+                                    @item.CodeCl
+                                </td>
+                                <td>
+                                    @item.LibelleCl
+                                </td>
+                                <td>
+                                    @item.DescriptionCl
+                                </td>
+                                <td>
+                                    @item.DateCr
+                                </td>
+                                <td>
+                                    @item.DateDernModif
+                                </td>
+                                <td>
+                                    @item.SallePrincipale
+                                </td>
+                                <td>
+                                    @item.SelleSecondaire1
+                                </td>
+                                <td>
+                                    @item.SalleSecondaire2
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.NiveauAccees)
+                                </td>
+                                <td>
+                                    @item.Filiere
+                                </td>
+                                <td>
+                                    @item.AnneeScolaire
+                                </td>
+                                <td>
+                                    @item.LibFiliere
+                                </td>
+                                <td>
+                                    @item.CodeSpecialite
+                                </td>
+                                <td>
+                                    @item.LibSpecialite
+                                </td>
+                                <td>
+                                    @item.Categorie
+                                </td>
+                                <td>
+                                    @item.FiliereNew
+                                </td>
+                                <td>
+                                    @item.SiteEsp
+                                </td>
+                                <td>
+                                    @*<button type="submit" class="btn btn-block btn-danger btn-sm" value="delete"> SUPPRIMER </button>*@
+                                    @*<input type="button" class="btn btn-block btn-danger btn-sm" action="Delete">DELETE></input>*@
+                                    @*@Html.ActionLink("SUPPRIMER", "Delete", new { id = item.CodeCl })*@
+                                    <button class="btn btn-light">@Html.ActionLink("SUPPRIMER", "Delete", new { id = item.CodeCl })</button>
+                                    <button class="btn btn-light">@Html.ActionLink("DETAILS", "Delete", new { id = item.CodeCl })</button>
+                                    <button class="btn btn-light">@Html.ActionLink("MODIFIER", "Edit", new { id = item.CodeCl })</button>
+                                    @*@Html.ActionLink("I", "Delete", new { id = item.CodeCl })
+                                        @Html.ActionLink("Delete", "Delete", new { id = item.CodeCl })*@
+                                </td>
                             </tr>
-                        </thead>
+                        }
+                    </tbody>
+                </table>
 
-
-
-                        <tbody>
-                            @foreach (var item in Model)
-                            {
-                                <tr>
-                                    <td >
-                                        @item.CodeCl
-                                    </td>
-                                    <td >
-                                        @item.LibelleCl
-                                    </td>
-                                    <td >
-                                        @item.DescriptionCl
-                                    </td>
-                                    <td>
-                                        @item.DateCr
-                                    </td>
-                                    <td>
-                                        @item.DateDernModif
-                                    </td>
-                                    <td>
-                                        @item.SallePrincipale
-                                    </td>
-                                    <td>
-                                        @item.SelleSecondaire1
-                                    </td>
-                                    <td>
-                                        @item.SalleSecondaire2
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.NiveauAccees)
-                                    </td>
-                                    <td>
-                                        @item.Filiere
-                                    </td>
-                                    <td>
-                                        @item.AnneeScolaire
-                                    </td>
-                                    <td>
-                                        @item.LibFiliere
-                                    </td>
-                                    <td>
-                                        @item.CodeSpecialite
-                                    </td>
-                                    <td>
-                                        @item.LibSpecialite
-                                    </td>
-                                    <td>
-                                        @item.Categorie
-                                    </td>
-                                    <td>
-                                        @item.FiliereNew
-                                    </td>
-                                    <td>
-                                        @item.SiteEsp
-                                    </td>
-                                    <td>
-                                        
-                                   <button type="button" class="btn btn-block btn-danger btn-sm" action="Delete">DELETE</button>
-                                       
-                                    </td>
-                                </tr>
-                            }
-                        </tbody>
-                    </table>
-                    
-                </div>
-                
             </div>
 
-   
-    <!-- /.content -->
-</div>
+        </div>
+
+
+        <!-- /.content -->
+    </div>
 </div>
