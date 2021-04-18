@@ -34,6 +34,8 @@ namespace Scolarite.Domain.entities
         public string CodeUe { get; set; }
         public string AnneeDeb { get; set; }
 
+      
+
         public virtual EspUe EspUe { get; set; }
         public virtual EspUp UpNavigation { get; set; }
         public virtual ICollection<EspEvaluation> EspEvaluation { get; set; }

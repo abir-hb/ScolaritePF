@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 namespace ScolariteWeb.Controllers
 {
     public class PlanController : Controller
-       
+
     {
         private readonly IPlanEService ps;
         private readonly IServiceClasse se;
@@ -20,7 +20,7 @@ namespace ScolariteWeb.Controllers
         ModelContext context = new ModelContext();
 
 
-        public PlanController(IPlanEService servicePlan,IServiceClasse serviceClasse,IServiceENS serviceEns ,IServiceModule serviceModule)
+        public PlanController(IPlanEService servicePlan, IServiceClasse serviceClasse, IServiceENS serviceEns, IServiceModule serviceModule)
         {
             ps = servicePlan;
             se = serviceClasse;
@@ -65,11 +65,15 @@ namespace ScolariteWeb.Controllers
             try
             {
                 ps.CreatePlan(em);
+                // ViewBag.message("succes");
                 return RedirectToAction("List");
+
             }
             catch
             {
+
                 return View();
+
             }
         }
 
@@ -100,7 +104,7 @@ namespace ScolariteWeb.Controllers
             EspModulePanierClasseSaiso plan = ps.GetPlanByID(id);
             //sc.Delete(classe);
             // sc.Commit();
-            return View();
+            return View(plan);
         }
 
         // POST: PlanController/Delete/5
@@ -122,5 +126,69 @@ namespace ScolariteWeb.Controllers
                 return View();
             }
         }
+    
+    public ActionResult MainView()
+    {
+        return View(); //this is main page.We will display  "_AddMorePartialView" partial page on this main page
     }
+    public ActionResult AddMorePartialView()
+    {
+        //this  action page is support cal the partial page.
+        //We will call this action by view page.This Action is return partial page
+        EspModulePanierClasseSaiso model = new EspModulePanierClasseSaiso();
+        return PartialView("_AddMorePartialView", model);
+        //^this is actual partical page we have 
+        //create on this page in Home Controller as given below image
+    }
+
+
+        //public ActionResult PostAddMore()
+        //{
+            
+        //    EspModulePanierClasseSaiso list = new EspModulePanierClasseSaiso();
+        //    return View(list);
+            
+        //  //  EspModulePanierClasseSaiso em = new EspModulePanierClasseSaiso();
+        //   // return View(em);
+        //    //Here,Post addmore value from view page and get multiple values from view page
+        //   // return View();
+        //}
+
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult PostAddMore(EspModulePanierClasseSaiso model) {
+
+
+
+
+            //  List<EspModulePanierClasseSaiso> list = new List<EspModulePanierClasseSaiso>();
+            //  EspModulePanierClasseSaiso plan = ps.GetPlanByID(id);
+
+
+            //  //foreach (var i in list)
+            //  //    {
+            //  //       // context.EspModulePanierClasseSaiso.Add(i);
+            //  //       // ps.CreatePlan(em);
+
+            //  //    list.Add(i);
+            //  //    list.Add(em);
+
+            //  //    }
+
+            //  list.Add(plan);
+            //  ps.CreateList(list);
+            //      context.SaveChanges();
+            //      ViewBag.Message = "Data successfully";
+
+
+
+            ////  return View(list);
+            //  return RedirectToAction("List");
+
+            //Here,Post addmore value from view page and get multiple values from view page
+            return RedirectToAction("Delete");
+        }
+}
+
 }

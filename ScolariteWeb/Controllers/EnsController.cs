@@ -61,15 +61,6 @@ namespace ScolariteWeb.Controllers
 
         
 
-      
-
-        // GET: EnsController/Delete/5
-        public ActionResult Delete(string id)
-        {
-            EspEnseignant ens = se.GetEnsByID(id);
-            return View();
-        }
-
         // POST: EnsController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]

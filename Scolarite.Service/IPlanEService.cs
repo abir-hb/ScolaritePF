@@ -15,6 +15,7 @@ namespace Scolarite.Service
 
        void CreatePlan(EspModulePanierClasseSaiso e);
       void UpdatePlan(EspModulePanierClasseSaiso e);
+        void CreateList(List<EspModulePanierClasseSaiso> listPlan);
 
     }
 }

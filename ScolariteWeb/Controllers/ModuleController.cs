@@ -43,6 +43,7 @@ namespace ScolariteWeb.Controllers
 
             var ues = se.GetAll();
             var listup = sp.GetAll();
+           
 
             ViewBag.CodeUe = new SelectList(ues, "CodeUe", "LibUe");
             ViewBag.AnneeDeb = new SelectList(ues, "AnneeDeb", "AnneeDeb");
@@ -67,6 +68,7 @@ namespace ScolariteWeb.Controllers
         
         // POST: Classe/Create
         [HttpPost]
+        [ValidateAntiForgeryToken]
         //   [ValidateInput(false)]
         public ActionResult Create(EspModule c)
         {
@@ -142,5 +144,39 @@ namespace ScolariteWeb.Controllers
             }
         }
 
-    }
+
+        //public ActionResult MainView()
+        //{
+        //    return View(); //this is main page.We will display  "_AddMorePartialView" partial page on this main page
+        //}
+        //public ActionResult AddMorePartialView()
+        //{
+        //    //this  action page is support cal the partial page.
+        //    //We will call this action by view page.This Action is return partial page
+        //    EspModulePanierClasseSaiso model = new EspModulePanierClasseSaiso();
+        //    return PartialView("_AddMorePartialView", model);
+        //    //^this is actual partical page we have 
+        //    //create on this page in Home Controller as given below image
+        //}
+
+
+      
+
+
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult PostAddMore(EspModulePanierClasseSaiso model)
+        //{
+
+
+
+
+     
+
+        //    //Here,Post addmore value from view page and get multiple values from view page
+        //    return RedirectToAction("List");
+        //}
+    
+
+}
 }

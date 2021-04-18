@@ -17,6 +17,20 @@ namespace Scolarite.Service
         {
 
         }
+
+        public void CreateList(List<EspModulePanierClasseSaiso> listPlan)
+        {
+           
+          
+            foreach (var i in listPlan)
+            {
+                listPlan.Add(i);
+                Commit();
+
+            }
+           
+        }
+
         public void CreatePlan(EspModulePanierClasseSaiso e)
         {
 
@@ -29,6 +43,7 @@ namespace Scolarite.Service
         {
             var plan = plans.SingleOrDefault(p => p.CodeCl == id);
             plans.Remove(plan);
+          
         }
 
         public EspModulePanierClasseSaiso GetPlanByID(string planId)

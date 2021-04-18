@@ -4,422 +4,478 @@
     ViewData["Title"] = "List";
 }
 
-<h1>List</h1>
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="card-header">
+            <h3 class="card-title">AFFECTATION DES CLASSES PAR MODULES </h3>
+        </div>
+    </section>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.NumPanier)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.AnneeFin)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Description)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.NbHeures)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Coef)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.NumPeriodfe)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DateDebut)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DateFin)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DateExamen)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.NbHoraireRealises)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Acomptabiliser)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.IdEns2)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.NbHeuresEns)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.NbHeuresEns2)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Surveillant)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.HeureExam)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.SalleExam)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Surveillant2)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.SalleExam2)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Periode)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Numpromotioncs)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ApCs)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ChargeP1)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ChargeP2)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ChargeEns1P1)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ChargeEns1P2)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ChargeEns2P1)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ChargeEns2P2)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.SeanceUnique)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.IdEns3)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.IdEns4)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.IdEns5)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ChargeEns3P1)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ChargeEns3P2)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ChargeEns4P1)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ChargeEns4P2)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ChargeEns5P1)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ChargeEns5P2)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CodeUe)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.NbEcts)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.TypeEpreuve)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Salle)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.TypeEns)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.TypeEpreuveSr)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DateRattrapage)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.HeureRat)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Salle1Rat)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Salle2Rat)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DateRat)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DateCreation)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DaterLastMaj)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DesignationNew)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Chargep1add)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Chargep2add)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CodePlan)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Nbheuradd)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CalculRat)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ExisteCc)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ExisteTp)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.HeureFinSp)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.HeureFinSr)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.UeFantome)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Utilisateur)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CodeClNavigation)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CodeModuleNavigation)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.IdEnsNavigation)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.NumPanier)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.AnneeFin)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.NbHeures)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Coef)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.NumPeriodfe)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DateDebut)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DateFin)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DateExamen)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.NbHoraireRealises)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Acomptabiliser)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IdEns2)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.NbHeuresEns)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.NbHeuresEns2)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Surveillant)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.HeureExam)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SalleExam)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Surveillant2)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SalleExam2)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Periode)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Numpromotioncs)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ApCs)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ChargeP1)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ChargeP2)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ChargeEns1P1)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ChargeEns1P2)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ChargeEns2P1)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ChargeEns2P2)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SeanceUnique)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IdEns3)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IdEns4)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IdEns5)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ChargeEns3P1)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ChargeEns3P2)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ChargeEns4P1)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ChargeEns4P2)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ChargeEns5P1)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ChargeEns5P2)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CodeUe)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.NbEcts)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TypeEpreuve)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Salle)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TypeEns)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TypeEpreuveSr)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DateRattrapage)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.HeureRat)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Salle1Rat)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Salle2Rat)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DateRat)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DateCreation)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DaterLastMaj)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DesignationNew)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Chargep1add)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Chargep2add)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CodePlan)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Nbheuradd)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CalculRat)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ExisteCc)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ExisteTp)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.HeureFinSp)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.HeureFinSr)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.UeFantome)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Utilisateur)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CodeClNavigation.CodeCl)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CodeModuleNavigation.CodeModule)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IdEnsNavigation.IdEns)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+    <!-- Main content -->
+    <section class="content">
+
+        <div class="card">
+
+            <!-- /.card-header -->
+            <div class="card-body">
+                <style>
+                    .table_wrapper {
+                        display: block;
+                        width: 1000px;
+                        /* overflow-x: auto;*/
+                        vertical-align: middle;
+                    }
+
+                    .table-striped th {
+                        vertical-align: middle;
+                    }
+
+                    .table-striped td {
+                        vertical-align: top;
+                    }
+
+                    #parent {
+                        width: 1000px;
+                    }
+
+                    #child-left {
+                        float: left;
+                        width: 200px;
+                    }
+
+                    #child-right {
+                        float: right;
+                        width: 800px;
+                    }
+                </style>
+                <div class="box" id="parent">
+                    <div class="table_wrapper">
+                        <div class="box-body" id="child-right">
+                            <table id="example1" class="table table-bordered table-striped" align="center">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.NumPanier)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.AnneeFin)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Description)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.NbHeures)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Coef)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.NumPeriodfe)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.DateDebut)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.DateFin)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.DateExamen)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.NbHoraireRealises)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Acomptabiliser)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.IdEns2)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.NbHeuresEns)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.NbHeuresEns2)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Surveillant)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.HeureExam)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.SalleExam)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Surveillant2)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.SalleExam2)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Periode)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Numpromotioncs)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.ApCs)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.ChargeP1)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.ChargeP2)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.ChargeEns1P1)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.ChargeEns1P2)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.ChargeEns2P1)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.ChargeEns2P2)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.SeanceUnique)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.IdEns3)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.IdEns4)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.IdEns5)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.ChargeEns3P1)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.ChargeEns3P2)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.ChargeEns4P1)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.ChargeEns4P2)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.ChargeEns5P1)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.ChargeEns5P2)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.CodeUe)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.NbEcts)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.TypeEpreuve)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Salle)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.TypeEns)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.TypeEpreuveSr)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.DateRattrapage)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.HeureRat)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Salle1Rat)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Salle2Rat)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.DateRat)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.DateCreation)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.DaterLastMaj)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.DesignationNew)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Chargep1add)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Chargep2add)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.CodePlan)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Nbheuradd)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.CalculRat)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.ExisteCc)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.ExisteTp)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.HeureFinSp)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.HeureFinSr)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.UeFantome)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Utilisateur)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.CodeClNavigation)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.CodeModuleNavigation)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.IdEnsNavigation)
+                                        </th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.NumPanier)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.AnneeFin)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Description)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.NbHeures)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Coef)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.NumPeriodfe)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.DateDebut)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.DateFin)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.DateExamen)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.NbHoraireRealises)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Acomptabiliser)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.IdEns2)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.NbHeuresEns)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.NbHeuresEns2)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Surveillant)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.HeureExam)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.SalleExam)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Surveillant2)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.SalleExam2)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Periode)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Numpromotioncs)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.ApCs)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.ChargeP1)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.ChargeP2)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.ChargeEns1P1)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.ChargeEns1P2)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.ChargeEns2P1)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.ChargeEns2P2)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.SeanceUnique)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.IdEns3)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.IdEns4)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.IdEns5)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.ChargeEns3P1)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.ChargeEns3P2)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.ChargeEns4P1)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.ChargeEns4P2)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.ChargeEns5P1)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.ChargeEns5P2)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.CodeUe)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.NbEcts)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.TypeEpreuve)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Salle)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.TypeEns)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.TypeEpreuveSr)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.DateRattrapage)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.HeureRat)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Salle1Rat)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Salle2Rat)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.DateRat)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.DateCreation)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.DaterLastMaj)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.DesignationNew)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Chargep1add)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Chargep2add)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.CodePlan)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Nbheuradd)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.CalculRat)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.ExisteCc)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.ExisteTp)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.HeureFinSp)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.HeureFinSr)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.UeFantome)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Utilisateur)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.CodeClNavigation.CodeCl)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.CodeModuleNavigation.CodeModule)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.IdEnsNavigation.IdEns)
+                                            </td>
+                                            <td>
+                                                <button class="btn btn-light">@Html.ActionLink("SUPPRIMER", "Delete", new { id = item.CodeModule })</button>
+                                                <button class="btn btn-light">@Html.ActionLink("DETAILS", "Delete", new { id = item.CodeModule })</button>
+                                                <button class="btn btn-light">@Html.ActionLink("MODIFIER", "Edit", new { id = item.CodeModule })</button>
+
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                        <div id="child-left"></div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+</div>

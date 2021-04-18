@@ -64,7 +64,7 @@
 
                     <div class="col-md-10">
 
-                        @Html.DropDownList("Up", (SelectList)ViewData["listup"])
+                        @Html.DropDownList("Up", (IEnumerable<SelectListItem>)ViewBag.listup)
                         @Html.ValidationMessageFor(model => model.Up, "", new { @class = "text-danger" })
 
                     </div>
