@@ -16,13 +16,16 @@
     <!-- Theme style -->
     <link rel="stylesheet" href="~/template/dist/css/adminlte.min.css">
     @*<link rel="stylesheet" href="~/template/dist/table.css">*@
+    <!-- DataTables JQ -->
 
-   
+    <link href="~/template/dist/css/dataTable.css" rel="stylesheet" />
 
+    <!-- DataTables add-->
 
+    <link href="~/template/dist/Table.min.css" rel="stylesheet" />
     <meta name="description" content="Add a loading spinner to Datatables without AJAX" />
     <title>Bootstrap 4 Responsive Datatable with Loading Spinner</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
+    
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.5.2/css/buttons.bootstrap4.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.bootstrap4.min.css">
@@ -845,7 +848,6 @@
 
         @RenderBody()
         <footer class="main-footer">
-          
         </footer>
 
         <!-- Control Sidebar -->
@@ -875,6 +877,32 @@
     <script src="~/template/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
     <script src="~/template/plugins/datatables-buttons/js/buttons.print.min.js"></script>
     <script src="~/template/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+    <!-- DataTablesJQ -->
+    <!--<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+    <script src="~/template/dist/tableJQ.js"></script>
+    <script src="~/template/dist/tableJQT.js"></script>-->
+    @*<script>
+        $(function () {
+            var t = $('#example').DataTable();
+            var counter = 1;
+
+            $('#addRow').on('click', function () {
+                t.row.add([
+                    counter + '.1',
+                    counter + '.2',
+                    counter + '.3',
+                    counter + '.4',
+                    counter + '.5'
+                ]).draw(false);
+
+                counter++;
+            });
+
+            // Automatically add a first row of data
+            $('#addRow').click();
+        });
+    </script>*@
 
     <script>
         //$(document).ready(function () {
@@ -894,7 +922,7 @@
             $("#example1").DataTable({
 
 
-              
+
                 //  "paging":true,
                 "responsive": true,
                 "lengthChange": true,
@@ -945,7 +973,7 @@
 
 
 
-   
+
 
 
 
@@ -1024,7 +1052,7 @@
     </script>
 
 
-    
+
 
 
 

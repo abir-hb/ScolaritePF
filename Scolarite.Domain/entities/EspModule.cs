@@ -33,8 +33,8 @@ namespace Scolarite.Domain.entities
         public string TypeModule { get; set; }
         public string CodeUe { get; set; }
         public string AnneeDeb { get; set; }
-
-      
+    
+     // public virtual List<EspModule> AddMoreList { get; set; }
 
         public virtual EspUe EspUe { get; set; }
         public virtual EspUp UpNavigation { get; set; }

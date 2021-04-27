@@ -1,0 +1,565 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<head>
+     <meta charset="utf-8" />
+
+    <!-- DataTables add-->
+
+    <link href="~/template/dist/Table.min.css" rel="stylesheet" />
+    <link href="~/template/dist/css/dataTable.css" rel="stylesheet" />
+    <title>List</title>
+</head>
+<body>
+
+  
+        <div class="content-wrapper">
+            <div class="container">
+                <br />
+                <br />
+
+                <form id="myform" method="post">
+                    @*<button type="button" name="add" class="btn btn-success" id="add">ADD</button>*@
+                    <table class="table table-bordered" id="item_table">
+
+                        <tr>
+                            <th>CodeModule</th>
+                            <th>Designation</th>
+                            <th>Nombre d'heure</th>
+                            @*<th>UP</th>
+                    <th>Coodeue</th>*@
+                            <th>Coef</th>
+                            <th>NumPAnier</th>
+                            <th>Typr</th>
+                            <th>CodeMAtiere</th>
+                            <th>TypeEpreuve</th>
+                            <th>Add Row</th>
+
+                        <tr>
+
+                            <td><input type="text" class="form-control" id="CodeModule" name="CodeModule"></td>
+
+                            <td> <input type="text" class="form-control" id="Description" name="Description"></td>
+
+                            @*<td> <input type="text" class="form-control" id="NbHeures" name="NbHeures"></td>*@
+
+                            @*<td><input type="text" class="form-control" id="Up" /></td>
+
+                    <td> <input type="text" class="form-control" id="CodeUe" /></td>*@
+
+                            <td> <input type="text" class="form-control" id="Coef" name="Coef"></td>
+
+                            @*<td> <input type="text" class="form-control" id="NumPanier" name="NumPanier"></td>
+
+                            <td><input type="text" class="form-control" id="TypeEpreuve" name="TypeEpreuve"></td>
+
+                            <td><input type="text" class="form-control" id="CodeMatiereEduserv" name="CodeMatiereEduserv"></td>*@
+
+                            <td> <input type="text" class="form-control" id="TypeEpreuveSr" name="TypeEpreuveSr"></td>
+                            <td> <input class="btn btn-success" type="button" name="addd" id="add" value="Add"></td>
+                        </tr>
+                        @*<tr>
+                    <td><input type="text" name="name[]" id="name" placeholder="entrer le nom" class="form-control"></td>
+                    <td><button name="add" id="add" class="btn btn-success">ADD MORE</button></td>
+                </tr>*@
+                    </table>
+                    <center>
+                        <input class="btn btn-warning" type="submit" id="save" name="save" value="Enregistrer" onclick="">
+                    </center>
+                </form>
+                <br />
+                <br />
+
+                <div class="col-12 border p-3">
+
+                    <table id="table" class="table table-striped border">
+                        <thead>
+                            <tr>
+                                <th>
+                                    Code
+                                </th>
+                                @*<th>
+                                    Designation
+                                </th>*@
+                                <th>
+                                    Description
+                                </th>
+                                @*<th>
+                                    NbHeures
+                                </th>*@
+                                @*<th>
+                                    Etat
+                                </th>*@
+                                <th>
+                                    Coef
+                                </th>
+                                @*<th>
+                                    NumPanier
+                                </th>*@
+                                @*<th>
+                                    AEvaluer
+                                </th>
+                                <th>
+                                    TypeEpreuve
+                                </th>
+                                <th>
+                                    CodeMatiereEduserv
+                                </th>
+                                <th>
+                                    TypeEpreuveSr
+                                </th>
+                                <th>
+                                    TypeModule
+                                </th>
+                                <th>
+                                    EspUe
+                                </th>
+                                <th>
+                                    UpNavigation
+                                </th>*@
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                        </tbody>
+                              
+                    </table>
+
+                </div>
+
+            </div>
+        </div>
+    <!--<div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <input type="text" id="add_data" value="add data to table" class="btn btn-primary btn-sm">
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="card-body">
+        <div class="row">
+
+            <div class="col-md-12">
+                <button id="addRow">Add new row</button>
+
+                <table id="example" class="display">
+                    <thead>
+                        <tr>
+                            <th>
+                                Designation
+                            </th>
+                            <th>
+                                Description
+                            </th>
+                            <th>
+                                NbHeures
+                            </th>
+                            <th>
+                                Etat
+                            </th>
+                            <th>
+                                Coef
+                            </th>
+                            <th>
+                                NumPanier
+                            </th>
+                            <th>
+                                AEvaluer
+                            </th>
+                            <th>
+                                TypeEpreuve
+                            </th>
+                            <th>
+                                CodeMatiereEduserv
+                            </th>
+                            <th>
+                                TypeEpreuveSr
+                            </th>
+                            <th>
+                                TypeModule
+                            </th>
+                            <th>
+                                EspUe
+                            </th>
+                            <th>
+                                UpNavigation
+                            </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+
+                        <tr>
+                            <td>
+                                hello
+                            </td>
+                            <td>
+                                bonj
+                            </td>
+                            <td>
+                                15
+                            </td>
+                            <td>
+                                jk
+                            </td>
+                            <td>
+                                5
+                            </td>
+                            <td>
+                                22
+                            </td>
+                            <td>
+                                hh
+                            </td>
+                            <td>
+                                gg
+                            </td>
+                            <td>
+                                cd
+                            </td>
+                            <td>
+                                jj
+                            <td>
+                                gg
+                            </td>
+                            <td>
+                                b
+                            </td>
+                            <td>
+                                gg
+                            </td>-->
+    @*<td>
+            <a asp-action="Edit" asp-route-id="@item.CodeModule">Edit</a> |
+            <a asp-action="Details" asp-route-id="@item.CodeModule">Details</a> |
+            <a asp-action="Delete" asp-route-id="@item.CodeModule">Delete</a>
+        </td>*@
+    <!--</tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>-->
+
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+
+
+    @*<script>
+        var dataTable;
+        $(document).ready(function () {
+            dataTable = $('#DT_Load').DataTable({
+                "ajax": {
+                    "url": "/Module/List",
+                    "method": "GET",
+                    "datatype": "json"
+                },
+                "columns": [
+                    {
+                        "data": "CodeModule",
+                        "width": "20%"
+                    },
+                    {
+                        "data": "Description",
+                        "width": "20%"
+                    },
+                    {
+                        "data": "Coef",
+                        "width": "20%"
+                    },
+                    {
+                        "data": "NumPanier",
+                        "width": "40%",
+                    //    "render": function (data) {
+                    //        return `<div class='text-center'>
+                    //<a class='btn btn-success' href="/Product/Edit?id=${data}">Edit</a>
+                    //    &nbsp;
+                    //<a onclick=Delete('/Product/DeleteByDataApiJson?id='+${data}) class='btn btn-danger text-white' style='cursor:pointer'>Delete</a>
+                       
+                    //   </div>`
+
+                        //}
+                    }
+
+                ],
+                "language": {
+                    "emptyTable": "Not Found Data"
+                },
+                "width": "100%"
+
+            });
+        });
+    </script>*@
+
+
+
+
+
+    <script>
+
+        $(document).ready(function () {
+            $('#save').click(function () {
+                var CodeModule = document.getElementById("#CodeModule").val();
+                var Description = document.getElementById("#Description").val();
+
+                var Coef = document.getElementById("#Coef").val();
+                //var NumPanier = document.getElementById("#NumPanier").val();
+                //var TypeEpreuve = document.getElementById("#TypeEpreuve").val();
+                //var CodeMatiereEduserv = document.getElementById("#CodeMatiereEduserv").val();
+                //var TypeEpreuveSr = document.getElementById("#TypeEpreuveSr").val();
+                //$('#DT_Load').append(CodeModule, Description, Coef, NumPanier)
+
+                $.ajax({
+                    url: "/Module/Index",
+                    method: "post",
+                    data: $('#item_table').serialize(),
+                });
+               
+               
+
+                
+            });
+        });
+    </script>
+
+    @*<script>
+
+        $(document).ready(function () {
+            $('#save').click(function () {
+                var newRow = table.insertRow(table.length),
+                    cell1 = newRow.insertCell(0),
+                    cell2 = newRow.insertCell(1),
+                    cell3 = newRow.insertCell(2),
+                    CodeModule = document.getElementById("#CodeModule").val(),
+                    Description = document.getElementById("#Description").val(),
+
+                    Coef = document.getElementById("#Coef").val();
+                    cell1.innerHTML = CodeModule;
+                cell2.innerHTML = Description;
+                cell3.innerHTML = Coef;
+                $.ajax({
+                    url: "/Module/Index",
+                    method: "post",
+                    data: $('#item_table').serialize(),
+                });
+            });
+        });
+
+    </script>*@
+            
+    <script>
+        $(function () {
+            $('#add').click(function () {
+                var CodeModule = $('input[name="CodeModule"]').val();
+                var Description = $('input[name="Description"]').val();
+                var Coef = $('input[name="Coef"]').val();
+                var _tr = '<tr><td>' + CodeModule + '</td>  <td>' + Description + '</td>   <td>' + Coef + '</td></tr>';
+                $('tbody').append(_tr);
+                $('#item_table').append(_tr);
+
+                $.ajax({
+                    url: "/Module/Index",
+                    method: "post",
+                    data: $('#myform').serialize(),
+                });
+            });
+
+        });
+    </script>
+            
+
+    @*<script>
+        $(document).ready(function () {
+
+            var html = '<tr><td><input type="text" class="form-control" id="CodeModule" /></td><td> <input type="text" class="form-control" id="Description" /></td><td> <input type="text" class="form-control" id="NbHeures" /></td><td> <input type="text" class="form-control" id="Coef"></td><td> <input type="text" class="form-control" id="NumPanier" /></td><td><input type="text" class="form-control" id="TypeEpreuve" /></td><td><input type="text" class="form-control" id="CodeMatiereEduserv" /></td><td> <input type="text" class="form-control" id="TypeEpreuveSr"></td><td><input class="btn btn-danger" type="button" name="remove" id="remove" value="remove"></td></tr>';
+            
+            $('#add').click(function () {
+                $('#item_table').append(html);
+               
+                //var newRow = table.insertRow(table.length),
+                //    cell1 = newRow.insertCell(0),
+                //    cell2 = newRow.insertCell(1),
+                //    cell3 = newRow.insertCell(2),
+                //    CodeModule = document.getElementById("#CodeModule").val(),
+                //    Description = document.getElementById("#Description").val(),
+
+                //    Coef = document.getElementById("#Coef").val();
+                //cell1.innerHTML = CodeModule;
+                //cell2.innerHTML = Description;
+                //cell3.innerHTML = Coef;
+
+               
+               
+              
+            });
+
+            $('#item_table').on('click', 'remove', function () {
+                $(this).closest('tr').remove();
+
+            });
+        });
+    </script>*@
+
+
+
+    @*<script>
+            $(document).ready(function () {
+                var data = {
+                    CodeModule = $("#CodeModule").val(),
+                    Description = $("#Description").val(),
+                    Up = $("#Up").val(),
+                    CodeUe = $("#CodeUe").val(),
+                    Coef = $("#Coef").val(),
+                    NumPanier = $("#NumPanier").val(),
+                    TypeEpreuve = $("#TypeEpreuve").val(),
+                    CodeMatiereEduserv = $("#CodeMatiereEduserv").val(),
+                    TypeEpreuveSr = $("#TypeEpreuveSr").val(),
+                };
+
+                $('#save').click(function () {
+                    ('#myform').append(data);
+                //alert("ok");
+                // var data = $('myform').serialize();
+                //// var data = {};
+                // data.CodeModule = $("#CodeModule").val();
+                // data.Description = $("#Description").val();
+                // data.Up = $("#Up").val();
+                // data.CodeUe = $("#CodeUe").val();
+                // data.Coef = $("#Coef").val();
+                // data.NumPanier = $("#NumPanier").val();
+                // data.TypeEpreuve = $("#TypeEpreuve").val();
+                // data.CodeMatiereEduserv = $("#CodeMatiereEduserv").val();
+                // data.TypeEpreuveSr = $("#TypeEpreuveSr").val();
+
+                    $.ajax({
+
+                        data: {
+                            CodeModule = $("#CodeModule").val(),
+                            Description = $("#Description").val(),
+                            Up = $("#Up").val(),
+                            CodeUe = $("#CodeUe").val(),
+                            Coef = $("#Coef").val(),
+                            NumPanier = $("#NumPanier").val(),
+                            TypeEpreuve = $("#TypeEpreuve").val(),
+                            CodeMatiereEduserv = $("#CodeMatiereEduserv").val(),
+                            TypeEpreuveSr = $("#TypeEpreuveSr").val(),
+                        },
+                        url: "/Module/Index",
+                        type: "POST",
+                        dataType:"json",
+
+
+                        succcess: function (da) {
+                            alert(da);
+                        }
+
+                    });
+
+            });
+
+
+        </script>*@
+    @*<script>
+            $(document).ready(function () {
+                var form = $('myform').form({
+                    "ajax": {
+                    },
+
+                })
+        </script>*@
+    @*<script>
+            $(document).ready(function () {
+                var form = $('insert_form');
+                $('save').click(function () {
+                    alert("ok");
+
+                    $ajax({
+                        url: "/module/create",
+                        type: 'POST',
+                        data: $("insert_form input").serialize(),
+
+                        succcess: function (data) {
+                            console.log(data);
+                        }
+
+                    });
+
+                });
+
+            });
+        </script>*@
+
+    @*<script>
+        $(document).ready(function () {
+            $('save').click(function () {
+                var CodeModule = $("#CodeModule").val();
+                var Description = $("#Description").val();
+                var Up = $("#Up").val();
+                var CodeUe = $("#CodeUe").val();
+                var Coef = $("#Coef").val();
+                var NumPanier = $("#NumPanier").val();
+                var TypeEpreuve = $("#TypeEpreuve").val();
+                var CodeMatiereEduserv = $("#CodeMatiereEduserv").val();
+                var TypeEpreuveSr = $("#TypeEpreuveSr").val();
+                var datastring = "$CodeModule" + CodeModule + "$Description" + Description + "$Up" + Up + "$CodeUe" + CodeUe + "$Coef" + Coef + "$NumPanier" + NumPanier + "$TypeEpreuve" + TypeEpreuve + "$CodeMatiereEduserv" + CodeMatiereEduserv + "$TypeEpreuveSr" + TypeEpreuveSr;
+                $.ajax({
+                    type: "POST",
+                    url: /module/create,
+                    data: datastring,
+                    succcess: function ($data) {
+                        $("#show_stored_data").html($data);
+                    }
+                });
+            });
+        });</script>*@
+    @*<script>
+            $(document).ready(function () {
+                $('#add').click(function () {
+                    var html = '';
+                    html += '<tr>';
+
+                    html += '<td> <input type="text" id="CodeModule"/></td>';
+                    html += ' <td> <input type="text"   id="Description"/></td>';
+                    html += ' <td> <input type="text" id="Up"/></td>';
+
+                    html += '<td> <input type="text" id="CodeUe"></td>';
+
+                    html += '<td> <input type="text" id="Coef"></td>';
+
+                    html += '<td> <input type="text" id="NumPanier"/></td>';
+
+                    html += '<td> <input type="text" id="TypeEpreuve"/></td>';
+
+                    html += '<td> <input type="text" id="CodeMatiereEduserv"/></td>';
+
+                    html += '<td> <input type="text" id="TypeEpreuveSr"/></td>';
+                    $('#item_table').append(html);
+                });
+            });
+        </script>*@
+    @*<script>
+            $(document).ready(function() {
+                var i = 1;
+                $('#add').click(function() {
+                    i++;
+                    $('#dynamic_field').append('<tr id="row' +i+ '"><td><input type="text" name="name" id="name" placeholder="entrer le nom" class="form-control"></td><td><button name="remove" id="' +i+ '" class="btn btn-danger btn_remove">X</button></td></tr >');
+
+                });
+                $(document).on('click', '.btn_remove', function () {
+                    var button_id = $(this).attr("id");
+                    $('#row' +button_id+'').remove();
+                });
+            });
+        </script>*@
+
+
+    }
+</body>
+</html>

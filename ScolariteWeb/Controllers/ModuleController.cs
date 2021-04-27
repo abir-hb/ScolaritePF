@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
-
+using Microsoft.EntityFrameworkCore;
 using Scolarite.Domain.entities;
 using Scolarite.Service;
 using System;
@@ -19,8 +19,8 @@ namespace ScolariteWeb.Controllers
 
         ModelContext context = new ModelContext();
         //  List<EspUp> ups = new List<EspUp>();
-    
-        public ModuleController(IServiceModule serviceModule, IServiceUE serviceUE, IServiceUp serviceUp ,ModelContext ctx)
+        public IEnumerable<EspModule> modules { get; set; }
+        public ModuleController(IServiceModule serviceModule, IServiceUE serviceUE, IServiceUp serviceUp, ModelContext ctx)
         {
             sm = serviceModule;
             se = serviceUE;
@@ -34,59 +34,128 @@ namespace ScolariteWeb.Controllers
         {
             return View(sm.GetAll());
         }
-        //public abstract System.Threading.Tasks.Task ExecuteAsync();
+
+
+
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        ////[ValidateInput(false)]
+        //public ActionResult Index(EspModule m)
+        //{
+
+        //    List<dynamic> modules = new List<dynamic> { new EspModule
+        //    {
+
+        //        CodeModule=m.CodeModule,
+        //        Description=m.Description,
+        //        AEvaluer=m.AEvaluer,
+        //        AnneeDeb=m.AnneeDeb,
+        //        CodeUe=m.CodeUe,
+        //        Coef=m.Coef,
+        //        Designation=m.Designation,
+        //        NbHeures=m.NbHeures,
+
+
+        //    } };
+
+        //    List<dynamic> list = new List<dynamic> { new EspModule
+        //    {
+
+        //        CodeModule=m.CodeModule,
+        //        Description=m.Description,
+        //        AEvaluer=m.AEvaluer,
+        //        AnneeDeb=m.AnneeDeb,
+        //        CodeUe=m.CodeUe,
+        //        Coef=m.Coef,
+        //        Designation=m.Designation,
+        //        NbHeures=m.NbHeures,
+
+
+        //    } };
+        //    list.AddRange(modules);
+        //    foreach (var i in list)
+        //    {
+        //        context.EspModule.Add(i);
+        //    }
+        //    context.SaveChanges();
+        //    return View(list);
+        //}
 
         //get
-        public ActionResult Create()
+        public ActionResult Index()
 
         {
+            //List<EspModule> list = new List<EspModule> { new EspModule
+            //{
+
+            //    CodeModule="mm",
+            //    Description="",
+            //    AEvaluer="",
+            //    AnneeDeb="",
+            //    CodeUe="",
+            //    Coef= 5 ,
+            //    Designation="",
+            //    NbHeures=55,
+
+
+            //} };
+
+            //return View(list);
+
 
             var ues = se.GetAll();
             var listup = sp.GetAll();
-           
+
 
             ViewBag.CodeUe = new SelectList(ues, "CodeUe", "LibUe");
             ViewBag.AnneeDeb = new SelectList(ues, "AnneeDeb", "AnneeDeb");
-             
+
             ViewBag.Up = new SelectList(listup, "Up", "Designantion");
-          // Console.Out.WriteLine("erreur" + ViewData["listup"]);
-          //  Debug.WriteLine(listup);
-          //  Debug.WriteLine(ViewBag.Up);
+            // Console.Out.WriteLine("erreur" + ViewData["listup"]);
+            //  Debug.WriteLine(listup);
+            //  Debug.WriteLine(ViewBag.Up);
 
 
 
             // return View();
 
             EspModule em = new EspModule();
-                return View(em);
-            }
-           // catch
-           
+            return View(em);
+        }
+        //// catch
 
-            
 
-        
-        // POST: Classe/Create
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        //   [ValidateInput(false)]
-        public ActionResult Create(EspModule c)
+
+
+ //       POST: module/Create
+       [HttpPost]
+       [ValidateAntiForgeryToken]
+        //[ValidateInput(false)]
+        public ActionResult Index(EspModule c)
         {
 
-            try
-            {
+            List<EspModule> list = new List<EspModule>();
 
-                sm.CreateModule(c);
-                // context.Entry(c).State = EntityState.Added;
-                // context.SaveChanges();
-                return RedirectToAction("List");
-            }
-            catch
-            {
-                return View();
-            }
-         
+
+            list.Add(c);
+            sm.CreateM(c);
+            context.Entry(c).State = EntityState.Added;
+            //context.SaveChanges();
+            return View();
+
         }
+
+        //public List<EspModule> CreateList(EspModule em)
+        //{
+        //    List<EspModule> modules = new List<EspModule>();
+        //    modules.Add(em);
+        //    sm.CreateList(em);
+        //    return modules;
+        //    // EspModule em = new EspModule();
+          
+        //  //  return List;
+
+        //}
         public ActionResult Delete(String id)
         {
             EspModule module = sm.GetModuleByID(id);
@@ -132,9 +201,9 @@ namespace ScolariteWeb.Controllers
                 sm.UpdateM(module);
 
 
-               // context.Entry(classe).State = EntityState.Modified;
-             //   context.SaveChanges();
-             //   sc.Commit();
+                // context.Entry(classe).State = EntityState.Modified;
+                //   context.SaveChanges();
+                //   sc.Commit();
 
                 return RedirectToAction("List");
             }
@@ -145,38 +214,79 @@ namespace ScolariteWeb.Controllers
         }
 
 
-        //public ActionResult MainView()
+        //public ActionResult Index()
         //{
         //    return View(); //this is main page.We will display  "_AddMorePartialView" partial page on this main page
         //}
-        //public ActionResult AddMorePartialView()
-        //{
-        //    //this  action page is support cal the partial page.
-        //    //We will call this action by view page.This Action is return partial page
-        //    EspModulePanierClasseSaiso model = new EspModulePanierClasseSaiso();
-        //    return PartialView("_AddMorePartialView", model);
-        //    //^this is actual partical page we have 
-        //    //create on this page in Home Controller as given below image
-        //}
+        public ActionResult AddMorePartialView()
+        {
+            //this  action page is support cal the partial page.
+            //We will call this action by view page.This Action is return partial page
+            EspModule model = new EspModule();
+            return PartialView("_AddMorePartialView", model);
+            //^this is actual partical page we have 
+            //create on this page in Home Controller as given below image
+        }
 
 
-      
+        public ActionResult PostAddMore()
+        {
+            List<EspModule> list = new List<EspModule>();
+
+            //  EspModule em = new EspModule();
+            return View(list);
+
+            //  EspModulePanierClasseSaiso em = new EspModulePanierClasseSaiso();
+            // return View(em);
+            //Here,Post addmore value from view page and get multiple values from view page
+            // return View();
+        }
 
 
         //[HttpPost]
         //[ValidateAntiForgeryToken]
-        //public ActionResult PostAddMore(EspModulePanierClasseSaiso model)
+        //public ActionResult PostAddMore(EspModule model)
         //{
 
+        //   // List<EspModule> list = new List<EspModule>();
+        //    //  EspModule m = sm.GetModuleByID(id);
+
+
+        //  //  list.Add(model);
+        //    // sm.CreateModule(model);
+        //    //    sm.CreateModule(List);
+
+        //  /*  foreach (var i in model.AddMoreList)
+        //    {
+        //       */
+               
+
+        //        //  list.Add(i);
+        //        //     context.Entry(i).State = EntityState.Added;
+        //        //  sm.CreateModule(i);
+        //       //  context.Add(i);
+        //       // context.SaveChanges();
+        //      //  Console.WriteLine(i.CodeModule);   
+        //            }
+
+        //    //   list.Add(m);
+        //    // sm.CreateList(list);
+        //    // context.SaveChanges();
+        //    //ViewBag.Message = "Data successfully";
 
 
 
-     
+        //    return View();
+        //   // return model.AddMoreList;
+        //   //  return RedirectToAction("List");
+
+
+
 
         //    //Here,Post addmore value from view page and get multiple values from view page
-        //    return RedirectToAction("List");
+        //    //  return RedirectToAction("List");
         //}
-    
 
-}
+
+    }
 }

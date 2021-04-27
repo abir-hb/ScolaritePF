@@ -13,5 +13,8 @@ namespace Scolarite.Service
 
         void CreateModule(EspModule m);
         void UpdateM(EspModule m);
+       // public void CreateM(List<EspModule> list);
+        public List<EspModule> CreateList(EspModule model);
+        public List<EspModule> CreateM(EspModule model);
     }
 }
