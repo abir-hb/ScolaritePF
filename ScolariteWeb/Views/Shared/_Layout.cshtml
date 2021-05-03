@@ -883,27 +883,36 @@
     <script src="~/template/dist/tableJQ.js"></script>
     <script src="~/template/dist/tableJQT.js"></script>-->
     @*<script>
-        $(function () {
-            var t = $('#example').DataTable();
-            var counter = 1;
+            $(function () {
+                var t = $('#example').DataTable();
+                var counter = 1;
 
-            $('#addRow').on('click', function () {
-                t.row.add([
-                    counter + '.1',
-                    counter + '.2',
-                    counter + '.3',
-                    counter + '.4',
-                    counter + '.5'
-                ]).draw(false);
+                $('#addRow').on('click', function () {
+                    t.row.add([
+                        counter + '.1',
+                        counter + '.2',
+                        counter + '.3',
+                        counter + '.4',
+                        counter + '.5'
+                    ]).draw(false);
 
-                counter++;
+                    counter++;
+                });
+
+                // Automatically add a first row of data
+                $('#addRow').click();
             });
-
-            // Automatically add a first row of data
-            $('#addRow').click();
+        </script>*@
+    <script>
+        $(document).ready(function () {
+            $('#example').DataTable({
+                "ajax": {
+                    "url": "/Module/List",
+                    "dataSrc": "$('#item_table').serialize()"
+                }
+            });
         });
-    </script>*@
-
+    </script>
     <script>
         //$(document).ready(function () {
         //    var table = $('#example1').DataTable({
@@ -916,6 +925,7 @@
         //       //  .appendTo($('.col-md-6:eq(0)', this.table().container()));
 
         //});
+
 
         $(function () {
 
@@ -931,6 +941,11 @@
 
 
 
+            $.ajax({
+                url: "/Module/List",
+                method: "GET",
+                //data: $('#item_table').serialize(),
+            });
 
         });
 

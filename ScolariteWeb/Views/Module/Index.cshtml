@@ -25,98 +25,140 @@
                         <tr>
                             <th>CodeModule</th>
                             <th>Designation</th>
+                            <th>Description</th>
+                            <th>UE</th>
+                            <th>Annee</th>
+                            <th>UP</th>
                             <th>Nombre d'heure</th>
-                            @*<th>UP</th>
-                    <th>Coodeue</th>*@
-                            <th>Coef</th>
-                            <th>NumPAnier</th>
-                            <th>Typr</th>
-                            <th>CodeMAtiere</th>
+                            <th>Etat</th>
+
+
+                            <th>Coefficient</th>
+                            <th>Num Panier</th>
+                            <th>AEvaluer</th>
                             <th>TypeEpreuve</th>
-                            <th>Add Row</th>
+                            <th>CodeMatiere</th>
+                            <th>TypeEpreuve</th>
+                            <th>TypeModule</th>
+
+                            @*<th>Add Row</th>*@
 
                         <tr>
 
                             <td><input type="text" class="form-control" id="CodeModule" name="CodeModule"></td>
-
+                            <td> <input type="text" class="form-control" id="Designation" name="Designation"></td>
                             <td> <input type="text" class="form-control" id="Description" name="Description"></td>
+                            <td>@Html.DropDownList("CodeUe", (IEnumerable<SelectListItem>)ViewBag.ues, "Selectionner UE")</td>
 
-                            @*<td> <input type="text" class="form-control" id="NbHeures" name="NbHeures"></td>*@
+                            <td>@Html.DropDownList("AnneeDeb", (SelectList)ViewData["ues"])</td>
+                            <td>@Html.DropDownList("Up", (IEnumerable<SelectListItem>)ViewBag.listup, "Selectionner UP")</td>
+                            <td> <input type="number" class="form-control" id="NbHeures" name="NbHeures"></td>
+                            <td> <input type="text" class="form-control" id="Etat" name="Etat"></td>
+                            @*<td>
+            <label for="pet-select">Choose a pet:</label>
+        </td>
 
-                            @*<td><input type="text" class="form-control" id="Up" /></td>
 
-                    <td> <input type="text" class="form-control" id="CodeUe" /></td>*@
+        <td>
+            <select name="Up" id="Up">
+                <option value="listup">--Please choose an option--</option></select>
+        </td>*@
+                            @*<td>
+            <select id="combobox">
+                <option value="ViewBag.listup">Select one...</option>
+                @foreach (var item in @ViewData["listup"])
+                {
+                    <option value="@item.Up">@item.Up</option>
+                }
+
+            </select>
+        </td>*@
+
+                            @*<td>  @Html.DropDownList("Up", (SelectList)ViewData["listup"])</td>*@
+
+                            @*<td><input name="Up" id="up" value='@ViewData["listup"]'></td>*@
+
+
+
 
                             <td> <input type="text" class="form-control" id="Coef" name="Coef"></td>
 
-                            @*<td> <input type="text" class="form-control" id="NumPanier" name="NumPanier"></td>
-
+                            <td> <input type="number" class="form-control" id="NumPanier" name="NumPanier"></td>
+                            <td><input type="text" class="form-control" id="AEvaluer" name="AEvaluer"></td>
                             <td><input type="text" class="form-control" id="TypeEpreuve" name="TypeEpreuve"></td>
 
-                            <td><input type="text" class="form-control" id="CodeMatiereEduserv" name="CodeMatiereEduserv"></td>*@
+                            <td><input type="text" class="form-control" id="CodeMatiereEduserv" name="CodeMatiereEduserv"></td>
 
                             <td> <input type="text" class="form-control" id="TypeEpreuveSr" name="TypeEpreuveSr"></td>
-                            <td> <input class="btn btn-success" type="button" name="addd" id="add" value="Add"></td>
+                            <td> <input type="text" class="form-control" id="TypeModule" name="TypeModule"></td>
+
+                            @*<td> <input type="text" class="form-control" id="CodeUe" /></td>*@
                         </tr>
                         @*<tr>
-                    <td><input type="text" name="name[]" id="name" placeholder="entrer le nom" class="form-control"></td>
-                    <td><button name="add" id="add" class="btn btn-success">ADD MORE</button></td>
-                </tr>*@
+                <td><input type="text" name="name[]" id="name" placeholder="entrer le nom" class="form-control"></td>
+                <td><button name="add" id="add" class="btn btn-success">ADD MORE</button></td>
+            </tr>*@
                     </table>
                     <center>
-                        <input class="btn btn-warning" type="submit" id="save" name="save" value="Enregistrer" onclick="">
-                    </center>
+            <input class="btn btn-success" type="button" name="addd" id="add" value="Inserer">
+            @*<input class="btn btn-warning" type="submit" id="save" name="save" value="Enregistrer" onclick="">*@
+        </center>
                 </form>
                 <br />
                 <br />
 
                 <div class="col-12 border p-3">
 
-                    <table id="table" class="table table-striped border">
+                    <table id="example" class="table table-striped border">
                         <thead>
                             <tr>
                                 <th>
                                     Code
                                 </th>
-                                @*<th>
+                                <th>
                                     Designation
-                                </th>*@
+                                </th>
                                 <th>
                                     Description
                                 </th>
-                                @*<th>
-                                    NbHeures
-                                </th>*@
-                                @*<th>
-                                    Etat
-                                </th>*@
                                 <th>
-                                    Coef
+                                   UE
                                 </th>
-                                @*<th>
+                                <th>
+                                    Annee
+                                </th>
+                                <th>
+                                    UP
+                                </th>
+                                <th>
+                                    NombreHeure
+                                </th>
+                                <th>
+                                    Etat
+                                </th>
+
+                                <th>
+                                    Coefficient
+                                </th>
+                                <th>
                                     NumPanier
-                                </th>*@
-                                @*<th>
+                                </th>
+                                <th>
                                     AEvaluer
                                 </th>
                                 <th>
                                     TypeEpreuve
                                 </th>
                                 <th>
-                                    CodeMatiereEduserv
+                                    CodeMatiere
                                 </th>
                                 <th>
-                                    TypeEpreuveSr
+                                    TypeEpreuve
                                 </th>
                                 <th>
                                     TypeModule
                                 </th>
-                                <th>
-                                    EspUe
-                                </th>
-                                <th>
-                                    UpNavigation
-                                </th>*@
+
                                 <th></th>
                             </tr>
                         </thead>
@@ -130,123 +172,7 @@
 
             </div>
         </div>
-    <!--<div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <input type="text" id="add_data" value="add data to table" class="btn btn-primary btn-sm">
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-    <div class="card-body">
-        <div class="row">
-
-            <div class="col-md-12">
-                <button id="addRow">Add new row</button>
-
-                <table id="example" class="display">
-                    <thead>
-                        <tr>
-                            <th>
-                                Designation
-                            </th>
-                            <th>
-                                Description
-                            </th>
-                            <th>
-                                NbHeures
-                            </th>
-                            <th>
-                                Etat
-                            </th>
-                            <th>
-                                Coef
-                            </th>
-                            <th>
-                                NumPanier
-                            </th>
-                            <th>
-                                AEvaluer
-                            </th>
-                            <th>
-                                TypeEpreuve
-                            </th>
-                            <th>
-                                CodeMatiereEduserv
-                            </th>
-                            <th>
-                                TypeEpreuveSr
-                            </th>
-                            <th>
-                                TypeModule
-                            </th>
-                            <th>
-                                EspUe
-                            </th>
-                            <th>
-                                UpNavigation
-                            </th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-
-
-                        <tr>
-                            <td>
-                                hello
-                            </td>
-                            <td>
-                                bonj
-                            </td>
-                            <td>
-                                15
-                            </td>
-                            <td>
-                                jk
-                            </td>
-                            <td>
-                                5
-                            </td>
-                            <td>
-                                22
-                            </td>
-                            <td>
-                                hh
-                            </td>
-                            <td>
-                                gg
-                            </td>
-                            <td>
-                                cd
-                            </td>
-                            <td>
-                                jj
-                            <td>
-                                gg
-                            </td>
-                            <td>
-                                b
-                            </td>
-                            <td>
-                                gg
-                            </td>-->
-    @*<td>
-            <a asp-action="Edit" asp-route-id="@item.CodeModule">Edit</a> |
-            <a asp-action="Details" asp-route-id="@item.CodeModule">Details</a> |
-            <a asp-action="Delete" asp-route-id="@item.CodeModule">Delete</a>
-        </td>*@
-    <!--</tr>
-                        }
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>-->
-
-
+   
 
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
@@ -302,7 +228,7 @@
 
 
 
-    <script>
+    @*<script>
 
         $(document).ready(function () {
             $('#save').click(function () {
@@ -327,7 +253,7 @@
                 
             });
         });
-    </script>
+    </script>*@
 
     @*<script>
 
@@ -358,11 +284,24 @@
         $(function () {
             $('#add').click(function () {
                 var CodeModule = $('input[name="CodeModule"]').val();
+                var Designation = $('input[name="Designation"]').val();
                 var Description = $('input[name="Description"]').val();
+                var NbHeures = $('input[name="NbHeures"]').val();
+                var Etat = $('input[name="Etat"]').val();
+                var Up = $("#Up").val();
                 var Coef = $('input[name="Coef"]').val();
-                var _tr = '<tr><td>' + CodeModule + '</td>  <td>' + Description + '</td>   <td>' + Coef + '</td></tr>';
+                var NumPanier = $('input[name="NumPanier"]').val();
+                var AEvaluer = $('input[name="AEvaluer"]').val();
+                var TypeEpreuve = $('input[name="TypeEpreuve"]').val();
+                var CodeMatiereEduserv = $('input[name="CodeMatiereEduserv"]').val();
+                var TypeEpreuveSr = $('input[name="TypeEpreuveSr"]').val(); 
+                var TypeModule = $('input[name="TypeModule"]').val();
+                var CodeUe = $("#CodeUe").val();
+                var AnneeDeb = $("#AnneeDeb").val();
+
+                var _tr = '<tr><td>' + CodeModule + '</td>  <td>' + Designation + '</td>  <td>' + Description + '</td><td>' + CodeUe + '</td> <td>' + AnneeDeb + '</td>  <td>' + Up + '</td><td>' + NbHeures + '</td> <td>' + Etat + '</td><td>' + Coef + '</td> <td>' + NumPanier + '</td> <td>' + AEvaluer + '</td><td>' + TypeEpreuve + '</td> <td>' + CodeMatiereEduserv + '</td><td>' + TypeEpreuveSr + '</td><td>' + TypeModule + '</td>  </tr>';
                 $('tbody').append(_tr);
-                $('#item_table').append(_tr);
+              //  $('#item_table').append(_tr);
 
                 $.ajax({
                     url: "/Module/Index",

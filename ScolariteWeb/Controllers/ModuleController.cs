@@ -110,7 +110,7 @@ namespace ScolariteWeb.Controllers
             ViewBag.CodeUe = new SelectList(ues, "CodeUe", "LibUe");
             ViewBag.AnneeDeb = new SelectList(ues, "AnneeDeb", "AnneeDeb");
 
-            ViewBag.Up = new SelectList(listup, "Up", "Designantion");
+           ViewBag.listup= new SelectList(listup, "Up", "Designantion");
             // Console.Out.WriteLine("erreur" + ViewData["listup"]);
             //  Debug.WriteLine(listup);
             //  Debug.WriteLine(ViewBag.Up);
