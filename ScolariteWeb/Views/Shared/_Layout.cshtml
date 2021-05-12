@@ -878,10 +878,10 @@
     <script src="~/template/plugins/datatables-buttons/js/buttons.print.min.js"></script>
     <script src="~/template/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
     <!-- DataTablesJQ -->
-    <!--<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
     <script src="~/template/dist/tableJQ.js"></script>
-    <script src="~/template/dist/tableJQT.js"></script>-->
+    <script src="~/template/dist/tableJQT.js"></script>
     @*<script>
             $(function () {
                 var t = $('#example').DataTable();
@@ -903,16 +903,153 @@
                 $('#addRow').click();
             });
         </script>*@
-    <script>
-        $(document).ready(function () {
-            $('#example').DataTable({
-                "ajax": {
-                    "url": "/Module/List",
-                    "dataSrc": "$('#item_table').serialize()"
-                }
+    @*<script>
+            $(document).ready(function () {
+                $.ajax({
+                    url: '/Module/GetAllDataApiJson',
+                    method: 'get',
+                    dataType: 'json',
+                    success: function (data) {
+                        $('#example').DataTable({
+                            data: data,
+                            columns: [
+                                {
+                                    "data": "CodeModule",
+                                    "width": "20%"
+                                },
+                                {
+                                    "data": "Description",
+                                    "width": "20%"
+                                },
+                                {
+                                    "data": "UE",
+                                    "width": "20%"
+                                },
+                                {
+                                    "data": "Annee",
+                                    "width": "20%"
+                                },
+                                {
+                                    "data": "UP",
+                                    "width": "20%"
+                                },
+                                {
+                                    "data": "NbHeures",
+                                    "width": "20%"
+                                },
+                                {
+                                    "data": "Etat",
+                                    "width": "20%"
+                                },
+                                {
+                                    "data": "Coef",
+                                    "width": "20%"
+                                },
+                                {
+                                    "data": "NumPanier",
+                                    "width": "20%"
+                                },
+                                {
+                                    "data": "AEvaluer",
+                                    "width": "20%"
+                                },
+                                {
+                                    "data": "TypeEpreuve",
+                                    "width": "20%"
+                                },
+                                {
+                                    "data": "CodeMatiere",
+                                    "width": "20%"
+                                },
+
+                                {
+                                    "data": "TypeEpreuve",
+                                    "width": "20%"
+                                },
+                                {
+                                    "data": "TypeModule",
+                                    "width": "20%"
+                                },
+
+                            ],
+                        });
+                    }
+                });
+        </script>*@
+
+    @*<script>
+            $(document).ready(function () {
+
+                $('#example').DataTable({
+                    "ajax": {
+                        "url": "/Module/GetAllDataApiJson",
+                        "type": "GET",
+                        "datatype": "json"
+
+                    },
+                    "columns": [
+                        {
+                            "data": "CodeModule"
+
+                        },
+                        {
+                            "data": "Description"
+
+                        },
+                        {
+                            "data": "UE"
+
+                        },
+                        {
+                            "data": "Annee"
+
+                        },
+                        {
+                            "data": "UP"
+
+                        },
+                        {
+                            "data": "NbHeures"
+
+                        },
+                        {
+                            "data": "Etat"
+
+                        },
+                        {
+                            "data": "Coef"
+
+                        },
+                        {
+                            "data": "NumPanier",
+                            "width": "20%"
+                        },
+                        {
+                            "data": "AEvaluer"
+
+                        },
+                        {
+                            "data": "TypeEpreuve"
+
+                        },
+                        {
+                            "data": "CodeMatiere"
+
+                        },
+
+                        {
+                            "data": "TypeEpreuve"
+
+                        },
+                        {
+                            "data": "TypeModule"
+
+                        }
+                    ]
+                });
             });
-        });
-    </script>
+        </script>*@
+
     <script>
         //$(document).ready(function () {
         //    var table = $('#example1').DataTable({
@@ -932,20 +1069,22 @@
             $("#example1").DataTable({
 
 
-
+                "scrollY": "200px",
+                "paging": false,
                 //  "paging":true,
                 "responsive": true,
                 "lengthChange": true,
                 "buttons": ["copy", "csv", "excel", "pdf", "print"]
-            }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+            })/*.buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)')*/;
 
 
 
-            $.ajax({
-                url: "/Module/List",
-                method: "GET",
-                //data: $('#item_table').serialize(),
-            });
+            //$.ajax({
+            //    url: "/Module/GetAllDataApiJson",
+            //    method: "GET",
+            //    datatype:"json",
+            //    data: $('#item_table').serialize(),
+            //});
 
         });
 
@@ -953,7 +1092,104 @@
 
 
     </script>
+    @*var oTable = $('#example').DataTable();
 
+        $('#example tbody').on( 'click', 'tr', function () {
+        $(this).toggleClass('selected');
+        var pos = oTable.row(this).index();
+        var row = oTable.row(pos).data();
+        console.log(row);
+        } );*@
+    <script>
+        $(document).ready(function () {
+            var table = $('#example').DataTable({
+
+
+                "scrollY": "200px",
+                "paging": false,
+                //  "paging":true,
+                "responsive": true,
+                "lengthChange": true,
+                //    "buttons": ["copy", "csv", "excel", "pdf", "print"]
+                //}).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+            });
+
+            $('#example tbody').on('click', 'tr', function () {
+
+
+
+                if ($(this).hasClass('selected')) {
+                    $(this).removeClass('selected');
+                }
+                else {
+                    table.$('tr.selected').removeClass('selected');
+                    $(this).addClass('selected');
+                }
+               
+                var pos = table.row(this).index();
+                var row = table.row(pos).data();
+              //  console.log(row);
+
+                var oData = table.rows('.selected').data();
+               
+                var id = $(this).find('td:eq(0)').text();
+                console.log(id);
+               
+            //    var DescriptionCl = $(this).find('td:eq(1)').val();
+             //   var SallePrincipale = $(this).find('td:eq(2)').val();
+            //  var data = { "id": CodeCl } "id=" + CodeCl,;
+                //'utilisateur=' + nom_user
+                $.ajax({
+                    //   var valeurCatégorie = <?= $categorieId ?>;
+                    url: "/Plan/GetPlanByCodeCl",
+                    method: "GET",
+                    data:" {'id': '" + id.value +"'}",
+                    dataType: "json",
+                    contentType: 'application/json; charset=utf-8',
+                  
+               
+                    //error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    //    alert("Request: " + XMLHttpRequest.toString() + "\n\nStatus: " + textStatus + "\n\nError: " + errorThrown);
+                    //},
+                    success: function (data) {
+                       
+                        console.log(data);
+
+                    //    $('#item_table').append(data);
+                    },
+                    error: function () {
+                        alert('Error occured');
+                    }
+                    
+                    
+                });
+               
+             //   console.log(result);
+                //var a = Details(CodeCl);
+                //console.log(a);
+             //   $('input[name="NumPanier"]').val(data[0]);
+                //var _tr = '<tr>< td >' + CodeCl + '</td>< td >' + DescriptionCl + '</td>< td >' + SallePrincipale + '</td></tr>';
+             //   $('#item_table tbody').append(_tr);
+                //  $('#item_table').append(_tr);
+                //for (var i = 0; i < row.length; i++) {
+                //    $('input[name="NumPanier"]').val(row[i][0]);
+                //    $('input[name="AnneeDeb"]').val(row[i][1]);
+                //    $('input[name="AnneeFin"]').val(row[i][2]);
+                    // alert("Name: " + oData[i][0] + " Position: " + oData[i][1] + " Office: " + oData[i][2]);
+                    //}
+                    //    $.ajax({
+                    //        url: "/Plan/Details",
+                    //        method: "get",
+                    //        data: $('#example').serialize(),
+
+                    //});
+                });
+
+
+
+
+        });
+    </script>
 
 
 

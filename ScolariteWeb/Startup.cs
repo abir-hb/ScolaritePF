@@ -33,11 +33,13 @@ namespace ScolariteWeb
             services.AddScoped<IServiceUE, ServiceUE>();
             services.AddScoped<IServiceUp, ServiceUp>();
             services.AddScoped<IPlanEService, PlanEService>();
+            services.AddTransient<ModelContext>();
             services.AddMvcCore();
             services.AddRazorPages();
             // optionsBuilder
             services.AddDbContext<ModelContext>(options =>
-        options.UseOracle(Configuration.GetConnectionString("oracledbCon")));
+        options.UseOracle(Configuration.GetConnectionString("oracledbCon")),
+             ServiceLifetime.Transient);
           //  services.AddDbContext<ModelContext>(options =>
       //    options.UseOracle(Configuration["Data:scopfeS:ConnectionString"]));
 

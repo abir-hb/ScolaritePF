@@ -15,7 +15,7 @@ namespace Scolarite.Service
         public static DataBaseFactory dbf = new DataBaseFactory();
         public static IUnitOfWork uow = new UnitOfWork(dbf);
         List<EspModule> modules = new List<EspModule>();
-        ModelContext context = new ModelContext();
+        ModelContext _context = new ModelContext();
         public ServiceModule() : base(uow) { }
 
         public void CreateModule(EspModule m)
@@ -57,8 +57,8 @@ namespace Scolarite.Service
             foreach(var i in modules)
             {
                 list.Add(i);
-                context.Entry(i).State = EntityState.Added;
-                context.SaveChanges();
+                _context.Entry(i).State = EntityState.Added;
+                _context.SaveChanges();
 
             }
             return modules;

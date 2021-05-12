@@ -62,10 +62,10 @@ namespace Scolarite.Data.Infrastructures
         {
             return dbset.Find(id);
         }
-        //public virtual IEnumerable<T> GetAll()
-        //{
-        //    return dbset.ToList();
-        //}
+        public virtual IEnumerable<T> GetAll()
+        {
+            return dbset.ToList();
+        }
 
         public virtual IEnumerable<T> GetMany(Expression<Func<T, bool>> where = null,
             Expression<Func<T, bool>> orderBy = null)
@@ -87,9 +87,9 @@ namespace Scolarite.Data.Infrastructures
             return dbset.Where(where).FirstOrDefault<T>();
         }
 
-        public IEnumerable<T> GetAll()
-        {
-            return dbset.ToList();
-        }
+        //public IEnumerable<T> GetAll()
+        //{
+        //    return dbset.ToList();
+        //}
     }
 }

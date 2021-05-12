@@ -1,0 +1,320 @@
+﻿@model IEnumerable<Scolarite.Domain.entities.Classe>
+
+@{
+    ViewData["Title"] = "ListClasse";
+}
+
+<head>
+    <meta charset="utf-8" />
+
+    <!-- DataTables add-->
+
+    <link href="~/template/dist/Table.min.css" rel="stylesheet" />
+    <link href="~/template/dist/css/dataTable.css" rel="stylesheet" />
+    <title>List</title>
+</head>
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="card-header">
+            <h3 class="card-title">LA LISTE DES ENSEIGNANTS  </h3>
+        </div>
+    </section>
+    <section class="content">
+
+        <div class="card">
+
+            <!-- /.card-header -->
+            <div class="card-body">
+                <table class="table table-striped border" id="example">
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.CodeCl)
+                            </th>
+
+                            <th>
+                                @Html.DisplayNameFor(model => model.DescriptionCl)
+                            </th>
+
+
+                            <th>
+                                @Html.DisplayNameFor(model => model.SallePrincipale)
+                            </th>
+                           
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.CodeCl)
+                                </td>
+
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.DescriptionCl)
+                                </td>
+
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.SallePrincipale)
+                                </td>
+
+                                @*<td> <button class="btn btn-light">@Html.ActionLink("DETAILS", "Details", new { id = item.CodeCl })</button></td>*@
+
+                            </tr>
+                        }
+                    </tbody>
+
+                </table>
+            </div>
+            <br />
+            <br />
+
+            <table>
+                <thead>
+                    <tr>
+
+                        <th>Code</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+
+                    <tr>
+                            <td></td>
+                        </tr>
+                    </tbody>
+            </table>
+            <div class="col-12 border p-3">
+                <form id="myform">
+                    @*<button type="button" name="add" class="btn btn-success" id="add">ADD</button>*@
+                    <table class="table table-bordered" id="item_table">
+                        <thead>
+                            <tr>
+                                <th>CodeModule</th>
+                                <th>NumPanier</th>
+                                <th>CodeCl</th>
+                                <th>AnneeDeb</th>
+                                <th>AnneeFin</th>
+                                <th>Description</th>
+                                <th>Nombre d'heure</th>
+                                <th>Coef</th>
+                                <th>NumSemestre</th>
+                                <th>NumPeriodfe</th>
+                                <th>DateDebut</th>
+                                <th>DateFin</th>
+                                <th>DateExamen</th>
+                                <th>NbHoraireRealises</th>
+                                <th>Acomptabiliser</th>
+                                <th>IdEns</th>
+                                <th>IdEns2</th>
+                                <th>NbHeuresEns</th>
+                                <th>NbHeuresEns2</th>
+                                <th>Surveillant</th>
+                                <th>HeureExam</th>
+                                <th>SalleExam</th>
+                                <th>Surveillant2</th>
+                                <th>SalleExam2</th>
+                                <th>Periode</th>
+                                <th>Numpromotioncs</th>
+                                <th>ApCs</th>
+                                <th>IdEns3</th>
+                                <th>IdEns4</th>
+                                <th>IdEns5</th>
+                                <th>CodeUe</th>
+                                <th>NbEcts</th>
+                                <th>Salle</th>
+                                <th>TypeEns</th>
+                                <th>DateRattrapage</th>
+                                <th>HeureRat</th>
+                                <th>Salle1Rat</th>
+                                <th>Salle2Rat</th>
+                                <th>DateRat</th>
+                                <th>DateCreation</th>
+                                <th>DaterLastMaj</th>
+                                <th>DesignationNew</th>
+                                <th>Chargep1add</th>
+                                <th>Chargep2add</th>
+                                <th>CodePlan</th>
+                                <th>Nbheuradd</th>
+                                <th>HeureFinSp</th>
+                                <th>Utilisateur</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                @*<td>@Html.DropDownList("CodeModule", (SelectList)ViewData["listModule"])</td>*@
+                                <td> <input type="text" class="form-control" id="NumPanier" name="NumPanier"></td>
+                                @*<td> @Html.DropDownList("CodeCl", (SelectList)ViewData["listClasse"])</td>*@
+                                <td><input type="text" class="form-control" id="AnneeDeb" name="AnneeDeb"></td>
+                                <td><input type="text" class="form-control" id="AnneeFin" name="AnneeFin"></td>
+                                <td> <input type="text" class="form-control" id="Description" name="Description"></td>
+                                <td> <input type="text" class="form-control" id="NbHeures" name="NbHeures"></td>
+                                <td> <input type="text" class="form-control" id="Coef" name="Coef"></td>
+                                <td> <input type="text" class="form-control" id="NumSemestre" name="NumSemestre"></td>
+                                <td> <input type="text" class="form-control" id="NumPeriodfe" name="NumPeriodfe"></td>
+                                <td> <input type="text" class="form-control" id="DateDebut" name="DateDebut"></td>
+                                <td> <input type="text" class="form-control" id="DateFin" name="DateFin"></td>
+                                <td> <input type="text" class="form-control" id="DateExamen" name="DateExamen"></td>
+                                <td> <input type="text" class="form-control" id="NbHoraireRealises" name="NbHoraireRealises"></td>
+                                <td> <input type="text" class="form-control" id="Acomptabiliser" name="Acomptabiliser"></td>
+                                @*<td> @Html.DropDownList("IdEns", (SelectList)ViewData["listEns"])</td>*@
+                                <td> <input type="text" class="form-control" id="IdEns2" name="IdEns2"></td>
+                                <td> <input type="text" class="form-control" id="NbHeuresEns" name="NbHeuresEns"></td>
+                                <td> <input type="text" class="form-control" id="NbHeuresEns2" name="NbHeuresEns2"></td>
+                                <td> <input type="text" class="form-control" id="Surveillant" name="Surveillant"></td>
+                                <td> <input type="text" class="form-control" id="HeureExam" name="HeureExam"></td>
+                                <td> <input type="text" class="form-control" id="SalleExam" name="SalleExam"></td>
+                                <td> <input type="text" class="form-control" id="Surveillant2" name="Surveillant2"></td>
+                                <td> <input type="text" class="form-control" id="SalleExam2" name="SalleExam2"></td>
+                                <td> <input type="text" class="form-control" id="Periode" name="Periode"></td>
+                                <td> <input type="text" class="form-control" id="Numpromotioncs" name="Numpromotioncs"></td>
+                                <td> <input type="text" class="form-control" id="ApCs" name="ApCs"></td>
+                                <td> <input type="text" class="form-control" id="IdEns3" name="IdEns3"></td>
+                                <td> <input type="text" class="form-control" id="IdEns4" name="IdEns4"></td>
+                                <td> <input type="text" class="form-control" id="IdEns5" name="IdEns5"></td>
+                                <td> <input type="text" class="form-control" id="CodeUe" name="CodeUe"></td>
+                                <td> <input type="text" class="form-control" id="NbEcts" name="NbEcts"></td>
+                                <td> <input type="text" class="form-control" id="Salle" name="Salle"></td>
+                                <td> <input type="text" class="form-control" id="TypeEns" name="TypeEns"></td>
+                                <td> <input type="text" class="form-control" id="DateRattrapage" name="DateRattrapage"></td>
+                                <td> <input type="text" class="form-control" id="HeureRat" name="HeureRat"></td>
+                                <td> <input type="text" class="form-control" id="Salle1Rat" name="Salle1Rat"></td>
+                                <td> <input type="text" class="form-control" id="Salle2Rat" name="Salle2Rat"></td>
+                                <td> <input type="text" class="form-control" id="DateRat" name="DateRat"></td>
+                                <td> <input type="text" class="form-control" id="DateCreation" name="DateCreation"></td>
+                                <td> <input type="text" class="form-control" id="DaterLastMaj" name="DaterLastMaj"></td>
+                                <td> <input type="text" class="form-control" id="DesignationNew" name="DesignationNew"></td>
+                                <td> <input type="text" class="form-control" id="Chargep1add" name="Chargep1add"></td>
+                                <td> <input type="text" class="form-control" id="Chargep2add" name="Chargep2add"></td>
+                                <td> <input type="text" class="form-control" id="CodePlan" name="CodePlan"></td>
+                                <td> <input type="text" class="form-control" id="Nbheuradd" name="Nbheuradd"></td>
+                                <td> <input type="text" class="form-control" id="HeureFinSp" name="HeureFinSp"></td>
+                                <td> <input type="text" class="form-control" id="HeureFinSr" name="HeureFinSr"></td>
+                                <td> <input type="text" class="form-control" id="Utilisateur" name="Utilisateur"></td>
+
+                            </tr>
+                        </tbody>
+
+                    </table>
+                    @*<center>
+                            <input class="btn btn-success" type="button" name="addd" id="add" value="Inserer">
+
+                        </center>*@
+                </form>
+                @*<table class="table table-striped border" id="item_table">
+                        <thead>
+                            <tr>
+                                <th>CodeModule</th>
+                                <th>NumPanier</th>
+                                <th>CodeCl</th>
+                                <th>AnneeDeb</th>
+                                <th>AnneeFin</th>
+                                <th>Description</th>
+                                <th>Nombre d'heure</th>
+                                <th>Coef</th>
+                                <th>NumSemestre</th>
+                                <th>NumPeriodfe</th>
+                                <th>DateDebut</th>
+                                <th>DateFin</th>
+                                <th>DateExamen</th>
+                                <th>NbHoraireRealises</th>
+                                <th>Acomptabiliser</th>
+                                <th>IdEns</th>
+                                <th>IdEns2</th>
+                                <th>NbHeuresEns</th>
+                                <th>NbHeuresEns2</th>
+                                <th>Surveillant</th>
+                                <th>HeureExam</th>
+                                <th>SalleExam</th>
+                                <th>Surveillant2</th>
+                                <th>SalleExam2</th>
+                                <th>Periode</th>
+                                <th>Numpromotioncs</th>
+                                <th>ApCs</th>
+                                <th>IdEns3</th>
+                                <th>IdEns4</th>
+                                <th>IdEns5</th>
+                                <th>CodeUe</th>
+                                <th>NbEcts</th>
+                                <th>Salle</th>
+                                <th>TypeEns</th>
+                                <th>DateRattrapage</th>
+                                <th>HeureRat</th>
+                                <th>Salle1Rat</th>
+                                <th>Salle2Rat</th>
+                                <th>DateRat</th>
+                                <th>DateCreation</th>
+                                <th>DaterLastMaj</th>
+                                <th>DesignationNew</th>
+                                <th>Chargep1add</th>
+                                <th>Chargep2add</th>
+                                <th>CodePlan</th>
+                                <th>Nbheuradd</th>
+                                <th>HeureFinSp</th>
+                                <th>Utilisateur</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+
+                    </table>*@
+
+            </div>
+        </div>
+    </section>
+</div>
+
+@*<script>
+        $(document).ready(function () {
+            var table = $('#example').DataTable({
+
+
+                "scrollY": "200px",
+                "paging": false,
+                //  "paging":true,
+                "responsive": true,
+                "lengthChange": true,
+                //    "buttons": ["copy", "csv", "excel", "pdf", "print"]
+                //}).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+            });
+
+            $('#example tbody').on('click', 'tr', function () {
+                if ($(this).hasClass('selected')) {
+                    $(this).removeClass('selected');
+                }
+                else {
+                    table.$('tr.selected').removeClass('selected');
+                    $(this).addClass('selected');
+                }
+                var pos = table.row(this).index();
+                var row = table.row(pos).data();
+                console.log(row);
+                var oData = table.rows('.selected').data();
+                var CodeCl = $(this).find('td:eq(0)').val();
+                var DescriptionCl = $(this).find('td:eq(1)').val();
+                var SallePrincipale = $(this).find('td:eq(2)').val();
+               // $('input[name="NumPanier"]').val(CodeCl);
+                var _tr = '<tr>< td >' + CodeCl + '</td>< td >' + DescriptionCl + '</td>< td >' + SallePrincipale + '</td></tr>';
+                $('tbody').append(_tr);
+             //  $('#item_table').append(_tr);
+
+               // for (var i = 0; i < oData.length; i++) {
+                //   alert("Name: " + oData[i][0] + " Position: " + oData[i][1] + " Office: " + oData[i][2]);
+                //}
+                //    $.ajax({
+                //        url: "/Plan/Details",
+                //        method: "get",
+                //        data: $('#example').serialize(),
+
+                //});
+            });
+
+
+
+
+        });
+</script>*@

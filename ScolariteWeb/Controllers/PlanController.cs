@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 using Scolarite.Domain.entities;
 using Scolarite.Service;
 using System;
@@ -8,17 +9,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
+
 namespace ScolariteWeb.Controllers
 {
     public class PlanController : Controller
 
     {
+        
         private readonly IPlanEService ps;
         private readonly IServiceClasse se;
         private readonly IServiceENS ens;
         private readonly IServiceModule sm;
         ModelContext context = new ModelContext();
-
+        List<EspModulePanierClasseSaiso> plans = new List<EspModulePanierClasseSaiso>();
 
         public PlanController(IPlanEService servicePlan, IServiceClasse serviceClasse, IServiceENS serviceEns, IServiceModule serviceModule)
         {
@@ -28,6 +31,11 @@ namespace ScolariteWeb.Controllers
             sm = serviceModule;
         }
 
+        public IActionResult ListClasse()
+
+        {
+            return View(se.GetAll());
+        }
 
 
         // GET: PlanController
@@ -37,20 +45,24 @@ namespace ScolariteWeb.Controllers
         }
 
         // GET: PlanController/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
+        //public ActionResult Details(int id)
+        //{
+        //    return View();
+        //}
 
         // GET: PlanController/Create
         public ActionResult Create()
+
         {
+
+            var listModule = sm.GetAll();
             var listClasse = se.GetAll();
             var listEns = ens.GetAll();
-            var listModule = sm.GetAll();
+
+            ViewBag.CodeModule = new SelectList(listModule, "CodeModule", "CodeModule");
             ViewBag.CodeCl = new SelectList(listClasse, "CodeCl", "CodeCl");
-            ViewBag.IdEns = new SelectList(listEns, "IdEns", "NomEns");
-            ViewBag.CodeModule = new SelectList(listModule, "CodeModule", "Designation");
+            ViewBag.IdEns = new SelectList(listEns, "IdEns", "IdEns");
+            
 
 
             EspModulePanierClasseSaiso em = new EspModulePanierClasseSaiso();
@@ -59,22 +71,43 @@ namespace ScolariteWeb.Controllers
 
         // POST: PlanController/Create
         [HttpPost]
-        [ValidateAntiForgeryToken]
+        //[ValidateAntiForgeryToken]
         public ActionResult Create(EspModulePanierClasseSaiso em)
         {
-            try
+
+          
+
+            EspModulePanierClasseSaiso list = new EspModulePanierClasseSaiso
             {
-                ps.CreatePlan(em);
-                // ViewBag.message("succes");
-                return RedirectToAction("List");
+                
+                CodeModule=em.CodeModule,
+                CodeCl=em.CodeCl,
+                AnneeDeb=em.AnneeDeb,
+                NumSemestre=em.NumSemestre,
+                         
 
-            }
-            catch
-            {
+            };
 
-                return View();
 
-            }
+           // list.Add(em);
+            ps.CreatePlan(list);
+          // context.Entry(em).State = EntityState.Added;
+         //   ps.Commit();
+           // context.SaveChanges();
+            return View();
+            //try
+            //{
+            //    ps.CreatePlan(em);
+            //    // ViewBag.message("succes");
+            //    return RedirectToAction("List");
+
+            //}
+            //catch
+            //{
+
+            //    return View();
+
+            //}
         }
 
         // GET: PlanController/Edit/5
@@ -126,17 +159,51 @@ namespace ScolariteWeb.Controllers
                 return View();
             }
         }
+       
+        [HttpGet]
+        public async Task<IActionResult> GetPlanByCodeCl(string id)
+        {
+            List<EspModulePanierClasseSaiso> listp= (List<EspModulePanierClasseSaiso>)ps.GetAll();
+
+            //   Console.WriteLine(Json(new { data = ps.GetPlanByC(id, listp) }));
+          //  ICollection<EspModulePanierClasseSaiso> list=  ps.GetPlanByC(id, listp);
+            //   return Json(new { data = ps.GetPlanByC(id,listp)});
+            //  return Json(plan, System.Web.Mvc.JsonRequestBehavior.AllowGet);
+            return Json(new { data = await context.EspModulePanierClasseSaiso.FindAsync(id) });
+         
+        //   var plan = ps.GetPlanByC(id, (ICollection<EspModulePanierClasseSaiso>)ps.GetAll());
+            //var plan = se.GetAll().FirstOrDefault(p => p.CodeCl == id);
+            //return Json(new { data = plan });
+            //    await context.EspModulePanierClasseSaiso.FirstOrDefaultAsync(p=>p.CodeCl==id) ;
+            //Console.WriteLine(plan);
+           // return Json(plan);
+        }
     
-    public ActionResult MainView()
+    [HttpGet]
+        public async Task<IActionResult> GetDataApiJson(string id)
+        {
+            return Json(new { data = await context.EspModulePanierClasseSaiso.FindAsync(id) });
+
+
+        }
+        //public ActionResult Details(String CodeCl)
+
+
+        //{
+        //    EspModulePanierClasseSaiso panier = ps.GetPlanByC(CodeCl);
+
+        //    return View(panier);
+        //}
+        public ActionResult MainView()
     {
         return View(); //this is main page.We will display  "_AddMorePartialView" partial page on this main page
     }
-    public ActionResult AddMorePartialView()
+    public ActionResult CreatePlan()
     {
         //this  action page is support cal the partial page.
         //We will call this action by view page.This Action is return partial page
         EspModulePanierClasseSaiso model = new EspModulePanierClasseSaiso();
-        return PartialView("_AddMorePartialView", model);
+        return PartialView("CreatePlan", model);
         //^this is actual partical page we have 
         //create on this page in Home Controller as given below image
     }

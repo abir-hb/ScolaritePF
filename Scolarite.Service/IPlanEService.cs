@@ -11,7 +11,11 @@ namespace Scolarite.Service
 
 
         public EspModulePanierClasseSaiso GetPlanByID(string planId);
-       void Delete(string id);
+        public EspModulePanierClasseSaiso GetPlanByClasse(string planId);
+        public EspModulePanierClasseSaiso GetPlanByClasse1(string id);
+        public EspModulePanierClasseSaiso GetPlanByC(String id, ICollection<EspModulePanierClasseSaiso> listC);
+
+        void Delete(string id);
 
        void CreatePlan(EspModulePanierClasseSaiso e);
       void UpdatePlan(EspModulePanierClasseSaiso e);

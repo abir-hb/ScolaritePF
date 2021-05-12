@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Scolarite.Service
 {
@@ -12,10 +13,11 @@ namespace Scolarite.Service
     {
         public static DataBaseFactory dbf = new DataBaseFactory();
         public static IUnitOfWork uow = new UnitOfWork(dbf);
+        private ModelContext context;
         List<EspModulePanierClasseSaiso> plans = new List<EspModulePanierClasseSaiso>();
         public PlanEService() : base(uow)
         {
-
+            
         }
 
         public void CreateList(List<EspModulePanierClasseSaiso> listPlan)
@@ -45,10 +47,42 @@ namespace Scolarite.Service
             plans.Remove(plan);
           
         }
+        //public Task<EspModulePanierClasseSaiso> GetPlan(String id,ICollection<EspModulePanierClasseSaiso> listC)
+        //{
+        //    List<EspModulePanierClasseSaiso> ListP = (List<EspModulePanierClasseSaiso>)GetAll();
+
+        //    return context.EspModulePanierClasseSaiso.Where<(n => n.CodeCl.Equals(id)>);
+        //}
+
+
+        public EspModulePanierClasseSaiso GetPlanByC(String id , ICollection<EspModulePanierClasseSaiso> listC)
+        {
+
+           
+            //EspModulePanierClasseSaiso plan = GetAll().Where(prov => prov.CodeCl == id).FirstOrDefault();
+            //Console.WriteLine(id);
+            //Console.WriteLine(GetAll());
+            //return (plan);
+            //linq
+            //return (from prov in listC
+            //        where prov.CodeCl == id
+            //        select prov).FirstOrDefault();
+            //lambda
+              return listC.Where(prov => prov.CodeCl.Equals(id)).FirstOrDefault();
+        }
 
         public EspModulePanierClasseSaiso GetPlanByID(string planId)
         {
             return GetAll().FirstOrDefault(c => c.CodeModule == planId);
+        }
+        public EspModulePanierClasseSaiso GetPlanByClasse1(string id)
+        {
+            var plan = plans.FirstOrDefault(p => p.CodeCl == id);
+            return (plan);
+        }
+        public EspModulePanierClasseSaiso GetPlanByClasse(string planId)
+        {
+            return GetAll().FirstOrDefault(c => c.CodeCl == planId);
         }
 
         public void UpdatePlan(EspModulePanierClasseSaiso e)

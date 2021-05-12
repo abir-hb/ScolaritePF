@@ -459,8 +459,9 @@
                                                 @Html.DisplayFor(modelItem => item.IdEnsNavigation.IdEns)
                                             </td>
                                             <td>
+                                              
                                                 <button class="btn btn-light">@Html.ActionLink("SUPPRIMER", "Delete", new { id = item.CodeModule })</button>
-                                                <button class="btn btn-light">@Html.ActionLink("DETAILS", "Delete", new { id = item.CodeModule })</button>
+                                                <button class="btn btn-light">@Html.ActionLink("DETAILS", "Details", new { id = item.CodeCl })</button>
                                                 <button class="btn btn-light">@Html.ActionLink("MODIFIER", "Edit", new { id = item.CodeModule })</button>
 
                                             </td>

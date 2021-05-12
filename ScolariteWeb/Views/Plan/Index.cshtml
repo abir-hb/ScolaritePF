@@ -1,0 +1,324 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+
+    <!-- DataTables add-->
+
+    <link href="~/template/dist/Table.min.css" rel="stylesheet" />
+    <link href="~/template/dist/css/dataTable.css" rel="stylesheet" />
+    <title>List</title>
+</head>
+<body>
+
+
+    <div class="content-wrapper">
+     
+        <div class="container">
+            <br />
+            <br />
+
+
+            <form id="myform" method="post">
+                @*<button type="button" name="add" class="btn btn-success" id="add">ADD</button>*@
+                <table class="table table-bordered" id="item_table">
+
+                    <tr>
+                        <th>CodeModule</th>
+                        <th>NumPanier</th>
+                        <th>CodeCl</th>
+                        <th>AnneeDeb</th>
+                        <th>AnneeFin</th>
+                        <th>Description</th>
+                        <th>Nombre d'heure</th>
+                        <th>Coef</th>
+                        <th>NumSemestre</th>
+                        <th>NumPeriodfe</th>
+                        <th>DateDebut</th>
+                        <th>DateFin</th>
+                        <th>DateExamen</th>
+                        <th>NbHoraireRealises</th>
+                        <th>Acomptabiliser</th>
+                        <th>IdEns</th>
+                        <th>IdEns2</th>
+                        <th>NbHeuresEns</th>
+                        <th>NbHeuresEns2</th>
+                        <th>Surveillant</th>
+                        <th>HeureExam</th>
+                        <th>SalleExam</th>
+                        <th>Surveillant2</th>
+                        <th>SalleExam2</th>
+                        <th>Periode</th>
+                        <th>Numpromotioncs</th>
+                        <th>ApCs</th>
+                        <th>IdEns3</th>
+                        <th>IdEns4</th>
+                        <th>IdEns5</th>
+                        <th>CodeUe</th>
+                        <th>NbEcts</th>
+                        <th>Salle</th>
+                        <th>TypeEns</th>
+                        <th>DateRattrapage</th>
+                        <th>HeureRat</th>
+                        <th>Salle1Rat</th>
+                        <th>Salle2Rat</th>
+                        <th>DateRat</th>
+                        <th>DateCreation</th>
+                        <th>DaterLastMaj</th>
+                        <th>DesignationNew</th>
+                        <th>Chargep1add</th>
+                        <th>Chargep2add</th>
+                        <th>CodePlan</th>
+                        <th>Nbheuradd</th>
+                        <th>HeureFinSp</th>
+                        <th>Utilisateur</th>
+                    </tr>
+                    <tr>
+
+
+                        <td>@Html.DropDownList("CodeModule", (SelectList)ViewData["listModule"])</td>
+                        <td> <input type="text" class="form-control" id="NumPanier" name="NumPanier"></td>
+                        <td> @Html.DropDownList("CodeCl", (SelectList)ViewData["listClasse"])</td>
+                        <td> <input type="text" class="form-control" id="AnneeDeb" name="AnneeDeb"></td>
+                        <td> <input type="number" class="form-control" id="AnneeFin" name="AnneeFin"></td>
+                        <td> <input type="text" class="form-control" id="Description" name="Description"></td>
+                        <td> <input type="number" class="form-control" id="NbHeures" name="NbHeures"></td>
+                        <td> <input type="text" class="form-control" id="Coef" name="Coef"></td>
+                        <td> <input type="text" class="form-control" id="NumSemestre" name="NumSemestre"></td>
+                        <td> <input type="text" class="form-control" id="NumPeriodfe" name="NumPeriodfe"></td>
+                        <td> <input type="text" class="form-control" id="DateDebut" name="DateDebut"></td>
+                        <td> <input type="text" class="form-control" id="DateFin" name="DateFin"></td>
+                        <td> <input type="text" class="form-control" id="DateExamen" name="DateExamen"></td>
+                        <td> <input type="text" class="form-control" id="NbHoraireRealises" name="NbHoraireRealises"></td>
+                        <td> <input type="text" class="form-control" id="Acomptabiliser" name="Acomptabiliser"></td>
+                        <td> @Html.DropDownList("IdEns", (SelectList)ViewData["listEns"])</td>
+                        <td> <input type="text" class="form-control" id="IdEns2" name="IdEns2"></td>
+                        <td> <input type="text" class="form-control" id="NbHeuresEns" name="NbHeuresEns"></td>
+                        <td> <input type="text" class="form-control" id="NbHeuresEns2" name="NbHeuresEns2"></td>
+                        <td> <input type="text" class="form-control" id="Surveillant" name="Surveillant"></td>
+                        <td> <input type="text" class="form-control" id="HeureExam" name="HeureExam"></td>
+                        <td> <input type="text" class="form-control" id="SalleExam" name="SalleExam"></td>
+                        <td> <input type="text" class="form-control" id="Surveillant2" name="Surveillant2"></td>
+                        <td> <input type="text" class="form-control" id="SalleExam2" name="SalleExam2"></td>
+                        <td> <input type="text" class="form-control" id="Periode" name="Periode"></td>
+                        <td> <input type="text" class="form-control" id="Numpromotioncs" name="Numpromotioncs"></td>
+                        <td> <input type="text" class="form-control" id="ApCs" name="ApCs"></td>
+                        <td> <input type="text" class="form-control" id="IdEns3" name="IdEns3"></td>
+                        <td> <input type="text" class="form-control" id="IdEns4" name="IdEns4"></td>
+                        <td> <input type="text" class="form-control" id="IdEns5" name="IdEns5"></td>
+                        <td> <input type="text" class="form-control" id="CodeUe" name="CodeUe"></td>
+                        <td> <input type="text" class="form-control" id="NbEcts" name="NbEcts"></td>
+                        <td> <input type="text" class="form-control" id="Salle" name="Salle"></td>
+                        <td> <input type="text" class="form-control" id="TypeEns" name="TypeEns"></td>
+                        <td> <input type="text" class="form-control" id="DateRattrapage" name="DateRattrapage"></td>
+                        <td> <input type="text" class="form-control" id="HeureRat" name="HeureRat"></td>
+                        <td> <input type="text" class="form-control" id="Salle1Rat" name="Salle1Rat"></td>
+                        <td> <input type="text" class="form-control" id="Salle2Rat" name="Salle2Rat"></td>
+                        <td> <input type="text" class="form-control" id="DateRat" name="DateRat"></td>
+                        <td> <input type="text" class="form-control" id="DateCreation" name="DateCreation"></td>
+                        <td> <input type="text" class="form-control" id="DaterLastMaj" name="DaterLastMaj"></td>
+                        <td> <input type="text" class="form-control" id="DesignationNew" name="DesignationNew"></td>
+                        <td> <input type="text" class="form-control" id="Chargep1add" name="Chargep1add"></td>
+                        <td> <input type="text" class="form-control" id="Chargep2add" name="Chargep2add"></td>
+                        <td> <input type="text" class="form-control" id="CodePlan" name="CodePlan"></td>
+                        <td> <input type="text" class="form-control" id="Nbheuradd" name="Nbheuradd"></td>
+                        <td> <input type="text" class="form-control" id="HeureFinSp" name="HeureFinSp"></td>
+                        <td> <input type="text" class="form-control" id="HeureFinSr" name="HeureFinSr"></td>
+                        <td> <input type="text" class="form-control" id="Utilisateur" name="Utilisateur"></td>
+
+                    </tr>
+
+                </table>
+                <center>
+                    <input class="btn btn-success" type="button" name="addd" id="add" value="Inserer">
+
+                </center>
+            </form>
+            <br />
+            <br />
+
+            <div class="col-12 border p-3">
+
+                <table class="table table-striped border">
+                    <thead>
+                        <tr>
+                            <th>CodeModule</th>
+                            <th>NumPanier</th>
+                            <th>CodeCl</th>
+                            <th>AnneeDeb</th>
+                            <th>AnneeFin</th>
+                            <th>Description</th>
+                            <th>Nombre d'heure</th>
+                            <th>Coef</th>
+                            <th>NumSemestre</th>
+                            <th>NumPeriodfe</th>
+                            <th>DateDebut</th>
+                            <th>DateFin</th>
+                            <th>DateExamen</th>
+                            <th>NbHoraireRealises</th>
+                            <th>Acomptabiliser</th>
+                            <th>IdEns</th>
+                            <th>IdEns2</th>
+                            <th>NbHeuresEns</th>
+                            <th>NbHeuresEns2</th>
+                            <th>Surveillant</th>
+                            <th>HeureExam</th>
+                            <th>SalleExam</th>
+                            <th>Surveillant2</th>
+                            <th>SalleExam2</th>
+                            <th>Periode</th>
+                            <th>Numpromotioncs</th>
+                            <th>ApCs</th>
+                            <th>IdEns3</th>
+                            <th>IdEns4</th>
+                            <th>IdEns5</th>
+                            <th>CodeUe</th>
+                            <th>NbEcts</th>
+                            <th>Salle</th>
+                            <th>TypeEns</th>
+                            <th>DateRattrapage</th>
+                            <th>HeureRat</th>
+                            <th>Salle1Rat</th>
+                            <th>Salle2Rat</th>
+                            <th>DateRat</th>
+                            <th>DateCreation</th>
+                            <th>DaterLastMaj</th>
+                            <th>DesignationNew</th>
+                            <th>Chargep1add</th>
+                            <th>Chargep2add</th>
+                            <th>CodePlan</th>
+                            <th>Nbheuradd</th>
+                            <th>HeureFinSp</th>
+                            <th>Utilisateur</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+
+
+
+    @*<script>
+                $(document).ready(function () {
+
+                    $('#example2').DataTable({
+                        "ajax": {
+                            "url": "/Module/GetAllDataApiJson",
+                            "method": "GET",
+                            "dataType": "json",
+                            "data":""
+                        },
+
+                        "columns": [
+                            { "data": CodeModule },
+                            { "data": Designation },
+                            { "data": "Description" },
+                            { "data": "NbHeures" },
+                            { "data": "Etat" },
+                            { "data": "Up" },
+                            { "data": "Coef" },
+                            { "data": "NumPanier" },
+                            { "data": "AEvaluer" },
+                            { "data": "TypeEpreuve" },
+                            { "data": "CodeMatiereEduserv" },
+                            { "data": "TypeEpreuveSr" },
+                            { "data": "TypeModule" },
+                            { "data": "CodeUe" },
+                            { "data": "AnneeDeb" }
+                        ]
+
+
+                    });
+                });
+        </script>*@
+
+    <script>
+        $(function () {
+            $('#add').click(function () {
+
+                var CodeModule = $("#CodeModule").val();
+                var NumPanier = $('input[name="NumPanier"]').val();
+                var CodeCl = $("#CodeCl").val();
+                var AnneeDeb = $('input[name="AnneeDeb"]').val();
+                var AnneeFin = $('input[name="AnneeFin"]').val();
+                var Description = $('input[name="Description"]').val();
+                var NbHeures = $('input[name="NbHeures"]').val();
+                var Coef = $('input[name="Coef"]').val();
+                var NumSemestre = $('input[name="NumSemestre"]').val();
+                var NumPeriodfe = $('input[name="NumPeriodfe"]').val();
+                var DateDebut = $('input[name="DateDebut"]').val();
+                var DateFin = $('input[name="DateFin"]').val();
+                var DateExamen = $('input[name="DateExamen"]').val();
+                var NbHoraireRealises = $('input[name="NbHoraireRealises"]').val();
+                var Acomptabiliser = $('input[name="Acomptabiliser"]').val();
+                var IdEns = $("#IdEns").val();
+                var IdEns2 = $('input[name="IdEns2"]').val();
+                var NbHeuresEns = $('input[name="NbHeuresEns"]').val();
+                var NbHeuresEns2 = $('input[name="NbHeuresEns2"]').val();
+                var Surveillant = $('input[name="Surveillant"]').val();
+                var HeureExam = $('input[name="HeureExam"]').val();
+                var SalleExam = $('input[name="SalleExam"]').val();
+                var Surveillant2 = $('input[name="Surveillant2"]').val();
+                var SalleExam2 = $('input[name="SalleExam2"]').val();
+                var Periode = $('input[name="Periode"]').val();
+                var ApCs = $('input[name="ApCs"]').val();
+                var Numpromotioncs = $('input[name="Numpromotioncs"]').val();
+                var IdEns3 = $('input[name="IdEns3"]').val();
+                var IdEns4 = $('input[name="IdEns4"]').val();
+                var IdEns5 = $('input[name="IdEns5"]').val();
+                var CodeUe = $('input[name="CodeUe"]').val();
+                var NbEcts = $('input[name="NbEcts"]').val();
+                var Salle = $('input[name="Salle"]').val
+                var TypeEns = $('input[name="TypeEns"]').val();
+                var DateRattrapage = $('input[name="DateRattrapage"]').val();
+                var HeureRat = $('input[name="HeureRat"]').val();
+                var Salle1Rat = $('input[name="Salle1Rat"]').val
+                var Salle2Rat = $('input[name="Salle2Rat"]').val();
+                var DateRat = $('input[name="DateRat"]').val();
+                var DateCreation = $('input[name="DateCreation"]').val();
+                var DaterLastMaj = $('input[name="DaterLastMaj"]').val();
+                var DesignationNew = $('input[name="DesignationNew"]').val();
+                var Chargep1add = $('input[name="Chargep1add"]').val();
+                var Chargep2add = $('input[name="Chargep2add"]').val();
+                var CodePlan = $('input[name="CodePlan"]').val();
+                var Nbheuradd = $('input[name="Nbheuradd"]').val();
+                var HeureFinSp = $('input[name="CodePlan"]').val();
+                var Utilisateur = $('input[name="Utilisateur"]').val();
+
+
+
+                var _tr = '<tr>< td >' + CodeModule + '</td><td>' + NumPanier + '</td><td>' + CodeCl + '</td><td>' + AnneeDeb + '</td><td>' + AnneeFin + '</td><td>' + Description + '</td>< td >' + NbHeures + '</td><td>' + Coef + '</td><td>' + NumSemestre + '</td><td>' + NumPeriodfe + '</td><td>' + DateDebut + '</td><td>' + DateFin + '</td><td>' + DateExamen + '</td><td>' + NbHoraireRealises + '</td><td>' + Acomptabiliser + '</td><td>' + IdEns + '</td><td>' + IdEns2 + '</td><td>' + NbHeuresEns + '</td><td>' + NbHeuresEns2 + '</td><td>' + Surveillant + '</td><td>' + HeureExam + '</td><td>' + SalleExam + '</td><td>' + Surveillant2 + '</td><td>' + SalleExam2 + '</td><td>' + Periode + '</td><td>' + Numpromotioncs + '</td><td>' + ApCs + '</td><td>' + IdEns3 + '</td><td>' + IdEns4 + '</td><td>' + IdEns5 + '</td><td>' + CodeUe + '</td><td>' + NbEcts + '</td><td>' + Salle + '</td><td>' + TypeEns + '</td><td>' + DateRattrapage + '</td><td>' + HeureRat + '</td><td>' + Salle1Rat + '</td><td>' + Salle2Rat + '</td><td>' + DateRat + '</td><td>' + DateCreation + '</td><td>' + DaterLastMaj + '</td><td>' + DesignationNew + '</td><td>' + Chargep1add + '</td><td>' + Chargep2add + '</td><td>' + CodePlan + '</td><td>' + Nbheuradd + '</td><td>' + HeureFinSp + '</td><td>' + Utilisateur + '</td></tr>';
+                $('tbody').append(_tr);
+                //  $('#item_table').append(_tr);
+
+                $.ajax({
+                    url: "/Plan/Create",
+                    method: "post",
+                    data: $('#myform').serialize(),
+                });
+            });
+
+
+
+        });
+    </script>
+
+
+
+
+    }
+</body>
+</html>

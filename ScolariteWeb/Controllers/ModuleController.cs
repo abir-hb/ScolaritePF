@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace ScolariteWeb.Controllers
 {
@@ -17,7 +18,7 @@ namespace ScolariteWeb.Controllers
         private readonly IServiceUE se;
         private readonly IServiceUp sp;
 
-        ModelContext context = new ModelContext();
+        private readonly ModelContext context;
         //  List<EspUp> ups = new List<EspUp>();
         public IEnumerable<EspModule> modules { get; set; }
         public ModuleController(IServiceModule serviceModule, IServiceUE serviceUE, IServiceUp serviceUp, ModelContext ctx)
@@ -27,12 +28,24 @@ namespace ScolariteWeb.Controllers
             sp = serviceUp;
             context = ctx;
         }
+        //url : /Module/GetAllDataApiJson
+        [HttpGet]
+
+        public async Task<IActionResult> GetAllDataApiJson()
+        {
+            return Json(new { data = await context.EspModule.ToListAsync() });
 
 
+        }
+
+        [HttpGet]
         public IActionResult List()
 
         {
-            return View(sm.GetAll());
+            var listeModule = sm.GetAll();
+            ViewBag.CodeModule = new SelectList(listeModule, "CodeModule", "CodeModule");
+            return View();
+            //   return View(context.)
         }
 
 
