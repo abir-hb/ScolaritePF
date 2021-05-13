@@ -55,7 +55,7 @@ namespace Scolarite.Service
         //}
 
 
-        public EspModulePanierClasseSaiso GetPlanByC(String id , ICollection<EspModulePanierClasseSaiso> listC)
+        public EspModulePanierClasseSaiso GetPlanByC(String id , List<EspModulePanierClasseSaiso> listC)
         {
 
            
@@ -77,12 +77,12 @@ namespace Scolarite.Service
         }
         public EspModulePanierClasseSaiso GetPlanByClasse1(string id)
         {
-            var plan = plans.FirstOrDefault(p => p.CodeCl == id);
+            var plan = plans.FirstOrDefault(p => p.CodeCl.Equals(id));
             return (plan);
         }
         public EspModulePanierClasseSaiso GetPlanByClasse(string planId)
         {
-            return GetAll().FirstOrDefault(c => c.CodeCl == planId);
+            return GetAll().FirstOrDefault(c => c.CodeCl.Equals(planId));
         }
 
         public void UpdatePlan(EspModulePanierClasseSaiso e)

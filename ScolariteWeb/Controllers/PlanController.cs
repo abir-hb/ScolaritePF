@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json.Linq;
 using Scolarite.Domain.entities;
 using Scolarite.Service;
 using System;
@@ -159,27 +160,45 @@ namespace ScolariteWeb.Controllers
                 return View();
             }
         }
-       
-        [HttpGet]
-        public async Task<IActionResult> GetPlanByCodeCl(string id)
-        {
-            List<EspModulePanierClasseSaiso> listp= (List<EspModulePanierClasseSaiso>)ps.GetAll();
 
+       [HttpGet]
+        public  JsonResult GetPlanByCodeCl(string id)
+        {
+           
+            List<EspModulePanierClasseSaiso> listp = (List<EspModulePanierClasseSaiso>)ps.GetAll();
+          ///////////  EspModulePanierClasseSaiso panierk = new EspModulePanierClasseSaiso();
+
+            //foreach(var i in listp)
+            //   {
+            //       if (i.CodeCl.Equals(id))
+            //       {
+            //           panierk = ps.GetPlanByClasse(id);
+
+            //       }
+            //   }
+
+              EspModulePanierClasseSaiso result = listp.Where(m => m.CodeCl.Equals(id)).FirstOrDefault();
+            //   EspModulePanierClasseSaiso panier = ps.GetPlanByC(id, listp);
             //   Console.WriteLine(Json(new { data = ps.GetPlanByC(id, listp) }));
-          //  ICollection<EspModulePanierClasseSaiso> list=  ps.GetPlanByC(id, listp);
+            //  ICollection<EspModulePanierClasseSaiso> list=  ps.GetPlanByC(id, listp);
             //   return Json(new { data = ps.GetPlanByC(id,listp)});
             //  return Json(plan, System.Web.Mvc.JsonRequestBehavior.AllowGet);
-            return Json(new { data = await context.EspModulePanierClasseSaiso.FindAsync(id) });
-         
-        //   var plan = ps.GetPlanByC(id, (ICollection<EspModulePanierClasseSaiso>)ps.GetAll());
+            //  EspModulePanierClasseSaiso result = listp.Where(m => m.CodeCl == id).FirstOrDefault();
+
+       ///////////////// return Json(result);
+            //return Json(listp, System.Web.Mvc.JsonRequestBehavior.AllowGet);
+            //   var plan = ps.GetPlanByC(id, (ICollection<EspModulePanierClasseSaiso>)ps.GetAll());
             //var plan = se.GetAll().FirstOrDefault(p => p.CodeCl == id);
             //return Json(new { data = plan });
             //    await context.EspModulePanierClasseSaiso.FirstOrDefaultAsync(p=>p.CodeCl==id) ;
             //Console.WriteLine(plan);
-           // return Json(plan);
+            // return Json(plan);
+
+            //  return Json(new { data = context.EspModulePanierClasseSaiso.Where(m => m.CodeCl.Equals(id)).FirstOrDefault() });
+         return Json(new { data = context.EspModulePanierClasseSaiso.FindAsync(id,1,"SR-12","2020")});
         }
-    
-    [HttpGet]
+
+        [HttpGet]
         public async Task<IActionResult> GetDataApiJson(string id)
         {
             return Json(new { data = await context.EspModulePanierClasseSaiso.FindAsync(id) });

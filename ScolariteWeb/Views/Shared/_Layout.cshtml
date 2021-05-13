@@ -1143,18 +1143,24 @@
                     //   var valeurCatégorie = <?= $categorieId ?>;
                     url: "/Plan/GetPlanByCodeCl",
                     method: "GET",
-                    data:" {'id': '" + id.value +"'}",
+                    data: { "id": id } ,
                     dataType: "json",
-                    contentType: 'application/json; charset=utf-8',
+                   
+                   //contentType: 'application/json; charset=utf-8',
                   
                
                     //error: function (XMLHttpRequest, textStatus, errorThrown) {
                     //    alert("Request: " + XMLHttpRequest.toString() + "\n\nStatus: " + textStatus + "\n\nError: " + errorThrown);
                     //},
                     success: function (data) {
-                       
-                        console.log(data);
+                        for (var i = 0; i < data.length; i++) {
+                            $('input[name="NumPanier"]').val(data[i][0]);
+                            $('input[name="AnneeDeb"]').val(data[i][1]);
+                            $('input[name="AnneeFin"]').val(data[i][2]);
+                          
+                        }
 
+                        console.log(data);
                     //    $('#item_table').append(data);
                     },
                     error: function () {
