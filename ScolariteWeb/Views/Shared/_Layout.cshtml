@@ -1100,118 +1100,137 @@
         var row = oTable.row(pos).data();
         console.log(row);
         } );*@
-    <script>
-        $(document).ready(function () {
-            var table = $('#example').DataTable({
+<script>
+    $(document).ready(function () {
+        var table = $('#example').DataTable({
 
 
-                "scrollY": "200px",
-                "paging": false,
-                //  "paging":true,
-                "responsive": true,
-                "lengthChange": true,
-                //    "buttons": ["copy", "csv", "excel", "pdf", "print"]
-                //}).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
-            });
-
-            $('#example tbody').on('click', 'tr', function () {
-
-
-
-                if ($(this).hasClass('selected')) {
-                    $(this).removeClass('selected');
-                }
-                else {
-                    table.$('tr.selected').removeClass('selected');
-                    $(this).addClass('selected');
-                }
-
-                var pos = table.row(this).index();
-                var row = table.row(pos).data();
-                //  console.log(row);
-
-                //var oData = table.rows("CodeCl") + " :selected";
-                //var id = $(this).find(":selected").text();
-
-
-                var oData = table.rows('.selected').data();
-               
-                var id = $(this).find('td:eq(0)').text();
-               // $(this).closest("tr").find("td:eq(0)").text();
-                console.log(id);
-               
-            //    var DescriptionCl = $(this).find('td:eq(1)').val();
-             //   var SallePrincipale = $(this).find('td:eq(2)').val();
-            //  var data = { "id": CodeCl } "id=" + CodeCl,;
-                //'utilisateur=' + nom_user
-                $.ajax({
-                    //   var valeurCatégorie = <?= $categorieId ?>;
-                    url: "/Plan/GetPlanByCodeCl",
-                    method: "GET",
-                    data: { "id": id } ,
-                    dataType: "json",
-                   
-                   //contentType: 'application/json; charset=utf-8',
-                  
-               
-                    //error: function (XMLHttpRequest, textStatus, errorThrown) {
-                    //    alert("Request: " + XMLHttpRequest.toString() + "\n\nStatus: " + textStatus + "\n\nError: " + errorThrown);
-                    //},
-                    success: function (data) {
-                       // for (var i = 0; i < data.length; i++) {
-                            //$('input[name="CodeModule"]').val(data[0]);
-                            //$('input[name="NumPanier"]').val(data[1]);
-                            //$('input[name="CodeCl"]').val(data[2]);
-                       // $('input[name="AnneeDeb"]').val(data[3]);
-                     //   $('#AnneeDeb').val(data[i][3]);
-
-                        for (var item in data) {
-                            $('input[name="CodeModule"]').val(data[item][0]);
-                            $('input[name="NumPanier"]').val(data[item][1]);
-                            $('input[name="CodeCl"]').val(data[item][2]);
-                        $('input[name="AnneeDeb"]').val(data[item][3]);
-                       }
-                        //$.each(data, function (key, val) {
-                        //    var key = Object.keys(val)[3];
-                        //    var value = val[key];
-                        //    $('input[name="AnneeDeb"]').val(value);
-                        //})
-                        console.log(data);
-                    //    $('#item_table').append(data);
-                    },
-                    error: function () {
-                        alert('Error occured');
-                    }
-                    
-                    
-                });
-               
-             //   console.log(result);
-                //var a = Details(CodeCl);
-                //console.log(a);
-             //   $('input[name="NumPanier"]').val(data[0]);
-                //var _tr = '<tr>< td >' + CodeCl + '</td>< td >' + DescriptionCl + '</td>< td >' + SallePrincipale + '</td></tr>';
-             //   $('#item_table tbody').append(_tr);
-                //  $('#item_table').append(_tr);
-                //for (var i = 0; i < row.length; i++) {
-                //    $('input[name="NumPanier"]').val(row[i][0]);
-                //    $('input[name="AnneeDeb"]').val(row[i][1]);
-                //    $('input[name="AnneeFin"]').val(row[i][2]);
-                    // alert("Name: " + oData[i][0] + " Position: " + oData[i][1] + " Office: " + oData[i][2]);
-                    //}
-                    //    $.ajax({
-                    //        url: "/Plan/Details",
-                    //        method: "get",
-                    //        data: $('#example').serialize(),
-
-                    //});
-                });
-
-
-
-
+            "scrollY": "200px",
+            "paging": false,
+            //  "paging":true,
+            "responsive": true,
+            "lengthChange": true,
+            //    "buttons": ["copy", "csv", "excel", "pdf", "print"]
+            //}).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
         });
-    </script>
+
+        $('#example tbody').on('click', 'tr', function () {
+
+
+
+            if ($(this).hasClass('selected')) {
+                $(this).removeClass('selected');
+            }
+            else {
+                table.$('tr.selected').removeClass('selected');
+                $(this).addClass('selected');
+            }
+
+            var pos = table.row(this).index();
+            var row = table.row(pos).data();
+            //  console.log(row);
+
+            //var oData = table.rows("CodeCl") + " :selected";
+            //var id = $(this).find(":selected").text();
+
+
+            var oData = table.rows('.selected').data();
+
+            var id = $(this).find('td:eq(0)').text();
+            // $(this).closest("tr").find("td:eq(0)").text();
+            console.log(id);
+
+            //    var DescriptionCl = $(this).find('td:eq(1)').val();
+            //   var SallePrincipale = $(this).find('td:eq(2)').val();
+            //  var data = { "id": CodeCl } "id=" + CodeCl,;
+            //'utilisateur=' + nom_user
+            $.ajax({
+                //   var valeurCatégorie = <?= $categorieId ?>;
+                url: "/Plan/GetPlanByCodeCl",
+                method: "GET",
+                data: { "id": id },
+                dataType: "json",
+
+                //contentType: 'application/json; charset=utf-8',
+
+
+                //error: function (XMLHttpRequest, textStatus, errorThrown) {
+                //    alert("Request: " + XMLHttpRequest.toString() + "\n\nStatus: " + textStatus + "\n\nError: " + errorThrown);
+                //},
+                success: function (data) {
+
+
+
+                    for (var i = 0; i < data.length; i++) {
+                        //$('input[name="CodeModule"]').val(data[0]);
+                        //$('input[name="NumPanier"]').val(data[1]);
+                        //$('input[name="CodeCl"]').val(data[2]);
+                        // $('input[name="AnneeDeb"]').val(data[3]);
+                        //   $('#AnneeDeb').val(data[i][3]);
+                        //   $('input[name="CodeModule"]').val(data[codeModule]);
+                        //   $('input[name="CodeModule"]').val(data[i]['codeModule']);
+                        var codeModule = data[i]['codeModule'];
+                        var anneeDeb = data[i]['anneeDeb'];
+
+
+                    
+                        var _tr = '<tr><td>' + ' <select name="CodeModule", value= ' + $("#CodeModule").html() + '/>' + '</td><td>' + '<input value= ' + anneeDeb + '>' + '</td></tr> ';
+    
+    $('#tdata').append(_tr);
+    // console.log(data['codeModule']);
+    //    $('input[name="AnneeDeb"]').val(data[i]['anneeDeb']);
+    // console.log(data['anneeDeb']);
+    // console.log(data[i]['anneeDeb']);
+
+    //  $('input[name="CodeModule"]').val(data.CodeModule);
+
+
+    //$('input[name="NumPanier"]').val(data[NumPanier]);
+    //$('input[name="CodeCl"]').val(data[CodeCl]);
+
+    // for (var item in data) {
+    //     $('input[name="CodeModule"]').val(data[item][0]);
+    //     $('input[name="NumPanier"]').val(data[item][1]);
+    //     $('input[name="CodeCl"]').val(data[item][2]);
+    // $('input[name="AnneeDeb"]').val(data[item][3]);
+    //}
+}
+console.log(data);
+//    $('#item_table').append(data);
+},
+error: function () {
+alert('Error occured');
+}
+
+
+});
+
+//   console.log(result);
+//var a = Details(CodeCl);
+//console.log(a);
+//   $('input[name="NumPanier"]').val(data[0]);
+//var _tr = '<tr>< td >' + CodeCl + '</td>< td >' + DescriptionCl + '</td>< td >' + SallePrincipale + '</td></tr>';
+//   $('#item_table tbody').append(_tr);
+//  $('#item_table').append(_tr);
+//for (var i = 0; i < row.length; i++) {
+//    $('input[name="NumPanier"]').val(row[i][0]);
+//    $('input[name="AnneeDeb"]').val(row[i][1]);
+//    $('input[name="AnneeFin"]').val(row[i][2]);
+// alert("Name: " + oData[i][0] + " Position: " + oData[i][1] + " Office: " + oData[i][2]);
+//}
+//    $.ajax({
+//        url: "/Plan/Details",
+//        method: "get",
+//        data: $('#example').serialize(),
+
+//});
+});
+
+
+
+
+});
+</script>
 
 
 

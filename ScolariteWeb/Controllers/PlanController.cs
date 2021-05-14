@@ -39,7 +39,7 @@ namespace ScolariteWeb.Controllers
             var listModule = sm.GetAll();
             var listClasse = se.GetAll();
             var listEns = ens.GetAll();
-
+             
             ViewBag.CodeModule = new SelectList(listModule, "CodeModule", "CodeModule");
             ViewBag.CodeCl = new SelectList(listClasse, "CodeCl", "CodeCl");
             ViewBag.IdEns = new SelectList(listEns, "IdEns", "IdEns");
@@ -177,12 +177,21 @@ namespace ScolariteWeb.Controllers
           //  string trim = Regex.Replace(id, @"s", "");
 
             EspModulePanierClasseSaiso model = new EspModulePanierClasseSaiso();
-            List<EspModulePanierClasseSaiso> listp = (List<EspModulePanierClasseSaiso>)ps.GetAll();
+            List<EspModulePanierClasseSaiso> listt = new List<EspModulePanierClasseSaiso>();
+            List<EspModulePanierClasseSaiso> listp = (List<EspModulePanierClasseSaiso>)ps.GetAll();    
+          
+            
             // EspModulePanierClasseSaiso panier = ps.GetAll().OrderBy(p => p.AnneeDeb).FirstOrDefault();
             System.Console.WriteLine("City = " );
             Console.WriteLine(id);
-           
-            EspModulePanierClasseSaiso panier = ps.GetAll().Where(p => p.CodeCl == a).OrderByDescending(p => p.AnneeDeb).FirstOrDefault();
+
+            // EspModulePanierClasseSaiso panier = ps.GetAll().Where(p => p.CodeCl == a).OrderByDescending(p => p.AnneeDeb).FirstOrDefault();
+            //  EspModulePanierClasseSaiso panier = ps.GetAll().Where(p => p.CodeCl == a).ToDictionary();
+
+
+            List<EspModulePanierClasseSaiso> listp1 = ps.GetAll().Where(p => p.CodeCl == a).OrderBy(p => p.AnneeDeb).ToList();
+                
+
             ///////////  EspModulePanierClasseSaiso panierk = new EspModulePanierClasseSaiso();
 
             //foreach(var i in listp)
@@ -203,7 +212,7 @@ namespace ScolariteWeb.Controllers
             //  EspModulePanierClasseSaiso result = listp.Where(m => m.CodeCl == id).FirstOrDefault();
 
             ///////////////// return Json(result);
-            return Json(panier);
+            return Json(listp1);
             //   var plan = ps.GetPlanByC(id, (ICollection<EspModulePanierClasseSaiso>)ps.GetAll());
             //var plan = se.GetAll().FirstOrDefault(p => p.CodeCl == id);
             //return Json(new { data = plan });

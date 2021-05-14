@@ -82,13 +82,18 @@ namespace Scolarite.Service
         }
         public EspModulePanierClasseSaiso GetPlanByClasse(string planId)
         {
-            return GetAll().FirstOrDefault(c => c.CodeCl.Equals(planId));
+            return GetAll().FirstOrDefault(c => c.CodeCl==planId);
         }
 
-        public IEnumerable<EspModulePanierClasseSaiso> GetListPlanByC(string id,List<EspModulePanierClasseSaiso> listc) { 
+        public EspModulePanierClasseSaiso GetPL(string id, List<EspModulePanierClasseSaiso> listc)
+        {
+
+            return listc.FirstOrDefault(prov => prov.CodeCl==id); ;
+        }
+        public List<EspModulePanierClasseSaiso> GetListPlanByC(string id,List<EspModulePanierClasseSaiso> listc) { 
        
             
-            return listc.Where(m => m.CodeCl.Equals(id));
+            return (List<EspModulePanierClasseSaiso>)listc.Where(m => m.CodeCl==id);
 
         }
 
