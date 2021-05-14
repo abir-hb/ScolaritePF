@@ -8,6 +8,7 @@ using Scolarite.Service;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 
@@ -35,6 +36,13 @@ namespace ScolariteWeb.Controllers
         public IActionResult ListClasse()
 
         {
+            var listModule = sm.GetAll();
+            var listClasse = se.GetAll();
+            var listEns = ens.GetAll();
+
+            ViewBag.CodeModule = new SelectList(listModule, "CodeModule", "CodeModule");
+            ViewBag.CodeCl = new SelectList(listClasse, "CodeCl", "CodeCl");
+            ViewBag.IdEns = new SelectList(listEns, "IdEns", "IdEns");
             return View(se.GetAll());
         }
 
@@ -164,9 +172,18 @@ namespace ScolariteWeb.Controllers
        [HttpGet]
         public  JsonResult GetPlanByCodeCl(string id)
         {
-           
+           var a= string.Join("", id.Split(default(string[]), StringSplitOptions.RemoveEmptyEntries));
+            
+          //  string trim = Regex.Replace(id, @"s", "");
+
+            EspModulePanierClasseSaiso model = new EspModulePanierClasseSaiso();
             List<EspModulePanierClasseSaiso> listp = (List<EspModulePanierClasseSaiso>)ps.GetAll();
-          ///////////  EspModulePanierClasseSaiso panierk = new EspModulePanierClasseSaiso();
+            // EspModulePanierClasseSaiso panier = ps.GetAll().OrderBy(p => p.AnneeDeb).FirstOrDefault();
+            System.Console.WriteLine("City = " );
+            Console.WriteLine(id);
+           
+            EspModulePanierClasseSaiso panier = ps.GetAll().Where(p => p.CodeCl == a).OrderByDescending(p => p.AnneeDeb).FirstOrDefault();
+            ///////////  EspModulePanierClasseSaiso panierk = new EspModulePanierClasseSaiso();
 
             //foreach(var i in listp)
             //   {
@@ -177,7 +194,7 @@ namespace ScolariteWeb.Controllers
             //       }
             //   }
 
-              EspModulePanierClasseSaiso result = listp.Where(m => m.CodeCl.Equals(id)).FirstOrDefault();
+            EspModulePanierClasseSaiso result = listp.Where(m => m.CodeCl.Equals(id)).FirstOrDefault();
             //   EspModulePanierClasseSaiso panier = ps.GetPlanByC(id, listp);
             //   Console.WriteLine(Json(new { data = ps.GetPlanByC(id, listp) }));
             //  ICollection<EspModulePanierClasseSaiso> list=  ps.GetPlanByC(id, listp);
@@ -185,8 +202,8 @@ namespace ScolariteWeb.Controllers
             //  return Json(plan, System.Web.Mvc.JsonRequestBehavior.AllowGet);
             //  EspModulePanierClasseSaiso result = listp.Where(m => m.CodeCl == id).FirstOrDefault();
 
-       ///////////////// return Json(result);
-            //return Json(listp, System.Web.Mvc.JsonRequestBehavior.AllowGet);
+            ///////////////// return Json(result);
+            return Json(panier);
             //   var plan = ps.GetPlanByC(id, (ICollection<EspModulePanierClasseSaiso>)ps.GetAll());
             //var plan = se.GetAll().FirstOrDefault(p => p.CodeCl == id);
             //return Json(new { data = plan });
@@ -195,7 +212,7 @@ namespace ScolariteWeb.Controllers
             // return Json(plan);
 
             //  return Json(new { data = context.EspModulePanierClasseSaiso.Where(m => m.CodeCl.Equals(id)).FirstOrDefault() });
-         return Json(new { data = context.EspModulePanierClasseSaiso.FindAsync(id,1,"SR-12","2020")});
+        // return Json(new { data = context.EspModulePanierClasseSaiso.FindAsync(id,1,"SR-12","2020")});
         }
 
         [HttpGet]

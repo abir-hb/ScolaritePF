@@ -85,6 +85,13 @@ namespace Scolarite.Service
             return GetAll().FirstOrDefault(c => c.CodeCl.Equals(planId));
         }
 
+        public IEnumerable<EspModulePanierClasseSaiso> GetListPlanByC(string id,List<EspModulePanierClasseSaiso> listc) { 
+       
+            
+            return listc.Where(m => m.CodeCl.Equals(id));
+
+        }
+
         public void UpdatePlan(EspModulePanierClasseSaiso e)
         {
             throw new NotImplementedException();

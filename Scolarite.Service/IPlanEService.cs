@@ -14,6 +14,7 @@ namespace Scolarite.Service
         public EspModulePanierClasseSaiso GetPlanByClasse(string planId);
         public EspModulePanierClasseSaiso GetPlanByClasse1(string id);
         public EspModulePanierClasseSaiso GetPlanByC(String id, List<EspModulePanierClasseSaiso> listC);
+        public IEnumerable<EspModulePanierClasseSaiso> GetListPlanByC(string id, List<EspModulePanierClasseSaiso> listc);
 
         void Delete(string id);
 
