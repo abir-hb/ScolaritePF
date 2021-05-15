@@ -131,8 +131,9 @@
                         </thead>
                         <tbody id="tdata">
                             @*<tr>*@
-           
-            <td>@Html.DropDownList("CodeModule", (SelectList)ViewData["listModule"] ,htmlAttributes: new { style="display: none;", id="CodeModule" })</td>
+                            <tr>
+                                <td>@Html.DropDownList("CodeModule", (SelectList)ViewData["listModule"], htmlAttributes: new { style = "display: none;", id = "CodeModule" })</td>
+                            </tr>
             @*<td> <input type="text" class="form-control" id="NumPanier" name="NumPanier"></td>
             <td> @Html.DropDownList("CodeCl", (SelectList)ViewData["listClasse"])</td>
             <td><input type="text" class="form-control" id="AnneeDeb" name="AnneeDeb"></td>
