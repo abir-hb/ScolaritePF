@@ -1100,138 +1100,358 @@
         var row = oTable.row(pos).data();
         console.log(row);
         } );*@
-<script>
-    $(document).ready(function () {
-        var table = $('#example').DataTable({
+    <script>
+        $(document).ready(function () {
+            $('#bo').DataTable({
 
 
-            "scrollY": "200px",
-            "paging": false,
-            //  "paging":true,
-            "responsive": true,
-            "lengthChange": true,
-            //    "buttons": ["copy", "csv", "excel", "pdf", "print"]
-            //}).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+                "scrollY": "200px",
+                "paging": false,
+                //  "paging":true,
+                "responsive": true,
+                "lengthChange": true,
+                //    "buttons": ["copy", "csv", "excel", "pdf", "print"]
+                //}).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+            });
+            </script>
+        <script>
+                $(document).ready(function () {
+                var table = $('#example').DataTable({
+
+
+                    "scrollY": "200px",
+                    "paging": false,
+                    //  "paging":true,
+                    "responsive": true,
+                    "lengthChange": true,
+                    //    "buttons": ["copy", "csv", "excel", "pdf", "print"]
+                    //}).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+                });
+
+                $('#example tbody').on('click', 'tr', function () {
+
+
+
+                    if ($(this).hasClass('selected')) {
+                        $(this).removeClass('selected');
+                    }
+                    else {
+                        table.$('tr.selected').removeClass('selected');
+                        $(this).addClass('selected');
+                    }
+
+                    var pos = table.row(this).index();
+                    var row = table.row(pos).data();
+                    //  console.log(row);
+
+                    //var oData = table.rows("CodeCl") + " :selected";
+                    //var id = $(this).find(":selected").text();
+
+
+                    var oData = table.rows('.selected').data();
+
+                    var id = $(this).find('td:eq(0)').text();
+                    // $(this).closest("tr").find("td:eq(0)").text();
+                    console.log(id);
+
+                    //    var DescriptionCl = $(this).find('td:eq(1)').val();
+                    //   var SallePrincipale = $(this).find('td:eq(2)').val();
+                    //  var data = { "id": CodeCl } "id=" + CodeCl,;
+                    //'utilisateur=' + nom_user
+                    $.ajax({
+                        //   var valeurCatégorie = <?= $categorieId ?>;
+                        url: "/Plan/GetPlanByCodeCl",
+                        method: "GET",
+                        data: { "id": id },
+                        dataType: "json",
+
+                        //contentType: 'application/json; charset=utf-8',
+
+
+                        //error: function (XMLHttpRequest, textStatus, errorThrown) {
+                        //    alert("Request: " + XMLHttpRequest.toString() + "\n\nStatus: " + textStatus + "\n\nError: " + errorThrown);
+                        //},
+                        success: function (data) {
+
+
+
+                            for (var i = 0; i < data.length; i++) {
+                                //$('input[name="CodeModule"]').val(data[0]);
+                                //$('input[name="NumPanier"]').val(data[1]);
+                                //$('input[name="CodeCl"]').val(data[2]);
+                                // $('input[name="AnneeDeb"]').val(data[3]);
+                                //   $('#AnneeDeb').val(data[i][3]);
+                                //   $('input[name="CodeModule"]').val(data[codeModule]);
+                                //   $('input[name="CodeModule"]').val(data[i]['codeModule']);
+                                var codeCl = data[i]['codeCl'];
+                                var codeModule = data[i]['codeModule'];
+                                var typeEp = data[i]['typeEpreuve'];
+                                var anneeDeb = data[i]['anneeDeb'];
+                                var apcs = data[i]['apCs'];
+                                var nbh = data[i]['nbHeures'];
+                                var calcule = data[i]['calculRat'];
+
+                                var coef = data[i]['coef'];
+                                var numSemestre = data[i]['numSemestre'];
+                                var per = data[i]['periode'];
+                                var charge1 = data[i]['chargeP1'];
+                                var charge2 = data[i]['chargeP2'];
+                                var ens = data[i]['idEns'];
+                                var chargeEns1 = data[i]['chargeEns1P1'];
+                                var chargeEnsP2 = data[i]['chargeEns1P2'];
+                                var nbheureEn = data[i]['nbHeuresEns'];
+                                var IdEns2 = data[i]['idEns2'];
+                                var chargeEns2p1 = data[i]['chargeEns2P1'];
+                                var chargeEns2p2 = data[i]['chargeEns2P2'];
+                                var NbHeuresEns2 = data[i]['nbHeuresEns2'];
+                                var anneefin = data[i]['anneeFin'];
+                                var dateDebut = data[i]['dateDebut'];
+                                var dateFin = data[i]['dateFin'];
+                                var dateExam = data[i]['dateExamen'];
+                                var NbHoraireRealises = data[i]['nbHoraireRealises'];
+                                var Acomptabiliser = data[i]['acomptabiliser'];
+                                var surveillant = data[i]['surveillant'];
+                                var heureExam = data[i]['heureExam'];
+                                var salleExam = data[i]['salleExam'];
+                                var surv2 = data[i]['surveillant2'];
+                                var salleEx2 = data[i]['salleExam2'];
+                                var Numpromotioncs = data[i]['numpromotioncs'];
+                                var ue = data[i]['codeUe'];
+                                var nbect = data[i]['nbEcts'];
+                                var salle = data[i]['salle'];
+                                var DateRattr = data[i]['dateRattrapage'];
+                                var heureRat = data[i]['heureRat'];
+                                var Salle1Rat = data[i]['salle1Rat'];
+                                var Salle2Rat = data[i]['salle2Rat'];
+                                var DateRat = data[i]['dateRat'];
+                                var DateCreation = data[i]['dateCreation'];
+                                var DaterLastMaj = data[i]['daterLastMaj'];
+
+
+
+
+
+                                //var designation = codeModule[i]['designation'];
+
+      //   + '</td><td>' + '<input type="radio", value=' + 1 + '  checked="checked"> 1  </>' + ' < input type = "radio", value = ' + semestre + ' > 0  </> '
+
+            ////
+            var _tr = '<tr><td>' + ' <select name="codeCl" id="codeCl" value= ' + $('#CodeCl').html() + '<option name="codeCl"  value="" selected disabled hidden> ' + codeCl + ' </option>' + '  />'
+                + '</td><td>' + ' <select name="codeModule" id="codeModule" value= ' + $('#CodeModule').html() + '<option name="codeModule"  value="" selected disabled hidden> ' + codeModule + ' </option>' + '  />'
+                //  + '</td><td>' + ' <select name="NomModule", value= ' + $('#Designation').html() + '  />'
+                + '</td><td>' + '<input name="typeEp" value= ' + typeEp + '>'
+                + '</td><td>' + '<input name="anneeDeb"  type="number" value= ' + anneeDeb + '>'
+                + '</td><td>' + '<input name="apcs" value= ' + apcs + '>'
+                + '</td><td>' + '<input name="nbh" value= ' + nbh + '>'
+                + '</td><td>' + '<input name="calcule" value= ' + calcule + '>'
+                + '</td><td>' + '<input name="coef" type="number" value= ' + coef + '>'
+                //+ '</td><td>' + '<input name="sem" type="number" value= ' + semestre + '>'
+                + '</td><td>' + '<input name="sem" type="radio" value="1" id="1" /*checked="checked"*/>' + '<label for="1">' + numSemestre + '</label>' + '<input name="sem" type="radio" id="2" value="2" >2<label for="2"></label><br>'
+                + '</td><td>' + '<input name="per" value= ' + per + '>'
+                + '</td><td>' + '<input name="charge1" value= ' + charge1 + '>'
+                + '</td><td>' + '<input name="charge2" value= ' + charge2 + '>'
+                + '</td><td>' + ' <select name="IdEns", value= ' + $('#IdEns').html() + '<option value="" selected disabled hidden> ' + ens + ' </option>' + '  />'
+                + '</td><td>' + '<input name="chargeEns1" value= ' + chargeEns1 + '>'
+                + '</td><td>' + '<input name="chargeEns2" value= ' + chargeEnsP2 + '>'
+                + '</td><td>' + '<input name="nbheureEn" value= ' + nbheureEn + '>'
+                + '</td><td>' + ' <select name="IdEns2", value= ' + $('#IdEns').html() + '<option value="" selected disabled hidden> ' + IdEns2 + ' </option>' + '  />'
+                + '</td><td>' + '<input name="chargeEns2p1" value= ' + chargeEns2p1 + '>'
+                + '</td><td>' + '<input name="chargeEns2p2" value= ' + chargeEns2p2 + '>'
+                + '</td><td>' + '<input name="NbHeuresEns2" value= ' + NbHeuresEns2 + '>'
+                + '</td><td>' + '<input name="anneefin"  type="number" value= ' + anneefin + '>'
+                + '</td><td>' + '<input name="dateDebut" value= ' + dateDebut + '>'
+                + '</td><td>' + '<input name="dateFin" value= ' + dateFin + '>'
+                + '</td><td>' + '<input name="dateExam" value= ' + dateExam + '>'
+                + '</td><td>' + '<input name="NbHoraireRealises" value= ' + NbHoraireRealises + '>'
+                + '</td><td>' + '<input name="Acomptabiliser" value= ' + Acomptabiliser + '>'
+                + '</td><td>' + '<input name="surveillant" value= ' + surveillant + '>'
+                + '</td><td>' + '<input name="heureExam" value= ' + heureExam + '>'
+                + '</td><td>' + '<input name="salleExam" value= ' + salleExam + '>'
+                + '</td><td>' + '<input name="surv2" value= ' + surv2 + '>'
+                + '</td><td>' + '<input name="salleEx2" value= ' + salleEx2 + '>'
+                + '</td><td>' + '<input name="Numpromotioncs" value= ' + Numpromotioncs + '>'
+                + '</td><td>' + ' <select name="CodeUe", value= ' + $('#CodeUe').html() + '<option value="" selected disabled hidden> ' + ue + ' </option>' + '  />'
+                + '</td><td>' + '<input name="nbect" value= ' + nbect + '>'
+                + '</td><td>' + '<input name="salle" value= ' + salle + '>'
+                + '</td><td>' + '<input name="DateRattr" value= ' + DateRattr + '>'
+                + '</td><td>' + '<input name="heureRat" value= ' + heureRat + '>'
+                + '</td><td>' + '<input name="Salle1Rat" value= ' + Salle1Rat + '>'
+                + '</td><td>' + '<input name="Salle2Rat" value= ' + Salle2Rat + '>'
+                + '</td><td>' + '<input name="DateRat" value= ' + DateRat + '>'
+                + '</td><td>' + '<input name="DateCreation" value= ' + DateCreation + '>'
+                + '</td><td>' + '<input name ="DaterLastMaj" value= ' + DaterLastMaj + '>'
+                + '</td></tr> ';
+
+            $('#tdata').append(_tr);
+            // console.log(data['codeModule']);
+            //    $('input[name="AnneeDeb"]').val(data[i]['anneeDeb']);
+            // console.log(data['anneeDeb']);
+            // console.log(data[i]['anneeDeb']);
+
+            //  $('input[name="CodeModule"]').val(data.CodeModule);
+
+
+            //$('input[name="NumPanier"]').val(data[NumPanier]);
+            //$('input[name="CodeCl"]').val(data[CodeCl]);
+
+            // for (var item in data) {
+            //     $('input[name="CodeModule"]').val(data[item][0]);
+            //     $('input[name="NumPanier"]').val(data[item][1]);
+            //     $('input[name="CodeCl"]').val(data[item][2]);
+            // $('input[name="AnneeDeb"]').val(data[item][3]);
+            //}
+        }
+                            console.log(data);
+                            //    $('#item_table').append(data);
+                        },
+        error: function () {
+            alert('Error occured');
+        }
+
+
+                    });
+
+
+                });
+
+        $(function () {
+            $('#add').click(function () {
+                // var CodeModule = document.getElementById("#CodeModule").value();
+                // var CodeModule = $("#CodeModule").val();
+                var CodeCl = $('select#codeCl option:checked').val();
+                console.log(CodeCl);
+
+                var CodeModule = $('select#codeModule option:checked').val();
+                console.log(CodeModule);
+                var typeEp = $('input[name="typeEp"]').val();
+
+                var anneeDeb = $('input[name="anneeDeb"]').val();
+                var apcs = $('input[name="apcs"]').val();
+                var nbh = $('input[name="nbh"]').val();
+                var calcule = $('input[name="calcule"]').val();
+                var Coef = $('input[name="Coef"]').val();
+                // var sem = $('input[name="sem"]').val();
+                var numSemestre = $('input[type=radio][name=sem]:checked').val();
+                console.log(numSemestre);
+                var NumPeriodfe = $('input[name="per"]').val();
+                var charge1 = $('input[name="charge1"]').val();
+                var charge2 = $('input[name="charge2"]').val();
+                var IdEns = $("#IdEns").val();
+                var chargeEns1 = $('input[name="chargeEns1"]').val();
+                var chargeEns2 = $('input[name="chargeEns2"]').val();
+                var nbH = $('input[name="nbheureEn"]').val();
+                var IdEns2 = $("#IdEns2").val();
+
+                var chargeEns2p1 = $('input[name="chargeEns2p1"]').val();
+                var chargeEns2p2 = $('input[name="chargeEns2p2"]').val();
+                var NbHeuresEns2 = $('input[name="NbHeuresEns2"]').val();
+                var anneefin = $('input[name="anneefin"]').val();
+                var dateDebut = $('input[name="dateDebut"]').val();
+                var dateFin = $('input[name="dateFin"]').val();
+                var dateExam = $('input[name="dateExam"]').val();
+                var NbHoraireRealises = $('input[name="NbHoraireRealises"]').val();
+                var Acomptabiliser = $('input[name="Acomptabiliser"]').val();
+                var surveillant = $('input[name="surveillant"]').val();
+                var heureExam = $('input[name="heureExam"]').val();
+                var salleExam = $('input[name="salleExam"]').val();
+                var surv2 = $('input[name="surv2"]').val();
+                var salleEx2 = $('input[name="salleEx2"]').val();
+                var Numpromotioncs = $('input[name="Numpromotioncs"]').val();
+                var CodeUe = $("#CodeUe").val();
+                var nbect = $('input[name="nbect"]').val();
+                var salle = $('input[name="salle"]').val();
+                var DateRattr = $('input[name="DateRattr"]').val();
+                var heureRat = $('input[name="heureRat"]').val
+                var Salle1Rat = $('input[name="Salle1Rat"]').val();
+                var Salle2Rat = $('input[name="Salle2Rat"]').val();
+                var DateRat = $('input[name="DateRat"]').val();
+                var DateCreation = $('input[name="DateCreation"]').val();
+                var DaterLastMaj = $('input[name="DaterLastMaj"]').val();
+
+
+
+                var _tr = '<tr>< td >'
+                    + CodeCl +
+                    '</td><td>' + CodeModule +
+                    '</td><td>' + typeEp +
+                    '</td><td>' + anneeDeb +
+                    '</td><td>' + apcs +
+                    '</td><td>' + nbh +
+                    '</td><td>' + calcule +
+                    '</td>< td >' + Coef +
+                    '</td><td>' + numSemestre +
+                    '</td><td>' + NumPeriodfe +
+                    '</td><td>' + charge1 +
+                    '</td><td>' + charge2 +
+                    '</td><td>' + IdEns +
+                    '</td><td>' + chargeEns1 +
+                    '</td><td>' + chargeEns2 +
+                    '</td><td>' + nbH +
+                    '</td><td>' + IdEns2 +
+                    '</td><td>' + chargeEns2p1 +
+                    '</td><td>' + chargeEns2p2 +
+                    '</td><td>' + NbHeuresEns2 +
+                    '</td><td>' + anneefin +
+                    '</td><td>' + dateDebut +
+                    '</td><td>' + dateFin +
+                    '</td><td>' + dateExam +
+                    '</td><td>' + NbHoraireRealises +
+                    '</td><td>' + Acomptabiliser +
+                    '</td><td>' + surveillant +
+                    '</td><td>' + heureExam +
+                    '</td><td>' + salleExam +
+                    '</td><td>' + surv2 +
+                    '</td><td>' + salleEx2 +
+                    '</td><td>' + Numpromotioncs +
+                    '</td><td>' + CodeUe +
+                    '</td><td>' + nbect +
+                    '</td><td>' + salle +
+                    '</td><td>' + DateRattr +
+                    '</td><td>' + heureRat +
+                    '</td><td>' + Salle1Rat +
+                    '</td><td>' + Salle2Rat +
+                    '</td><td>' + DateRat +
+                    '</td><td>' + DateCreation +
+                    '</td><td>' + DaterLastMaj +
+                    '</td></tr>';
+                $('tbody').append(_tr);
+                //  $('#item_table').append(_tr);
+
+                $.ajax({
+                    url: "/Plan/Create",
+                    method: "post",
+                    data: {
+                        CodeCl: $('select#codeCl option:checked').val(),
+                        CodeModule: $('select#codeModule option:checked').val(),
+                        AnneeDeb: $('input[name="anneeDeb"]').val(),
+                        numSemestre: $('input[type=radio][name=sem]:checked').val(),
+
+                    },
+                    success: function (data) {
+
+                        console.log(data);
+
+                    },
+                    error: function () {
+                        alert('Error occured');
+                    }
+
+
+                });
+            });
+
+
+
         });
 
-        $('#example tbody').on('click', 'tr', function () {
 
 
 
-            if ($(this).hasClass('selected')) {
-                $(this).removeClass('selected');
-            }
-            else {
-                table.$('tr.selected').removeClass('selected');
-                $(this).addClass('selected');
-            }
+            });
+    </script>
+    <script>
 
-            var pos = table.row(this).index();
-            var row = table.row(pos).data();
-            //  console.log(row);
-
-            //var oData = table.rows("CodeCl") + " :selected";
-            //var id = $(this).find(":selected").text();
-
-
-            var oData = table.rows('.selected').data();
-
-            var id = $(this).find('td:eq(0)').text();
-            // $(this).closest("tr").find("td:eq(0)").text();
-            console.log(id);
-
-            //    var DescriptionCl = $(this).find('td:eq(1)').val();
-            //   var SallePrincipale = $(this).find('td:eq(2)').val();
-            //  var data = { "id": CodeCl } "id=" + CodeCl,;
-            //'utilisateur=' + nom_user
-            $.ajax({
-                //   var valeurCatégorie = <?= $categorieId ?>;
-                url: "/Plan/GetPlanByCodeCl",
-                method: "GET",
-                data: { "id": id },
-                dataType: "json",
-
-                //contentType: 'application/json; charset=utf-8',
-
-
-                //error: function (XMLHttpRequest, textStatus, errorThrown) {
-                //    alert("Request: " + XMLHttpRequest.toString() + "\n\nStatus: " + textStatus + "\n\nError: " + errorThrown);
-                //},
-                success: function (data) {
-
-
-
-                    for (var i = 0; i < data.length; i++) {
-                        //$('input[name="CodeModule"]').val(data[0]);
-                        //$('input[name="NumPanier"]').val(data[1]);
-                        //$('input[name="CodeCl"]').val(data[2]);
-                        // $('input[name="AnneeDeb"]').val(data[3]);
-                        //   $('#AnneeDeb').val(data[i][3]);
-                        //   $('input[name="CodeModule"]').val(data[codeModule]);
-                        //   $('input[name="CodeModule"]').val(data[i]['codeModule']);
-                        var codeModule = data[i]['codeModule'];
-                        var anneeDeb = data[i]['anneeDeb'];
-
-
-                    
-                        var _tr = '<tr><td>' + codeModule+ 'Nom' + ' <select name="CodeModule", value= ' + $("#CodeModule").html() + '/>'+  '</td><td>' + '<input value= ' + anneeDeb + '>' + '</td></tr> ';
-    
-    $('#tdata').append(_tr);
-    // console.log(data['codeModule']);
-    //    $('input[name="AnneeDeb"]').val(data[i]['anneeDeb']);
-    // console.log(data['anneeDeb']);
-    // console.log(data[i]['anneeDeb']);   
-
-    //  $('input[name="CodeModule"]').val(data.CodeModule);
-
-
-    //$('input[name="NumPanier"]').val(data[NumPanier]);
-    //$('input[name="CodeCl"]').val(data[CodeCl]);
-
-    // for (var item in data) {
-    //     $('input[name="CodeModule"]').val(data[item][0]);
-    //     $('input[name="NumPanier"]').val(data[item][1]);
-    //     $('input[name="CodeCl"]').val(data[item][2]);
-    // $('input[name="AnneeDeb"]').val(data[item][3]);
-    //}
-}
-console.log(data);
-//    $('#item_table').append(data);
-},
-error: function () {
-alert('Error occured');
-}
-
-
-});
-
-//   console.log(result);
-//var a = Details(CodeCl);
-//console.log(a);
-//   $('input[name="NumPanier"]').val(data[0]);
-//var _tr = '<tr>< td >' + CodeCl + '</td>< td >' + DescriptionCl + '</td>< td >' + SallePrincipale + '</td></tr>';
-//   $('#item_table tbody').append(_tr);
-//  $('#item_table').append(_tr);
-//for (var i = 0; i < row.length; i++) {
-//    $('input[name="NumPanier"]').val(row[i][0]);
-//    $('input[name="AnneeDeb"]').val(row[i][1]);
-//    $('input[name="AnneeFin"]').val(row[i][2]);
-// alert("Name: " + oData[i][0] + " Position: " + oData[i][1] + " Office: " + oData[i][2]);
-//}
-//    $.ajax({
-//        url: "/Plan/Details",
-//        method: "get",
-//        data: $('#example').serialize(),
-
-//});
-});
-
-
-
-
-});
-</script>
-
+    </script>
 
 
     @*function () {

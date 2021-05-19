@@ -22,27 +22,33 @@ namespace ScolariteWeb.Controllers
         private readonly IServiceClasse se;
         private readonly IServiceENS ens;
         private readonly IServiceModule sm;
+        private readonly IServiceUE ue;
         ModelContext context = new ModelContext();
         List<EspModulePanierClasseSaiso> plans = new List<EspModulePanierClasseSaiso>();
 
-        public PlanController(IPlanEService servicePlan, IServiceClasse serviceClasse, IServiceENS serviceEns, IServiceModule serviceModule)
+        public PlanController(IPlanEService servicePlan, IServiceClasse serviceClasse, IServiceENS serviceEns, IServiceModule serviceModule , IServiceUE serviceUE)
         {
             ps = servicePlan;
             se = serviceClasse;
             ens = serviceEns;
             sm = serviceModule;
+            ue=serviceUE;
         }
 
         public IActionResult ListClasse()
 
         {
+            var listNom = sm.GetAll();
             var listModule = sm.GetAll();
             var listClasse = se.GetAll();
             var listEns = ens.GetAll();
-             
-            ViewBag.CodeModule = new SelectList(listModule, "CodeModule", "CodeModule");
+            var listUE = ue.GetAll();
+
+           ViewBag.CodeModule = new SelectList(listModule, "CodeModule", "CodeModule");
             ViewBag.CodeCl = new SelectList(listClasse, "CodeCl", "CodeCl");
             ViewBag.IdEns = new SelectList(listEns, "IdEns", "IdEns");
+            ViewBag.CodeUe = new SelectList(listUE, "CodeUe", "CodeUe");
+            //  ViewBag.CodeModule  = new SelectList(listModule, "CodeModule", "Designation");
             return View(se.GetAll());
         }
 
@@ -65,13 +71,16 @@ namespace ScolariteWeb.Controllers
         {
 
             var listModule = sm.GetAll();
+         
             var listClasse = se.GetAll();
             var listEns = ens.GetAll();
+           
 
             ViewBag.CodeModule = new SelectList(listModule, "CodeModule", "CodeModule");
+         
             ViewBag.CodeCl = new SelectList(listClasse, "CodeCl", "CodeCl");
             ViewBag.IdEns = new SelectList(listEns, "IdEns", "IdEns");
-            
+           
 
 
             EspModulePanierClasseSaiso em = new EspModulePanierClasseSaiso();
@@ -86,7 +95,7 @@ namespace ScolariteWeb.Controllers
 
           
 
-            EspModulePanierClasseSaiso list = new EspModulePanierClasseSaiso
+            EspModulePanierClasseSaiso list = new EspModulePanierClasseSaiso()
             {
                 
                 CodeModule=em.CodeModule,
@@ -99,9 +108,10 @@ namespace ScolariteWeb.Controllers
 
 
            // list.Add(em);
+           
+          context.Entry(em).State = EntityState.Added;
             ps.CreatePlan(list);
-          // context.Entry(em).State = EntityState.Added;
-         //   ps.Commit();
+            ps.Commit();
            // context.SaveChanges();
             return View();
             //try
