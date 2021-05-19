@@ -143,13 +143,15 @@
                                 @*<tr>*@
                                 <tr>
                                     <td>@Html.DropDownList("CodeModule", (SelectList)ViewData["listModule"], htmlAttributes: new { style = "display: none;", id = "CodeModule" })</td>
+                                    <td>@Html.DropDownList("CodeCl", (SelectList)ViewData["listClasse"], htmlAttributes: new { style = "display: none;", id = "CodeCl" })</td>
+                                    <td>@Html.DropDownList("IdEns", (SelectList)ViewData["listEns"], htmlAttributes: new { style = "display: none;", id = "IdEns" })</td>
+                                    <td>@Html.DropDownList("IdEns", (SelectList)ViewData["listEns"], htmlAttributes: new { style = "display: none;", id = "IdEns" })</td>
+                                    <td>@Html.DropDownList("CodeUe", (SelectList)ViewData["listUE"], htmlAttributes: new { style = "display: none;", id = "CodeUe" })</td>
                                 </tr>
 
                                 @*<td> <input type="text" class="form-control" id="NumPanier" name="NumPanier"></td>*@
 
-                                <tr>
-                                    <td>@Html.DropDownList("CodeCl", (SelectList)ViewData["listClasse"], htmlAttributes: new { style = "display: none;", id = "CodeCl" })</td>
-                                </tr>
+                                
                                 @* <td> @Html.DropDownList("CodeCl", (SelectList)ViewData["listClasse"])</td>*@
                                 @*<td><input type="text" class="form-control" id="AnneeDeb" name="AnneeDeb"></td>
                                     <td><input type="text" class="form-control" id="AnneeFin" name="AnneeFin"></td>
@@ -165,12 +167,7 @@
                                     <td> <input type="text" class="form-control" id="NbHoraireRealises" name="NbHoraireRealises"></td>
                                     <td> <input type="text" class="form-control" id="Acomptabiliser" name="Acomptabiliser"></td>*@
 
-                                <tr>
-                                    <td>@Html.DropDownList("IdEns", (SelectList)ViewData["listEns"], htmlAttributes: new { style = "display: none;", id = "IdEns" })</td>
-                                </tr>
-                                <tr>
-                                    <td>@Html.DropDownList("IdEns", (SelectList)ViewData["listEns"], htmlAttributes: new { style = "display: none;", id = "IdEns" })</td>
-                                </tr>
+                             
                                 @* <tr>
                                         <td colspan=3 class="hide" bgcolor="#0000FF">charge</td>
                                     </tr>*@
@@ -189,9 +186,7 @@
                                     <td> <input type="text" class="form-control" id="IdEns3" name="IdEns3"></td>
                                     <td> <input type="text" class="form-control" id="IdEns4" name="IdEns4"></td>
                                     <td> <input type="text" class="form-control" id="IdEns5" name="IdEns5"></td>*@
-                                <tr>
-                                    <td>@Html.DropDownList("CodeUe", (SelectList)ViewData["listUE"], htmlAttributes: new { style = "display: none;", id = "CodeUe" })</td>
-                                </tr>
+                               
                                 @*<td> <input type="text" class="form-control" id="NbEcts" name="NbEcts"></td>
                                     <td> <input type="text" class="form-control" id="Salle" name="Salle"></td>
                                     <td> <input type="text" class="form-control" id="TypeEns" name="TypeEns"></td>

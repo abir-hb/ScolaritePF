@@ -1235,7 +1235,7 @@
 
       //   + '</td><td>' + '<input type="radio", value=' + 1 + '  checked="checked"> 1  </>' + ' < input type = "radio", value = ' + semestre + ' > 0  </> '
 
-            ////
+      
             var _tr = '<tr><td>' + ' <select name="codeCl" id="codeCl" value= ' + $('#CodeCl').html() + '<option name="codeCl"  value="" selected disabled hidden> ' + codeCl + ' </option>' + '  />'
                 + '</td><td>' + ' <select name="codeModule" id="codeModule" value= ' + $('#CodeModule').html() + '<option name="codeModule"  value="" selected disabled hidden> ' + codeModule + ' </option>' + '  />'
                 //  + '</td><td>' + ' <select name="NomModule", value= ' + $('#Designation').html() + '  />'
@@ -1246,7 +1246,7 @@
                 + '</td><td>' + '<input name="calcule" value= ' + calcule + '>'
                 + '</td><td>' + '<input name="coef" type="number" value= ' + coef + '>'
                 //+ '</td><td>' + '<input name="sem" type="number" value= ' + semestre + '>'
-                + '</td><td>' + '<input name="sem" type="radio" value="1" id="1" /*checked="checked"*/>' + '<label for="1">' + numSemestre + '</label>' + '<input name="sem" type="radio" id="2" value="2" >2<label for="2"></label><br>'
+                + '</td><td>' + '<input name="numSemestre" type="radio" value="1" id="1" /*checked="checked"*/>' + '<label for="1">' + numSemestre + '</label>' + '<input name="numSemestre" type="radio" id="2" value="2" >2<label for="2"></label><br>'
                 + '</td><td>' + '<input name="per" value= ' + per + '>'
                 + '</td><td>' + '<input name="charge1" value= ' + charge1 + '>'
                 + '</td><td>' + '<input name="charge2" value= ' + charge2 + '>'
@@ -1331,7 +1331,7 @@
                 var calcule = $('input[name="calcule"]').val();
                 var Coef = $('input[name="Coef"]').val();
                 // var sem = $('input[name="sem"]').val();
-                var numSemestre = $('input[type=radio][name=sem]:checked').val();
+                var numSemestre = $('input[type=radio][name=numSemestre]:checked').val();
                 console.log(numSemestre);
                 var NumPeriodfe = $('input[name="per"]').val();
                 var charge1 = $('input[name="charge1"]').val();
@@ -1370,50 +1370,51 @@
 
 
 
-                var _tr = '<tr>< td >'
-                    + CodeCl +
-                    '</td><td>' + CodeModule +
-                    '</td><td>' + typeEp +
-                    '</td><td>' + anneeDeb +
-                    '</td><td>' + apcs +
-                    '</td><td>' + nbh +
-                    '</td><td>' + calcule +
-                    '</td>< td >' + Coef +
-                    '</td><td>' + numSemestre +
-                    '</td><td>' + NumPeriodfe +
-                    '</td><td>' + charge1 +
-                    '</td><td>' + charge2 +
-                    '</td><td>' + IdEns +
-                    '</td><td>' + chargeEns1 +
-                    '</td><td>' + chargeEns2 +
-                    '</td><td>' + nbH +
-                    '</td><td>' + IdEns2 +
-                    '</td><td>' + chargeEns2p1 +
-                    '</td><td>' + chargeEns2p2 +
-                    '</td><td>' + NbHeuresEns2 +
-                    '</td><td>' + anneefin +
-                    '</td><td>' + dateDebut +
-                    '</td><td>' + dateFin +
-                    '</td><td>' + dateExam +
-                    '</td><td>' + NbHoraireRealises +
-                    '</td><td>' + Acomptabiliser +
-                    '</td><td>' + surveillant +
-                    '</td><td>' + heureExam +
-                    '</td><td>' + salleExam +
-                    '</td><td>' + surv2 +
-                    '</td><td>' + salleEx2 +
-                    '</td><td>' + Numpromotioncs +
-                    '</td><td>' + CodeUe +
-                    '</td><td>' + nbect +
-                    '</td><td>' + salle +
-                    '</td><td>' + DateRattr +
-                    '</td><td>' + heureRat +
-                    '</td><td>' + Salle1Rat +
-                    '</td><td>' + Salle2Rat +
-                    '</td><td>' + DateRat +
-                    '</td><td>' + DateCreation +
-                    '</td><td>' + DaterLastMaj +
-                    '</td></tr>';
+                var _tr = '<tr><td>' + ' <select name="CodeCl" id="CodeCl" value= ' + $('#CodeCl').html() + '<option name="CodeCl"  value="" selected disabled hidden> ' + CodeCl + ' </option>' + '  />'
+                    + '</td><td>' + ' <select name="CodeModule" id="CodeModule" value= ' + $('#CodeModule').html() + '<option name="CodeModule"  value="" selected disabled hidden> ' + CodeModule + ' </option>' + '  />'
+                    + '</td><td>' + '<input name="typeEp" value= ' + typeEp + '>'
+                    + '</td><td>' + '<input name="anneeDeb"  type="number" value= ' + anneeDeb + '>'
+                    + '</td><td>' + '<input name="apcs" value= ' + apcs + '>'
+                    + '</td><td>' + '<input name="nbh" value= ' + nbh + '>'
+                    + '</td><td>' + '<input name="calcule" value= ' + calcule + '>'
+                    + '</td><td>' + '<input name="coef" type="number" value= ' + Coef + '>'
+                    //+ '</td><td>' + '<input name="sem" type="number" value= ' + semestre + '>'
+                    + '</td><td>' + '<input name="numSemestre" type="radio" value="1" id="1" /*checked="checked"*/>' + '<label for="1">' + numSemestre + '</label>' + '<input name="numSemestre" type="radio" id="2" value="2" >2<label for="2"></label><br>'
+                    + '</td><td>' + '<input name="per" value= ' + NumPeriodfe + '>'
+                    + '</td><td>' + '<input name="charge1" value= ' + charge1 + '>'
+                    + '</td><td>' + '<input name="charge2" value= ' + charge2 + '>'
+                    + '</td><td>' + ' <select name="IdEns", value= ' + $('#IdEns').html() + '<option value="" selected disabled hidden> ' + IdEns + ' </option>' + '  />'
+                    + '</td><td>' + '<input name="chargeEns1" value= ' + chargeEns1 + '>'
+                    + '</td><td>' + '<input name="chargeEns2" value= ' + chargeEns2 + '>'
+                    + '</td><td>' + '<input name="nbheureEn" value= ' + nbH + '>'
+                    + '</td><td>' + ' <select name="IdEns2", value= ' + $('#IdEns').html() + '<option value="" selected disabled hidden> ' + IdEns2 + ' </option>' + '  />'
+                    + '</td><td>' + '<input name="chargeEns2p1" value= ' + chargeEns2p1 + '>'
+                    + '</td><td>' + '<input name="chargeEns2p2" value= ' + chargeEns2p2 + '>'
+                    + '</td><td>' + '<input name="NbHeuresEns2" value= ' + NbHeuresEns2 + '>'
+                    + '</td><td>' + '<input name="anneefin"  type="number" value= ' + anneefin + '>'
+                    + '</td><td>' + '<input name="dateDebut" value= ' + dateDebut + '>'
+                    + '</td><td>' + '<input name="dateFin" value= ' + dateFin + '>'
+                    + '</td><td>' + '<input name="dateExam" value= ' + dateExam + '>'
+                    + '</td><td>' + '<input name="NbHoraireRealises" value= ' + NbHoraireRealises + '>'
+                    + '</td><td>' + '<input name="Acomptabiliser" value= ' + Acomptabiliser + '>'
+                    + '</td><td>' + '<input name="surveillant" value= ' + surveillant + '>'
+                    + '</td><td>' + '<input name="heureExam" value= ' + heureExam + '>'
+                    + '</td><td>' + '<input name="salleExam" value= ' + salleExam + '>'
+                    + '</td><td>' + '<input name="surv2" value= ' + surv2 + '>'
+                    + '</td><td>' + '<input name="salleEx2" value= ' + salleEx2 + '>'
+                    + '</td><td>' + '<input name="Numpromotioncs" value= ' + Numpromotioncs + '>'
+                    + '</td><td>' + ' <select name="CodeUe", value= ' + $('#CodeUe').html() + '<option value="" selected disabled hidden> ' + CodeUe + ' </option>' + '  />'
+                    + '</td><td>' + '<input name="nbect" value= ' + nbect + '>'
+                    + '</td><td>' + '<input name="salle" value= ' + salle + '>'
+                    + '</td><td>' + '<input name="DateRattr" value= ' + DateRattr + '>'
+                    + '</td><td>' + '<input name="heureRat" value= ' + heureRat + '>'
+                    + '</td><td>' + '<input name="Salle1Rat" value= ' + Salle1Rat + '>'
+                    + '</td><td>' + '<input name="Salle2Rat" value= ' + Salle2Rat + '>'
+                    + '</td><td>' + '<input name="DateRat" value= ' + DateRat + '>'
+                    + '</td><td>' + '<input name="DateCreation" value= ' + DateCreation + '>'
+                    + '</td><td>' + '<input name ="DaterLastMaj" value= ' + DaterLastMaj + '>'
+                    + '</td></tr> ';
+                //$('tbody').clone().appendTo(_tr);
                 $('tbody').append(_tr);
                 //  $('#item_table').append(_tr);
 
@@ -1423,8 +1424,49 @@
                     data: {
                         CodeCl: $('select#codeCl option:checked').val(),
                         CodeModule: $('select#codeModule option:checked').val(),
-                        AnneeDeb: $('input[name="anneeDeb"]').val(),
-                        numSemestre: $('input[type=radio][name=sem]:checked').val(),
+                        anneeDeb: $('input[name="anneeDeb"]').val(),
+                        numSemestre: $('input[type=radio][name=numSemestre]:checked').val(),
+                         typeEp : $('input[name="typeEp"]').val(),
+                       apcs : $('input[name="apcs"]').val(),
+                        nbh : $('input[name="nbh"]').val(),
+                         calcule : $('input[name="calcule"]').val(),
+                         Coef : $('input[name="Coef"]').val(),
+                         NumPeriodfe : $('input[name="per"]').val(),
+                         charge1 : $('input[name="charge1"]').val(),
+                         charge2 : $('input[name="charge2"]').val(),
+                        IdEns: $('select#IdEns option:checked').val(),
+                         chargeEns1 : $('input[name="chargeEns1"]').val(),
+                         chargeEns2 : $('input[name="chargeEns2"]').val(),
+                         nbH : $('input[name="nbheureEn"]').val(),
+                        IdEns2: $('select#IdEns2 option:checked').val(),
+
+                         chargeEns2p1 : $('input[name="chargeEns2p1"]').val(),
+                        chargeEns2p2 : $('input[name="chargeEns2p2"]').val(),
+                         NbHeuresEns2 : $('input[name="NbHeuresEns2"]').val(),
+                         anneefin : $('input[name="anneefin"]').val(),
+                        dateDebut : $('input[name="dateDebut"]').val(),
+                        dateFin : $('input[name="dateFin"]').val(),
+                         dateExam : $('input[name="dateExam"]').val(),
+                         NbHoraireRealises : $('input[name="NbHoraireRealises"]').val(),
+                         Acomptabiliser : $('input[name="Acomptabiliser"]').val(),
+                         surveillant : $('input[name="surveillant"]').val(),
+                         heureExam : $('input[name="heureExam"]').val(),
+                         salleExam : $('input[name="salleExam"]').val(),
+                         surv2 : $('input[name="surv2"]').val(),
+                         salleEx2 : $('input[name="salleEx2"]').val(),
+                         Numpromotioncs : $('input[name="Numpromotioncs"]').val(),
+                        CodeUe: $('select#CodeUe option:checked').val(),
+                         nbect : $('input[name="nbect"]').val(),
+                         salle : $('input[name="salle"]').val(),
+                         DateRattr : $('input[name="DateRattr"]').val(),
+                         heureRat : $('input[name="heureRat"]').val(),
+                 Salle1Rat : $('input[name="Salle1Rat"]').val(),
+                         Salle2Rat : $('input[name="Salle2Rat"]').val(),
+                         DateRat : $('input[name="DateRat"]').val(),
+                         DateCreation : $('input[name="DateCreation"]').val(),
+                         DaterLastMaj : $('input[name="DaterLastMaj"]').val(),
+
+
 
                     },
                     success: function (data) {
