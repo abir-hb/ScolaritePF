@@ -1115,16 +1115,38 @@
             });
             </script>
         <script>
+
                 $(document).ready(function () {
                 var table = $('#example').DataTable({
 
 
                     "scrollY": "200px",
-                    "paging": false,
+                    "paging": true,
                     //  "paging":true,
                     "responsive": true,
                     "lengthChange": true,
-                    //    "buttons": ["copy", "csv", "excel", "pdf", "print"]
+                    "language": {
+                        "sProcessing": "Traitement en cours ...",
+                       
+                        "sZeroRecords": "Aucun résultat trouvé",
+                        "sEmptyTable": "Aucune donnée disponible",
+                      
+                        "sInfoEmpty": "Aucune ligne affichée",
+                        "sInfoFiltered": "(Filtrer un maximum de_MAX_)",
+                        "sInfoPostFix": "",
+                        "sSearch": "Chercher:",
+                       
+                        "sInfoThousands": ",",
+                        "sLoadingRecords": "Chargement...",
+                        "oPaginate": {
+                            "sFirst": "Premier", "sLast": "Dernier", "sNext": "Suivant", "sPrevious": "Précédent"
+                        },
+                        "oAria": {
+                            "sSortAscending": ": Trier par ordre croissant", "sSortDescending": ": Trier par ordre décroissant"
+                        }
+                    }
+
+                      //    "buttons": ["copy", "csv", "excel", "pdf", "print"]
                     //}).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
                 });
 
@@ -1190,7 +1212,6 @@
                                 var apcs = data[i]['apCs'];
                                 var nbh = data[i]['nbHeures'];
                                 var calcule = data[i]['calculRat'];
-
                                 var coef = data[i]['coef'];
                                 var numSemestre = data[i]['numSemestre'];
                                 var per = data[i]['periode'];
@@ -1245,8 +1266,8 @@
                 + '</td><td>' + '<input name="nbh" value= ' + nbh + '>'
                 + '</td><td>' + '<input name="calcule" value= ' + calcule + '>'
                 + '</td><td>' + '<input name="coef" type="number" value= ' + coef + '>'
-                //+ '</td><td>' + '<input name="sem" type="number" value= ' + semestre + '>'
-                + '</td><td>' + '<input name="numSemestre" type="radio" value="1" id="1" /*checked="checked"*/>' + '<label for="1">' + numSemestre + '</label>' + '<input name="numSemestre" type="radio" id="2" value="2" >2<label for="2"></label><br>'
+                                    //+ '</td><td>' + '<input name="sem" type="number" value= ' + semestre + '>'
+                                    + '</td><td>' +  '<input name="numSemestre" type="radio" value="1" id="1" /*checked="checked"*/>' + '<label for="1">1</label>' + '<input name="numSemestre" type="radio" id="2" value="2" >2<label for="2"></label><br>' + '<input name="numSemestre" type="radio" id="d" value=' + numSemestre + 'checked="checked" ><label for="d">semestre: ' + numSemestre+ '</label><br>'
                 + '</td><td>' + '<input name="per" value= ' + per + '>'
                 + '</td><td>' + '<input name="charge1" value= ' + charge1 + '>'
                 + '</td><td>' + '<input name="charge2" value= ' + charge2 + '>'
@@ -1324,7 +1345,6 @@
                 var CodeModule = $('select#codeModule option:checked').val();
                 console.log(CodeModule);
                 var typeEp = $('input[name="typeEp"]').val();
-
                 var anneeDeb = $('input[name="anneeDeb"]').val();
                 var apcs = $('input[name="apcs"]').val();
                 var nbh = $('input[name="nbh"]').val();
@@ -1485,6 +1505,21 @@
 
 
         });
+                    $(function () {
+                        $('#load').click(function () {
+                            location.reload();
+
+
+
+
+
+                        });
+
+                       
+
+
+                        });
+                           
 
 
 
