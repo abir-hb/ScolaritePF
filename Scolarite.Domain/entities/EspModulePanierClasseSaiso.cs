@@ -73,7 +73,6 @@ namespace Scolarite.Domain.entities
         public string HeureFinSr { get; set; }
         public string UeFantome { get; set; }
         public string Utilisateur { get; set; }
-      
 
         public virtual Classe CodeClNavigation { get; set; }
         public virtual EspModule CodeModuleNavigation { get; set; }

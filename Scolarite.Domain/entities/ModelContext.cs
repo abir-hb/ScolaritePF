@@ -15,6 +15,7 @@ namespace Scolarite.Domain.entities
         {
         }
 
+        public virtual DbSet<Appuser> Appuser { get; set; }
         public virtual DbSet<Champ> Champ { get; set; }
         public virtual DbSet<ChampStr> ChampStr { get; set; }
         public virtual DbSet<Classe> Classe { get; set; }
@@ -250,6 +251,7 @@ namespace Scolarite.Domain.entities
         public virtual DbSet<IdStuden> IdStuden { get; set; }
         public virtual DbSet<IdUtilis> IdUtilis { get; set; }
         public virtual DbSet<Jeton> Jeton { get; set; }
+        public virtual DbSet<Loginviewmodel> Loginviewmodel { get; set; }
         public virtual DbSet<Mapdsex161711Ghazala> Mapdsex161711Ghazala { get; set; }
         public virtual DbSet<Mapx161711Ghazala> Mapx161711Ghazala { get; set; }
         public virtual DbSet<Messages> Messages { get; set; }
@@ -313,6 +315,29 @@ namespace Scolarite.Domain.entities
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.HasAnnotation("Relational:DefaultSchema", "SCOPFES");
+
+            modelBuilder.Entity<Appuser>(entity =>
+            {
+                entity.HasKey(e => e.Loginname)
+                    .HasName("APPUSER_PK");
+
+                entity.ToTable("APPUSER");
+
+                entity.Property(e => e.Loginname)
+                    .HasColumnName("LOGINNAME")
+                    .HasMaxLength(255)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Loginnameuppercase)
+                    .HasColumnName("LOGINNAMEUPPERCASE")
+                    .HasMaxLength(255)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Password)
+                    .HasColumnName("PASSWORD")
+                    .HasMaxLength(255)
+                    .IsUnicode(false);
+            });
 
             modelBuilder.Entity<Champ>(entity =>
             {
@@ -16347,6 +16372,27 @@ namespace Scolarite.Domain.entities
                     .IsUnicode(false);
             });
 
+            modelBuilder.Entity<Loginviewmodel>(entity =>
+            {
+                entity.HasNoKey();
+
+                entity.ToTable("LOGINVIEWMODEL");
+
+                entity.Property(e => e.Email)
+                    .HasColumnName("EMAIL")
+                    .HasMaxLength(255)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Password)
+                    .HasColumnName("PASSWORD")
+                    .HasMaxLength(255)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Rememberme)
+                    .HasColumnName("REMEMBERME")
+                    .HasColumnType("NUMBER");
+            });
+
             modelBuilder.Entity<Mapdsex161711Ghazala>(entity =>
             {
                 entity.HasNoKey();
@@ -19043,14 +19089,9 @@ namespace Scolarite.Domain.entities
 
             modelBuilder.Entity<Utilisateur>(entity =>
             {
-                entity.HasKey(e => e.Code)
-                    .HasName("SYS_C0012058");
+                entity.HasNoKey();
 
                 entity.ToTable("UTILISATEUR");
-
-                entity.Property(e => e.Code)
-                    .HasColumnName("CODE")
-                    .ValueGeneratedNever();
 
                 entity.Property(e => e.Adresse)
                     .HasColumnName("ADRESSE")

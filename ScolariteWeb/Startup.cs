@@ -1,5 +1,8 @@
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -35,23 +38,34 @@ namespace ScolariteWeb
             services.AddScoped<IPlanEService, PlanEService>();
             services.AddTransient<ModelContext>();
             services.AddMvcCore();
-            services.AddRazorPages();
-            // optionsBuilder
-            services.AddDbContext<ModelContext>(options =>
+            services.AddRazorPages((options =>
+            {
+                options.Conventions.AuthorizeFolder("/Admin");
+            }));
+
+            
+        // optionsBuilder
+        services.AddDbContext<ModelContext>(options =>
         options.UseOracle(Configuration.GetConnectionString("oracledbCon")),
              ServiceLifetime.Transient);
-          //  services.AddDbContext<ModelContext>(options =>
-      //    options.UseOracle(Configuration["Data:scopfeS:ConnectionString"]));
+            services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<ModelContext>();
 
-          //  services.AddDbContext<ModelContext>(options => options.UseOracle("Data Source=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=localhost)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=orcl)));User Id=scopfeS;Password=esprit;"));
-      
+     
+        
+        //  services.AddDbContext<ModelContext>(options =>
+        //    options.UseOracle(Configuration["Data:scopfeS:ConnectionString"]));
+
+        //  services.AddDbContext<ModelContext>(options => options.UseOracle("Data Source=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=localhost)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=orcl)));User Id=scopfeS;Password=esprit;"));
 
 
 
-            services.AddMvc().AddRazorPagesOptions(Options =>
+
+        services.AddMvc().AddRazorPagesOptions(Options =>
             {
                 Options.Conventions.AddPageRoute("/Classe/List", "");
             });
+            services.AddDistributedMemoryCache();
+            services.AddSession();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -64,18 +78,25 @@ namespace ScolariteWeb
             else
             {
                 app.UseExceptionHandler("/Home/Error");
+                app.UseHsts();
             }
+             app.UseHttpsRedirection();
+    app.UseStaticFiles();
+
+            app.UseCookiePolicy();
             app.UseStaticFiles();
 
             app.UseRouting();
 
             app.UseAuthorization();
+            app.UseSession();
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
+                endpoints.MapRazorPages();
             });
         }
     }

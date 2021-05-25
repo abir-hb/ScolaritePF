@@ -1,0 +1,117 @@
+﻿@model Scolarite.Domain.entities.Appuser
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Scolarite-Esprit</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/png" href="~/templateLogin/images/icons/favicon.ico" />
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/templateLogin/vendor/bootstrap/css/bootstrap.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/templateLogin/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/templateLogin/fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/templateLogin/vendor/animate/animate.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/templateLogin/vendor/css-hamburgers/hamburgers.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/templateLogin/vendor/animsition/css/animsition.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/templateLogin/vendor/select2/select2.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/templateLogin/vendor/daterangepicker/daterangepicker.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/templateLogin/css/util.css">
+    <link rel="stylesheet" type="text/css" href="~/templateLogin/css/main.css">
+    <!--===============================================================================================-->
+</head>
+<body>
+  
+
+    <div class="limiter">
+        <h4>@ViewBag.Message</h4>
+
+      
+        <div class="container-login100">
+            <div class="wrap-login100">
+ 
+                <div class="login100-form-title" style="background-image : url(../templateLogin/images/esprit.png);height: 200px;background-size: contain;">
+                    <span class="login100-form-title-1">
+                        s'authentifier
+                    </span>
+                </div>
+
+
+
+                <form class="login100-form validate-form" asp-action="Login" method="post">
+                    <div class="wrap-input100 validate-input m-b-26" data-validate="Loginname is required">
+                        <span class="label-input100">Nom utilisateur:</span>
+                        <input asp-for="Loginname" class="input100" type="text" name="Loginname" placeholder="Enter Login">
+                        <span class="focus-input100"></span>
+                    </div>
+
+
+                    <div class="wrap-input100 validate-input m-b-18" data-validate="Password is required">
+                        <span class="label-input100">Mot de Passe:</span>
+                        <input asp-for="Password" class="input100" type="password" name="Password" placeholder="Enter password">
+                        <span class="focus-input100"></span>
+                    </div>
+                    <div class="flex-sb-m w-full p-b-30">
+                        <div class="contact100-form-checkbox">
+                            <input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
+                            <label class="label-checkbox100" for="ckb1">
+                                Remember me
+                            </label>
+                        </div>
+
+                        <div>
+                            <a href="#" class="txt1">
+                                Mot de passe oublié?
+                            </a>
+                        </div>
+                    </div>
+                    <div class="container-login100-form-btn">
+                        <input type="submit" value="s'authentifier" class="btn btn-danger pull-left" />
+                    </div>
+                    <br/>
+                    <br/>
+                    @if (string.IsNullOrEmpty(ViewBag.LTLD))
+    {
+                    <p class="text-muted">vous allez vous connecter pour la prèmiere fois à notre systéme</p>
+    }
+    else
+    {
+                    <center><p class="text-muted"> votre dernière connexion était à @ViewBag.LTLD</p></center>
+    }
+
+                </form>
+            </div>
+          
+        </div>
+    </div>
+    <!--===============================================================================================-->
+    <script src="~/templateLogin/vendor/jquery/jquery-3.2.1.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/templateLogin/vendor/animsition/js/animsition.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/templateLogin/vendor/bootstrap/js/popper.js"></script>
+    <script src="~/templateLogin/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/templateLogin/vendor/select2/select2.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/templateLogin/vendor/daterangepicker/moment.min.js"></script>
+    <script src="~/templateLogin/vendor/daterangepicker/daterangepicker.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/templateLogin/vendor/countdowntime/countdowntime.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/templateLogin/js/main.js"></script>
+
+</body>
+
+</html>

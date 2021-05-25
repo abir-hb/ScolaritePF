@@ -5,7 +5,6 @@ namespace Scolarite.Domain.entities
 {
     public partial class Utilisateur
     {
-        public int Code { get; set; }
         public string Adresse { get; set; }
         public string Email { get; set; }
         public string LastName { get; set; }
