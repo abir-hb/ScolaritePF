@@ -13,6 +13,7 @@ namespace Scolarite.Service
         public static DataBaseFactory dbf = new DataBaseFactory();
         public static IUnitOfWork uow = new UnitOfWork(dbf);
         List<EspEnseignant> enseignants = new List<EspEnseignant>();
+       
 
         public ServiceENS() : base(uow)
         {
@@ -36,6 +37,8 @@ namespace Scolarite.Service
         {
             return GetAll().FirstOrDefault(m => m.IdEns == ensId);
         }
+      
+
 
         public void UpdateEns(EspEnseignant e)
         {

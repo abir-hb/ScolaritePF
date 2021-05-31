@@ -1,5 +1,5 @@
 ﻿@model IEnumerable<Scolarite.Domain.entities.EspEnseignant>
-
+@addTagHelper*, Microsoft.AspNetCore.Mvc.TagHelpers
 @{
     ViewData["Title"] = "List";
 }
@@ -49,225 +49,191 @@
                     }
                 </style>
                 <div class="box" id="parent">
-                    <div class="table_wrapper">
-                        <div class="box-body" id="child-right">
-                            <a class="fancybox">hello<img src="small_image_1.jpg" alt="" /></a>
-                            <table id="example1" class="table table-bordered table-striped" align="center">
+                    <div id="PlaceHolderHere"></div>
 
-                                <thead>
-                                    <tr>
-                                        <th>
-                                            @Html.DisplayNameFor(model => model.Cin)
-                                        </th>
-                                        <th>
-                                            @Html.DisplayNameFor(model => model.CnssEns)
-                                        </th>
-                                        <th>
-                                            @Html.DisplayNameFor(model => model.CodeGradeActuel)
-                                        </th>
-                                        <th>
-                                            @Html.DisplayNameFor(model => model.CodeGradeEntree)
-                                        </th>
-                                        <th>
-                                            @Html.DisplayNameFor(model => model.DateModifyJwtPwd)
-                                        </th>
-                                        <th>
-                                            @Html.DisplayNameFor(model => model.DateRec)
-                                        </th>
-                                        <th>
-                                            @Html.DisplayNameFor(model => model.Etat)
-                                        </th>
-                                        <th>
-                                            @Html.DisplayNameFor(model => model.EtatCivilEns)
-                                        </th>
-                                        <th>
-                                            @Html.DisplayNameFor(model => model.LibGradeActuelle)
-                                        </th>
-                                        <th>
-                                            @Html.DisplayNameFor(model => model.LibGradeEntree)
-                                        </th>
-                                        <th>
-                                            @Html.DisplayNameFor(model => model.MailEns)
-                                        </th>
-                                        <th>
-                                            @Html.DisplayNameFor(model => model.Niveau)
-                                        </th>
-                                        <th>
-                                            @Html.DisplayNameFor(model => model.NomEns)
-                                        </th>
-                                        <th>
-                                            @Html.DisplayNameFor(model => model.PrenomEns)
-                                        </th>
-                                        <th>
-                                            @Html.DisplayNameFor(model => model.PwdEns)
-                                        </th>
-                                        <th>
-                                            @Html.DisplayNameFor(model => model.PwdInit)
-                                        </th>
-                                        <th>
-                                            @Html.DisplayNameFor(model => model.PwdJwtEnseignant)
-                                        </th>
-                                        <th>
-                                            @Html.DisplayNameFor(model => model.SexeEns)
-                                        </th>
-                                        <th>
-                                            @Html.DisplayNameFor(model => model.Tel)
-                                        </th>
-                                        <th>
-                                            @Html.DisplayNameFor(model => model.TypeEns)
-                                        </th>
-                                        <th>
-                                            @Html.DisplayNameFor(model => model.NbHeureEns)
-                                        </th>
-                                        <th>
-                                            @Html.DisplayNameFor(model => model.ChargeEns)
-                                        </th>
-                                        <th></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach (var item in Model)
-                                    {
-                                        <tr>
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.Cin)
-                                            </td>
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.CnssEns)
-                                            </td>
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.CodeGradeActuel)
-                                            </td>
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.CodeGradeEntree)
-                                            </td>
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.DateModifyJwtPwd)
-                                            </td>
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.DateRec)
-                                            </td>
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.Etat)
-                                            </td>
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.EtatCivilEns)
-                                            </td>
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.LibGradeActuelle)
-                                            </td>
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.LibGradeEntree)
-                                            </td>
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.MailEns)
-                                            </td>
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.Niveau)
-                                            </td>
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.NomEns)
-                                            </td>
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.PrenomEns)
-                                            </td>
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.PwdEns)
-                                            </td>
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.PwdInit)
-                                            </td>
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.PwdJwtEnseignant)
-                                            </td>
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.SexeEns)
-                                            </td>
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.Tel)
-                                            </td>
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.TypeEns)
-                                            </td>
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.NbHeureEns)
-                                            </td>
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.ChargeEns)
-                                            </td>
-                                            <td>
+                            @*@Html.RenderPartial("Create", Model.CreateViewModel);*@
+
+                            <div class="table_wrapper">
+                                <div class="box-body" id="child-right">
+                                    @*<a class="fancybox">hello<img src="small_image_1.jpg" alt="" /></a>*@
+                                    <table id="example1" class="table table-bordered table-striped" align="center">
+
+                                        <thead>
+                                            <tr>
+                                                <th>
+                                                    @Html.DisplayNameFor(model => model.Cin)
+                                                </th>
+                                                <th>
+                                                    @Html.DisplayNameFor(model => model.CnssEns)
+                                                </th>
+                                                <th>
+                                                    @Html.DisplayNameFor(model => model.CodeGradeActuel)
+                                                </th>
+                                                <th>
+                                                    @Html.DisplayNameFor(model => model.CodeGradeEntree)
+                                                </th>
+                                                <th>
+                                                    @Html.DisplayNameFor(model => model.DateModifyJwtPwd)
+                                                </th>
+                                                <th>
+                                                    @Html.DisplayNameFor(model => model.DateRec)
+                                                </th>
+                                                <th>
+                                                    @Html.DisplayNameFor(model => model.Etat)
+                                                </th>
+                                                <th>
+                                                    @Html.DisplayNameFor(model => model.EtatCivilEns)
+                                                </th>
+                                                <th>
+                                                    @Html.DisplayNameFor(model => model.LibGradeActuelle)
+                                                </th>
+                                                <th>
+                                                    @Html.DisplayNameFor(model => model.LibGradeEntree)
+                                                </th>
+                                                <th>
+                                                    @Html.DisplayNameFor(model => model.MailEns)
+                                                </th>
+                                                <th>
+                                                    @Html.DisplayNameFor(model => model.Niveau)
+                                                </th>
+                                                <th>
+                                                    @Html.DisplayNameFor(model => model.NomEns)
+                                                </th>
+                                                <th>
+                                                    @Html.DisplayNameFor(model => model.PrenomEns)
+                                                </th>
+                                                <th>
+                                                    @Html.DisplayNameFor(model => model.PwdEns)
+                                                </th>
+                                                <th>
+                                                    @Html.DisplayNameFor(model => model.PwdInit)
+                                                </th>
+                                                <th>
+                                                    @Html.DisplayNameFor(model => model.PwdJwtEnseignant)
+                                                </th>
+                                                <th>
+                                                    @Html.DisplayNameFor(model => model.SexeEns)
+                                                </th>
+                                                <th>
+                                                    @Html.DisplayNameFor(model => model.Tel)
+                                                </th>
+                                                <th>
+                                                    @Html.DisplayNameFor(model => model.TypeEns)
+                                                </th>
+                                                <th>
+                                                    @Html.DisplayNameFor(model => model.NbHeureEns)
+                                                </th>
+                                                <th>
+                                                    @Html.DisplayNameFor(model => model.ChargeEns)
+                                                </th>
+                                                <th></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach (var item in Model)
+                                            {
+                                                <tr>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.Cin)
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.CnssEns)
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.CodeGradeActuel)
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.CodeGradeEntree)
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.DateModifyJwtPwd)
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.DateRec)
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.Etat)
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.EtatCivilEns)
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.LibGradeActuelle)
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.LibGradeEntree)
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.MailEns)
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.Niveau)
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.NomEns)
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.PrenomEns)
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.PwdEns)
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.PwdInit)
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.PwdJwtEnseignant)
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.SexeEns)
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.Tel)
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.TypeEns)
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.NbHeureEns)
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.ChargeEns)
+                                                    </td>
+                                                    <td>
 
 
-                                                @*<a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>*@
-                                                <button class="btn btn-light">@Html.ActionLink("SUPPRIMER", "Delete", new { id = item.IdEns })</button>
-                                                <button class="btn btn-light">@Html.ActionLink("DETAILS", "Delete", new { id = item.IdEns })</button>
-                                                <button class="btn btn-light">@Html.ActionLink("MODIFIER", "Edit", new { id = item.IdEns })</button>
-                                                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-danger" asp-action="Details">
-                                                    DELETE
-                                                </button>
-                                            </td>
-                                        </tr>
-                                    }
-                                </tbody>
-                            </table>
+                                                        @*<a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>*@
+                                                        <button class="btn btn-light">@Html.ActionLink("SUPPRIMER", "Delete", new { id = item.IdEns })</button>
+                                                        <button class="btn btn-light">@Html.ActionLink("DETAILS", "Details", new { id = item.IdEns })</button>
+                                                        <button class="btn btn-light">@Html.ActionLink("MODIFIER", "Edit", new { id = item.IdEns })</button>
+                                                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalEns">
+                                                            Ajouter Enseignant
+                                                        </button>
+                                                        <button class="btn btn-light">@Html.ActionLink("SUPPRIMER", "Delete", new { id = item.IdEns })</button>
+                                                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-danger" data-url="@Url.Action("Delete")">
+                                                            DELETE
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                            }
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div id="child-left"></div>
+
+
+                            </div>
                         </div>
-                        <div id="child-left"></div>
-
-
                     </div>
                 </div>
-            </div>
-        </div>
 
-        <div class="modal fade" id="modal-danger">
-            <div class="modal-dialog">
-                <div class="modal-content bg-danger">
-                    <div class="modal-header">
-                        <h4 class="modal-title">Danger Modal</h4>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-
-                        <p>One fine body&hellip;</p>
-                      
-                    </div>
-                    <div class="modal-footer justify-content-between">
-                        <button type="button" class="btn btn-outline-light" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-outline-light" asp-action="Delete">Save changes</button>
-                    </div>
-                </div>
-                <!-- /.modal-content -->
-            </div>
-            <!-- /.modal-dialog -->
-        </div>
-        <!-- /.modal -->
-
-
-q
 
     </section>
 
 
 </div>
-@*<div id="deleteEmployeeModal" class="modal fade">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <form>
-                <div class="modal-header">
-                    <h4 class="modal-title">Delete Employee</h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                </div>
-                <div class="modal-body">
-                    <p>Are you sure you want to delete these Records?</p>
-                    <p class="text-warning"><small>This action cannot be undone.</small></p>
-                </div>
-                <div class="modal-footer">
-                    <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
-                    <input type="submit" class="btn btn-danger" value="Delete">
-                </div>
-            </form>
-        </div>
-    </div>
-</div>*@
+
+@section scripts
+{
+    <script src="~/templateLogin/js/site.js" asp-append-version="true"></script>
+}
