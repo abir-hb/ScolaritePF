@@ -39,7 +39,7 @@
         <nav class="main-header navbar navbar-expand navbar-white navbar-light">
             <!-- Left navbar links -->
             <ul class="navbar-nav">
-                
+
                 <li class="nav-item">
                     <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
                 </li>
@@ -189,7 +189,7 @@
             </ul>
         </nav>
 
-        </ul>
+
 
         <!-- /.navbar -->
         <!-- Main Sidebar Container -->
@@ -1120,6 +1120,41 @@
     <script>
 
         $('#example1').DataTable({
+
+
+            "scrollY": "1000px",
+            "paging": true,
+            //  "paging":true,
+            "responsive": true,
+            "lengthChange": true,
+            "language": {
+                "sProcessing": "Traitement en cours ...",
+
+                "sZeroRecords": "Aucun résultat trouvé",
+                "sEmptyTable": "Aucune donnée disponible",
+
+                "sInfoEmpty": "Aucune ligne affichée",
+                "sInfoFiltered": "(Filtrer un maximum de_MAX_)",
+                "sInfoPostFix": "",
+                "sSearch": "Chercher:",
+
+                "sInfoThousands": ",",
+                "sLoadingRecords": "Chargement...",
+                "oPaginate": {
+                    "sFirst": "Premier", "sLast": "Dernier", "sNext": "Suivant", "sPrevious": "Précédent"
+                },
+                "oAria": {
+                    "sSortAscending": ": Trier par ordre croissant", "sSortDescending": ": Trier par ordre décroissant"
+                }
+            }
+
+            //    "buttons": ["copy", "csv", "excel", "pdf", "print"]
+            //}).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+        });
+    </script>
+    <script>
+
+        $('#listClasse').DataTable({
 
 
             "scrollY": "1000px",

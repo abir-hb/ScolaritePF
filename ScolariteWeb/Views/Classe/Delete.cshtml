@@ -10,155 +10,176 @@
 
     <!-- Main content -->
     <section class="content">
+       
+            <div class="card">
+                <div class="card-body">
 
+                    <ul class="nav nav-tabs">
 
-        <h1>SUPPRIMER</h1>
+                        <li class="nav-item">
+                            <a asp-area="" asp-controller="Classe" asp-action="Create" class="nav-link">Ajouter une classe</a>
+                            @*<a class="nav-link" href="#">Link</a>*@
+                        </li>
+                        <li class="nav-item">
+                            <a asp-area="" asp-controller="Classe" asp-action="List" class="nav-link">liste des classes</a>
+                        </li>
+                        <li class="nav-item">
+                            <a asp-area="" asp-controller="Classe" asp-action="Edit" class="nav-link disabled">Modifier la classe</a>
+                        </li>
+                        <li class="nav-item">
+                            <a asp-area="" asp-controller="Classe" asp-action="Delete" class="nav-link active">supprimer la classe</a>
+                        </li>
+                    </ul>
 
-        <h3>Vous Voulez supprimer cette classe?</h3>
-        <div>
-           
-            <hr />
-            <dl class="row">
-                <dt class="col-sm-2">
-                    @Html.DisplayNameFor(model => model.LibelleCl)
-                </dt>
-                <dd class="col-sm-10">
-                    @Html.DisplayFor(model => model.LibelleCl)
-                </dd>
-                <dt class="col-sm-2">
-                    @Html.DisplayNameFor(model => model.DescriptionCl)
-                </dt>
-                <dd class="col-sm-10">
-                    @Html.DisplayFor(model => model.DescriptionCl)
-                </dd>
-                <dt class="col-sm-2">
-                    @Html.DisplayNameFor(model => model.DateCr)
-                </dt>
-                <dd class="col-sm-10">
-                    @Html.DisplayFor(model => model.DateCr)
-                </dd>
-                <dt class="col-sm-2">
-                    @Html.DisplayNameFor(model => model.DateDernModif)
-                </dt>
-                <dd class="col-sm-10">
-                    @Html.DisplayFor(model => model.DateDernModif)
-                </dd>
-                <dt class="col-sm-2">
-                    @Html.DisplayNameFor(model => model.SallePrincipale)
-                </dt>
-                <dd class="col-sm-10">
-                    @Html.DisplayFor(model => model.SallePrincipale)
-                </dd>
-                <dt class="col-sm-2">
-                    @Html.DisplayNameFor(model => model.SelleSecondaire1)
-                </dt>
-                <dd class="col-sm-10">
-                    @Html.DisplayFor(model => model.SelleSecondaire1)
-                </dd>
-                <dt class="col-sm-2">
-                    @Html.DisplayNameFor(model => model.SalleSecondaire2)
-                </dt>
-                <dd class="col-sm-10">
-                    @Html.DisplayFor(model => model.SalleSecondaire2)
-                </dd>
-                <dt class="col-sm-2">
-                    @Html.DisplayNameFor(model => model.NiveauAccees)
-                </dt>
-                <dd class="col-sm-10">
-                    @Html.DisplayFor(model => model.NiveauAccees)
-                </dd>
-                <dt class="col-sm-2">
-                    @Html.DisplayNameFor(model => model.Filiere)
-                </dt>
-                <dd class="col-sm-10">
-                    @Html.DisplayFor(model => model.Filiere)
-                </dd>
-                <dt class="col-sm-2">
-                    @Html.DisplayNameFor(model => model.AnneeScolaire)
-                </dt>
-                <dd class="col-sm-10">
-                    @Html.DisplayFor(model => model.AnneeScolaire)
-                </dd>
-                <dt class="col-sm-2">
-                    @Html.DisplayNameFor(model => model.LibFiliere)
-                </dt>
-                <dd class="col-sm-10">
-                    @Html.DisplayFor(model => model.LibFiliere)
-                </dd>
-                <dt class="col-sm-2">
-                    @Html.DisplayNameFor(model => model.CodeSpecialite)
-                </dt>
-                <dd class="col-sm-10">
-                    @Html.DisplayFor(model => model.CodeSpecialite)
-                </dd>
-                <dt class="col-sm-2">
-                    @Html.DisplayNameFor(model => model.LibSpecialite)
-                </dt>
-                <dd class="col-sm-10">
-                    @Html.DisplayFor(model => model.LibSpecialite)
-                </dd>
-                <dt class="col-sm-2">
-                    @Html.DisplayNameFor(model => model.Categorie)
-                </dt>
-                <dd class="col-sm-10">
-                    @Html.DisplayFor(model => model.Categorie)
-                </dd>
-                <dt class="col-sm-2">
-                    @Html.DisplayNameFor(model => model.FiliereNew)
-                </dt>
-                <dd class="col-sm-10">
-                    @Html.DisplayFor(model => model.FiliereNew)
-                </dd>
-                <dt class="col-sm-2">
-                    @Html.DisplayNameFor(model => model.SiteEsp)
-                </dt>
-                <dd class="col-sm-10">
-                    @Html.DisplayFor(model => model.SiteEsp)
-                </dd>
-                <dt class="col-sm-2">
-                    @Html.DisplayNameFor(model => model.CodeDept)
-                </dt>
-                <dd class="col-sm-10">
-                    @Html.DisplayFor(model => model.CodeDept)
-                </dd>
-                <dt class="col-sm-2">
-                    @Html.DisplayNameFor(model => model.CodeOption)
-                </dt>
-                <dd class="col-sm-10">
-                    @Html.DisplayFor(model => model.CodeOption)
-                </dd>
-                <dt class="col-sm-2">
-                    @Html.DisplayNameFor(model => model.CurrentUser)
-                </dt>
-                <dd class="col-sm-10">
-                    @Html.DisplayFor(model => model.CurrentUser)
-                </dd>
-                <dt class="col-sm-2">
-                    @Html.DisplayNameFor(model => model.DateAffectMc)
-                </dt>
-                <dd class="col-sm-10">
-                    @Html.DisplayFor(model => model.DateAffectMc)
-                </dd>
-                <dt class="col-sm-2">
-                    @Html.DisplayNameFor(model => model.Mail)
-                </dt>
-                <dd class="col-sm-10">
-                    @Html.DisplayFor(model => model.Mail)
-                </dd>
-                <dt class="col-sm-2">
-                    @Html.DisplayNameFor(model => model.Pole)
-                </dt>
-                <dd class="col-sm-10">
-                    @Html.DisplayFor(model => model.Pole)
-                </dd>
-            </dl>
-            @* <a class="btn btn-primary" href="@Url.Action("Delete", "ClasseController",new { id = Model.CodeCl})" role="button">Supprimer</a>*@
-            <form asp-action="Delete">
-                <input type="hidden" asp-for="CodeCl" />
-                <input type="submit" value="Delete" class="btn btn-danger" /> |
-                <a asp-action="Index">Back to List</a>
-            </form>
-            </div>
-            </section>
-    </div>
+                    <h1>SUPPRIMER</h1>
+
+                    <h3>Vous Voulez supprimer cette classe?</h3>
+                    <div>
+
+                        <hr />
+                        <dl class="row">
+                            <dt class="col-sm-2">
+                                @Html.DisplayNameFor(model => model.LibelleCl)
+                            </dt>
+                            <dd class="col-sm-10">
+                                @Html.DisplayFor(model => model.LibelleCl)
+                            </dd>
+                            <dt class="col-sm-2">
+                                @Html.DisplayNameFor(model => model.DescriptionCl)
+                            </dt>
+                            <dd class="col-sm-10">
+                                @Html.DisplayFor(model => model.DescriptionCl)
+                            </dd>
+                            <dt class="col-sm-2">
+                                @Html.DisplayNameFor(model => model.DateCr)
+                            </dt>
+                            <dd class="col-sm-10">
+                                @Html.DisplayFor(model => model.DateCr)
+                            </dd>
+                            <dt class="col-sm-2">
+                                @Html.DisplayNameFor(model => model.DateDernModif)
+                            </dt>
+                            <dd class="col-sm-10">
+                                @Html.DisplayFor(model => model.DateDernModif)
+                            </dd>
+                            <dt class="col-sm-2">
+                                @Html.DisplayNameFor(model => model.SallePrincipale)
+                            </dt>
+                            <dd class="col-sm-10">
+                                @Html.DisplayFor(model => model.SallePrincipale)
+                            </dd>
+                            <dt class="col-sm-2">
+                                @Html.DisplayNameFor(model => model.SelleSecondaire1)
+                            </dt>
+                            <dd class="col-sm-10">
+                                @Html.DisplayFor(model => model.SelleSecondaire1)
+                            </dd>
+                            <dt class="col-sm-2">
+                                @Html.DisplayNameFor(model => model.SalleSecondaire2)
+                            </dt>
+                            <dd class="col-sm-10">
+                                @Html.DisplayFor(model => model.SalleSecondaire2)
+                            </dd>
+                            <dt class="col-sm-2">
+                                @Html.DisplayNameFor(model => model.NiveauAccees)
+                            </dt>
+                            <dd class="col-sm-10">
+                                @Html.DisplayFor(model => model.NiveauAccees)
+                            </dd>
+                            <dt class="col-sm-2">
+                                @Html.DisplayNameFor(model => model.Filiere)
+                            </dt>
+                            <dd class="col-sm-10">
+                                @Html.DisplayFor(model => model.Filiere)
+                            </dd>
+                            <dt class="col-sm-2">
+                                @Html.DisplayNameFor(model => model.AnneeScolaire)
+                            </dt>
+                            <dd class="col-sm-10">
+                                @Html.DisplayFor(model => model.AnneeScolaire)
+                            </dd>
+                            <dt class="col-sm-2">
+                                @Html.DisplayNameFor(model => model.LibFiliere)
+                            </dt>
+                            <dd class="col-sm-10">
+                                @Html.DisplayFor(model => model.LibFiliere)
+                            </dd>
+                            <dt class="col-sm-2">
+                                @Html.DisplayNameFor(model => model.CodeSpecialite)
+                            </dt>
+                            <dd class="col-sm-10">
+                                @Html.DisplayFor(model => model.CodeSpecialite)
+                            </dd>
+                            <dt class="col-sm-2">
+                                @Html.DisplayNameFor(model => model.LibSpecialite)
+                            </dt>
+                            <dd class="col-sm-10">
+                                @Html.DisplayFor(model => model.LibSpecialite)
+                            </dd>
+                            <dt class="col-sm-2">
+                                @Html.DisplayNameFor(model => model.Categorie)
+                            </dt>
+                            <dd class="col-sm-10">
+                                @Html.DisplayFor(model => model.Categorie)
+                            </dd>
+                            <dt class="col-sm-2">
+                                @Html.DisplayNameFor(model => model.FiliereNew)
+                            </dt>
+                            <dd class="col-sm-10">
+                                @Html.DisplayFor(model => model.FiliereNew)
+                            </dd>
+                            <dt class="col-sm-2">
+                                @Html.DisplayNameFor(model => model.SiteEsp)
+                            </dt>
+                            <dd class="col-sm-10">
+                                @Html.DisplayFor(model => model.SiteEsp)
+                            </dd>
+                            <dt class="col-sm-2">
+                                @Html.DisplayNameFor(model => model.CodeDept)
+                            </dt>
+                            <dd class="col-sm-10">
+                                @Html.DisplayFor(model => model.CodeDept)
+                            </dd>
+                            <dt class="col-sm-2">
+                                @Html.DisplayNameFor(model => model.CodeOption)
+                            </dt>
+                            <dd class="col-sm-10">
+                                @Html.DisplayFor(model => model.CodeOption)
+                            </dd>
+                            <dt class="col-sm-2">
+                                @Html.DisplayNameFor(model => model.CurrentUser)
+                            </dt>
+                            <dd class="col-sm-10">
+                                @Html.DisplayFor(model => model.CurrentUser)
+                            </dd>
+                            <dt class="col-sm-2">
+                                @Html.DisplayNameFor(model => model.DateAffectMc)
+                            </dt>
+                            <dd class="col-sm-10">
+                                @Html.DisplayFor(model => model.DateAffectMc)
+                            </dd>
+                            <dt class="col-sm-2">
+                                @Html.DisplayNameFor(model => model.Mail)
+                            </dt>
+                            <dd class="col-sm-10">
+                                @Html.DisplayFor(model => model.Mail)
+                            </dd>
+                            <dt class="col-sm-2">
+                                @Html.DisplayNameFor(model => model.Pole)
+                            </dt>
+                            <dd class="col-sm-10">
+                                @Html.DisplayFor(model => model.Pole)
+                            </dd>
+                        </dl>
+                        @* <a class="btn btn-primary" href="@Url.Action("Delete", "ClasseController",new { id = Model.CodeCl})" role="button">Supprimer</a>*@
+                        <form asp-action="Delete">
+                            <input type="hidden" asp-for="CodeCl" />
+                            <input type="submit" value="Delete" class="btn btn-danger" /> |
+                            <a asp-action="Index">Back to List</a>
+                        </form>
+                    </div>
+                    </div>
+                </div>
+        </section>
+</div>
        

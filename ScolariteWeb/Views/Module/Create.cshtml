@@ -57,7 +57,7 @@
 
                 </div>*@
 
-                @*<div class="form-group">
+                <div class="form-group">
                     @Html.LabelFor(model => model.Up, "UNITE PEDAGOGIQUE", htmlAttributes: new { @class = "control-label col-md-2", placeholder = "selectionner l'unité Pédagogique.."})
 
                     <div class="col-md-10">
@@ -82,7 +82,7 @@
                         @Html.DropDownList("AnneeDeb", (SelectList)ViewData["ues"])
                         @Html.ValidationMessageFor(model => model.AnneeDeb, "", new { @class = "text-danger" })
                     </div>
-                </div>*@
+                </div>
                 <div class="form-group">
                     @Html.LabelFor(model => model.Coef, "COEFFICIENT", htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace Scolarite.Domain.entities
 {
@@ -12,10 +13,13 @@ namespace Scolarite.Domain.entities
             EspSaisonClasse = new HashSet<EspSaisonClasse>();
             Seance = new HashSet<Seance>();
         }
-
+        [Required(ErrorMessage = "le champs Code est obligatoire")]
         public string CodeCl { get; set; }
+       
         public string LibelleCl { get; set; }
+        
         public string DescriptionCl { get; set; }
+        
         public DateTime? DateCr { get; set; }
         public DateTime? DateDernModif { get; set; }
         public string SallePrincipale { get; set; }

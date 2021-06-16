@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Scolarite.Domain.entities;
 using Scolarite.Service;
+using ScolariteWeb.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,8 +25,17 @@ namespace Scolarite.Web.Controllers
         public IActionResult List()
 
         {
-            return View(sc.GetAll());
+            List<Classe> classe = (List<Classe>)sc.GetAll();
+            ClasseViewModel myModel = new ClasseViewModel();
+            myModel.Classes = classe;
+            return View(myModel);
         }
+        public ActionResult Index()
+
+        {
+            return View();
+        }
+
 
 
         // GET: Questions/Create
@@ -43,22 +53,20 @@ namespace Scolarite.Web.Controllers
         {
 
 
-            try
-            {
-                sc.CreateCl(c);
-                //  context.Entry(c).State = EntityState.Added;
-                // context.SaveChanges();
-                return RedirectToAction("List");
-            }
-            catch (Exception e)
-            {
 
-                string msg;
-                msg = "error";
+            if (ModelState.IsValid) {
+                {
+                    sc.CreateCl(c);
+                    //  context.Entry(c).State = EntityState.Added;
+                    // context.SaveChanges();
+                    return RedirectToAction("List");
+                } }
+            else {
 
-            }
-            return RedirectToAction("List");
-        }
+
+            } return View(); }
+
+
 
         // GET: Classe/Edit/5
         public ActionResult Edit(String id)
@@ -70,51 +78,68 @@ namespace Scolarite.Web.Controllers
         // POST: Classe/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(string id, IFormCollection collection)
+        public ActionResult Edit(string id, Classe espClasse)
         {
-            try
-            {
-                Classe classe = sc.GetClasseByID(id);
-                /*  Classe classe1 = new Classe()
-                  {
-                      CodeCl=User.gui
-                  };*/
-                sc.UpdateCl(classe);
 
-                context.Entry(classe).State = EntityState.Modified;
-                context.SaveChanges();
-                sc.Commit();
+            Classe classe = sc.GetClasseByID(id);
+            classe.AnneeScolaire = espClasse.AnneeScolaire;
+            classe.Categorie = espClasse.Categorie;
+            classe.CodeDept = espClasse.CodeDept;
+            classe.CodeOption = espClasse.CodeOption;
+            classe.CodeSpecialite = espClasse.CodeSpecialite;
+            classe.DateAffectMc = espClasse.DateAffectMc;
+            classe.DateCr = espClasse.DateCr;
+            classe.DateDernModif = espClasse.DateDernModif;
+            classe.DescriptionCl = espClasse.DescriptionCl;
+            classe.Filiere = espClasse.Filiere;
+            classe.LibelleCl = espClasse.LibelleCl;
+            classe.LibFiliere = espClasse.LibFiliere;
+            classe.LibSpecialite = espClasse.LibSpecialite;
+            classe.Mail = espClasse.Mail;
+            classe.NiveauAccees = espClasse.NiveauAccees;
+            classe.Pole = espClasse.Pole;
+            classe.SallePrincipale = espClasse.SallePrincipale;
+            classe.SalleSecondaire2 = espClasse.SalleSecondaire2;
 
-                return RedirectToAction("List");
-            }
-            catch
-            {
-                return RedirectToAction("List");
-            }
+            classe.Seance = espClasse.Seance;
+            classe.SelleSecondaire1 = espClasse.SelleSecondaire1;
+            classe.SiteEsp = espClasse.SiteEsp;
+            
+
+            /*  Classe classe1 = new Classe()
+              {
+                  CodeCl=User.gui
+              };*/
+            sc.UpdateCl(classe);
+
+            context.Entry(classe).State = EntityState.Modified;
+            context.SaveChanges();
+            sc.Commit();
+
+            return RedirectToAction("List");
         }
 
-
-
-
-
-
+    
 
 
         // GET: Client/Delete/5
         public ActionResult Delete(String id)
         {
+            ClasseViewModel model = new ClasseViewModel();
+
             Classe classe = sc.GetClasseByID(id);
+            model.Classe = classe;
             //sc.Delete(classe);
             // sc.Commit();
-            return View(classe);
+            return View(model);
         }
 
         // POST: Client/Delete/5
         [HttpPost]
-        public ActionResult Delete(String id, IFormCollection collection)
+        public ActionResult Delete(String id, ClasseViewModel model)
         {
             Classe classe = sc.GetClasseByID(id);
-
+            model.Classe = classe;
             sc.Delete(classe);
 
             sc.Commit();
@@ -122,5 +147,18 @@ namespace Scolarite.Web.Controllers
 
 
         }
+
+        public ActionResult Details(String id)
+
+
+        {
+
+
+
+            Classe classe = sc.GetClasseByID(id);
+            return View(classe);
+
+        }
+
     }
 }

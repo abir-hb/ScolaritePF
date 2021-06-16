@@ -18,7 +18,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <div class="card-header">
-            <h3 class="card-title">LA LISTE DES ENSEIGNANTS  </h3>
+            <h3 class="card-title">LA LISTE DES MODULES  </h3>
         </div>
     </section>
     <section class="content">
@@ -28,90 +28,7 @@
             <!-- /.card-header -->
             <div class="card-body">
 
-                <div class="row">
-                   
-                        <div class="col-md-12">
-                            <div class="col-md-3">
-                                CodeModule
-                                <input type="text" class="form-control input-sm" id="CodeModule">
-
-                            </div>
-                            <div class="col-md-3">
-                                Designation
-                                <input type="text" class="form-control input-sm" id="Designation" >
-
-                            </div>
-                            <div class="col-md-3">
-                                DESCRIPTION
-                                <input type="text" class="form-control input-sm" id="Description" >
-
-                            </div>
-                            <div class="col-md-3">
-                                NbHeures
-                                <input type="text" class="form-control input-sm" id="NbHeures" >
-
-                            </div>
-
-                            <div class="col-md-3">
-                                Up
-                                <input type="text" class="form-control input-sm" id="Up" >
-
-                            </div>
-                            <div class="col-md-3">
-                                CodeUe
-                                <input type="text" class="form-control input-sm" id="CodeUe" >
-
-                            </div>
-                            <div class="col-md-3">
-                                AnneeDeb
-                                <input type="text" class="form-control input-sm" id="AnneeDeb" >
-
-                            </div>
-                            <div class="col-md-3">
-                                Coef
-                                <input type="text" class="form-control input-sm" id="Coef" >
-
-                            </div>
-                            <div class="col-md-3">
-                                NumPanier
-                                <input type="text" class="form-control input-sm" id="NumPanier" >
-
-                            </div>
-                            <div class="col-md-3">
-                                TypeEpreuve
-                                <input type="text" class="form-control input-sm" id="TypeEpreuve" >
-
-                            </div>
-                            <div class="col-md-3">
-                                CodeMatiereEduserv
-                                <input type="text" class="form-control input-sm" id="CodeMatiereEduserv" >
-
-                            </div>
-                            <div class="col-md-3">
-                                TypeEpreuveSr
-                                <input type="text" class="form-control input-sm" id="TypeEpreuveSr" >
-
-                            </div>
-                        </div>
-
-                </div>
-                 <div class="container">
-                     <div class="row">
-                         <div class="col-md-12">
-                             <input type="text" id="add_data" value="add data to table" class="btn btn-primary btn-sm">
-                             <input type="text" id="save" value="add data to database" class="btn btn-success btn-sm">
-                         </div>
-                     </div>
-                 </div>   
-             </div>
-
-
-                <div class="card-body">
-                    <div class="row">
-
-                        <div class="col-md-12">
-                            <button id="addRow">Add new row</button>
-
+                
                             <table id="example" class="display">
                                 <thead>
                                     <tr>
@@ -159,126 +76,67 @@
                                 </thead>
                                
                                 <tbody>
-                                   
-                                 
-                                        
-                                        @foreach (var item in Model)
-                                        {
-                                            <tr>
-                                                <td>
-                                                    @Html.DisplayFor(modelItem => item.Designation)
-                                                </td>
-                                                <td>
-                                                    @Html.DisplayFor(modelItem => item.Description)
-                                                </td>
-                                                <td>
-                                                    @Html.DisplayFor(modelItem => item.NbHeures)
-                                                </td>
-                                                <td>
-                                                    @Html.DisplayFor(modelItem => item.Etat)
-                                                </td>
-                                                <td>
-                                                    @Html.DisplayFor(modelItem => item.Coef)
-                                                </td>
-                                                <td>
-                                                    @Html.DisplayFor(modelItem => item.NumPanier)
-                                                </td>
-                                                <td>
-                                                    @Html.DisplayFor(modelItem => item.AEvaluer)
-                                                </td>
-                                                <td>
-                                                    @Html.DisplayFor(modelItem => item.TypeEpreuve)
-                                                </td>
-                                                <td>
-                                                    @Html.DisplayFor(modelItem => item.CodeMatiereEduserv)
-                                                </td>
-                                                <td>
-                                                    @Html.DisplayFor(modelItem => item.TypeEpreuveSr)
-                                                </td>
-                                                <td>
-                                                    @Html.DisplayFor(modelItem => item.TypeModule)
-                                                </td>
-                                                <td>
-                                                    @Html.DisplayFor(modelItem => item.EspUe.CodeUe)
-                                                </td>
-                                                <td>
-                                                    @Html.DisplayFor(modelItem => item.UpNavigation.Up)
-                                                </td>
-                                                <td>
-                                                    <a asp-action="Edit" asp-route-id="@item.CodeModule">Edit</a> |
-                                                    <a asp-action="Details" asp-route-id="@item.CodeModule">Details</a> |
-                                                    <a asp-action="Delete" asp-route-id="@item.CodeModule">Delete</a>
-                                                </td>
-                                            </tr>
-                                        }
+
+
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Designation)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Description)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.NbHeures)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Etat)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Coef)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.NumPanier)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.AEvaluer)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.TypeEpreuve)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.CodeMatiereEduserv)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.TypeEpreuveSr)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.TypeModule)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.EspUe.CodeUe)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.UpNavigation.Up)
+                                            </td>
+                                            <td>
+                                                <a asp-action="Edit" asp-route-id="@item.CodeModule">Edit</a> |
+                                                <a asp-action="Details" asp-route-id="@item.CodeModule">Details</a> |
+                                                <a asp-action="Delete" asp-route-id="@item.CodeModule">Delete</a>
+                                            </td>
+                                        </tr>
+                                    }
                                 </tbody>
                             </table>
                         </div>
                     </div>
-                    </div>
+                    </section>
              
                        
                        
-                    </div>
-</section>
+
     </div>
-
-
-    @section Scripts {
-
-        <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-        <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
-        <script src="~/template/dist/tableJQ.js"></script>
-        <script src="~/template/dist/tableJQT.js"></script>
-        <script>
-            $(document).ready(function () {
-                var t = $('#example').DataTable();
-                var counter = 1;
-
-                $('#addRow').click(function () {
-                    t.row.add([
-                        counter + '.1',
-                        counter + '.2',
-                        counter + '.3',
-                        counter + '.4',
-                        counter + '.5'
-                    ]).draw(false);
-
-                    counter++;
-                });
-
-                // Automatically add a first row of data
-                $('#addRow').click();
-            });
-        </script>
-        <script type="text/javascript">
-            $(function () {
-                //set number for adding row
-                var set_number = function () {
-                    var table_len = $('data_table tbody tr').length
-                    $('#no').val(table_len);
-                }
-                set_number();
-                $('#add_data').click(function () {
-                    var CodeModule = $('#CodeModule').val(); 
-                    var Designation = $('#Designation').val(); 
-                    var Description = $('#Description').val(); 
-                    var NbHeures = $('#NbHeures').val(); 
-                    var Etat = $('#Etat').val(); 
-                    var Coef = $('#Coef').val(); 
-                    var NumPanier = $('#NumPanier').val(); 
-                    var AEvaluer = $('#AEvaluer').val(); 
-                    var TypeEpreuve = $('#TypeEpreuve').val(); 
-                    var CodeMatiereEduserv = $('#CodeMatiereEduserv').val(); 
-                    var TypeEpreuveSr = $('#TypeEpreuveSr').val(); 
-                    var TypeModule = $('#TypeModule').val(); 
-                    var EspUe = $('#EspUe').val(); 
-                    var UpNavigation = $('#UpNavigation').val(); 
-                   
-                });
-            });
-
-        </script>
         @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 
 

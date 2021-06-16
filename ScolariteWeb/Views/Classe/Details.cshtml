@@ -1,0 +1,349 @@
+﻿@model Scolarite.Domain.entities.Classe
+
+@{
+    ViewData["Title"] = "Details";
+}
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="card-header">
+            <center>   <h4>Details de la classe  @Html.DisplayFor(model => model.CodeCl) </h4></center>
+        </div>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+    <div class="card">
+        <div class="card-body">
+
+            <ul class="nav nav-tabs">
+
+                <li class="nav-item">
+                    <a asp-area="" asp-controller="Classe" asp-action="Create" class="nav-link">Ajouter une classe</a>
+                    @*<a class="nav-link" href="#">Link</a>*@
+                </li>
+                <li class="nav-item">
+                    <a asp-area="" asp-controller="Classe" asp-action="List" class="nav-link">liste des classes</a>
+                </li>
+                <li class="nav-item">
+                    <a asp-area="" asp-controller="Classe" asp-action="Details" class="nav-link active">details de la classe</a>
+                </li>
+                <li class="nav-item">
+                    <a asp-area="" asp-controller="Classe" asp-action="Edit" class="nav-link disabled">Modifier la classe</a>
+                </li>
+                @*<li class="nav-item">
+                    <a asp-area="" asp-controller="Classe" asp-action="Delete" class="nav-link disabled">supprimer la classe</a>
+                </li>*@
+            </ul>
+          
+
+           
+
+                <hr />
+                <div class="card-body">
+                <div class="row">
+                    <div class="col-12 col-md-12 col-lg-8 order-2 order-md-1">
+                        <div class="row">
+                            <div class="col-12 col-sm-4">
+                                <div class="info-box bg-light">
+                                    <div class="info-box-content">
+                                        <span class="info-box-text text-center text-muted">
+                                            @Html.DisplayNameFor(model => model.LibelleCl)
+                                        </span>
+                                        <span class="info-box text-center text-muted mb-0">
+                                            @Html.DisplayFor(model => model.LibelleCl)
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-sm-4">
+                                <div class="info-box bg-light">
+                                    <div class="info-box-content">
+                                        <span class="info-box-text text-center text-muted">
+                                            @Html.DisplayNameFor(model => model.DescriptionCl)
+                                        </span>
+                                        <span class="info-box text-center text-muted mb-0">
+                                            @Html.DisplayFor(model => model.DescriptionCl)
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                            <div class="col-12 col-sm-4">
+                                <div class="info-box bg-light">
+                                    <div class="info-box-content">
+                                        <span class="info-box-text text-center text-muted">
+                                            @Html.DisplayNameFor(model => model.DateCr)
+                                        </span>
+                                        <span class="info-box text-center text-muted mb-0">
+
+                                            @Html.DisplayFor(model => model.DateCr)
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-sm-4">
+                                <div class="info-box bg-light">
+                                    <div class="info-box-content">
+                                        <span class="info-box-text text-center text-muted">
+                                            @Html.DisplayNameFor(model => model.DateDernModif)
+                                        </span>
+                                        <span class="info-box text-center text-muted mb-0">
+
+                                            @Html.DisplayFor(model => model.DateDernModif)
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-sm-4">
+                                <div class="info-box bg-light">
+                                    <div class="info-box-content">
+                                        <span class="info-box-text text-center text-muted">
+                                            @Html.DisplayNameFor(model => model.SallePrincipale)
+                                        </span>
+                                        <span class="info-box text-center text-muted mb-0">
+                                            @Html.DisplayFor(model => model.SallePrincipale)
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-sm-4">
+                                <div class="info-box bg-light">
+                                    <div class="info-box-content">
+                                        <span class="info-box-text text-center text-muted">
+                                            @Html.DisplayNameFor(model => model.SelleSecondaire1)
+                                        </span>
+                                        <span class="info-box text-center text-muted mb-0">
+                                            @Html.DisplayFor(model => model.SelleSecondaire1)
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-sm-4">
+                                <div class="info-box bg-light">
+                                    <div class="info-box-content">
+                                        <span class="info-box-text text-center text-muted">
+
+                                            @Html.DisplayNameFor(model => model.SalleSecondaire2)
+                                        </span>
+                                        <span class="info-box text-center text-muted mb-0">
+                                            @Html.DisplayFor(model => model.SalleSecondaire2)
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="col-12 col-sm-4">
+                                <div class="info-box bg-light">
+                                    <div class="info-box-content">
+                                        <span class="info-box-text text-center text-muted">
+                                            @Html.DisplayNameFor(model => model.NiveauAccees)
+                                        </span>
+                                        <span class="info-box text-center text-muted mb-0">
+                                            @Html.DisplayFor(model => model.NiveauAccees)
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="col-12 col-sm-4">
+                                <div class="info-box bg-light">
+                                    <div class="info-box-content">
+                                        <span class="info-box-text text-center text-muted">
+                                            @Html.DisplayNameFor(model => model.Filiere)
+                                        </span>
+                                        <span class="info-box text-center text-muted mb-0">
+                                            @Html.DisplayFor(model => model.Filiere)
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-sm-4">
+                                <div class="info-box bg-light">
+                                    <div class="info-box-content">
+                                        <span class="info-box-text text-center text-muted">
+                                            @Html.DisplayNameFor(model => model.AnneeScolaire)
+                                        </span>
+                                        <span class="info-box text-center text-muted mb-0">
+                                            <span class="badge badge-warning">
+                                            @Html.DisplayFor(model => model.AnneeScolaire)
+                                                </span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="col-12 col-sm-4">
+                                <div class="info-box bg-light">
+                                    <div class="info-box-content">
+                                        <span class="info-box-text text-center text-muted">
+                                            @Html.DisplayNameFor(model => model.LibFiliere)
+                                        </span>
+                                        <span class="info-box text-center text-muted mb-0">
+                                            @Html.DisplayFor(model => model.LibFiliere)
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-sm-4">
+                                <div class="info-box bg-light">
+                                    <div class="info-box-content">
+                                        <span class="info-box-text text-center text-muted">
+                                            @Html.DisplayNameFor(model => model.CodeSpecialite)
+                                        </span>
+                                        <span class="info-box text-center text-muted mb-0">
+                                            @Html.DisplayFor(model => model.CodeSpecialite)
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-sm-4">
+                                <div class="info-box bg-light">
+                                    <div class="info-box-content">
+                                        <span class="info-box-text text-center text-muted">
+                                            @Html.DisplayNameFor(model => model.LibSpecialite)
+                                        </span>
+                                        <span class="info-box text-center text-muted mb-0">
+                                            @Html.DisplayFor(model => model.LibSpecialite)
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-sm-4">
+                                <div class="info-box bg-light">
+                                    <div class="info-box-content">
+                                        <span class="info-box-text text-center text-muted">
+                                            @Html.DisplayNameFor(model => model.Categorie)
+                                        </span>
+                                        <span class="info-box text-center text-muted mb-0">
+                                            @Html.DisplayFor(model => model.Categorie)
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-sm-4">
+                                <div class="info-box bg-light">
+                                    <div class="info-box-content">
+                                        <span class="info-box-text text-center text-muted">
+
+                                            @Html.DisplayNameFor(model => model.FiliereNew)
+                                        </span>
+                                        <span class="info-box text-center text-muted mb-0">
+                                            @Html.DisplayFor(model => model.FiliereNew)
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-4">
+                                <div class="info-box bg-light">
+                                    <div class="info-box-content">
+                                        <span class="info-box-text text-center text-muted">
+                                            @Html.DisplayNameFor(model => model.SiteEsp)
+                                        </span>
+                                        <span class="info-box text-center text-muted mb-0">
+                                            @Html.DisplayFor(model => model.SiteEsp)
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-sm-4">
+                                <div class="info-box bg-light">
+                                    <div class="info-box-content">
+                                        <span class="info-box-text text-center text-muted">
+                                            @Html.DisplayNameFor(model => model.CodeDept)
+                                        </span>
+                                        <span class="info-box text-center text-muted mb-0">
+                                            @Html.DisplayFor(model => model.CodeDept)
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-sm-4">
+                                <div class="info-box bg-light">
+                                    <div class="info-box-content">
+                                        <span class="info-box-text text-center text-muted">
+                                            @Html.DisplayNameFor(model => model.CodeOption)
+                                        </span>
+                                        <span class="info-box text-center text-muted mb-0">
+                                            @Html.DisplayFor(model => model.CodeOption)
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-sm-4">
+                                <div class="info-box bg-light">
+                                    <div class="info-box-content">
+                                        <span class="info-box-text text-center text-muted">
+                                            @Html.DisplayNameFor(model => model.CurrentUser)
+                                        </span>
+                                        <span class="info-box text-center text-muted mb-0">
+                                            @Html.DisplayFor(model => model.CurrentUser)
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="col-12 col-sm-4">
+                                <div class="info-box bg-light">
+                                    <div class="info-box-content">
+                                        <span class="info-box-text text-center text-muted">
+                                            @Html.DisplayNameFor(model => model.DateAffectMc)
+                                        </span>
+                                        <span class="info-box text-center text-muted mb-0">
+                                            @Html.DisplayFor(model => model.DateAffectMc)
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-4">
+                                <div class="info-box bg-light">
+                                    <div class="info-box-content">
+                                        <span class="info-box-text text-center text-muted">
+                                            @Html.DisplayNameFor(model => model.Mail)
+                                        </span>
+                                        <span class="info-box text-center text-muted mb-0">
+                                            @Html.DisplayFor(model => model.Mail)
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-sm-4">
+                                <div class="info-box bg-light">
+                                    <div class="info-box-content">
+                                        <span class="info-box-text text-center text-muted">
+                                            @Html.DisplayNameFor(model => model.Pole)
+                                        </span>
+                                        <span class="info-box text-center text-muted mb-0">
+                                            @Html.DisplayFor(model => model.Pole)
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+           </div>
+        </div>
+                </div>
+</section>
+      </div>     

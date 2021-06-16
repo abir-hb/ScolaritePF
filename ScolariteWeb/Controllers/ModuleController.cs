@@ -42,9 +42,9 @@ namespace ScolariteWeb.Controllers
         public IActionResult List()
 
         {
-            var listeModule = sm.GetAll();
-            ViewBag.CodeModule = new SelectList(listeModule, "CodeModule", "CodeModule");
-            return View();
+            //var listeModule = sm.GetAll();
+            //ViewBag.CodeModule = new SelectList(listeModule, "CodeModule", "CodeModule");
+            return View(sm.GetAll());
             //   return View(context.)
         }
 
@@ -95,7 +95,7 @@ namespace ScolariteWeb.Controllers
         //}
 
         //get
-        public ActionResult Index()
+        public ActionResult Create()
 
         {
             //List<EspModule> list = new List<EspModule> { new EspModule
@@ -144,7 +144,7 @@ namespace ScolariteWeb.Controllers
        [HttpPost]
        [ValidateAntiForgeryToken]
         //[ValidateInput(false)]
-        public ActionResult Index(EspModule c)
+        public ActionResult Create(EspModule c)
         {
 
             List<EspModule> list = new List<EspModule>();
