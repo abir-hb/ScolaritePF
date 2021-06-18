@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Scolarite.Domain.entities.EspModule>
+﻿@model ScolariteWeb.ViewModels.ModuleViewModel
 
 @{
     ViewData["Title"] = "List";
@@ -6,6 +6,12 @@
 
 <h1>List</h1>
 <head>
+    <link rel="stylesheet" type="text/css" href="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.0/css/jquery.dataTables.css">
+    <link rel="stylesheet" type="text/css" href="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.0/css/jquery.dataTables_themeroller.css">
+
+
+    <script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.0/jquery.dataTables.min.js"></script>
     <meta charset="utf-8" />
 
     <!-- DataTables add-->
@@ -14,131 +20,394 @@
     <link href="~/template/dist/css/dataTable.css" rel="stylesheet" />
     <title>List</title>
 </head>
-<div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
-        <div class="card-header">
-            <h3 class="card-title">LA LISTE DES MODULES  </h3>
-        </div>
-    </section>
-    <section class="content">
+<style>
+    body {
+        font: 90%/1.45em "Helvetica Neue", HelveticaNeue, Verdana, Arial, Helvetica, sans-serif;
+        margin: 0;
+        padding: 0;
+        color: #333;
+        background-color: #fff;
+    }
 
-        <div class="card">
 
-            <!-- /.card-header -->
+   .bg-light-blue {
+        background-color: #e9f7fe !important;
+        color: #3184ae;
+        padding: 7px 18px;
+        border-radius: 4px;
+    }
+
+    .bg-light-green {
+        background-color: rgba(40, 167, 69, 0.2) !important;
+        padding: 7px 18px;
+        border-radius: 4px;
+        color: #28a745 !important;
+    }
+
+    .buttons-to-right {
+        position: absolute;
+        right: 0;
+        top: 40%;
+    }
+
+    .btn-gray {
+        color: #666;
+        background-color: #eee;
+        padding: 7px 18px;
+        border-radius: 4px;
+    }
+
+    .booking:hover .buttons-to-right .btn-gray {
+        opacity: 1;
+        transition: .3s;
+    }
+
+    .buttons-to-right .btn-gray {
+        opacity: 0;
+        transition: .3s;
+    }
+
+    .btn-gray:hover {
+        background-color: #36a3f5;
+        color: #fff;
+    }
+
+    .booking {
+        margin-bottom: 30px;
+        border-bottom: 1px solid #eee;
+        padding-bottom: 30px;
+    }
+
+        .booking:last-child {
+            margin-bottom: 0px;
+            border-bottom: none;
+            padding-bottom: 0px;
+        }
+
+    .buttons-to-right a {
+        display: block;
+        margin-bottom: 20px;
+    }
+
+        .buttons-to-right a:last-child {
+            margin-bottom: 0px;
+        }
+
+    .bg-light-blue,
+    .bg-light-green,
+    .btn-gray {
+        padding: 7px;
+    }
+
+    
+
+    .card {
+        margin-bottom: 20px;
+        background-color: #fff;
+        border-radius: 4px;
+        -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+        box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+        border-radius: 4px;
+        box-shadow: none;
+        border: none;
+        padding: 25px;
+    }
+
+    .mb-5, .my-5 {
+        margin-bottom: 3rem !important;
+    }
+
+    .msg-img {
+        margin-right: 20px;
+    }
+
+        .msg-img img {
+            width: 60px;
+            border-radius: 50%;
+        }
+
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+</style>
+<body>
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <div class="card-header">
+                <h3 class="card-title">LA LISTE DES MODULES  </h3>
+            </div>
+        </section>
+        <section class="content">
+
             <div class="card-body">
+                <ul class="nav nav-tabs">
 
-                
-                            <table id="example" class="display">
-                                <thead>
-                                    <tr>
-                                        <th>
-                                            Designation
-                                        </th>
-                                        <th>
-                                            Description
-                                        </th>
-                                        <th>
-                                            NbHeures
-                                        </th>
-                                        <th>
-                                            Etat
-                                        </th>
-                                        <th>
-                                            Coef
-                                        </th>
-                                        <th>
-                                            NumPanier
-                                        </th>
-                                        <th>
-                                            AEvaluer
-                                        </th>
-                                        <th>
-                                            TypeEpreuve
-                                        </th>
-                                        <th>
-                                            CodeMatiereEduserv
-                                        </th>
-                                        <th>
-                                            TypeEpreuveSr
-                                        </th>
-                                        <th>
-                                            TypeModule
-                                        </th>
-                                        <th>
-                                            EspUe
-                                        </th>
-                                        <th>
-                                            UpNavigation
-                                        </th>
-                                        <th></th>
-                                    </tr>
-                                </thead>
-                               
-                                <tbody>
+                    <li class="nav-item">
+                        <a asp-area="" asp-controller="Module" asp-action="Create" class="nav-link">AJOUTER</a>
+                        @*<a class="nav-link" href="#">Link</a>*@
+                    </li>
+                    <li class="nav-item">
+                        <a asp-area="" asp-controller="Module" asp-action="List" class="nav-link active">AFIICHER</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a asp-area="" asp-controller="Module" asp-action="Edit" class="nav-link disabled">MODIFIER</a>
+                    </li>
+                    @*<li class="nav-item">
+                            <a asp-area="" asp-controller="Classe" asp-action="Delete" class="nav-link disabled">supprimer la classe</a>
+                        </li>*@
+                </ul>
+                <br />
+                <br />
+                <br />
 
 
-                                    @foreach (var item in Model)
+                <!-- /.card-header -->
+                @*<div class="spinner-grow text-danger" role="status">
+                        <span class="sr-only">Loading...</span>
+                    </div>*@
+
+                <table id="example1" class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th>
+                                CODE
+                            </th>
+
+                            <th>
+                                DESIGNATION
+                            </th>
+                            <th>
+                                ANNEE
+                            </th>
+
+
+
+                            <th>
+                                UNITE D'ENSEIGNEMENT
+                            </th>
+                            <th>
+                                UNITE PEDAGOGIQUE
+                            </th>
+                            <th>ACTIONS</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+
+                        @foreach (var item in Model.Modules)
+                        {
+                            var tm = "#myModal" + item.CodeModule;
+                            var mid = "myModal" + item.CodeModule;
+                            var de = "#detailModal" + item.CodeModule;
+                            var detail = "detailModal" + item.CodeModule;
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.CodeModule)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Designation)
+                                </td>
+
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.AnneeDeb)
+                                </td>
+
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.CodeUe)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Up)
+                                </td>
+                                <td>
+                                    @using (Html.BeginForm("Delete", "Module", new { id = item.CodeModule }))
                                     {
-                                        <tr>
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.Designation)
-                                            </td>
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.Description)
-                                            </td>
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.NbHeures)
-                                            </td>
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.Etat)
-                                            </td>
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.Coef)
-                                            </td>
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.NumPanier)
-                                            </td>
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.AEvaluer)
-                                            </td>
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.TypeEpreuve)
-                                            </td>
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.CodeMatiereEduserv)
-                                            </td>
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.TypeEpreuveSr)
-                                            </td>
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.TypeModule)
-                                            </td>
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.EspUe.CodeUe)
-                                            </td>
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.UpNavigation.Up)
-                                            </td>
-                                            <td>
-                                                <a asp-action="Edit" asp-route-id="@item.CodeModule">Edit</a> |
-                                                <a asp-action="Details" asp-route-id="@item.CodeModule">Details</a> |
-                                                <a asp-action="Delete" asp-route-id="@item.CodeModule">Delete</a>
-                                            </td>
-                                        </tr>
+                                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                        <input type="hidden" asp-for="@item.CodeModule" />
+                                        <button type="button" class="btn btn-outline-danger fas fa-trash-alt" data-toggle="modal" data-target="@tm">Supprimer</button><button type="button" class="btn btn-outline-secondary fas fa-eye" data-toggle="modal" data-target="@de">Details</button> <button class="btn btn-outline-light fas fa-edit">@Html.ActionLink("MODIFIER", "Edit", new { id = item.CodeModule })</button>
+
+                                        <div class="modal" id="@mid" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                                            <div class="modal-dialog" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <center> <h4 class="modal-title">SUPPRIMER ENSEIGNANT</h4></center>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <p>êtes-vous sûr de vouloir supprimer @item.Description?</p>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="submit" class="btn btn-success">OUI</button>
+                                                        <button type="button" class="btn btn-danger" data-dismiss="modal">ANNULER</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
                                     }
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                    </section>
-             
-                       
-                       
+
+
+
+
+
+                                    @* modal Details *@
+
+                                    <form method="post" asp-action="Details" asp-route-id="@item.CodeModule">
+
+                                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                        <input type="hidden" asp-for="@item.CodeModule" />
+
+                                        <div class="modal" id="@detail" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                                            <div class="modal-dialog modal-lg" style="width:100%" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <center> <h4 class="modal-title">Détails Module @item.Designation</h4></center>
+                                                    </div>
+                                                    <div class="modal-body">
+
+                                                        <div class="row">
+
+                                                            <div class="container">
+                                                                <div class="row">
+                                                                    <div class="col-md-12">
+                                                                        <div class="card card-white mb-5">
+                                                                            <div class="card-heading clearfix border-bottom mb-4">
+
+                                                                            </div>
+                                                                            <div class="card-body">
+                                                                                <ul class="list-unstyled">
+                                                                                    <li class="position-relative booking">
+
+                                                                                        <div class="media-body">
+                                                                                            <h5 class="mb-4">@item.CodeModule <span class="badge badge-success ml-3">Details</span></h5>
+                                                                                            <div class="mb-3">
+                                                                                                <span class="mr-2 d-block d-sm-inline-block mb-2 mb-sm-0">ANNEE:</span>
+                                                                                                <span class="bg-light-green"> @Html.DisplayFor(modelItem => item.AnneeDeb)</span>
+                                                                                            </div>
+                                                                                            <div class="mb-3">
+                                                                                                <span class="mr-2 d-block d-sm-inline-block mb-2 mb-sm-0">DESIGNATION:</span>
+                                                                                                <span class="bg-light-green"> @Html.DisplayFor(modelItem => item.Designation)</span>
+                                                                                            </div>
+                                                                                            <div class="mb-3">
+                                                                                                <span class="mr-2 d-block d-sm-inline-block mb-2 mb-sm-0">DESCRIPTION:</span>
+                                                                                                <span class="bg-light-green"> @Html.DisplayFor(modelItem => item.Description)</span>
+                                                                                            </div>
+
+                                                                                            <div class="mb-3">
+                                                                                                <span class="mr-2 d-block d-sm-inline-block mb-2 mb-sm-0">NB HEURES:</span>
+                                                                                                <span class="bg-light-green"> @Html.DisplayFor(modelItem => item.NbHeures)</span>
+                                                                                            </div>
+                                                                                            <div class="mb-3">
+                                                                                                <span class="mr-2 d-block d-sm-inline-block mb-2 mb-sm-0">ETAT:</span>
+                                                                                                <span class="bg-light-green"> @Html.DisplayFor(modelItem => item.Etat)</span>
+                                                                                            </div>
+                                                                                            <div class="mb-3">
+                                                                                                <span class="mr-2 d-block d-sm-inline-block mb-2 mb-sm-0">COEFFICIENT:</span>
+                                                                                                <span class="bg-light-green"> @Html.DisplayFor(modelItem => item.Coef)</span>
+                                                                                            </div>
+                                                                                            <div class="mb-3">
+                                                                                                <span class="mr-2 d-block d-sm-inline-block mb-2 mb-sm-0">PANIER:</span>
+                                                                                                <span class="bg-light-green"> @Html.DisplayFor(modelItem => item.NumPanier)</span>
+                                                                                            </div>
+                                                                                            <div class="mb-3">
+                                                                                                <span class="mr-2 d-block d-sm-inline-block mb-2 mb-sm-0">A EVALUER:</span>
+                                                                                                <span class="bg-light-green"> @Html.DisplayFor(modelItem => item.AEvaluer)</span>
+                                                                                            </div>
+
+                                                                                            <div class="mb-3">
+                                                                                                <span class="mr-2 d-block d-sm-inline-block mb-2 mb-sm-0">TYPE EPREUVE:</span>
+                                                                                                <span class="bg-light-green"> @Html.DisplayFor(modelItem => item.TypeEpreuve)</span>
+                                                                                            </div>
+                                                                                            <div class="mb-3">
+                                                                                                <span class="mr-2 d-block d-sm-inline-block mb-2 mb-sm-0">CODE MATIERE EDU:</span>
+                                                                                                <span class="bg-light-green"> @Html.DisplayFor(modelItem => item.CodeMatiereEduserv)</span>
+                                                                                            </div>
+                                                                                            <div class="mb-3">
+                                                                                                <span class="mr-2 d-block d-sm-inline-block mb-2 mb-sm-0">TYPE EPREUVE SR:</span>
+                                                                                                <span class="bg-light-green"> @Html.DisplayFor(modelItem => item.TypeEpreuveSr)</span>
+                                                                                            </div>
+                                                                                            <div class="mb-3">
+                                                                                                <span class="mr-2 d-block d-sm-inline-block mb-2 mb-sm-0">TYPE MODULE:</span>
+                                                                                                <span class="bg-light-green"> @Html.DisplayFor(modelItem => item.TypeModule)</span>
+                                                                                            </div>
+                                                                                            <div class="mb-3">
+                                                                                                <span class="mr-2 d-block d-sm-inline-block mb-2 mb-sm-0">UNITE D'ENSEIGNEMEMNT:</span>
+                                                                                                <span class="bg-light-green"> @Html.DisplayFor(modelItem => item.EspUe.CodeUe)</span>
+                                                                                            </div>
+                                                                                            <div class="mb-3">
+                                                                                                <span class="mr-2 d-block d-sm-inline-block mb-2 mb-sm-0">UNITE PEDAGOGIQUE:</span>
+                                                                                                <span class="bg-light-green"> @Html.DisplayFor(modelItem => item.UpNavigation.Up))</span>
+                                                                                            </div>
+
+
+
+                                                                                        </div>
+
+
+                                                                                    </li>
+                                                                                </ul>
+
+
+
+
+                                                                                <div class="modal-footer">
+
+                                                                                    <button type="button" class="btn btn-danger" data-dismiss="modal">Annuler</button>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </form>
+
+
+                                    @* modal Details *@
+                                </td>
+                                <td>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+
+            </div>
+
+
+        </section>
+
+
+
 
     </div>
-        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+</body>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 
 
+<script>
+    $(document).ready(function () {
+        $('#courseTable').DataTable({
+            "lengthMenu": [[5, 10, 25, 50, -1], [5, 10, 25, 50, "All"]]
+        });
+        $('.dataTables_length').addClass('bs-select');
+    });
+
+    $(document).ready(function () {
+        $('#userTable').DataTable({
+            "lengthMenu": [[5, 10, 25, 50, -1], [5, 10, 25, 50, "All"]]
+        });
+        $('.dataTables_length').addClass('bs-select');
+    });
+
+</script>
 
     }

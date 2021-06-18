@@ -4,95 +4,387 @@
     ViewData["Title"] = "Edit";
 }
 
-<h1>Edit</h1>
+<style>
+    body {
+        margin-top: 20px;
+        background: #f5f7fa;
+    }
 
-<h4>EspModule</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="CodeModule" />
-            <div class="form-group">
-                <label asp-for="Designation" class="control-label"></label>
-                <input asp-for="Designation" class="form-control" />
-                <span asp-validation-for="Designation" class="text-danger"></span>
+    .panel.panel-default {
+        border-top-width: 10px;
+    }
+
+    .panel {
+        box-shadow: 0 3px 1px -2px rgba(0,0,0,.14),0 2px 2px 0 rgba(0,0,0,.098),0 1px 5px 0 rgba(0,0,0,.084);
+        border: 0;
+        border-radius: 4px;
+        margin-bottom: 16px;
+    }
+
+    .thumb96 {
+        width: 96px !important;
+        height: 96px !important;
+    }
+
+    .thumb48 {
+        width: 48px !important;
+        height: 48px !important;
+    }
+
+ 
+
+    p {
+        text-indent: 50px;
+        text-align: justify;
+        letter-spacing: 3px;
+    }
+
+</style>
+
+
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="card-header">
+            <center><h3 class="card-title" align="center">MODIFIER LE MODULE </h3></center>
+        </div>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="card">
+            <div class="card-body">
+                <ul class="nav nav-tabs">
+
+                    <li class="nav-item">
+                        <a asp-area="" asp-controller="Module" asp-action="Create" class="nav-link">AJOUTER</a>
+                        @*<a class="nav-link" href="#">Link</a>*@
+                    </li>
+                    <li class="nav-item">
+                        <a asp-area="" asp-controller="Module" asp-action="List" class="nav-link">AFIICHER</a>
+                    </li>
+               
+                    <li class="nav-item">
+                        <a asp-area="" asp-controller="Module" asp-action="Edit" class="nav-link active">MODIFIER</a>
+                    </li>
+                    @*<li class="nav-item">
+                <a asp-area="" asp-controller="Classe" asp-action="Delete" class="nav-link disabled">supprimer la classe</a>
+            </li>*@
+                </ul>
+                <br/>
+                <br/>
+                <br/>
+
+                <div class="container bootstrap snippets bootdey">
+                    <div class="row ng-scope">
+                        <div class="col-md-12">
+                            <p>REMPLIR LES CHAMPS AFIN DE LES MODIFIER</p>
+                            @*<div class="panel panel-default">
+                            <div class="panel-body text-center">
+                                <div class="pv-lg"><img class="center-block img-responsive img-circle img-thumbnail thumb96" src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="Contact"></div>
+                                <h3 class="m0 text-bold">Audrey Hunt</h3>
+                                <div class="mv-lg">
+                                    <p>Hello, I'm a just a dummy contact in your contact list and this is my presentation text. Have fun!</p>
+                                </div>
+                                <div class="text-center"><a class="btn btn-primary" href="">Send message</a></div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <div class="panel-title text-center">Recent contacts</div>
+                            </div>
+                            <div class="panel-body">
+                                <div class="media">
+                                    <div class="media-left media-middle">
+                                        <a href="#"><img class="media-object img-circle img-thumbnail thumb48" src="https://bootdey.com/img/Content/avatar/avatar2.png" alt="Contact"></a>
+                                    </div>
+                                    <div class="media-body pt-sm">
+                                        <div class="text-bold">
+                                            Floyd Ortiz
+                                            <div class="text-sm text-muted">12m ago</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="media">
+                                    <div class="media-left media-middle">
+                                        <a href="#"><img class="media-object img-circle img-thumbnail thumb48" src="https://bootdey.com/img/Content/avatar/avatar3.png" alt="Contact"></a>
+                                    </div>
+                                    <div class="media-body pt-sm">
+                                        <div class="text-bold">
+                                            Luis Vasquez
+                                            <div class="text-sm text-muted">2h ago</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="media">
+                                    <div class="media-left media-middle">
+                                        <a href="#"><img class="media-object img-circle img-thumbnail thumb48" src="https://bootdey.com/img/Content/avatar/avatar4.png" alt="Contact"></a>
+                                    </div>
+                                    <div class="media-body pt-sm">
+                                        <div class="text-bold">
+                                            Duane Mckinney
+                                            <div class="text-sm text-muted">yesterday</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="media">
+                                    <div class="media-left media-middle">
+                                        <a href="#"><img class="media-object img-circle img-thumbnail thumb48" src="https://bootdey.com/img/Content/avatar/avatar5.png" alt="Contact"></a>
+                                    </div>
+                                    <div class="media-body pt-sm">
+                                        <div class="text-bold">
+                                            Connie Lambert
+                                            <div class="text-sm text-muted">2 weeks ago</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>*@
+                            <div class="col-md-12">
+                                <div class="panel panel-default">
+                                    <div class="panel-body">
+                                        <div class="pull-right">
+                                            <div class="btn-group dropdown" uib-dropdown="dropdown">
+                                                <button class="btn btn-link dropdown-toggle" uib-dropdown-toggle="" aria-haspopup="true" aria-expanded="false"><em class="fa fa-ellipsis-v fa-lg text-muted"></em></button>
+                                                <ul class="dropdown-menu dropdown-menu-right animated fadeInLeft" role="menu">
+                                                    <li><a href=""><span>Send by message</span></a></li>
+                                                    <li><a href=""><span>Share contact</span></a></li>
+                                                    <li><a href=""><span>Block contact</span></a></li>
+                                                    <li><a href=""><span class="text-warning">Delete contact</span></a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="h4 text-center">INFORMATION MODULE</div>
+                                        <div class="row pv-lg">
+                                            <div class="col-lg-12"></div>
+                                            <div class="col-lg-12">
+
+                                                <form class="form-horizontal ng-pristine ng-valid" asp-action="Edit">
+
+                                                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                                    <div class="form-group">
+                                                        
+                                                        <input asp-for="CodeModule" type="hidden"/>
+                                                       
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="col-sm-2 control-label" asp-for="Designation">DESIGNATION:</label>
+                                                        <div class="col-sm-10">
+                                                            <input asp-for="Designation" class="form-control" />
+                                                            <span asp-validation-for="Designation" class="text-danger"></span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label asp-for="Description" class="col-sm-2 control-label">DESCRIPTION</label>
+                                                        <div class="col-sm-10">
+                                                            <input asp-for="Description" class="form-control" />
+                                                            <span asp-validation-for="Description" class="text-danger"></span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label asp-for="NbHeures" class="col-sm-2 control-label">NOMBRE D'HEURES</label>
+                                                        <div class="col-sm-10">
+                                                            <input asp-for="NbHeures" class="form-control" />
+                                                            <span asp-validation-for="NbHeures" class="text-danger"></span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label asp-for="Etat" class="col-sm-2 control-label">ETAT</label>
+                                                        <div class="col-sm-10">
+                                                            <input asp-for="Etat" class="form-control" />
+                                                            <span asp-validation-for="Etat" class="text-danger"></span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        @Html.LabelFor(model => model.Up, "UNITE PEDAGOGIQUE", htmlAttributes: new { @class = "control-label col-md-4", placeholder = "selectionner l'unité Pédagogique.." })
+
+                                                        <div class="col-md-10">
+
+                                                            @Html.DropDownList("Up", (IEnumerable<SelectListItem>)ViewBag.listup)
+                                                            @Html.ValidationMessageFor(model => model.Up, "", new { @class = "text-danger" })
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label asp-for="Coef" class="col-sm-2 control-label">COEFFICIENT</label>
+                                                        <div class="col-sm-10">
+                                                            <input asp-for="Coef" class="form-control" />
+                                                            <span asp-validation-for="Coef" class="text-danger"></span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label asp-for="NumPanier" class="col-sm-2 control-label">NUMERO PANIER</label>
+                                                        <div class="col-sm-10">
+                                                            <input asp-for="NumPanier" class="form-control" />
+                                                            <span asp-validation-for="NumPanier" class="text-danger"></span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label asp-for="AEvaluer" class="col-sm-2 control-label">A EVALUER</label>
+                                                        <div class="col-sm-10">
+                                                            <input asp-for="AEvaluer" class="form-control" />
+                                                            <span asp-validation-for="AEvaluer" class="text-danger"></span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label asp-for="TypeEpreuve" class="col-sm-2 control-label">TYPE EPREUVE</label>
+                                                        <div class="col-sm-10">
+                                                            <input asp-for="TypeEpreuve" class="form-control" />
+                                                            <span asp-validation-for="TypeEpreuve" class="text-danger"></span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label asp-for="CodeMatiereEduserv" class="col-sm-2 control-label">CODE MATIERE EDU SERV</label>
+                                                        <div class="col-sm-10">
+                                                            <input asp-for="CodeMatiereEduserv" class="form-control" />
+                                                            <span asp-validation-for="CodeMatiereEduserv" class="text-danger"></span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label asp-for="TypeEpreuveSr" class="col-sm-2 control-label">TYPE EPREUVE SR</label>
+                                                        <div class="col-sm-10">
+                                                            <input asp-for="TypeEpreuveSr" class="form-control" />
+                                                            <span asp-validation-for="TypeEpreuveSr" class="text-danger"></span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label asp-for="TypeModule" class="col-sm-2 control-label">TYPE MODULE</label>
+                                                        <div class="col-sm-10">
+                                                            <input asp-for="TypeModule" class="form-control" />
+                                                            <span asp-validation-for="TypeModule" class="text-danger"></span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        @Html.LabelFor(model => model.CodeUe, "UNITE ENSEIGNEMENT", htmlAttributes: new { @class = "control-label col-sm-4", placeholder = "selectionner l'unité d'enseignement.." })
+                                                        <div class="col-sm-10">
+                                                            @Html.DropDownList("CodeUe", (IEnumerable<SelectListItem>)ViewBag.ues)
+                                                            @Html.ValidationMessageFor(model => model.CodeUe, "", new { @class = "text-danger" })
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        @Html.LabelFor(model => model.AnneeDeb, "ANNEE", htmlAttributes: new { @class = "control-label col-md-4", placeholder = "selectionner l'année correspondante.." })
+                                                        <div class="col-md-10">
+                                                            @Html.DropDownList("AnneeDeb", (IEnumerable<SelectListItem>)ViewBag.annees)
+                                                            @Html.ValidationMessageFor(model => model.AnneeDeb, "", new { @class = "text-danger" })
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <input type="submit" value="MODIFIER" class="btn btn-outline-danger" />
+                                                    </div>
+                                                </form>
+
+                                             
+
+                                                <div class="text-right"><a class="text-muted" href="#">Delete this contact?</a></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="Description" class="control-label"></label>
-                <input asp-for="Description" class="form-control" />
-                <span asp-validation-for="Description" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="NbHeures" class="control-label"></label>
-                <input asp-for="NbHeures" class="form-control" />
-                <span asp-validation-for="NbHeures" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Etat" class="control-label"></label>
-                <input asp-for="Etat" class="form-control" />
-                <span asp-validation-for="Etat" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Up" class="control-label"></label>
-                <select asp-for="Up" class="form-control" asp-items="ViewBag.Up"></select>
-                <span asp-validation-for="Up" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Coef" class="control-label"></label>
-                <input asp-for="Coef" class="form-control" />
-                <span asp-validation-for="Coef" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="NumPanier" class="control-label"></label>
-                <input asp-for="NumPanier" class="form-control" />
-                <span asp-validation-for="NumPanier" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="AEvaluer" class="control-label"></label>
-                <input asp-for="AEvaluer" class="form-control" />
-                <span asp-validation-for="AEvaluer" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="TypeEpreuve" class="control-label"></label>
-                <input asp-for="TypeEpreuve" class="form-control" />
-                <span asp-validation-for="TypeEpreuve" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="CodeMatiereEduserv" class="control-label"></label>
-                <input asp-for="CodeMatiereEduserv" class="form-control" />
-                <span asp-validation-for="CodeMatiereEduserv" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="TypeEpreuveSr" class="control-label"></label>
-                <input asp-for="TypeEpreuveSr" class="form-control" />
-                <span asp-validation-for="TypeEpreuveSr" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="TypeModule" class="control-label"></label>
-                <input asp-for="TypeModule" class="form-control" />
-                <span asp-validation-for="TypeModule" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="CodeUe" class="control-label"></label>
-                <select asp-for="CodeUe" class="form-control" asp-items="ViewBag.CodeUe"></select>
-                <span asp-validation-for="CodeUe" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="AnneeDeb" class="control-label"></label>
-                <select asp-for="AnneeDeb" class="form-control" asp-items="ViewBag.AnneeDeb"></select>
-                <span asp-validation-for="AnneeDeb" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </form>
+        </div>
+    </section>
+</div>
+
+
+
+
+
+
+
+@*<h1>Edit</h1>
+
+    <h4>EspModule</h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Edit">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="CodeModule" />
+                <div class="form-group">
+                    <label asp-for="Designation" class="control-label"></label>
+                    <input asp-for="Designation" class="form-control" />
+                    <span asp-validation-for="Designation" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Description" class="control-label"></label>
+                    <input asp-for="Description" class="form-control" />
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="NbHeures" class="control-label"></label>
+                    <input asp-for="NbHeures" class="form-control" />
+                    <span asp-validation-for="NbHeures" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Etat" class="control-label"></label>
+                    <input asp-for="Etat" class="form-control" />
+                    <span asp-validation-for="Etat" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Up" class="control-label"></label>
+                    <select asp-for="Up" class="form-control" asp-items="ViewBag.Up"></select>
+                    <span asp-validation-for="Up" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Coef" class="control-label"></label>
+                    <input asp-for="Coef" class="form-control" />
+                    <span asp-validation-for="Coef" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="NumPanier" class="control-label"></label>
+                    <input asp-for="NumPanier" class="form-control" />
+                    <span asp-validation-for="NumPanier" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="AEvaluer" class="control-label"></label>
+                    <input asp-for="AEvaluer" class="form-control" />
+                    <span asp-validation-for="AEvaluer" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="TypeEpreuve" class="control-label"></label>
+                    <input asp-for="TypeEpreuve" class="form-control" />
+                    <span asp-validation-for="TypeEpreuve" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="CodeMatiereEduserv" class="control-label"></label>
+                    <input asp-for="CodeMatiereEduserv" class="form-control" />
+                    <span asp-validation-for="CodeMatiereEduserv" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="TypeEpreuveSr" class="control-label"></label>
+                    <input asp-for="TypeEpreuveSr" class="form-control" />
+                    <span asp-validation-for="TypeEpreuveSr" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="TypeModule" class="control-label"></label>
+                    <input asp-for="TypeModule" class="form-control" />
+                    <span asp-validation-for="TypeModule" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="CodeUe" class="control-label"></label>
+                    <select asp-for="CodeUe" class="form-control" asp-items="ViewBag.CodeUe"></select>
+                    <span asp-validation-for="CodeUe" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="AnneeDeb" class="control-label"></label>
+                    <select asp-for="AnneeDeb" class="form-control" asp-items="ViewBag.AnneeDeb"></select>
+                    <span asp-validation-for="AnneeDeb" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Save" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
     </div>
-</div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+    <div>
+        <a asp-action="Index">Back to List</a>
+    </div>*@
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
