@@ -102,6 +102,7 @@ namespace ScolariteWeb.Controllers
                 CodeCl=em.CodeCl,
                 AnneeDeb=em.AnneeDeb,
                 NumSemestre=em.NumSemestre,
+                IdEns=em.IdEns,
                          
 
             };

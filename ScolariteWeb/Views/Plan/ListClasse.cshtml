@@ -95,7 +95,7 @@
                     <table class="table table-striped border" id="bo">
                         <thead>
                             <tr>
-                                <th>CodeCl</th>
+                                @*<th>CodeCl</th>*@
                                 <th>CodeModule</th>
                                 @*<th>Nom Module</th>*@
                                 <th>Type Epreuve</th>
@@ -156,11 +156,12 @@
 
 
                             @*<tr>*@
+                            
                             <tr>
                                 <td>@Html.DropDownList("CodeModule", (SelectList)ViewData["listModule"], htmlAttributes: new { style = "display: none;", id = "CodeModule" })</td>
                                 <td>@Html.DropDownList("CodeCl", (SelectList)ViewData["listClasse"], htmlAttributes: new { style = "display: none;", id = "CodeCl" })</td>
                                 <td>@Html.DropDownList("IdEns", (SelectList)ViewData["listEns"], htmlAttributes: new { style = "display: none;", id = "IdEns" })</td>
-                                <td>@Html.DropDownList("IdEns", (SelectList)ViewData["listEns"], htmlAttributes: new { style = "display: none;", id = "IdEns" })</td>
+                                @*<td>@Html.DropDownList("IdEns", (SelectList)ViewData["listEns"], htmlAttributes: new { style = "display: none;", id = "IdEns" })</td>*@
                                 <td>@Html.DropDownList("CodeUe", (SelectList)ViewData["listUE"], htmlAttributes: new { style = "display: none;", id = "CodeUe" })</td>
                             </tr>
 
@@ -226,6 +227,7 @@
 
                     </table>
                     <center>
+                        <input class="btn btn-danger" type="button" name="ajout" id="copy" value="Ajouter une ligne">
                         <input class="btn btn-danger" type="button" name="addd" id="add" value="Ajouter">
                         <input class="btn btn-danger" type="button" name="save" id="load" value="Enregistrer">
 

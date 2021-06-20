@@ -1325,7 +1325,7 @@
                             //   $('#AnneeDeb').val(data[i][3]);
                             //   $('input[name="CodeModule"]').val(data[codeModule]);
                             //   $('input[name="CodeModule"]').val(data[i]['codeModule']);
-                            var codeCl = data[i]['codeCl'];
+                            var codeCl = id;
                             var codeModule = data[i]['codeModule'];
                             var typeEp = data[i]['typeEpreuve'];
                             var anneeDeb = data[i]['anneeDeb'];
@@ -1337,7 +1337,7 @@
                             var per = data[i]['periode'];
                             var charge1 = data[i]['chargeP1'];
                             var charge2 = data[i]['chargeP2'];
-                            var ens = data[i]['idEns'];
+                            var idEns = data[i]['idEns'];
                             var chargeEns1 = data[i]['chargeEns1P1'];
                             var chargeEnsP2 = data[i]['chargeEns1P2'];
                             var nbheureEn = data[i]['nbHeuresEns'];
@@ -1377,7 +1377,7 @@
                             //   + '</td><td>' + '<input type="radio", value=' + 1 + '  checked="checked"> 1  </>' + ' < input type = "radio", value = ' + semestre + ' > 0  </> '
 
 
-                            var _tr = '<tr><td>' + ' <select name="codeCl" id="codeCl" value= ' + $('#CodeCl').html() + '<option name="codeCl"  value="" selected disabled hidden> ' + codeCl + ' </option>' + '  />'
+                            var _tr = '<tr><td style = "display: none;">' + '<input  name="codeCl" value= ' + codeCl + '>'
                                 + '</td><td>' + ' <select name="codeModule" id="codeModule" value= ' + $('#CodeModule').html() + '<option name="codeModule"  value="" selected disabled hidden> ' + codeModule + ' </option>' + '  />'
                                 //  + '</td><td>' + ' <select name="NomModule", value= ' + $('#Designation').html() + '  />'
                                 + '</td><td>' + '<input name="typeEp" value= ' + typeEp + '>'
@@ -1391,7 +1391,7 @@
                                 + '</td><td>' + '<input name="per" value= ' + per + '>'
                                 + '</td><td>' + '<input name="charge1" value= ' + charge1 + '>'
                                 + '</td><td>' + '<input name="charge2" value= ' + charge2 + '>'
-                                + '</td><td>' + ' <select name="IdEns", value= ' + $('#IdEns').html() + '<option value="" selected disabled hidden> ' + ens + ' </option>' + '  />'
+                                + '</td><td>' + ' <select name="idEns" id="idEns" value= ' + $('#IdEns').html() + '<option name="idEns" value="" selected disabled hidden> ' + idEns + ' </option>' + '  />'
                                 + '</td><td>' + '<input name="chargeEns1" value= ' + chargeEns1 + '>'
                                 + '</td><td>' + '<input name="chargeEns2" value= ' + chargeEnsP2 + '>'
                                 + '</td><td>' + '<input name="nbheureEn" value= ' + nbheureEn + '>'
@@ -1424,6 +1424,7 @@
                                 + '</td></tr> ';
 
                             $('#tdata').append(_tr);
+                         
                             // console.log(data['codeModule']);
                             //    $('input[name="AnneeDeb"]').val(data[i]['anneeDeb']);
                             // console.log(data['anneeDeb']);
@@ -1454,13 +1455,31 @@
 
 
             });
+          
+            //$(function () {
+            //      //var $componentTB = $("#tdata"),
+            //      //      $firstTRCopy = $componentTB.children('tr').first().clone();
+            //    $("#copy").click(function () {
 
+
+           
+
+            //        var newRow = $('tbody').find('tr:eq(1)').clone();
+            //          $('tbody').append(newRow);
+            //        console.log(newRow);
+                   
+                
+            //    });
+                
+            
+            //});
             $(function () {
-                $('#add').click(function () {
-                    // var CodeModule = document.getElementById("#CodeModule").value();
-                    // var CodeModule = $("#CodeModule").val();
-                    var CodeCl = $('select#codeCl option:checked').val();
-                    console.log(CodeCl);
+
+
+                $("#copy").click(function () {
+
+                    var codeCl = $('input[name="codeCl"]').val();
+                    console.log(codeCl);
 
                     var CodeModule = $('select#codeModule option:checked').val();
                     console.log(CodeModule);
@@ -1476,7 +1495,8 @@
                     var NumPeriodfe = $('input[name="per"]').val();
                     var charge1 = $('input[name="charge1"]').val();
                     var charge2 = $('input[name="charge2"]').val();
-                    var IdEns = $("#IdEns").val();
+                    var IdEns = $('select#idEns option:checked').val();
+                    console.log(IdEns);
                     var chargeEns1 = $('input[name="chargeEns1"]').val();
                     var chargeEns2 = $('input[name="chargeEns2"]').val();
                     var nbH = $('input[name="nbheureEn"]').val();
@@ -1510,7 +1530,7 @@
 
 
 
-                    var _tr = '<tr><td>' + ' <select name="CodeCl" id="CodeCl" value= ' + $('#CodeCl').html() + '<option name="CodeCl"  value="" selected disabled hidden> ' + CodeCl + ' </option>' + '  />'
+                    var _tr = '<tr><td style = "display: none;">' + '<input name="codeCl" value= ' + codeCl + '>'
                         + '</td><td>' + ' <select name="CodeModule" id="CodeModule" value= ' + $('#CodeModule').html() + '<option name="CodeModule"  value="" selected disabled hidden> ' + CodeModule + ' </option>' + '  />'
                         + '</td><td>' + '<input name="typeEp" value= ' + typeEp + '>'
                         + '</td><td>' + '<input name="anneeDeb"  type="number" value= ' + anneeDeb + '>'
@@ -1523,7 +1543,124 @@
                         + '</td><td>' + '<input name="per" value= ' + NumPeriodfe + '>'
                         + '</td><td>' + '<input name="charge1" value= ' + charge1 + '>'
                         + '</td><td>' + '<input name="charge2" value= ' + charge2 + '>'
-                        + '</td><td>' + ' <select name="IdEns", value= ' + $('#IdEns').html() + '<option value="" selected disabled hidden> ' + IdEns + ' </option>' + '  />'
+                        + '</td><td>' + ' <select name="IdEns" id="IdEns" value= ' + $('#IdEns').html() + '<option name="IdEns" value="" selected disabled hidden> ' + IdEns + ' </option>' + '  />'
+                        + '</td><td>' + '<input name="chargeEns1" value= ' + chargeEns1 + '>'
+                        + '</td><td>' + '<input name="chargeEns2" value= ' + chargeEns2 + '>'
+                        + '</td><td>' + '<input name="nbheureEn" value= ' + nbH + '>'
+                        + '</td><td>' + ' <select name="IdEns2", value= ' + $('#IdEns').html() + '<option value="" selected disabled hidden> ' + IdEns2 + ' </option>' + '  />'
+                        + '</td><td>' + '<input name="chargeEns2p1" value= ' + chargeEns2p1 + '>'
+                        + '</td><td>' + '<input name="chargeEns2p2" value= ' + chargeEns2p2 + '>'
+                        + '</td><td>' + '<input name="NbHeuresEns2" value= ' + NbHeuresEns2 + '>'
+                        + '</td><td>' + '<input name="anneefin"  type="number" value= ' + anneefin + '>'
+                        + '</td><td>' + '<input name="dateDebut" value= ' + dateDebut + '>'
+                        + '</td><td>' + '<input name="dateFin" value= ' + dateFin + '>'
+                        + '</td><td>' + '<input name="dateExam" value= ' + dateExam + '>'
+                        + '</td><td>' + '<input name="NbHoraireRealises" value= ' + NbHoraireRealises + '>'
+                        + '</td><td>' + '<input name="Acomptabiliser" value= ' + Acomptabiliser + '>'
+                        + '</td><td>' + '<input name="surveillant" value= ' + surveillant + '>'
+                        + '</td><td>' + '<input name="heureExam" value= ' + heureExam + '>'
+                        + '</td><td>' + '<input name="salleExam" value= ' + salleExam + '>'
+                        + '</td><td>' + '<input name="surv2" value= ' + surv2 + '>'
+                        + '</td><td>' + '<input name="salleEx2" value= ' + salleEx2 + '>'
+                        + '</td><td>' + '<input name="Numpromotioncs" value= ' + Numpromotioncs + '>'
+                        + '</td><td>' + ' <select name="CodeUe", value= ' + $('#CodeUe').html() + '<option value="" selected disabled hidden> ' + CodeUe + ' </option>' + '  />'
+                        + '</td><td>' + '<input name="nbect" value= ' + nbect + '>'
+                        + '</td><td>' + '<input name="salle" value= ' + salle + '>'
+                        + '</td><td>' + '<input name="DateRattr" value= ' + DateRattr + '>'
+                        + '</td><td>' + '<input name="heureRat" value= ' + heureRat + '>'
+                        + '</td><td>' + '<input name="Salle1Rat" value= ' + Salle1Rat + '>'
+                        + '</td><td>' + '<input name="Salle2Rat" value= ' + Salle2Rat + '>'
+                        + '</td><td>' + '<input name="DateRat" value= ' + DateRat + '>'
+                        + '</td><td>' + '<input name="DateCreation" value= ' + DateCreation + '>'
+                        + '</td><td>' + '<input name ="DaterLastMaj" value= ' + DaterLastMaj + '>'
+                        + '</td></tr> ';
+
+                  //  var newRow = $(_tr).clone();
+                    var newRow = $('#tdata').find('tr:eq(1)').clone();
+                    $("#tdata tr:first").after(newRow);
+                  //  $('#tdata').append(newRow);
+                    //console.log(newRow);
+                    //var row = $('tbody').find('tr:last-child').clone();
+
+
+
+                    //$('tbody').append(row);
+
+
+                });
+            });
+            $(function () {
+
+                $('#add').click(function () {
+                    // var CodeModule = document.getElementById("#CodeModule").value();
+                    // var CodeModule = $("#CodeModule").val();
+               //     var codeCl = $('tbody').find('td:eq(0)').val();
+                    var codeCl = $('input[name="codeCl"]').val();
+                    console.log(codeCl);
+
+                    var CodeModule = $('select#codeModule option:checked').val();
+                    console.log(CodeModule);
+                    var typeEp = $('input[name="typeEp"]').val();
+                    var anneeDeb = $('input[name="anneeDeb"]').val();
+                    var apcs = $('input[name="apcs"]').val();
+                    var nbh = $('input[name="nbh"]').val();
+                    var calcule = $('input[name="calcule"]').val();
+                    var Coef = $('input[name="Coef"]').val();
+                    // var sem = $('input[name="sem"]').val();
+                    var numSemestre = $('input[type=radio][name=numSemestre]:checked').val();
+                    console.log(numSemestre);
+                    var NumPeriodfe = $('input[name="per"]').val();
+                    var charge1 = $('input[name="charge1"]').val();
+                    var charge2 = $('input[name="charge2"]').val();
+                    var IdEns = $('select#idEns option:checked').val();
+                    console.log(IdEns);
+                    var chargeEns1 = $('input[name="chargeEns1"]').val();
+                    var chargeEns2 = $('input[name="chargeEns2"]').val();
+                    var nbH = $('input[name="nbheureEn"]').val();
+                    var IdEns2 = $("#IdEns2").val();
+
+                    var chargeEns2p1 = $('input[name="chargeEns2p1"]').val();
+                    var chargeEns2p2 = $('input[name="chargeEns2p2"]').val();
+                    var NbHeuresEns2 = $('input[name="NbHeuresEns2"]').val();
+                    var anneefin = $('input[name="anneefin"]').val();
+                    var dateDebut = $('input[name="dateDebut"]').val();
+                    var dateFin = $('input[name="dateFin"]').val();
+                    var dateExam = $('input[name="dateExam"]').val();
+                    var NbHoraireRealises = $('input[name="NbHoraireRealises"]').val();
+                    var Acomptabiliser = $('input[name="Acomptabiliser"]').val();
+                    var surveillant = $('input[name="surveillant"]').val();
+                    var heureExam = $('input[name="heureExam"]').val();
+                    var salleExam = $('input[name="salleExam"]').val();
+                    var surv2 = $('input[name="surv2"]').val();
+                    var salleEx2 = $('input[name="salleEx2"]').val();
+                    var Numpromotioncs = $('input[name="Numpromotioncs"]').val();
+                    var CodeUe = $("#CodeUe").val();
+                    var nbect = $('input[name="nbect"]').val();
+                    var salle = $('input[name="salle"]').val();
+                    var DateRattr = $('input[name="DateRattr"]').val();
+                    var heureRat = $('input[name="heureRat"]').val
+                    var Salle1Rat = $('input[name="Salle1Rat"]').val();
+                    var Salle2Rat = $('input[name="Salle2Rat"]').val();
+                    var DateRat = $('input[name="DateRat"]').val();
+                    var DateCreation = $('input[name="DateCreation"]').val();
+                    var DaterLastMaj = $('input[name="DaterLastMaj"]').val();
+
+
+
+                    var _tr = '<tr><td style = "display: none;">' + '<input name="codeCl" value= ' + codeCl + '>'
+                        + '</td><td>' + ' <select name="CodeModule" id="CodeModule" value= ' + $('#CodeModule').html() + '<option name="CodeModule"  value="" selected disabled hidden> ' + CodeModule + ' </option>' + '  />'
+                        + '</td><td>' + '<input name="typeEp" value= ' + typeEp + '>'
+                        + '</td><td>' + '<input name="anneeDeb"  type="number" value= ' + anneeDeb + '>'
+                        + '</td><td>' + '<input name="apcs" value= ' + apcs + '>'
+                        + '</td><td>' + '<input name="nbh" value= ' + nbh + '>'
+                        + '</td><td>' + '<input name="calcule" value= ' + calcule + '>'
+                        + '</td><td>' + '<input name="coef" type="number" value= ' + Coef + '>'
+                        //+ '</td><td>' + '<input name="sem" type="number" value= ' + semestre + '>'
+                        + '</td><td>' + '<input name="numSemestre" type="radio" value="1" id="1" /*checked="checked"*/>' + '<label for="1">' + numSemestre + '</label>' + '<input name="numSemestre" type="radio" id="2" value="2" >2<label for="2"></label><br>'
+                        + '</td><td>' + '<input name="per" value= ' + NumPeriodfe + '>'
+                        + '</td><td>' + '<input name="charge1" value= ' + charge1 + '>'
+                        + '</td><td>' + '<input name="charge2" value= ' + charge2 + '>'
+                        + '</td><td>' + ' <select name="IdEns" id="IdEns" value= ' + $('#IdEns').html() + '<option name="IdEns" value="" selected disabled hidden> ' + IdEns + ' </option>' + '  />'
                         + '</td><td>' + '<input name="chargeEns1" value= ' + chargeEns1 + '>'
                         + '</td><td>' + '<input name="chargeEns2" value= ' + chargeEns2 + '>'
                         + '</td><td>' + '<input name="nbheureEn" value= ' + nbH + '>'
@@ -1555,14 +1692,15 @@
                         + '</td><td>' + '<input name ="DaterLastMaj" value= ' + DaterLastMaj + '>'
                         + '</td></tr> ';
                     //$('tbody').clone().appendTo(_tr);
-                    $('tbody').append(_tr);
+                  //  console.log(newRow)
+                 //   $('tbody').append(_tr);
                     //  $('#item_table').append(_tr);
 
                     $.ajax({
                         url: "/Plan/Create",
                         method: "post",
                         data: {
-                            CodeCl: $('select#codeCl option:checked').val(),
+                            CodeCl: $('input[name="codeCl"]').val(),
                             CodeModule: $('select#codeModule option:checked').val(),
                             anneeDeb: $('input[name="anneeDeb"]').val(),
                             numSemestre: $('input[type=radio][name=numSemestre]:checked').val(),
@@ -1574,7 +1712,7 @@
                             NumPeriodfe: $('input[name="per"]').val(),
                             charge1: $('input[name="charge1"]').val(),
                             charge2: $('input[name="charge2"]').val(),
-                            IdEns: $('select#IdEns option:checked').val(),
+                            IdEns: $('select#idEns option:checked').val(),
                             chargeEns1: $('input[name="chargeEns1"]').val(),
                             chargeEns2: $('input[name="chargeEns2"]').val(),
                             nbH: $('input[name="nbheureEn"]').val(),
