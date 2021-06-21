@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace Scolarite.Domain.entities
 {
@@ -17,7 +18,7 @@ namespace Scolarite.Domain.entities
             Phase = new HashSet<Phase>();
             Projet = new HashSet<Projet>();
         }
-
+        [Required(ErrorMessage = "le champs Code est obligatoire")]
         public string CodeModule { get; set; }
         public string Designation { get; set; }
         public string Description { get; set; }
@@ -32,6 +33,7 @@ namespace Scolarite.Domain.entities
         public string TypeEpreuveSr { get; set; }
         public string TypeModule { get; set; }
         public string CodeUe { get; set; }
+     
         public string AnneeDeb { get; set; }
 
         public virtual EspUe EspUe { get; set; }

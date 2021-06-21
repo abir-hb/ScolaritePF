@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
 using Scolarite.Domain.entities;
 using Scolarite.Service;
 using ScolariteWeb.ViewModels;
@@ -30,11 +31,23 @@ namespace ScolariteWeb.Controllers
         public ActionResult List()
         {
             
-            return View(se.GetAll());
+            return View(se.GetAll().Where(p => p.Etat != "archive"));
+        }
+        public ActionResult EnsArchive()
+        {
+            // List<EspEnseignant> ens = (List<EspEnseignant>)se.GetAll().Where(p => p.Etat != "archive");
+            //    List<EspEnseignant> ens = se.GetAll().Where(p => p.Etat == "archive").ToList();
+
+            // EnsViewModel myModel = new EnsViewModel();
+            //   myModel.Enseignants = ens;
+            return View(se.GetAll().Where(p => p.Etat == "archive").ToList());
+
         }
         public ActionResult DetailsEns()
         {
-           List<EspEnseignant> ens = (List<EspEnseignant>)se.GetAll();
+          // List<EspEnseignant> ens = (List<EspEnseignant>)se.GetAll().Where(p => p.Etat != "archive");
+            List<EspEnseignant> ens = se.GetAll().Where(p => p.Etat != "archive").ToList();
+
             EnsViewModel myModel = new EnsViewModel();
             myModel.Enseignants = ens;
             return View(myModel);
@@ -131,9 +144,11 @@ namespace ScolariteWeb.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(EnsViewModel ensView)
         {
-           
+
 
             EspEnseignant enseignant = new EspEnseignant();
+         
+            
             enseignant = ensView.Enseignant;
           //  ensView.Enseignant = enseignant;
             se.CreateEns(enseignant);
@@ -172,8 +187,10 @@ namespace ScolariteWeb.Controllers
 
          //   EnsViewModel model = new EnsViewModel();
             EspEnseignant ens = se.GetEnsByID(id);
+          //  var Etat = ("archive");
+            ens.Etat = "archive";
             model.Enseignant = ens;
-            se.Delete(ens);
+            se.Update(ens);
             se.Commit();
             return RedirectToAction("DetailsEns");
 

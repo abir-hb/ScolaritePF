@@ -38,12 +38,21 @@ namespace ScolariteWeb.Controllers
 
 
         }
+        public ActionResult ModuleArchive()
+        {
+            // List<EspEnseignant> ens = (List<EspEnseignant>)se.GetAll().Where(p => p.Etat != "archive");
+            //    List<EspEnseignant> ens = se.GetAll().Where(p => p.Etat == "archive").ToList();
 
+            // EnsViewModel myModel = new EnsViewModel();
+            //   myModel.Enseignants = ens;
+            return View(sm.GetAll().Where(p => p.Etat == "N").ToList());
+
+        }
         [HttpGet]
         public IActionResult List()
 
         {
-            List<EspModule> module = (List<EspModule>)sm.GetAll();
+            List<EspModule> module = (List<EspModule>)sm.GetAll().Where(p => p.Etat != "N").ToList();
             ModuleViewModel myModel = new ModuleViewModel();
             myModel.Modules = module;
             return View(myModel);
@@ -186,8 +195,8 @@ namespace ScolariteWeb.Controllers
         public ActionResult Delete(String id, IFormCollection collection)
         {
             EspModule module = sm.GetModuleByID(id);
-
-            sm.Delete(module);
+            module.Etat = "N";
+            sm.Update(module);
 
             sm.Commit();
             return RedirectToAction("List");

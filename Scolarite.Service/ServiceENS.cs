@@ -1,4 +1,5 @@
-﻿using Scolarite.Data.Infrastructures;
+﻿using Microsoft.Extensions.Logging;
+using Scolarite.Data.Infrastructures;
 using Scolarite.Domain.entities;
 using ServicePattern;
 using System;
@@ -13,8 +14,8 @@ namespace Scolarite.Service
         public static DataBaseFactory dbf = new DataBaseFactory();
         public static IUnitOfWork uow = new UnitOfWork(dbf);
         List<EspEnseignant> enseignants = new List<EspEnseignant>();
-       
 
+        public readonly ModelContext baseContext;
         public ServiceENS() : base(uow)
         {
 
@@ -26,6 +27,7 @@ namespace Scolarite.Service
             Commit();
         }
 
+       
         public void Delete(string id)
         {
             var enseignant = enseignants.SingleOrDefault(b => b.IdEns == id);

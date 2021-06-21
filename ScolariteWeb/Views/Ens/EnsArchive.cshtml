@@ -1,0 +1,135 @@
+﻿@model IEnumerable<Scolarite.Domain.entities.EspEnseignant>
+
+@{
+}
+
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="card-header">
+            <center><h3 class="card-title"><b>LES ENSEIGNANTS ARCHIVES </b></h3></center>
+        </div>
+    </section>
+
+    <!-- Main content -->
+    <style>
+
+        p {
+            text-indent: 50px;
+            text-align: justify;
+            letter-spacing: 3px;
+        }
+    </style>
+
+    <div class="card">
+        <div class="card-body">
+
+            <ul class="nav nav-tabs">
+
+                <li class="nav-item">
+                    <a asp-area="" asp-controller="Ens" asp-action="DetailsEns" class="nav-link">Enseignants</a>
+
+                </li>
+                <li class="nav-item">
+                    <a asp-area="" asp-controller="Ens" asp-action="EnsArchive" class="nav-link active">Enseignans Archivés</a>
+                </li>
+
+
+            </ul>
+            <br />
+            <br />
+            <section class="content">
+                <table class="table table-bordered table-striped" id="ENS">
+                    <thead>
+                        <tr>
+                            <th>
+                                CODE ENSEIGNANT
+
+                            </th>
+                            <th>
+                                CIN
+
+                            </th>
+
+                            <th>
+                                ETAT
+
+                            </th>
+                            <th>
+                                CODE GRADE ACTUEL
+
+                            </th>
+
+
+                            <th>
+                                ETAT CIVIL ENSEIGNANT
+
+                            </th>
+                            <th>
+                                LIBELLE GRADE ACTUELLE
+
+                            </th>
+
+                            <th>
+                                NIVEAU
+
+                            </th>
+                            <th>
+                                NOM
+
+                            </th>
+                            <th>
+                                PRENOM
+
+                            </th>
+
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    <span class="badge badge-pill badge-success">@item.IdEns</span>
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Cin)
+                                </td>
+                                <td>
+
+                                    <span class="badge badge-pill badge-warning">@item.Etat</span>
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.CodeGradeActuel)
+                                </td>
+
+
+
+
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.EtatCivilEns)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.LibGradeActuelle)
+                                </td>
+
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Niveau)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.NomEns)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.PrenomEns)
+                                </td>
+
+
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </section>
+        </div>
+    </div>
+</div>

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace Scolarite.Domain.entities
 {
@@ -9,6 +10,7 @@ namespace Scolarite.Domain.entities
         {
             EspModulePanierClasseSaiso = new HashSet<EspModulePanierClasseSaiso>();
         }
+        [Required(ErrorMessage = "le champs Code est obligatoire")]
 
         public string IdEns { get; set; }
         public decimal? Cin { get; set; }

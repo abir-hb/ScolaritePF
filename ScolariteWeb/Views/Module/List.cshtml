@@ -139,25 +139,36 @@
                 <h3 class="card-title">LA LISTE DES MODULES  </h3>
             </div>
         </section>
+        <style>
+
+            p {
+                text-indent: 50px;
+                text-align: justify;
+                letter-spacing: 3px;
+            }
+        </style>
         <section class="content">
 
             <div class="card-body">
                 <ul class="nav nav-tabs">
 
                     <li class="nav-item">
-                        <a asp-area="" asp-controller="Module" asp-action="Create" class="nav-link">AJOUTER</a>
+                        <a asp-area="" asp-controller="Module" asp-action="Create" class="nav-link">Ajouter</a>
                         @*<a class="nav-link" href="#">Link</a>*@
                     </li>
                     <li class="nav-item">
-                        <a asp-area="" asp-controller="Module" asp-action="List" class="nav-link active">AFIICHER</a>
+                        <a asp-area="" asp-controller="Module" asp-action="List" class="nav-link active">Afficher</a>
                     </li>
 
                     <li class="nav-item">
-                        <a asp-area="" asp-controller="Module" asp-action="Edit" class="nav-link disabled">MODIFIER</a>
+                        <a asp-area="" asp-controller="Module" asp-action="Edit" class="nav-link disabled">Modifier</a>
+                    </li>
+                    <li class="nav-item">
+                        <a asp-area="" asp-controller="Module" asp-action="ModuleArchive" class="nav-link">Modules Archivés</a>
                     </li>
                     @*<li class="nav-item">
-                            <a asp-area="" asp-controller="Classe" asp-action="Delete" class="nav-link disabled">supprimer la classe</a>
-                        </li>*@
+                        <a asp-area="" asp-controller="Classe" asp-action="Delete" class="nav-link disabled">supprimer la classe</a>
+                    </li>*@
                 </ul>
                 <br />
                 <br />
@@ -166,8 +177,8 @@
 
                 <!-- /.card-header -->
                 @*<div class="spinner-grow text-danger" role="status">
-                        <span class="sr-only">Loading...</span>
-                    </div>*@
+                    <span class="sr-only">Loading...</span>
+                </div>*@
 
                 <table id="example1" class="table table-bordered table-striped">
                     <thead>
@@ -227,16 +238,16 @@
                                     {
                                         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                                         <input type="hidden" asp-for="@item.CodeModule" />
-                                        <button type="button" class="btn btn-outline-danger fas fa-trash-alt" data-toggle="modal" data-target="@tm">Supprimer</button><button type="button" class="btn btn-outline-secondary fas fa-eye" data-toggle="modal" data-target="@de">Details</button> <button class="btn btn-outline-light fas fa-edit">@Html.ActionLink("MODIFIER", "Edit", new { id = item.CodeModule })</button>
+                                        <button type="button" class="btn btn-outline-danger fas fa-trash-alt" data-toggle="modal" data-target="@tm">Archiver</button><button type="button" class="btn btn-outline-secondary fas fa-eye" data-toggle="modal" data-target="@de">Details</button> <button class="btn btn-outline-light fas fa-edit">@Html.ActionLink("MODIFIER", "Edit", new { id = item.CodeModule })</button>
 
                                         <div class="modal" id="@mid" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                                             <div class="modal-dialog" role="document">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
-                                                        <center> <h4 class="modal-title">SUPPRIMER ENSEIGNANT</h4></center>
+                                                        <center> <h4 class="modal-title">ARCHIVER ENSEIGNANT</h4></center>
                                                     </div>
                                                     <div class="modal-body">
-                                                        <p>êtes-vous sûr de vouloir supprimer @item.Description?</p>
+                                                        <p>êtes-vous sûr de vouloir archiver @item.Description?</p>
                                                     </div>
                                                     <div class="modal-footer">
                                                         <button type="submit" class="btn btn-success">OUI</button>

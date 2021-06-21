@@ -1,0 +1,96 @@
+﻿@model IEnumerable<Scolarite.Domain.entities.EspModule>
+
+@{
+    ViewData["Title"] = "ModuleArchive";
+}
+
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="card-header">
+            <center><h3 class="card-title"><b>LES MODULES ARCHIVES </b></h3></center>
+        </div>
+    </section>
+    <style>
+
+        p {
+            text-indent: 50px;
+            text-align: justify;
+            letter-spacing: 3px;
+        }
+    </style>
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="card">
+            <div class="card-body">
+
+                <ul class="nav nav-tabs">
+
+                    <li class="nav-item">
+                        <a asp-area="" asp-controller="Module" asp-action="Create" class="nav-link ">Ajouter</a>
+                        @*<a class="nav-link" href="#">Link</a>*@
+                    </li>
+                    <li class="nav-item">
+                        <a asp-area="" asp-controller="Module" asp-action="List" class="nav-link">Afficher</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a asp-area="" asp-controller="Module" asp-action="Edit" class="nav-link disabled">Modifier</a>
+                    </li>
+                    <li class="nav-item">
+                        <a asp-area="" asp-controller="Ens" asp-action="EnsArchive" class="nav-link active">Modules Archivés</a>
+                    </li>
+
+
+                </ul>
+                <br />
+                <br />
+
+                <table class="table" id="ENS">
+                    <thead>
+                        <tr>
+                            <th>
+                                CODE
+                            </th>
+
+
+                            <th>
+                                DESIGNATION
+                            </th>
+                            <th>
+                                DESCRIPTION
+                            </th>
+                            <th>
+                                Etat
+                            </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    <span class="badge badge-pill badge-success">@item.CodeModule</span>
+                                </td>
+
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Designation)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Description)
+                                </td>
+                                <td>
+                                    <span class="badge badge-pill badge-warning">@item.Etat</span>
+                                </td>
+                                <td>
+
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+</div>

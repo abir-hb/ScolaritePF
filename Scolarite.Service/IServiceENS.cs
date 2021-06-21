@@ -13,7 +13,7 @@ namespace Scolarite.Service
 
         void CreateEns(EspEnseignant e);
         void UpdateEns(EspEnseignant e);
-
+    
 
     }
 }

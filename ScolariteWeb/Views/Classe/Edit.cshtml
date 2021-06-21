@@ -10,7 +10,14 @@
             <center><h3 class="card-title" align="center">MODIFIER LA CLASSE </h3></center>
         </div>
     </section>
+    <style>
 
+        p {
+            text-indent: 50px;
+            text-align: justify;
+            letter-spacing: 3px;
+        }
+    </style>
     <!-- Main content -->
     <section class="content">
         <div class="card">
@@ -32,13 +39,13 @@
                         <a asp-area="" asp-controller="Classe" asp-action="Edit" class="nav-link active">Modifier la classe</a>
                     </li>
                     @*<li class="nav-item">
-                        <a asp-area="" asp-controller="Classe" asp-action="Delete" class="nav-link disabled">supprimer la classe</a>
-                    </li>*@
+                            <a asp-area="" asp-controller="Classe" asp-action="Delete" class="nav-link disabled">supprimer la classe</a>
+                        </li>*@
                 </ul>
-             
+
                 <hr />
-               
-                
+
+
                 <form asp-action="Edit">
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                     <div class="row">
@@ -201,20 +208,20 @@
                                 <input asp-for="Pole" class="form-control" />
                                 <span asp-validation-for="Pole" class="text-danger"></span>
                             </div>
-                            </div>
                         </div>
-                        <div class="form-group">
-                            <input type="submit" value="Modifier" class="btn btn-outline-success" />
-                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Modifier" class="btn btn-outline-success" />
+                    </div>
                 </form>
-                </div>
-               
+            </div>
 
-               
-                </div>
-          
+
+
+        </div>
+
     </section>
-    </div>
+</div>
         @section Scripts {
             @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
         }

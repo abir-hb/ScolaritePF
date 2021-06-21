@@ -23,10 +23,16 @@
         /*// margin: 4px, 4px;
        // padding: 4px;
          // height: 110px;*/
-      
+
         overflow-x: auto;
         overflow-y: auto;
         text-align: justify;
+    }
+
+    p {
+        text-indent: 50px;
+        text-align: justify;
+        letter-spacing: 3px;
     }
 </style>
 <div class="content-wrapper">
@@ -41,6 +47,29 @@
         <div class="card">
 
             <!-- /.card-header -->
+
+            <form id="myform">
+                <table class="table-striped">
+                    <thead>
+                        <tr>
+                            <th>
+                                AnneeScolaire
+                            </th>
+                    </thead>
+                    <tbody id="annsc">
+
+                        <tr>
+                            <td> <input type="text" class="form-control" id="AnneeScolaire" name="AnneeScolaire"></td>
+
+                        </tr>
+
+                    </tbody>
+                </table>
+
+            </form>
+            <input class="btn btn-outline-primary" type="button" name="annee" id="annee" value="Appliquer">
+            <br />
+            <br />
             <div class="card-body">
                 <table class="table table-striped border" id="example">
                     <thead>
@@ -53,7 +82,9 @@
                                 @Html.DisplayNameFor(model => model.DescriptionCl)
                             </th>
 
-
+                            <th>
+                                @Html.DisplayNameFor(model => model.AnneeScolaire)
+                            </th>
                             <th>
                                 @Html.DisplayNameFor(model => model.SallePrincipale)
                             </th>
@@ -64,6 +95,7 @@
                     <tbody>
                         @foreach (var item in Model)
                         {
+
                             <tr>
                                 <td>
                                     @Html.DisplayFor(modelItem => item.CodeCl)
@@ -72,12 +104,14 @@
                                 <td>
                                     @Html.DisplayFor(modelItem => item.DescriptionCl)
                                 </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.AnneeScolaire)
+                                </td>
 
                                 <td>
                                     @Html.DisplayFor(modelItem => item.SallePrincipale)
                                 </td>
 
-                                @*<td> <button class="btn btn-light">@Html.ActionLink("DETAILS", "Details", new { id = item.CodeCl })</button></td>*@
 
                             </tr>
                         }
@@ -144,19 +178,19 @@
                                 <th>DateCreation</th>
                                 <th>DaterLastMaj</th>
                                 @*<th>DesignationNew</th>
-                            <th>Chargep1add</th>
-                            <th>Chargep2add</th>
-                            <th>CodePlan</th>
-                            <th>Nbheuradd</th>
-                            <th>HeureFinSp</th>
-                            <th>Utilisateur</th>*@
+                                    <th>Chargep1add</th>
+                                    <th>Chargep2add</th>
+                                    <th>CodePlan</th>
+                                    <th>Nbheuradd</th>
+                                    <th>HeureFinSp</th>
+                                    <th>Utilisateur</th>*@
                             </tr>
                         </thead>
                         <tbody id="tdata">
 
 
                             @*<tr>*@
-                            
+
                             <tr>
                                 <td>@Html.DropDownList("CodeModule", (SelectList)ViewData["listModule"], htmlAttributes: new { style = "display: none;", id = "CodeModule" })</td>
                                 <td>@Html.DropDownList("CodeCl", (SelectList)ViewData["listClasse"], htmlAttributes: new { style = "display: none;", id = "CodeCl" })</td>
@@ -170,59 +204,59 @@
 
                             @* <td> @Html.DropDownList("CodeCl", (SelectList)ViewData["listClasse"])</td>*@
                             @*<td><input type="text" class="form-control" id="AnneeDeb" name="AnneeDeb"></td>
-                        <td><input type="text" class="form-control" id="AnneeFin" name="AnneeFin"></td>
-                        <td> <input type="text" class="form-control" id="Description" name="Description"></td>
-                        <td> <input type="text" class="form-control" id="NbHeures" name="NbHeures"></td>
-                                            <tr>
-                        <td> <input type="text" class="form-control" id="Coef" name="Coef"></td>
-                        <td> <input type="text" class="form-control" id="NumSemestre" name="NumSemestre"></td>
-                        <td> <input type="text" class="form-control" id="NumPeriodfe" name="NumPeriodfe"></td>
-                        <td> <input type="text" class="form-control" id="DateDebut" name="DateDebut"></td>
-                        <td> <input type="text" class="form-control" id="DateFin" name="DateFin"></td>
-                        <td> <input type="text" class="form-control" id="DateExamen" name="DateExamen"></td>
-                        <td> <input type="text" class="form-control" id="NbHoraireRealises" name="NbHoraireRealises"></td>
-                        <td> <input type="text" class="form-control" id="Acomptabiliser" name="Acomptabiliser"></td>*@
+                                <td><input type="text" class="form-control" id="AnneeFin" name="AnneeFin"></td>
+                                <td> <input type="text" class="form-control" id="Description" name="Description"></td>
+                                <td> <input type="text" class="form-control" id="NbHeures" name="NbHeures"></td>
+                                                    <tr>
+                                <td> <input type="text" class="form-control" id="Coef" name="Coef"></td>
+                                <td> <input type="text" class="form-control" id="NumSemestre" name="NumSemestre"></td>
+                                <td> <input type="text" class="form-control" id="NumPeriodfe" name="NumPeriodfe"></td>
+                                <td> <input type="text" class="form-control" id="DateDebut" name="DateDebut"></td>
+                                <td> <input type="text" class="form-control" id="DateFin" name="DateFin"></td>
+                                <td> <input type="text" class="form-control" id="DateExamen" name="DateExamen"></td>
+                                <td> <input type="text" class="form-control" id="NbHoraireRealises" name="NbHoraireRealises"></td>
+                                <td> <input type="text" class="form-control" id="Acomptabiliser" name="Acomptabiliser"></td>*@
 
 
                             @* <tr>
-                            <td colspan=3 class="hide" bgcolor="#0000FF">charge</td>
-                        </tr>*@
+                                    <td colspan=3 class="hide" bgcolor="#0000FF">charge</td>
+                                </tr>*@
 
                             @*<td> <input type="text" class="form-control" id="IdEns2" name="IdEns2"></td>
-                        <td> <input type="text" class="form-control" id="NbHeuresEns" name="NbHeuresEns"></td>
-                        <td> <input type="text" class="form-control" id="NbHeuresEns2" name="NbHeuresEns2"></td>
-                        <td> <input type="text" class="form-control" id="Surveillant" name="Surveillant"></td>
-                        <td> <input type="text" class="form-control" id="HeureExam" name="HeureExam"></td>
-                        <td> <input type="text" class="form-control" id="SalleExam" name="SalleExam"></td>
-                        <td> <input type="text" class="form-control" id="Surveillant2" name="Surveillant2"></td>
-                        <td> <input type="text" class="form-control" id="SalleExam2" name="SalleExam2"></td>
-                        <td> <input type="text" class="form-control" id="Periode" name="Periode"></td>
-                        <td> <input type="text" class="form-control" id="Numpromotioncs" name="Numpromotioncs"></td>
-                        <td> <input type="text" class="form-control" id="ApCs" name="ApCs"></td>
-                        <td> <input type="text" class="form-control" id="IdEns3" name="IdEns3"></td>
-                        <td> <input type="text" class="form-control" id="IdEns4" name="IdEns4"></td>
-                        <td> <input type="text" class="form-control" id="IdEns5" name="IdEns5"></td>*@
+                                <td> <input type="text" class="form-control" id="NbHeuresEns" name="NbHeuresEns"></td>
+                                <td> <input type="text" class="form-control" id="NbHeuresEns2" name="NbHeuresEns2"></td>
+                                <td> <input type="text" class="form-control" id="Surveillant" name="Surveillant"></td>
+                                <td> <input type="text" class="form-control" id="HeureExam" name="HeureExam"></td>
+                                <td> <input type="text" class="form-control" id="SalleExam" name="SalleExam"></td>
+                                <td> <input type="text" class="form-control" id="Surveillant2" name="Surveillant2"></td>
+                                <td> <input type="text" class="form-control" id="SalleExam2" name="SalleExam2"></td>
+                                <td> <input type="text" class="form-control" id="Periode" name="Periode"></td>
+                                <td> <input type="text" class="form-control" id="Numpromotioncs" name="Numpromotioncs"></td>
+                                <td> <input type="text" class="form-control" id="ApCs" name="ApCs"></td>
+                                <td> <input type="text" class="form-control" id="IdEns3" name="IdEns3"></td>
+                                <td> <input type="text" class="form-control" id="IdEns4" name="IdEns4"></td>
+                                <td> <input type="text" class="form-control" id="IdEns5" name="IdEns5"></td>*@
 
                             @*<td> <input type="text" class="form-control" id="NbEcts" name="NbEcts"></td>
-                        <td> <input type="text" class="form-control" id="Salle" name="Salle"></td>
-                        <td> <input type="text" class="form-control" id="TypeEns" name="TypeEns"></td>
-                        <td> <input type="text" class="form-control" id="DateRattrapage" name="DateRattrapage"></td>
-                        <td> <input type="text" class="form-control" id="HeureRat" name="HeureRat"></td>
-                        <td> <input type="text" class="form-control" id="Salle1Rat" name="Salle1Rat"></td>
-                        <td> <input type="text" class="form-control" id="Salle2Rat" name="Salle2Rat"></td>
-                        <td> <input type="text" class="form-control" id="DateRat" name="DateRat"></td>
-                        <td> <input type="text" class="form-control" id="DateCreation" name="DateCreation"></td>
-                        <td> <input type="text" class="form-control" id="DaterLastMaj" name="DaterLastMaj"></td>
-                        <td> <input type="text" class="form-control" id="DesignationNew" name="DesignationNew"></td>
-                        <td> <input type="text" class="form-control" id="Chargep1add" name="Chargep1add"></td>
-                        <td> <input type="text" class="form-control" id="Chargep2add" name="Chargep2add"></td>
-                        <td> <input type="text" class="form-control" id="CodePlan" name="CodePlan"></td>
-                        <td> <input type="text" class="form-control" id="Nbheuradd" name="Nbheuradd"></td>
-                        <td> <input type="text" class="form-control" id="HeureFinSp" name="HeureFinSp"></td>
-                        <td> <input type="text" class="form-control" id="HeureFinSr" name="HeureFinSr"></td>
-                        <td> <input type="text" class="form-control" id="Utilisateur" name="Utilisateur"></td>
+                                <td> <input type="text" class="form-control" id="Salle" name="Salle"></td>
+                                <td> <input type="text" class="form-control" id="TypeEns" name="TypeEns"></td>
+                                <td> <input type="text" class="form-control" id="DateRattrapage" name="DateRattrapage"></td>
+                                <td> <input type="text" class="form-control" id="HeureRat" name="HeureRat"></td>
+                                <td> <input type="text" class="form-control" id="Salle1Rat" name="Salle1Rat"></td>
+                                <td> <input type="text" class="form-control" id="Salle2Rat" name="Salle2Rat"></td>
+                                <td> <input type="text" class="form-control" id="DateRat" name="DateRat"></td>
+                                <td> <input type="text" class="form-control" id="DateCreation" name="DateCreation"></td>
+                                <td> <input type="text" class="form-control" id="DaterLastMaj" name="DaterLastMaj"></td>
+                                <td> <input type="text" class="form-control" id="DesignationNew" name="DesignationNew"></td>
+                                <td> <input type="text" class="form-control" id="Chargep1add" name="Chargep1add"></td>
+                                <td> <input type="text" class="form-control" id="Chargep2add" name="Chargep2add"></td>
+                                <td> <input type="text" class="form-control" id="CodePlan" name="CodePlan"></td>
+                                <td> <input type="text" class="form-control" id="Nbheuradd" name="Nbheuradd"></td>
+                                <td> <input type="text" class="form-control" id="HeureFinSp" name="HeureFinSp"></td>
+                                <td> <input type="text" class="form-control" id="HeureFinSr" name="HeureFinSr"></td>
+                                <td> <input type="text" class="form-control" id="Utilisateur" name="Utilisateur"></td>
 
-                        </tr>*@
+                                </tr>*@
                         </tbody>
 
                     </table>

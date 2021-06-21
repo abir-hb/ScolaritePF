@@ -29,165 +29,191 @@
         <br />
         <center><h4>LA LISTE DES ENSEIGNANTS</h4></center>
         @* button ajouter *@
+        <div class="card">
+            <div class="card-body">
+                <ul class="nav nav-tabs">
+
+                    <li class="nav-item">
+                        <a asp-area="" asp-controller="Ens" asp-action="DetailsEns" class="nav-link active">Enseignants</a>
+
+                    </li>
+                    <li class="nav-item">
+                        <a asp-area="" asp-controller="Ens" asp-action="EnsArchive" class="nav-link ">Enseignans Archivés</a>
+                    </li>
+
+
+                </ul>
+                <br />
+                <br />
+                <button type="button" class="btn btn-info fas fa-plus-square" data-toggle="modal" data-target="#modalEns">
+
+                    Ajouter
+                </button>
+
+            </div>
+        </div>
+        <br />
+      
 
 
 
 
-    
-
-
-            @* modal ajouter  *@
-            <div id="modalEns" class="modal fade">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <center> <h4 class="modal-title">AJOUTER ENSEIGNANT</h4></center>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">x</span>
-                            </button>
-                        </div>
-
-                        <div class="modal-body">
-
-                            <form asp-action="Create" asp-controller="Ens">
-                                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-
-
-                                <div class="form-group">
-                                    <label asp-for="Enseignant.IdEns" class="control-label">CODE:</label>
-                                    <input asp-for="Enseignant.IdEns" class="form-control" />
-                                    <span asp-validation-for="Enseignant.IdEns" class="text-danger"></span>
-                                </div>
-                                <div class="form-group">
-                                    <label asp-for="Enseignant.NomEns" class="control-label">NOM:</label>
-                                    <input asp-for="Enseignant.NomEns" class="form-control" />
-                                    <span asp-validation-for="Enseignant.NomEns" class="text-danger"></span>
-                                </div>
-                                <div class="form-group">
-                                    <label asp-for="Enseignant.PrenomEns" class="control-label">PRENOM:</label>
-                                    <input asp-for="Enseignant.PrenomEns" class="form-control" />
-                                    <span asp-validation-for="Enseignant.PrenomEns" class="text-danger"></span>
-                                </div>
-                                <div class="form-group">
-                                    <label asp-for="Enseignant.Cin" class="control-label">CIN:</label>
-                                    <input asp-for="Enseignant.Cin" class="form-control" />
-                                    <span asp-validation-for="Enseignant.Cin" class="text-danger"></span>
-                                </div>
-                                <div class="form-group">
-                                    <label asp-for="Enseignant.CnssEns" class="control-label">CNSS ENS:</label>
-                                    <input asp-for="Enseignant.CnssEns" class="form-control" />
-                                    <span asp-validation-for="Enseignant.CnssEns" class="text-danger"></span>
-                                </div>
-                                <div class="form-group">
-                                    <label asp-for="Enseignant.CodeGradeActuel" class="control-label">CODE GRADE ACTUEL:</label>
-                                    <input asp-for="Enseignant.CodeGradeActuel" class="form-control" />
-                                    <span asp-validation-for="Enseignant.CodeGradeActuel" class="text-danger"></span>
-                                </div>
-                                <div class="form-group">
-                                    <label asp-for="Enseignant.CodeGradeEntree" class="control-label">CODE GRADE ENTREE:</label>
-                                    <input asp-for="Enseignant.CodeGradeEntree" class="form-control" />
-                                    <span asp-validation-for="Enseignant.CodeGradeEntree" class="text-danger"></span>
-                                </div>
-                                <div class="form-group">
-                                    <label asp-for="Enseignant.DateModifyJwtPwd" class="control-label">DATE MODIFICATION JWTPWD:</label>
-                                    <input asp-for="Enseignant.DateModifyJwtPwd" class="form-control" />
-                                    <span asp-validation-for="Enseignant.DateModifyJwtPwd" class="text-danger"></span>
-                                </div>
-                                <div class="form-group">
-                                    <label asp-for="Enseignant.DateRec" class="control-label">DATE RECRUTEMENT:</label>
-                                    <input asp-for="Enseignant.DateRec" class="form-control" />
-                                    <span asp-validation-for="Enseignant.DateRec" class="text-danger"></span>
-                                </div>
-                                <div class="form-group">
-                                    <label asp-for="Enseignant.Etat" class="control-label">ETAT:</label>
-                                    <input asp-for="Enseignant.Etat" class="form-control" />
-                                    <span asp-validation-for="Enseignant.Etat" class="text-danger"></span>
-                                </div>
-                                <div class="form-group">
-                                    <label asp-for="Enseignant.EtatCivilEns" class="control-label">ETAT CIVIL ENS:</label>
-                                    <input asp-for="Enseignant.EtatCivilEns" class="form-control" />
-                                    <span asp-validation-for="Enseignant.EtatCivilEns" class="text-danger"></span>
-                                </div>
-                                <div class="form-group">
-                                    <label asp-for="Enseignant.LibGradeActuelle" class="control-label">LIB GRADE ACTUELLE:</label>
-                                    <input asp-for="Enseignant.LibGradeActuelle" class="form-control" />
-                                    <span asp-validation-for="Enseignant.LibGradeActuelle" class="text-danger"></span>
-                                </div>
-                                <div class="form-group">
-                                    <label asp-for="Enseignant.LibGradeEntree" class="control-label">LIB GRADE ENTREE:</label>
-                                    <input asp-for="Enseignant.LibGradeEntree" class="form-control" />
-                                    <span asp-validation-for="Enseignant.LibGradeEntree" class="text-danger"></span>
-                                </div>
-                                <div class="form-group">
-                                    <label asp-for="Enseignant.MailEns" class="control-label">MAIL ENS:</label>
-                                    <input asp-for="Enseignant.MailEns" class="form-control" />
-                                    <span asp-validation-for="Enseignant.MailEns" class="text-danger"></span>
-                                </div>
-                                <div class="form-group">
-                                    <label asp-for="Enseignant.Niveau" class="control-label">NIVEAU:</label>
-                                    <input asp-for="Enseignant.Niveau" class="form-control" />
-                                    <span asp-validation-for="Enseignant.Niveau" class="text-danger"></span>
-                                </div>
-
-                                <div class="form-group">
-                                    <label asp-for="Enseignant.PwdEns" class="control-label">PWD:</label>
-                                    <input asp-for="Enseignant.PwdEns" class="form-control" />
-                                    <span asp-validation-for="Enseignant.PwdEns" class="text-danger"></span>
-                                </div>
-                                <div class="form-group">
-                                    <label asp-for="Enseignant.PwdInit" class="control-label">PWD INIT:</label>
-                                    <input asp-for="Enseignant.PwdInit" class="form-control" />
-                                    <span asp-validation-for="Enseignant.PwdInit" class="text-danger"></span>
-                                </div>
-                                <div class="form-group">
-                                    <label asp-for="Enseignant.PwdJwtEnseignant" class="control-label">PWD-JWT:</label>
-                                    <input asp-for="Enseignant.PwdJwtEnseignant" class="form-control" />
-                                    <span asp-validation-for="Enseignant.PwdJwtEnseignant" class="text-danger"></span>
-                                </div>
-                                <div class="form-group">
-                                    <label asp-for="Enseignant.SexeEns" class="control-label">SEXE:</label>
-                                    <input asp-for="Enseignant.SexeEns" class="form-control" />
-                                    <span asp-validation-for="Enseignant.SexeEns" class="text-danger"></span>
-                                </div>
-                                <div class="form-group">
-                                    <label asp-for="Enseignant.Tel" class="control-label">TEL:</label>
-                                    <input asp-for="Enseignant.Tel" class="form-control" />
-                                    <span asp-validation-for="Enseignant.Tel" class="text-danger"></span>
-                                </div>
-                                <div class="form-group">
-                                    <label asp-for="Enseignant.TypeEns" class="control-label">TYPE:</label>
-                                    <input asp-for="Enseignant.TypeEns" class="form-control" />
-                                    <span asp-validation-for="Enseignant.TypeEns" class="text-danger"></span>
-                                </div>
-                                <div class="form-group">
-                                    <label asp-for="Enseignant.NbHeureEns" class="control-label">NB HEURES:</label>
-                                    <input asp-for="Enseignant.NbHeureEns" class="form-control" />
-                                    <span asp-validation-for="Enseignant.NbHeureEns" class="text-danger"></span>
-                                </div>
-                                <div class="form-group">
-                                    <label asp-for="Enseignant.ChargeEns" class="control-label">CHARGE:</label>
-                                    <input asp-for="Enseignant.ChargeEns" class="form-control" />
-                                    <span asp-validation-for="Enseignant.ChargeEns" class="text-danger"></span>
-                                </div>
-                                <div class="form-group">
-                                    <input type="submit" value="Enregistrer" class="btn btn-success" />
-                                </div>
-                            </form>
 
 
 
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-light" data-dismiss="modal">Fermer</button>
 
+        @* modal ajouter  *@
+        <div id="modalEns" class="modal fade">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <center> <h4 class="modal-title">AJOUTER ENSEIGNANT</h4></center>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">x</span>
+                        </button>
+                    </div>
+
+                    <div class="modal-body">
+
+                        <form asp-action="Create" asp-controller="Ens">
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+
+                            <div class="form-group">
+                                <label asp-for="Enseignant.IdEns" class="control-label">CODE:</label>
+                                <input asp-for="Enseignant.IdEns" class="form-control" placeholder = "V-00-00 / P-00-00" required="required"  />
+                                <span asp-validation-for="Enseignant.IdEns" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Enseignant.NomEns" class="control-label">NOM:</label>
+                                <input asp-for="Enseignant.NomEns" class="form-control" />
+                                <span asp-validation-for="Enseignant.NomEns" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Enseignant.PrenomEns" class="control-label">PRENOM:</label>
+                                <input asp-for="Enseignant.PrenomEns" class="form-control" />
+                                <span asp-validation-for="Enseignant.PrenomEns" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Enseignant.Cin" class="control-label">CIN:</label>
+                                <input asp-for="Enseignant.Cin" class="form-control" />
+                                <span asp-validation-for="Enseignant.Cin" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Enseignant.CnssEns" class="control-label">CNSS ENS:</label>
+                                <input asp-for="Enseignant.CnssEns" class="form-control" />
+                                <span asp-validation-for="Enseignant.CnssEns" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Enseignant.CodeGradeActuel" class="control-label">CODE GRADE ACTUEL:</label>
+                                <input asp-for="Enseignant.CodeGradeActuel" class="form-control" />
+                                <span asp-validation-for="Enseignant.CodeGradeActuel" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Enseignant.CodeGradeEntree" class="control-label">CODE GRADE ENTREE:</label>
+                                <input asp-for="Enseignant.CodeGradeEntree" class="form-control" />
+                                <span asp-validation-for="Enseignant.CodeGradeEntree" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Enseignant.DateModifyJwtPwd" class="control-label">DATE MODIFICATION JWTPWD:</label>
+                                <input asp-for="Enseignant.DateModifyJwtPwd" class="form-control" />
+                                <span asp-validation-for="Enseignant.DateModifyJwtPwd" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Enseignant.DateRec" class="control-label">DATE RECRUTEMENT:</label>
+                                <input asp-for="Enseignant.DateRec" class="form-control" />
+                                <span asp-validation-for="Enseignant.DateRec" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Enseignant.Etat" class="control-label">ETAT:</label>
+                                <input asp-for="Enseignant.Etat" class="form-control" />
+                                <span asp-validation-for="Enseignant.Etat" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Enseignant.EtatCivilEns" class="control-label">ETAT CIVIL ENS:</label>
+                                <input asp-for="Enseignant.EtatCivilEns" class="form-control" />
+                                <span asp-validation-for="Enseignant.EtatCivilEns" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Enseignant.LibGradeActuelle" class="control-label">LIB GRADE ACTUELLE:</label>
+                                <input asp-for="Enseignant.LibGradeActuelle" class="form-control" />
+                                <span asp-validation-for="Enseignant.LibGradeActuelle" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Enseignant.LibGradeEntree" class="control-label">LIB GRADE ENTREE:</label>
+                                <input asp-for="Enseignant.LibGradeEntree" class="form-control" />
+                                <span asp-validation-for="Enseignant.LibGradeEntree" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Enseignant.MailEns" class="control-label">MAIL ENS:</label>
+                                <input asp-for="Enseignant.MailEns" class="form-control" />
+                                <span asp-validation-for="Enseignant.MailEns" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Enseignant.Niveau" class="control-label">NIVEAU:</label>
+                                <input asp-for="Enseignant.Niveau" class="form-control" />
+                                <span asp-validation-for="Enseignant.Niveau" class="text-danger"></span>
                             </div>
 
+                            <div class="form-group">
+                                <label asp-for="Enseignant.PwdEns" class="control-label">PWD:</label>
+                                <input asp-for="Enseignant.PwdEns" class="form-control" />
+                                <span asp-validation-for="Enseignant.PwdEns" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Enseignant.PwdInit" class="control-label">PWD INIT:</label>
+                                <input asp-for="Enseignant.PwdInit" class="form-control" />
+                                <span asp-validation-for="Enseignant.PwdInit" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Enseignant.PwdJwtEnseignant" class="control-label">PWD-JWT:</label>
+                                <input asp-for="Enseignant.PwdJwtEnseignant" class="form-control" />
+                                <span asp-validation-for="Enseignant.PwdJwtEnseignant" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Enseignant.SexeEns" class="control-label">SEXE:</label>
+                                <input asp-for="Enseignant.SexeEns" class="form-control" />
+                                <span asp-validation-for="Enseignant.SexeEns" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Enseignant.Tel" class="control-label">TEL:</label>
+                                <input asp-for="Enseignant.Tel" class="form-control" />
+                                <span asp-validation-for="Enseignant.Tel" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Enseignant.TypeEns" class="control-label">TYPE:</label>
+                                <input asp-for="Enseignant.TypeEns" class="form-control" />
+                                <span asp-validation-for="Enseignant.TypeEns" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Enseignant.NbHeureEns" class="control-label">NB HEURES:</label>
+                                <input asp-for="Enseignant.NbHeureEns" class="form-control" />
+                                <span asp-validation-for="Enseignant.NbHeureEns" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Enseignant.ChargeEns" class="control-label">CHARGE:</label>
+                                <input asp-for="Enseignant.ChargeEns" class="form-control" />
+                                <span asp-validation-for="Enseignant.ChargeEns" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <input type="submit" value="Enregistrer" class="btn btn-success" onclick="return confirm('Etes vous sur d','enregistrer les données saisies');" />
+                            </div>
+                        </form>
 
+
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-light" data-dismiss="modal">Fermer</button>
 
                         </div>
 
+
+
                     </div>
+
                 </div>
             </div>
+        </div>
 
 
 
@@ -197,688 +223,494 @@
 
 
 
+        <div>
+           
+                <div class="card-body">
 
+                    @* table Enseignant *@
+                    <table id="example1" class="table table-bordered table-striped" align="center">
 
-
-
-
-
-            <br />
-            <br />
-
-
-            <div>
-
-                <div class="card">
-
-
-                    <button type="button" class="btn btn-info fas fa-plus-square" data-toggle="modal" data-target="#modalEns">
-
-                        Ajouter
-                    </button>
-
-
-                </div>
-                <br />
-                <br />
-                <br />
-
-
-                @* table Enseignant *@
-                <table id="example1" class="table table-bordered table-striped" align="center">
-
-                    <thead>
-                        <tr>
-                            <th>
-                                CODE
-
-                            </th>
-                            <th>
-                                CIN
-
-                            </th>
-                            @*<th>
-                        @Html.DisplayNameFor(model => model.Enseignant.CnssEns)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Enseignant.CodeGradeActuel)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Enseignant.CodeGradeEntree)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Enseignant.DateModifyJwtPwd)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Enseignant.DateRec)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Enseignant.Etat)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Enseignant.EtatCivilEns)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Enseignant.LibGradeActuelle)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Enseignant.LibGradeEntree)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Enseignant.MailEns)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Enseignant.Niveau)
-                    </th>*@
-                            <th>
-                                NOM
-
-                            </th>
-                            <th>
-                                PRENOM
-
-                            </th>
-                            @*<th>
-                        @Html.DisplayNameFor(model => model.Enseignant.PwdEns)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Enseignant.PwdInit)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Enseignant.PwdJwtEnseignant)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Enseignant.SexeEns)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Enseignant.Tel)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Enseignant.TypeEns)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Enseignant.NbHeureEns)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Enseignant.ChargeEns)
-                    </th>*@
-                            <th>ACTIONS</th>
-
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach (var item in Model.Enseignants)
-                        {
-                            var tm = "#myModal" + item.IdEns;
-                            var mid = "myModal" + item.IdEns;
-                            var ed = "#editModal" + item.IdEns;
-                            var edi = "editModal" + item.IdEns;
-                            var de = "#detailModal" + item.IdEns;
-                            var detail = "detailModal" + item.IdEns;
+                        <thead>
                             <tr>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.IdEns)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Cin)
-                                </td>
-                                @*<td>
-                            @Html.DisplayFor(modelItem => item.CnssEns)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.CodeGradeActuel)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.CodeGradeEntree)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.DateModifyJwtPwd)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.DateRec)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Etat)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.EtatCivilEns)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.LibGradeActuelle)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.LibGradeEntree)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.MailEns)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Niveau)
-                        </td>*@
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.NomEns)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.PrenomEns)
-                                </td>
-                                @*<td>
-                            @Html.DisplayFor(modelItem => item.PwdEns)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.PwdInit)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.PwdJwtEnseignant)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.SexeEns)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Tel)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.TypeEns)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.NbHeureEns)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.ChargeEns)
-                        </td>*@
-                                <td>
+                                <th>
+                                    CODE
 
-                                    @* modal supprimer *@
+                                </th>
+                                <th>
+                                    CIN
 
-                                    @using (Html.BeginForm("Delete", "Ens", new { id = item.IdEns }))
-                                    {
-                                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                                        <input type="hidden" asp-for="@item.IdEns" />
-                                        <button type="button" class="btn btn-outline-danger fas fa-trash-alt" data-toggle="modal" data-target="@tm">Supprimer</button> <button type="button" class="btn btn-outline-secondary fas fa-edit " data-toggle="modal" data-target="@ed">Modifier</button> <button type="button" class="btn btn-outline-secondary fas fa-eye" data-toggle="modal" data-target="@de">Details</button>
-                                        <div class="modal" id="@mid" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                                            <div class="modal-dialog" role="document">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <center> <h4 class="modal-title">SUPPRIMER ENSEIGNANT</h4></center>
-                                                    </div>
-                                                    <div class="modal-body">
-                                                        <p>êtes-vous sûr de vouloir supprimer @item.NomEns?</p>
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <button type="submit" class="btn btn-success">OUI</button>
-                                                        <button type="button" class="btn btn-danger" data-dismiss="modal">ANNULER</button>
+                                </th>
+                                @*<th>
+                                @Html.DisplayNameFor(model => model.Enseignant.CnssEns)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Enseignant.CodeGradeActuel)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Enseignant.CodeGradeEntree)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Enseignant.DateModifyJwtPwd)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Enseignant.DateRec)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Enseignant.Etat)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Enseignant.EtatCivilEns)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Enseignant.LibGradeActuelle)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Enseignant.LibGradeEntree)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Enseignant.MailEns)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Enseignant.Niveau)
+                            </th>*@
+                                <th>
+                                    NOM
+
+                                </th>
+                                <th>
+                                    PRENOM
+
+                                </th>
+                                @*<th>
+                                @Html.DisplayNameFor(model => model.Enseignant.PwdEns)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Enseignant.PwdInit)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Enseignant.PwdJwtEnseignant)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Enseignant.SexeEns)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Enseignant.Tel)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Enseignant.TypeEns)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Enseignant.NbHeureEns)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Enseignant.ChargeEns)
+                            </th>*@
+                                <th>ACTIONS</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model.Enseignants)
+                            {
+                                var tm = "#myModal" + item.IdEns;
+                                var mid = "myModal" + item.IdEns;
+                                var ed = "#editModal" + item.IdEns;
+                                var edi = "editModal" + item.IdEns;
+                                var de = "#detailModal" + item.IdEns;
+                                var detail = "detailModal" + item.IdEns;
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.IdEns)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Cin)
+                                    </td>
+                                    @*<td>
+                                    @Html.DisplayFor(modelItem => item.CnssEns)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.CodeGradeActuel)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.CodeGradeEntree)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.DateModifyJwtPwd)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.DateRec)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Etat)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.EtatCivilEns)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.LibGradeActuelle)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.LibGradeEntree)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.MailEns)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Niveau)
+                                </td>*@
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.NomEns)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.PrenomEns)
+                                    </td>
+                                    @*<td>
+                                    @Html.DisplayFor(modelItem => item.PwdEns)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.PwdInit)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.PwdJwtEnseignant)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.SexeEns)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Tel)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.TypeEns)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.NbHeureEns)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.ChargeEns)
+                                </td>*@
+                                    <td>
+
+                                        @* modal supprimer *@
+
+                                        @using (Html.BeginForm("Delete", "Ens", new { id = item.IdEns }))
+                                        {
+                                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                            <input type="hidden" asp-for="@item.IdEns" />
+                                            <button type="button" class="btn btn-outline-danger fas fa-trash-alt" data-toggle="modal" data-target="@tm">Archiver</button> <button type="button" class="btn btn-outline-secondary fas fa-edit " data-toggle="modal" data-target="@ed">Modifier</button> <button type="button" class="btn btn-outline-secondary fas fa-eye" data-toggle="modal" data-target="@de">Details</button>
+                                            <div class="modal" id="@mid" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                                                <div class="modal-dialog" role="document">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <center> <h4 class="modal-title">ARCHIVER ENSEIGNANT</h4></center>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <p>êtes-vous sûr de vouloir archiver @item.IdEns?</p>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="submit" class="btn btn-success">OUI</button>
+                                                            <button type="button" class="btn btn-danger" data-dismiss="modal">ANNULER</button>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    }
+                                        }
 
-                                    @* modal supprimer *@
-
-
-                                    @* modal Modifier *@
+                                        @* modal supprimer *@
 
 
-
-                                    <form method="post" asp-action="Edit" asp-route-id="@item.IdEns">
-
-                                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                                        <input type="hidden" asp-for="Enseignant.IdEns" />
-
-                                        <div class="modal" id="@edi" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                                            <div class="modal-dialog modal-lg" style="width:90%" role="document">
-                                                <div class="modal-content modal-lg">
-                                                    <div class="modal-header">
-                                                        <center> <h4 class="modal-title">Modifier l'enseignant @item.NomEns</h4></center>
-                                                    </div>
-                                                    <div class="modal-body">
-
-                                                        <div class="form-group">
-                                                            <label asp-for="Enseignant.Cin" class="control-label">CIN:</label>
-                                                            <input asp-for="Enseignant.Cin" class="form-control" />
-                                                            <span asp-validation-for="Enseignant.Cin" class="text-danger"></span>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label asp-for="Enseignant.CnssEns" class="control-label">CNSS ENS:</label>
-                                                            <input asp-for="Enseignant.CnssEns" class="form-control" />
-                                                            <span asp-validation-for="Enseignant.CnssEns" class="text-danger"></span>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label asp-for="Enseignant.CodeGradeActuel" class="control-label">CODE GRADE ACTUEL:</label>
-                                                            <input asp-for="Enseignant.CodeGradeActuel" class="form-control" />
-                                                            <span asp-validation-for="Enseignant.CodeGradeActuel" class="text-danger"></span>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label asp-for="Enseignant.CodeGradeEntree" class="control-label">CODE GRADE ENTREE:</label>
-                                                            <input asp-for="Enseignant.CodeGradeEntree" class="form-control" />
-                                                            <span asp-validation-for="Enseignant.CodeGradeEntree" class="text-danger"></span>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label asp-for="Enseignant.DateModifyJwtPwd" class="control-label">DATE MODIFICATION JWTPWD:</label>
-                                                            <input asp-for="Enseignant.DateModifyJwtPwd" class="form-control" />
-                                                            <span asp-validation-for="Enseignant.DateModifyJwtPwd" class="text-danger"></span>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label asp-for="Enseignant.DateRec" class="control-label">DATE RECRUTEMENT:</label>
-                                                            <input asp-for="Enseignant.DateRec" class="form-control" />
-                                                            <span asp-validation-for="Enseignant.DateRec" class="text-danger"></span>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label asp-for="Enseignant.Etat" class="control-label">ETAT:</label>
-                                                            <input asp-for="Enseignant.Etat" class="form-control" />
-                                                            <span asp-validation-for="Enseignant.Etat" class="text-danger"></span>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label asp-for="Enseignant.EtatCivilEns" class="control-label">ETAT CIVIL ENS:</label>
-                                                            <input asp-for="Enseignant.EtatCivilEns" class="form-control" />
-                                                            <span asp-validation-for="Enseignant.EtatCivilEns" class="text-danger"></span>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label asp-for="Enseignant.LibGradeActuelle" class="control-label">LIB GRADE ACTUELLE:</label>
-                                                            <input asp-for="Enseignant.LibGradeActuelle" class="form-control" />
-                                                            <span asp-validation-for="Enseignant.LibGradeActuelle" class="text-danger"></span>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label asp-for="Enseignant.LibGradeEntree" class="control-label">LIB GRADE ENTREE:</label>
-                                                            <input asp-for="Enseignant.LibGradeEntree" class="form-control" />
-                                                            <span asp-validation-for="Enseignant.LibGradeEntree" class="text-danger"></span>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label asp-for="Enseignant.MailEns" class="control-label">MAIL ENS:</label>
-                                                            <input asp-for="Enseignant.MailEns" class="form-control" />
-                                                            <span asp-validation-for="Enseignant.MailEns" class="text-danger"></span>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label asp-for="Enseignant.Niveau" class="control-label">NIVEAU:</label>
-                                                            <input asp-for="Enseignant.Niveau" class="form-control" />
-                                                            <span asp-validation-for="Enseignant.Niveau" class="text-danger"></span>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label asp-for="Enseignant.NomEns" class="control-label">NOM:</label>
-                                                            <input asp-for="Enseignant.NomEns" value="@item.NomEns" class="form-control" />
-                                                            @*<input asp-for="Enseignant.NomEns" class="form-control" />*@
-
-                                                            <span asp-validation-for="Enseignant.NomEns" class="text-danger"></span>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label asp-for="Enseignant.PrenomEns" class="control-label">PRENOM:</label>
-                                                            <input asp-for="Enseignant.PrenomEns" class="form-control" />
-                                                            <span asp-validation-for="Enseignant.PrenomEns" class="text-danger"></span>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label asp-for="Enseignant.PwdEns" class="control-label">PWD:</label>
-                                                            <input asp-for="Enseignant.PwdEns" class="form-control" />
-                                                            <span asp-validation-for="Enseignant.PwdEns" class="text-danger"></span>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label asp-for="Enseignant.PwdInit" class="control-label">PWD INIT:</label>
-                                                            <input asp-for="Enseignant.PwdInit" class="form-control" />
-                                                            <span asp-validation-for="Enseignant.PwdInit" class="text-danger"></span>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label asp-for="Enseignant.PwdJwtEnseignant" class="control-label">PWD-JWT:</label>
-                                                            <input asp-for="Enseignant.PwdJwtEnseignant" class="form-control" />
-                                                            <span asp-validation-for="Enseignant.PwdJwtEnseignant" class="text-danger"></span>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label asp-for="Enseignant.SexeEns" class="control-label">SEXE:</label>
-                                                            <input asp-for="Enseignant.SexeEns" class="form-control" />
-                                                            <span asp-validation-for="Enseignant.SexeEns" class="text-danger"></span>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label asp-for="Enseignant.Tel" class="control-label">TEL:</label>
-                                                            <input asp-for="Enseignant.Tel" class="form-control" />
-                                                            <span asp-validation-for="Enseignant.Tel" class="text-danger"></span>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label asp-for="Enseignant.TypeEns" class="control-label">TYPE:</label>
-                                                            <input asp-for="Enseignant.TypeEns" class="form-control" />
-                                                            <span asp-validation-for="Enseignant.TypeEns" class="text-danger"></span>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label asp-for="Enseignant.NbHeureEns" class="control-label">NB HEURES:</label>
-                                                            <input asp-for="Enseignant.NbHeureEns" class="form-control" />
-                                                            <span asp-validation-for="Enseignant.NbHeureEns" class="text-danger"></span>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label asp-for="Enseignant.ChargeEns" class="control-label">CHARGE:</label>
-                                                            <input asp-for="Enseignant.ChargeEns" class="form-control" />
-                                                            <span asp-validation-for="Enseignant.ChargeEns" class="text-danger"></span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <button type="submit" class="btn btn-success">Mofifier</button>
-                                                        <button type="button" class="btn btn-danger" data-dismiss="modal">Annuler</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </form>
+                                        @* modal Modifier *@
 
 
-                                    @* modal Modifier *@
 
+                                        <form method="post" asp-action="Edit" asp-route-id="@item.IdEns">
 
-                                    @* modal Details *@
+                                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                            <input type="hidden" asp-for="Enseignant.IdEns" />
 
-                                    <form method="post" asp-action="Details" asp-route-id="@item.IdEns">
+                                            <div class="modal" id="@edi" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                                                <div class="modal-dialog modal-lg" style="width:90%" role="document">
+                                                    <div class="modal-content modal-lg">
+                                                        <div class="modal-header">
+                                                            <center> <h4 class="modal-title">Modifier l'enseignant @item.NomEns</h4></center>
+                                                        </div>
+                                                        <div class="modal-body">
 
-                                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                                        <input type="hidden" asp-for="@item.IdEns" />
-
-                                        <div class="modal" id="@detail" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                                            <div class="modal-dialog modal-lg" style="width:100%" role="document">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <center> <h4 class="modal-title">Détails de l'enseignant @item.NomEns</h4></center>
-                                                    </div>
-                                                    <div class="modal-body">
-
-                                                        <div class="row">
-                                                            <div class="col-12 col-sm-4">
-                                                                <div class="info-box bg-light">
-                                                                    <div class="info-box-content">
-                                                                        <span class="info-box-text text-center text-muted">  CIN:</span>
-                                                                        <span class="info-box text-center text-muted mb-0"> @Html.DisplayFor(modelItem => item.Cin))</span>
-                                                                    </div>
-                                                                </div>
+                                                            <div class="form-group">
+                                                                <label asp-for="Enseignant.Cin" class="control-label">CIN:</label>
+                                                                <input asp-for="Enseignant.Cin" value="@item.Cin" class="form-control" />
+                                                                <span asp-validation-for="Enseignant.Cin" class="text-danger"></span>
                                                             </div>
-
-
-
-
-
-                                                            <div class="col-12 col-sm-4">
-                                                                <div class="info-box bg-light">
-                                                                    <div class="info-box-content">
-                                                                        <span class="info-box-text text-center text-muted">
-                                                                            CNSS-ENS:
-                                                                        </span>
-                                                                        <span class="info-box text-center text-muted mb-0">
-                                                                            @Html.DisplayFor(modelItem => item.CnssEns)
-                                                                        </span>
-                                                                    </div>
-                                                                </div>
+                                                            <div class="form-group">
+                                                                <label asp-for="Enseignant.CnssEns" class="control-label">CNSS ENS:</label>
+                                                                <input asp-for="Enseignant.CnssEns" value="@item.CnssEns" class="form-control" />
+                                                                <span asp-validation-for="Enseignant.CnssEns" class="text-danger"></span>
                                                             </div>
-                                                            <div class="col-12 col-sm-4">
-                                                                <div class="info-box bg-light">
-                                                                    <div class="info-box-content">
-                                                                        <span class="info-box-text text-center text-muted">
-                                                                            CODE GRADE ACTUEL
-                                                                        </span>
-                                                                        <span class="info-box-text text-center text-muted mb-0">
-                                                                            @Html.DisplayFor(modelItem => item.CodeGradeActuel)
-                                                                        </span>
-                                                                    </div>
-                                                                </div>
+                                                            <div class="form-group">
+                                                                <label asp-for="Enseignant.CodeGradeActuel" class="control-label">CODE GRADE ACTUEL:</label>
+                                                                <input asp-for="Enseignant.CodeGradeActuel" value="@item.CodeGradeActuel" class="form-control" />
+                                                                <span asp-validation-for="Enseignant.CodeGradeActuel" class="text-danger"></span>
                                                             </div>
-                                                        </div>
-                                                        <div class="row">
-                                                            <div class="col-12 col-sm-4">
-                                                                <div class="info-box bg-light">
-                                                                    <div class="info-box-content">
-                                                                        <span class="info-box-text text-center text-muted">
-                                                                            CODE GRADE ENTREE:
-                                                                        </span>
-                                                                        <span class="info-box-text text-center text-muted mb-0">
-                                                                            @Html.DisplayFor(modelItem => item.CodeGradeEntree)
+                                                            <div class="form-group">
+                                                                <label asp-for="Enseignant.CodeGradeEntree" class="control-label">CODE GRADE ENTREE:</label>
+                                                                <input asp-for="Enseignant.CodeGradeEntree" value="@item.CodeGradeEntree" class="form-control" />
+                                                                <span asp-validation-for="Enseignant.CodeGradeEntree" class="text-danger"></span>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label asp-for="Enseignant.DateModifyJwtPwd" class="control-label">DATE MODIFICATION JWTPWD:</label>
+                                                                <input asp-for="Enseignant.DateModifyJwtPwd" value="@item.DateModifyJwtPwd" class="form-control" />
+                                                                <span asp-validation-for="Enseignant.DateModifyJwtPwd" class="text-danger"></span>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label asp-for="Enseignant.DateRec" class="control-label">DATE RECRUTEMENT:</label>
+                                                                <input asp-for="Enseignant.DateRec" value="@item.DateRec" class="form-control" />
+                                                                <span asp-validation-for="Enseignant.DateRec" class="text-danger"></span>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label asp-for="Enseignant.Etat" class="control-label">ETAT:</label>
+                                                                <input asp-for="Enseignant.Etat" value="@item.Etat"  class="form-control" />
+                                                                <span asp-validation-for="Enseignant.Etat" class="text-danger"></span>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label asp-for="Enseignant.EtatCivilEns" class="control-label">ETAT CIVIL ENS:</label>
+                                                                <input asp-for="Enseignant.EtatCivilEns" value="@item.EtatCivilEns" class="form-control" />
+                                                                <span asp-validation-for="Enseignant.EtatCivilEns" class="text-danger"></span>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label asp-for="Enseignant.LibGradeActuelle" class="control-label">LIB GRADE ACTUELLE:</label>
+                                                                <input asp-for="Enseignant.LibGradeActuelle" value="@item.LibGradeActuelle" class="form-control" />
+                                                                <span asp-validation-for="Enseignant.LibGradeActuelle" class="text-danger"></span>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label asp-for="Enseignant.LibGradeEntree" class="control-label">LIB GRADE ENTREE:</label>
+                                                                <input asp-for="Enseignant.LibGradeEntree" value="@item.LibGradeEntree" class="form-control" />
+                                                                <span asp-validation-for="Enseignant.LibGradeEntree" class="text-danger"></span>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label asp-for="Enseignant.MailEns" class="control-label">MAIL ENS:</label>
+                                                                <input asp-for="Enseignant.MailEns" value="@item.MailEns" class="form-control" />
+                                                                <span asp-validation-for="Enseignant.MailEns" class="text-danger"></span>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label asp-for="Enseignant.Niveau" class="control-label">NIVEAU:</label>
+                                                                <input asp-for="Enseignant.Niveau" value="@item.Niveau" class="form-control" />
+                                                                <span asp-validation-for="Enseignant.Niveau" class="text-danger"></span>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label asp-for="Enseignant.NomEns" class="control-label">NOM:</label>
+                                                                <input asp-for="Enseignant.NomEns" value="@item.NomEns" class="form-control" />
+                                                                @*<input asp-for="Enseignant.NomEns" class="form-control" />*@
 
-                                                                        </span>
-                                                                    </div>
-                                                                </div>
+                                                                <span asp-validation-for="Enseignant.NomEns" class="text-danger"></span>
                                                             </div>
-                                                            <div class="col-12 col-sm-4">
-                                                                <div class="info-box bg-light">
-                                                                    <div class="info-box-content">
-                                                                        <span class="info-box-text text-center text-muted">
-                                                                            DATE-MODIF-JWTPWT:
-                                                                        </span>
-                                                                        <span class="info-box-text text-center text-muted mb-0">
-                                                                            @Html.DisplayFor(modelItem => item.DateModifyJwtPwd)
-
-                                                                        </span>
-                                                                    </div>
-                                                                </div>
+                                                            <div class="form-group">
+                                                                <label asp-for="Enseignant.PrenomEns" class="control-label">PRENOM:</label>
+                                                                <input asp-for="Enseignant.PrenomEns" value="@item.PrenomEns" class="form-control" />
+                                                                <span asp-validation-for="Enseignant.PrenomEns" class="text-danger"></span>
                                                             </div>
-                                                            <div class="col-12 col-sm-4">
-                                                                <div class="info-box bg-light">
-                                                                    <div class="info-box-content">
-                                                                        <span class="info-box-text text-center text-muted">
-                                                                            DATE RECRUTEMENT:
-                                                                        </span>
-                                                                        <span class="info-box-text text-center text-muted mb-0">
-                                                                            @Html.DisplayFor(modelItem => item.DateRec)
-                                                                        </span>
-                                                                    </div>
-                                                                </div>
+                                                            <div class="form-group">
+                                                                <label asp-for="Enseignant.PwdEns" class="control-label">PWD:</label>
+                                                                <input asp-for="Enseignant.PwdEns" value="@item.PwdEns" class="form-control" />
+                                                                <span asp-validation-for="Enseignant.PwdEns" class="text-danger"></span>
                                                             </div>
-                                                        </div>
-                                                        <div class="row">
-                                                            <div class="col-12 col-sm-4">
-                                                                <div class="info-box bg-light">
-                                                                    <div class="info-box-content">
-                                                                        <span class="info-box-text text-center text-muted">
-                                                                            ETAT:
-                                                                        </span>
-                                                                        <span class="info-box-text text-center text-muted mb-0">
-                                                                            @Html.DisplayFor(modelItem => item.Etat)
-                                                                        </span>
-                                                                    </div>
-                                                                </div>
+                                                            <div class="form-group">
+                                                                <label asp-for="Enseignant.PwdInit" class="control-label">PWD INIT:</label>
+                                                                <input asp-for="Enseignant.PwdInit" value="@item.PwdInit" class="form-control" />
+                                                                <span asp-validation-for="Enseignant.PwdInit" class="text-danger"></span>
                                                             </div>
-                                                            <div class="col-12 col-sm-4">
-                                                                <div class="info-box bg-light">
-                                                                    <div class="info-box-content">
-                                                                        <span class="info-box-text text-center text-muted">
-                                                                            ETAT-CIVIL:
-                                                                        </span>
-                                                                        <span class="info-box-text text-center text-muted mb-0">
-                                                                            @Html.DisplayFor(modelItem => item.EtatCivilEns)
-                                                                        </span>
-                                                                    </div>
-                                                                </div>
+                                                            <div class="form-group">
+                                                                <label asp-for="Enseignant.PwdJwtEnseignant" class="control-label">PWD-JWT:</label>
+                                                                <input asp-for="Enseignant.PwdJwtEnseignant" value="@item.PwdJwtEnseignant" class="form-control" />
+                                                                <span asp-validation-for="Enseignant.PwdJwtEnseignant" class="text-danger"></span>
                                                             </div>
-                                                            <div class="col-12 col-sm-4">
-                                                                <div class="info-box bg-light">
-                                                                    <div class="info-box-content">
-                                                                        <span class="info-box-text text-center text-muted">
-                                                                            LIB-GRADE ACTUELLE:
-                                                                        </span>
-                                                                        <span class="info-box-text text-center text-muted mb-0">
-                                                                            @Html.DisplayFor(modelItem => item.LibGradeActuelle)
-                                                                        </span>
-                                                                    </div>
-                                                                </div>
+                                                            <div class="form-group">
+                                                                <label asp-for="Enseignant.SexeEns" class="control-label">SEXE:</label>
+                                                                <input asp-for="Enseignant.SexeEns" value="@item.SexeEns" class="form-control" />
+                                                                <span asp-validation-for="Enseignant.SexeEns" class="text-danger"></span>
                                                             </div>
-                                                        </div>
-                                                        <div class="row">
-                                                            <div class="col-12 col-sm-4">
-                                                                <div class="info-box bg-light">
-                                                                    <div class="info-box-content">
-                                                                        <span class="info-box-text text-center text-muted">
-                                                                            LIB-GRADE ENTREE:
-                                                                        </span>
-                                                                        <span class="info-box-text text-center text-muted mb-0">
-                                                                            @Html.DisplayFor(modelItem => item.LibGradeEntree)
-                                                                        </span>
-                                                                    </div>
-                                                                </div>
+                                                            <div class="form-group">
+                                                                <label asp-for="Enseignant.Tel" class="control-label">TEL:</label>
+                                                                <input asp-for="Enseignant.Tel" value="@item.Tel" class="form-control" />
+                                                                <span asp-validation-for="Enseignant.Tel" class="text-danger"></span>
                                                             </div>
-                                                            <div class="col-12 col-sm-4">
-                                                                <div class="info-box bg-light">
-                                                                    <div class="info-box-content">
-                                                                        <span class="info-box-text text-center text-muted">
-                                                                            MAIL ENSEIGNANT:
-                                                                        </span>
-                                                                        <span class="info-box-text text-center text-muted mb-0">
-
-                                                                            @Html.DisplayFor(modelItem => item.MailEns)
-                                                                        </span>
-                                                                    </div>
-                                                                </div>
+                                                            <div class="form-group">
+                                                                <label asp-for="Enseignant.TypeEns" class="control-label">TYPE:</label>
+                                                                <input asp-for="Enseignant.TypeEns" value="@item.TypeEns" class="form-control" />
+                                                                <span asp-validation-for="Enseignant.TypeEns" class="text-danger"></span>
                                                             </div>
-                                                            <div class="col-12 col-sm-4">
-                                                                <div class="info-box bg-light">
-                                                                    <div class="info-box-content">
-                                                                        <span class="info-box-text text-center text-muted">
-                                                                            NIVEAU:
-                                                                        </span>
-                                                                        <span class="info-box-text text-center text-muted mb-0">
-                                                                            @Html.DisplayFor(modelItem => item.Niveau)
-                                                                        </span>
-                                                                    </div>
-                                                                </div>
+                                                            <div class="form-group">
+                                                                <label asp-for="Enseignant.NbHeureEns" class="control-label">NB HEURES:</label>
+                                                                <input asp-for="Enseignant.NbHeureEns" value="@item.NbHeureEns" class="form-control" />
+                                                                <span asp-validation-for="Enseignant.NbHeureEns" class="text-danger"></span>
                                                             </div>
-                                                        </div>
-                                                        <div class="row">
-                                                            <div class="col-12 col-sm-4">
-                                                                <div class="info-box bg-light">
-                                                                    <div class="info-box-content">
-                                                                        <span class="info-box-text text-center text-muted">
-                                                                            NOM ENSEIGNANT:
-                                                                        </span>
-                                                                        <span class="info-box-text text-center text-muted mb-0">
-
-                                                                            @Html.DisplayFor(modelItem => item.NomEns)
-                                                                        </span>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="col-12 col-sm-4">
-                                                                <div class="info-box bg-light">
-                                                                    <div class="info-box-content">
-                                                                        <span class="info-box-text text-center text-muted">
-                                                                            PRENOM:
-                                                                        </span>
-                                                                        <span class="info-box-text text-center text-muted mb-0">
-
-                                                                            @Html.DisplayFor(modelItem => item.PrenomEns)
-                                                                        </span>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-
-
-                                                            <div class="col-12 col-sm-4">
-                                                                <div class="info-box bg-light">
-                                                                    <div class="info-box-content">
-                                                                        <span class="info-box-text text-center text-muted">
-
-                                                                            PWD ENS:
-
-                                                                        </span>
-                                                                        <span class="info-box-text text-center text-muted mb-0">
-
-                                                                            @Html.DisplayFor(modelItem => item.PwdEns)
-                                                                        </span>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="row">
-                                                            <div class="col-12 col-sm-4">
-                                                                <div class="info-box bg-light">
-                                                                    <div class="info-box-content">
-                                                                        <span class="info-box-text text-center text-muted">
-
-                                                                            PWD-INIT:
-                                                                        </span>
-                                                                        <span class="info-box-text text-center text-muted mb-0">
-                                                                            @Html.DisplayFor(modelItem => item.PwdInit)
-                                                                        </span>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="col-12 col-sm-4">
-                                                                <div class="info-box bg-light">
-                                                                    <div class="info-box-content">
-                                                                        <span class="info-box-text text-center text-muted">
-
-
-                                                                            PWD-JWT ENSEIGNANT:
-                                                                        </span>
-                                                                        <span class="info-box-text text-center text-muted mb-0">
-                                                                            @Html.DisplayFor(modelItem => item.PwdJwtEnseignant)
-                                                                        </span>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-12 col-sm-4">
-                                                                <div class="info-box bg-light">
-                                                                    <div class="info-box-content">
-                                                                        <span class="info-box-text text-center text-muted">
-                                                                            SEXE ENSEIGNANT:
-                                                                        </span>
-                                                                        <span class="info-box-text text-center text-muted mb-0">
-                                                                            @Html.DisplayFor(modelItem => item.SexeEns)
-                                                                        </span>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="row">
-                                                            <div class="col-12 col-sm-4">
-                                                                <div class="info-box bg-light">
-                                                                    <div class="info-box-content">
-                                                                        <span class="info-box-text text-center text-muted">
-                                                                            TEL:
-                                                                        </span>
-                                                                        <span class="info-box-text text-center text-muted mb-0">
-                                                                            @Html.DisplayFor(modelItem => item.Tel)
-                                                                        </span>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-12 col-sm-4">
-                                                                <div class="info-box bg-light">
-                                                                    <div class="info-box-content">
-                                                                        <span class="info-box-text text-center text-muted">
-                                                                            TYPE ENS:
-                                                                        </span>
-                                                                        <span class="info-box-text text-center text-muted mb-0">
-                                                                            @Html.DisplayFor(modelItem => item.TypeEns)
-                                                                        </span>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-12 col-sm-4">
-                                                                <div class="info-box bg-light">
-                                                                    <div class="info-box-content">
-                                                                        <span class="info-box-text text-center text-muted">
-                                                                            NB HEURES:
-                                                                        </span>
-                                                                        <span class="info-box-text text-center text-muted mb-0">
-                                                                            @Html.DisplayFor(modelItem => item.NbHeureEns)
-                                                                        </span>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-12 col-sm-4">
-                                                                <div class="info-box bg-light">
-                                                                    <div class="info-box-content">
-                                                                        <span class="info-box-text text-center text-muted">
-                                                                            CHARGE ENS:
-                                                                        </span>
-                                                                        <span class="info-box-text text-center text-muted mb-0">
-                                                                            @Html.DisplayFor(modelItem => item.ChargeEns)
-                                                                        </span>
-                                                                    </div>
-                                                                </div>
+                                                            <div class="form-group">
+                                                                <label asp-for="Enseignant.ChargeEns" class="control-label">CHARGE:</label>
+                                                                <input asp-for="Enseignant.ChargeEns" value="@item.ChargeEns" class="form-control" />
+                                                                <span asp-validation-for="Enseignant.ChargeEns" class="text-danger"></span>
                                                             </div>
                                                         </div>
                                                         <div class="modal-footer">
-
+                                                            <button type="submit" class="btn btn-success">Modifier</button>
                                                             <button type="button" class="btn btn-danger" data-dismiss="modal">Annuler</button>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </form>
+                                        </form>
 
 
-                                    @* modal Details *@
+                                        @* modal Modifier *@
+
+
+                                        @* modal Details *@
+
+                                        <form method="post" asp-action="Details" asp-route-id="@item.IdEns">
+
+                                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                            <input type="hidden" asp-for="@item.IdEns" />
+
+                                            <div class="modal" id="@detail" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                                                <div class="modal-dialog modal-lg" style="width:100%" role="document">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <center> <h4 class="modal-title">Détails de l'enseignant @item.NomEns</h4></center>
+                                                        </div>
+
+
+
+
+
+
+
+                                                        <div class="modal-body">
+
+                                                            <div class="row">
+
+                                                                <div class="container">
+                                                                    <div class="row">
+                                                                        <div class="col-md-12">
+                                                                            <div class="card card-white mb-5">
+                                                                                <div class="card-heading clearfix border-bottom mb-4">
+
+                                                                                </div>
+                                                                                <div class="card-body">
+                                                                                    <ul class="list-unstyled">
+                                                                                        <li class="position-relative booking">
+
+                                                                                            <div class="media-body">
+                                                                                                <h5 class="mb-4"> <span class="badge badge-success ml-3">Details @item.IdEns</span></h5>
+                                                                                                <div class="mb-3">
+                                                                                                    <span class="mr-2 d-block d-sm-inline-block mb-2 mb-sm-0">CIN:</span>
+                                                                                                    <span class="bg-light-green"> @Html.DisplayFor(modelItem => item.Cin)</span>
+                                                                                                </div>
+                                                                                                <div class="mb-3">
+                                                                                                    <span class="mr-2 d-block d-sm-inline-block mb-2 mb-sm-0">CNSS ENS:</span>
+                                                                                                    <span class="bg-light-green"> @Html.DisplayFor(modelItem => item.CnssEns)</span>
+                                                                                                </div>
+                                                                                                <div class="mb-3">
+                                                                                                    <span class="mr-2 d-block d-sm-inline-block mb-2 mb-sm-0">GRADE ACTUELLE:</span>
+                                                                                                    <span class="bg-light-green"> @Html.DisplayFor(modelItem => item.CodeGradeActuel)</span>
+                                                                                                </div>
+
+                                                                                                <div class="mb-3">
+                                                                                                    <span class="mr-2 d-block d-sm-inline-block mb-2 mb-sm-0">GRADE ENTREE:</span>
+                                                                                                    <span class="bg-light-green"> @Html.DisplayFor(modelItem => item.CodeGradeEntree)</span>
+                                                                                                </div>
+                                                                                                <div class="mb-3">
+                                                                                                    <span class="mr-2 d-block d-sm-inline-block mb-2 mb-sm-0">DATE MODIFICATION JWTPWD:</span>
+                                                                                                    <span class="bg-light-green"> @Html.DisplayFor(modelItem => item.DateModifyJwtPwd)</span>
+                                                                                                </div>
+                                                                                                <div class="mb-3">
+                                                                                                    <span class="mr-2 d-block d-sm-inline-block mb-2 mb-sm-0">DATE RECRUTEMENT:</span>
+                                                                                                    <span class="bg-light-green"> @Html.DisplayFor(modelItem => item.DateRec)</span>
+                                                                                                </div>
+                                                                                                <div class="mb-3">
+                                                                                                    <span class="mr-2 d-block d-sm-inline-block mb-2 mb-sm-0">ETAT:</span>
+                                                                                                    <span class="badge badge-warning ml-3">@Html.DisplayFor(modelItem => item.Etat)</span>
+                                                                                                </div>
+                                                                                                <div class="mb-3">
+                                                                                                    <span class="mr-2 d-block d-sm-inline-block mb-2 mb-sm-0">ETAT CIVIL ENS:</span>
+                                                                                                    <span class="bg-light-green"> @Html.DisplayFor(modelItem => item.EtatCivilEns)</span>
+                                                                                                </div>
+
+                                                                                                <div class="mb-3">
+                                                                                                    <span class="mr-2 d-block d-sm-inline-block mb-2 mb-sm-0">LIB GRADE ACTUELLE:</span>
+                                                                                                    <span class="bg-light-green"> @Html.DisplayFor(modelItem => item.LibGradeActuelle)</span>
+                                                                                                </div>
+                                                                                                <div class="mb-3">
+                                                                                                    <span class="mr-2 d-block d-sm-inline-block mb-2 mb-sm-0">LIB GRADE ENTREE:</span>
+                                                                                                    <span class="bg-light-green"> @Html.DisplayFor(modelItem => item.LibGradeEntree)</span>
+                                                                                                </div>
+                                                                                                <div class="mb-3">
+                                                                                                    <span class="mr-2 d-block d-sm-inline-block mb-2 mb-sm-0">MAIL ENS:</span>
+                                                                                                    <span class="bg-light-green"> @Html.DisplayFor(modelItem => item.MailEns)</span>
+                                                                                                </div>
+                                                                                                <div class="mb-3">
+                                                                                                    <span class="mr-2 d-block d-sm-inline-block mb-2 mb-sm-0">NIVEAU:</span>
+                                                                                                    <span class="bg-light-green">  @Html.DisplayFor(modelItem => item.Niveau)</span>
+                                                                                                </div>
+                                                                                                <div class="mb-3">
+                                                                                                    <span class="mr-2 d-block d-sm-inline-block mb-2 mb-sm-0">NOM :</span>
+                                                                                                    <span class="badge badge-light ml-3"> @Html.DisplayFor(modelItem => item.NomEns)</span>
+                                                                                                </div>
+                                                                                                <div class="mb-3">
+                                                                                                    <span class="mr-2 d-block d-sm-inline-block mb-2 mb-sm-0">PRENOM:</span>
+                                                                                                    <span class="badge badge-light ml-3"> @Html.DisplayFor(modelItem => item.PrenomEns)</span>
+                                                                                                </div>
+
+                                                                                                <div class="mb-3">
+                                                                                                    <span class="mr-2 d-block d-sm-inline-block mb-2 mb-sm-0">PWD ENS:</span>
+                                                                                                    <span class="bg-light-green"> @Html.DisplayFor(modelItem => item.PwdEns)</span>
+                                                                                                </div>
+
+                                                                                                <div class="mb-3">
+                                                                                                    <span class="mr-2 d-block d-sm-inline-block mb-2 mb-sm-0">PWD INIT:</span>
+                                                                                                    <span class="bg-light-green"> @Html.DisplayFor(modelItem => item.PwdInit)</span>
+                                                                                                </div>
+
+                                                                                                <div class="mb-3">
+                                                                                                    <span class="mr-2 d-block d-sm-inline-block mb-2 mb-sm-0">PWDJWT ENS:</span>
+                                                                                                    <span class="bg-light-green"> @Html.DisplayFor(modelItem => item.PwdJwtEnseignant)</span>
+                                                                                                </div>
+
+                                                                                                <div class="mb-3">
+                                                                                                    <span class="mr-2 d-block d-sm-inline-block mb-2 mb-sm-0">SEXE:</span>
+                                                                                                    <span class="bg-light-green"> @Html.DisplayFor(modelItem => item.SexeEns)</span>
+                                                                                                </div>
+                                                                                                <div class="mb-3">
+                                                                                                    <span class="mr-2 d-block d-sm-inline-block mb-2 mb-sm-0">TEL:</span>
+                                                                                                    <span class="bg-light-green"> @Html.DisplayFor(modelItem => item.Tel)</span>
+                                                                                                </div>
+                                                                                                <div class="mb-3">
+                                                                                                    <span class="mr-2 d-block d-sm-inline-block mb-2 mb-sm-0">TYPE ENS:</span>
+                                                                                                    <span class="bg-light-green"> @Html.DisplayFor(modelItem => item.TypeEns)</span>
+                                                                                                </div>
+                                                                                                <div class="mb-3">
+                                                                                                    <span class="mr-2 d-block d-sm-inline-block mb-2 mb-sm-0">NB HEURE ENS:</span>
+                                                                                                    <span class="bg-light-green"> @Html.DisplayFor(modelItem => item.NbHeureEns)</span>
+                                                                                                </div>
+                                                                                                <div class="mb-3">
+                                                                                                    <span class="mr-2 d-block d-sm-inline-block mb-2 mb-sm-0">CHARGE ENS:</span>
+                                                                                                    <span class="bg-light-green"> @Html.DisplayFor(modelItem => item.ChargeEns)</span>
+                                                                                                </div>
+
+                                                                                            </div>
+
+
+                                                                                        </li>
+                                                                                    </ul>
+                                                                                   
+                                                                                        <div class="modal-footer">
+
+                                                                                            <button type="button" class="btn btn-danger" data-dismiss="modal">Annuler</button>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+</form>
+
+
+                                        @* modal Details *@
 
 
 
@@ -890,13 +722,15 @@
 
 
 
-                                </td>
-                            </tr>
-                        }
-                    </tbody>
-                </table>
-            </div>
-    </section>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                   
+</div>
+                </div>
+</section>
 
 
 

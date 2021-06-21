@@ -17,7 +17,7 @@ namespace ScolariteWeb.Controllers
     public class PlanController : Controller
 
     {
-        
+
         private readonly IPlanEService ps;
         private readonly IServiceClasse se;
         private readonly IServiceENS ens;
@@ -26,13 +26,13 @@ namespace ScolariteWeb.Controllers
         ModelContext context = new ModelContext();
         List<EspModulePanierClasseSaiso> plans = new List<EspModulePanierClasseSaiso>();
 
-        public PlanController(IPlanEService servicePlan, IServiceClasse serviceClasse, IServiceENS serviceEns, IServiceModule serviceModule , IServiceUE serviceUE)
+        public PlanController(IPlanEService servicePlan, IServiceClasse serviceClasse, IServiceENS serviceEns, IServiceModule serviceModule, IServiceUE serviceUE)
         {
             ps = servicePlan;
             se = serviceClasse;
             ens = serviceEns;
             sm = serviceModule;
-            ue=serviceUE;
+            ue = serviceUE;
         }
 
         public IActionResult ListClasse()
@@ -41,10 +41,10 @@ namespace ScolariteWeb.Controllers
             var listNom = sm.GetAll();
             var listModule = sm.GetAll();
             var listClasse = se.GetAll();
-            var listEns = ens.GetAll();
+            var listEns = ens.GetAll().Where(p => p.Etat != "archive").ToList();
             var listUE = ue.GetAll();
 
-           ViewBag.CodeModule = new SelectList(listModule, "CodeModule", "CodeModule");
+            ViewBag.CodeModule = new SelectList(listModule, "CodeModule", "CodeModule");
             ViewBag.CodeCl = new SelectList(listClasse, "CodeCl", "CodeCl");
             ViewBag.IdEns = new SelectList(listEns, "IdEns", "IdEns");
             ViewBag.CodeUe = new SelectList(listUE, "CodeUe", "CodeUe");
@@ -71,16 +71,16 @@ namespace ScolariteWeb.Controllers
         {
 
             var listModule = sm.GetAll();
-         
+
             var listClasse = se.GetAll();
-            var listEns = ens.GetAll();
+            var listEns = ens.GetAll().Where(p => p.Etat != "archive").ToList();
            
 
             ViewBag.CodeModule = new SelectList(listModule, "CodeModule", "CodeModule");
-         
+
             ViewBag.CodeCl = new SelectList(listClasse, "CodeCl", "CodeCl");
             ViewBag.IdEns = new SelectList(listEns, "IdEns", "IdEns");
-           
+
 
 
             EspModulePanierClasseSaiso em = new EspModulePanierClasseSaiso();
@@ -93,27 +93,27 @@ namespace ScolariteWeb.Controllers
         public ActionResult Create(EspModulePanierClasseSaiso em)
         {
 
-          
+
 
             EspModulePanierClasseSaiso list = new EspModulePanierClasseSaiso()
             {
-                
-                CodeModule=em.CodeModule,
-                CodeCl=em.CodeCl,
-                AnneeDeb=em.AnneeDeb,
-                NumSemestre=em.NumSemestre,
-                IdEns=em.IdEns,
-                         
+
+                CodeModule = em.CodeModule,
+                CodeCl = em.CodeCl,
+                AnneeDeb = em.AnneeDeb,
+                NumSemestre = em.NumSemestre,
+                IdEns = em.IdEns,
+                NbHeures = em.NbHeures,
 
             };
 
 
-           // list.Add(em);
-           
-          context.Entry(em).State = EntityState.Added;
+            // list.Add(em);
+
+            context.Entry(em).State = EntityState.Added;
             ps.CreatePlan(list);
             ps.Commit();
-           // context.SaveChanges();
+            // context.SaveChanges();
             return View();
             //try
             //{
@@ -179,7 +179,11 @@ namespace ScolariteWeb.Controllers
                 return View();
             }
         }
-
+        [HttpGet]
+        public JsonResult GetClasseByAnnee(string id){
+            List<Classe> listAnnee = se.GetAll().Where(p => p.AnneeScolaire == id).ToList();
+          return Json(listAnnee); 
+        }
        [HttpGet]
         public  JsonResult GetPlanByCodeCl(string id)
         {
@@ -200,7 +204,7 @@ namespace ScolariteWeb.Controllers
             //  EspModulePanierClasseSaiso panier = ps.GetAll().Where(p => p.CodeCl == a).ToDictionary();
 
 
-            List<EspModulePanierClasseSaiso> listp1 = ps.GetAll().Where(p => p.CodeCl == a).OrderBy(p => p.AnneeDeb).ToList();
+            List<EspModulePanierClasseSaiso> listp1 = ps.GetAll().Where(p => p.CodeCl == a).OrderByDescending(p => p.AnneeDeb).ToList();
                 
 
             ///////////  EspModulePanierClasseSaiso panierk = new EspModulePanierClasseSaiso();
